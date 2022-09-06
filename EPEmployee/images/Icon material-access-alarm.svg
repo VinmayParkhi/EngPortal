@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16.92" height="17.038" viewBox="0 0 16.92 17.038">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.188" y1="0.5" x2="0.86" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#de8601"/>
+      <stop offset="0.523" stop-color="#f15555"/>
+      <stop offset="1" stop-color="#ff3d97"/>
+    </linearGradient>
+  </defs>
+  <path id="Icon_material-access-alarm" data-name="Icon material-access-alarm" d="M19.92,6.056,16.028,2.79,14.937,4.084,18.829,7.35ZM7.974,4.084,6.892,2.79,3,6.047,4.091,7.341,7.974,4.084Zm3.909,3.9H10.614V13.06l4.018,2.411.634-1.041-3.384-2.005ZM11.46,4.6a7.614,7.614,0,1,0,7.614,7.614A7.615,7.615,0,0,0,11.46,4.6Zm0,13.536a5.922,5.922,0,1,1,5.922-5.922A5.918,5.918,0,0,1,11.46,18.136Z" transform="translate(-3 -2.79)" fill="url(#linear-gradient)"/>
+</svg>

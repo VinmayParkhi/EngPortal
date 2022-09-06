@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+html{
+	font-size: 62.5%;
+}
+#s4-workspace{
+	overflow-x: hidden;
+}
+.event-head .head-left a h4{
+	font-family: 'Montserrat';
+	font-weight: bold;
+	margin-left: 0.8rem;
+	color: #fff;
+}
+#groupid{
+	display: flex;
+	flex-direction: column;
+    flex-wrap: wrap;
+    /*overflow-y: scroll;*/
+    height: auto;
+    margin-top:2rem;
+}
+
+.emp-card{
+	background-color: black !important;
+    border-radius: 2rem;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.emp-card .send{
+	display:flex;
+	align-items:center;
+	margin: 0px 19px 13px;
+	width:90%;'
+}
+
+.lefticon{
+	display:none;
+}
+.card-image {
+    /*padding: 45px 83px; */
+    margin-top: 20px;
+    width: 90%;
+    height: 21vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border: 1px dashed #fff;
+    margin-bottom: 1rem
+}
+.card-body{
+	width: 96%;
+}
+.lefticon {
+    right: 8px ;
+    left: auto;
+}
+.card-title{
+	color:#fff;
+	font-family:'Montserrat';
+	font-weight: 500;
+	font-size: 1.3rem;
+}
+.card-text{
+font-family:'Montserrat';
+	color: #939393;
+    font-size: 1.2rem;
+}
+.send .sendEmail{
+	margin-right:2rem;
+}
+
+/* css for vertical scroll start*/
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey; 
+	border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: black; 
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: black; 
+}
+/* css for vertical scroll end*/
+
+/* @media (min-width: 375px){
+	.card-image {
+    	padding: 45px 131px;
+	}
+}
+ 
+ @media (min-width: 390px){
+	.card-image {
+    	padding: 45px 90px;
+	}
+}*/
+
+@media (min-width: 768px){
+#groupid{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    /*overflow-y: scroll;*/
+    height: auto;
+    margin-top:2rem;
+    margin-left: 1.5rem !important;
+    justify-content: space-between;
+}
+event-head{
+	margin-left: 0.6rem;
+}
+.event-head .head-left a h4{
+    margin-left: 1.2rem
+}
+.emp-card{
+	width: 32%;
+	height:auto;
+	/*margin-right: 2rem;*/
+	margin-bottom: 1.8rem;
+}
+.card-image{
+	height: 16vh;
+	width: 92%;
+}
+.card-body{
+	width: 100%;
+}
+.card-title{
+	font-size: 1.5rem;
+}
+.card-text{
+	font-s-ze: 1.3rem;
+}
+.emp-card .send{
+	width: 92%;
+	flex-direction: column;
+	align-items: start;
+}
+.emp-card .send span{
+	font-size: 1.2rem;
+}
+.emp-card .send .sendEmail{
+	margin-bottom: 1rem;
+}
+.lefticon {
+    right: 8px ;
+    left: auto;
+}
+
+/* css for vertical scroll start*/
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 5px grey; 
+	border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: black; 
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: black; 
+}
+/* css for vertical scroll end*/
+}
+
+@media (min-width: 992px){
+.sidebar{
+	height: 98%;
+}
+.footer{
+	margin:0;
+}
+#groupid{
+	margin-left: 0 !important;
+	justify-content: space-between;
+}
+	.emp-card{
+		width: 32%;
+		margin-right: 0 !important;
+	}
+	.event-head .head-left a h4 {
+    	margin-left: 0;
+    }
+    .card-image{
+	width: 93%;
+	height: 34vh;
+	margin-top: 23px;
+}
+.card-body {
+    width: 99%;
+}
+.card-title {
+    font-size: 1.3rem;
+}
+.emp-card .send{
+	width: 94%;
+	flex-direction: row;
+}
+.emp-card .send .sendEmail{
+	margin-right: 2rem;
+	margin-bottom: 0;
+}
+}
+</style>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+	//var siteurl = "https://infornt.sharepoint.com";       
+	$.ajax({
+		url: _spPageContextInfo.siteAbsoluteUrl+ "/_api/Web/SiteGroups/GetByName('RNTENG%20Owners')/users",
+		type: "GET",
+		dataType: "json",
+		headers: {
+			"accept": "application/json;odata=verbose"
+		},
+		success: function (data) { debugger;
+			if(data.d.results.length > 0 )
+			{
+				for(i=0;i<data.d.results.length;i++){
+					var accntname = data.d.results[i].LoginName;					
+					var admin = data.d.results[i].IsSiteAdmin;
+					var cardID = data.d.results[i].Id;
+					getuserProperties(accntname.replace("#","%23"),admin,cardID);
+					
+					if(admin == true){
+					//alert("admin is available");
+					$("#child").prop("checked", true);		
+					$("#child").attr('checked', 'checked');
+					
+					}
+				}	                                                 
+			}  
+			else{
+				$("#groupid").append("<div  class='users'>No Members Present</div></br>");
+			}       
+		},
+		error: function (error){
+			console.log(error);
+		}
+	});
+});
+function getuserProperties(user,admin,cardID){
+$.ajax({
+		url: _spPageContextInfo.siteAbsoluteUrl+ "/_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='"+user+"'",
+		type: "GET",
+		dataType: "json",
+		headers: {
+			"accept": "application/json;odata=verbose"
+		},
+		success: function (data) { 
+			var dept;
+			var results = data.d.UserProfileProperties.results;
+			var displayname = data.d.DisplayName;
+			var picurl = data.d.PictureUrl;
+			console.log('picurl',picurl);
+			if(picurl == null){
+				//picurl =  _spPageContextInfo.siteAbsoluteUrl+ "/_layouts/15/userphoto.aspx?size=S&accountname="+data.d.Email;
+				picurl = 'https://infornt.sharepoint.com/SiteAssets/Images/Image Icon/Image Icon/Icon awesome-user-circle.png';
+			}	
+			for(i = 0; i < results.length; i++){
+				if(results[i].Key == "UserName"){
+					dept = results[i].Value;
+					//dept = "O365"Department
+				}
+			}         
+			$("#groupid").append("<div class='col-12 col-md-4 card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard();'><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' class='profilepic' style='border-radius:50%;width: 100px;'></div><div class='card-body mx-auto'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div><div class='send'><div class='sendEmail'><a href='https://mail.zoho.com/zm/#compose' style='display: flex;align-items: center'><img style='width: 15%;' src='https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-mail.svg' alt='Mail'><span style='font-size:1.2rem; color:#fff; margin-left:5px; font-weight:500;'>Send email</span></a></div><div class='sendMessage'><a href='https://teams.microsoft.com/_?lm=deeplink&lmsrc=NeutralHomePageWeb&cmpid=WebSignIn&culture=en-in&country=in#/conversations/19:meeting_NzgyM2U1MDUtZGFkMy00ZTI2LWJhOWYtYjY2NjY5MDQxNjhl@thread.v2?ctx=chat' style='display: flex;align-items: center'><img  style='width: 15%;' src='https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-message-circle.svg' alt='Message'><span style='font-size:1.2rem; color:#fff; margin-left:5px; font-weight:500;'>Send Message</span></a></div></div></div>");
+		},
+		error: function (error){
+			console.log(error);
+		}
+	});
+}
+
+
+</script>
+
+</head>
+<body>
+<div class="event-head d-flex justify-content-between align-items-center">
+                        <div class="head-left">
+                            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpMaster.aspx">
+                            	<h4>The Engagers</h4>
+                            </a>                            
+                        </div>
+                    </div>
+<div id="groupid" class="row ms-2">
+</div>
+</body>
+</html>

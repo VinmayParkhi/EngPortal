@@ -1,0 +1,255 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/css/manageSurvey.css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/css/access-control.css">
+        <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">
+    
+
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/managesurvey.js"></script>
+ 	<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <title>Manage Event Data</title>
+    
+    <style>
+   #s4-workspace {
+    overflow-x: hidden;
+    }
+  .fa-xmark{
+	color:#fff !important;
+}#EventDesc{
+        max-width: 300px;
+    -webkit-line-clamp: 2;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+.table{
+}
+   @media (min-width: 992px) and (max-width: 1200px){
+        .sidebar{
+	    margin-left: 22px;
+}
+	.right-left{
+    margin-left: 46.3rem;
+}
+
+#dataTable2_wrapper{
+    height: 100vh;
+    width: 93%;
+}
+.right-nav{
+	margin-right:0px;
+}
+}
+
+.SurveyTitle{
+	 max-width: 300px;
+    -webkit-line-clamp: 1;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;	
+}
+.survey-desc{
+	   max-width: 300px;
+    -webkit-line-clamp: 2;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+
+#editbox {
+    display: none;
+    justify-content: center;
+    align-items: end;
+    height: 30px;
+    width: 67px;
+    position: relative;
+    top: -29px;
+    left: -36px;
+    background-image: url(https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/groupimg.png);
+    background-size: 100% 100%;
+}
+
+
+
+@media (min-width: 1200px) and (max-width: 1280px){
+     .sidebar{
+    margin-left: 4.5rem;
+	    min-height: 121vh;
+}
+#dataTable2_wrapper {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+        height: 81.5rem;
+    }
+.right-left {
+    margin-left: 65rem;
+}
+.head-left{
+    margin-left: 4rem!important;
+    }
+.right-nav {
+    margin-right: 4rem;
+}
+.calenderView{
+    right: 0px;
+}
+}
+@media (min-width: 1280px) and (max-width: 1400px){
+.right-left {
+    margin-left: 89rem;
+}
+#dataTable2_wrapper {
+    height: 81.5rem;
+     width: 93% !important;
+
+}
+}
+@media (min-width: 1400px) and (max-width: 1600px){
+     #dataTable2 {
+    width: 1087px !important;
+}
+.head-left{
+    margin-left: 4.5rem!important;
+    }
+.right-left {
+    margin-left: 124rem;
+}
+.right-nav {
+    margin-right: 4.7rem;
+}
+#dataTable2_wrapper {
+   height: 108vh !important;
+    width: 98%;}
+footer{
+	width:95.5%;
+}
+.calenderView{
+    right: 0px;
+}
+
+}
+@media(min-width: 1600px)and (max-width:1950px){
+	#dataTable2_wrapper{
+    height: 165rem;
+        width: 118.5%;
+}
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #747474; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #747474; 
+} 
+::-webkit-scrollbar:horizontal{
+  height: 8px;
+  background-color: black;
+  border-radius: 10px;
+
+}
+::-webkit-scrollbar-thumb:horizontal{
+        background: gray;
+        border-radius: 10px;
+        
+    }
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="head-datamain" style="display:flex;">
+
+
+ <div class="head-left" style="margin-left:3%;">
+  <span class="arrow"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a></span>
+                         <h4>Manage Survey</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item">
+									<a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Manage Survey</li>
+                                </ol>
+                              </nav>
+                        </div>
+		<div class="right-left offset-8">
+		<a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/create_survey.aspx" type="button" class="btn p-button border-transparent" id="createSurvey">Create survey</a>
+		</div>
+
+</div>
+           
+
+    <div class="container mt-1 main-style">
+           
+<span class="calenderView">
+
+            <input type="text"  id="min">to
+
+             <input type="text"  id="max" style="margin-left: 6px;">
+
+         </span>
+
+       
+    <table class="table" id="dataTable2" data-ordering="false">
+            <thead>
+                <tr>
+                    <th scope="col" class="T-color1">ID</th>                    
+                    <th scope="col">SurveyDetails</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col" style="width:13%;">Responses</th>
+                    <th scope="col" style="width: 120px; text-align: center;">Status</th>
+                    <th scope="col" >Actions</th>
+                 </tr>
+            </thead>
+            
+        </table>
+    </div>
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>    
+    <script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>    
+   
+</body>
+
+</html>

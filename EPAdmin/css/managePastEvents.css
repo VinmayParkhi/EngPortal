@@ -1,0 +1,256 @@
+﻿
+        #dataTable6_wrapper {
+            background: #000000 0% 0% no-repeat padding-box;
+            border-radius: 25px;
+			width: 90%;
+            padding: 30px;
+            opacity: 1;
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+        }
+		#dataTable6{
+		width:90%;
+		font-size: 12px;
+		}
+        #dataTable6_length,
+        #dataTable6_length>label>select {
+            color: #AFAFAF;
+            margin-bottom: 9px;
+        }
+		#createSurvey{
+	
+	 color: #fff !important;
+    background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat !important;
+	border:none;
+	 border-radius: 10px !important;
+    padding: 5px 25px;
+    font-size: 12px;
+
+}
+#createSurvey:hover{
+	      background: rgba(255, 255, 255, 0.2);
+    /* background-size: 800px 100%; */ 
+   
+    color: #fff;
+    background-position: 50% 100%;
+    transition: all .3s ease;
+    
+    }
+        #dataTable6_filter {
+            float: left;
+            margin-left: 20px;
+        }
+
+        #dataTable6_length>label>select {
+            width: 57px;
+            height: 25px;
+            background: #232323 0% 0% no-repeat padding-box;
+            border: 1px solid #4E4E4E;
+            border-radius: 5px;
+            opacity: 1;
+            padding: 0px;
+        }
+
+        #dataTable6_filter>label>input[type=search] {
+            width: 230px;
+            height: 25px;
+            background: #232323 0% 0% no-repeat padding-box;
+            border: 1px solid #4E4E4E;
+            border-radius: 5px;
+            opacity: 1;
+        }
+        .main-style{
+            position: relative;
+        }
+        .calenderView{
+            position: absolute;
+            right: 40px;
+            color: #fff;
+            z-index: 111;
+            width: 20%;
+            top: 25px;
+            font-size: 12px;
+            color: #AFAFAF;
+        }
+        .calenderView input{
+            background: transparent;
+    color: #fff !important;
+    border: navajowhite;
+    width: 42%;
+        }
+        table.dataTable tbody tr{
+        background:transparent !important;
+        color:#fff;
+}
+#dataTable6 > tbody > tr> td:nth-child(4){
+	text-align:center !important;
+}
+#dataTable6 > tbody > tr> td:nth-child(5){
+	text-align:center !important;	
+}
+        #dataTable6_info {
+           letter-spacing: 0px;
+            color: #AFAFAF;
+            opacity: 1;
+            font-size: 12px;
+        }
+        .dataTable6s_wrapper .dataTable6s_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0; 
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #afafaf !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+        /* table{
+            border-top: 1px solid #707070;
+        } */
+
+
+        table th {
+            text-align: left;
+            margin-top: 20px;
+            letter-spacing: 0px;
+            color: #FCF9EE;
+            opacity: 1;
+            font-size: 13px;
+            border-top: 1px solid #707070;
+            font-weight: 600 !important;
+        }
+
+        table tr {
+            border-bottom: 1px solid #707070;
+        }
+
+        .ID {
+            text-align: left;
+           
+            letter-spacing: 0px;
+            color: #FCF9EE;
+            opacity: 0.5;
+            vertical-align: middle;
+        }
+
+        .para-1 {
+
+            color: cornflowerblue;
+            font-size: x-small;
+            font-style: italic;
+        }
+
+        .para-2 {
+            color: #FCF9EE;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .date-time {
+            text-align: left;
+            font-size: 12px;
+            letter-spacing: 0px;
+            color: #AFAFAF;
+            opacity: 1;
+            vertical-align: middle;
+        }
+
+        .emoji {
+
+            vertical-align: middle;
+        }
+
+        .emoji img {
+            width: 22px;
+            height: 22px;
+        }
+        .para-1{
+            margin-bottom: 0px !important;
+        }
+        .emoji span {
+            text-align: center;
+            margin-right:7px;
+            letter-spacing: 0px;
+            color: #E9E9E9;
+            opacity: 1;
+            font-size: 11px;
+        }
+
+        .status {
+            text-align: center;
+            font-size: 12px;
+            letter-spacing: 0px;
+            color: #AFAFAF;
+            font-style: italic;
+            opacity: 1;
+            vertical-align: middle;
+
+        }
+        .complete{
+            color: #71BC4C;
+        }
+        .draft{
+            color: #EC9A2E;
+        }
+
+        .action {
+            vertical-align: middle;
+            text-align: end;
+        }
+
+        .action img {
+            height: 20px;
+        }
+
+        .event-details {
+            vertical-align: middle;
+        }
+        .paginate_button{
+            font-size: 12px;
+        }
+        .autopub span{
+            color: #FF706B;
+            display: block;
+        }
+        .dataTable6s_wrapper .dataTable6s_paginate .paginate_button:hover{
+            background: linear-gradient(to bottom, #FF3D97 0%, #FF3D97 100%) !important;
+            box-shadow: inset 0 0 3px #FF3D97 !important;
+            border-radius: 5px;
+            color: #fff;          
+        }
+        .dataTable6s_wrapper .dataTable6s_paginate .paginate_button.disabled:hover{
+            color: #fff !important;
+            padding: 0px 3px;
+            border:transparent;
+            background-color: black !important;
+        }
+        #dataTable6_paginate > span > a.paginate_button.current {
+
+            background-color: #FF3D97;
+            color: #FCF9EE !important;
+            border:1px solid #FF3D97;
+            border-radius: 5px;
+            margin: 0px 10px;
+            }
+            .ui-datepicker th{
+                color: #000;
+            }
+            .wow{
+                color: #FF8A72;
+            }
+            .connect{
+                color: #C8DB88;
+            }
+            .life{
+                color: #EFBB6D;
+            }
+            .work{
+                color: #E8B0FC;
+            }
+            .well{
+                color:cornflowerblue;
+            }

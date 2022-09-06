@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Past Events | Engagement Portal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <!-- bootstrap -->
+<link rel="stylesheet" href="https://infornt.sharepoint.com/_catalogs/masterpage/FinalMasteEmp/bootstrap.css" type="text/css">
+    <!-- past events -->
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/work.css" type="text/css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/eventdetails.css" type="text/css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/pastEvents.css" type="text/css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/ratereview.css" type="text/css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/ratingstars.css" type="text/css">
+
+	<style>
+	.Work{
+	color:#A4C6F9 !important;
+	
+	}
+	
+	
+	.upcomingeventsJoin{
+	
+	padding: 0.5rem 3rem !important;
+}
+
+
+.upcomingeventsDetails .upcomingeventsBtn a, .pasteventsDetails .pasteventsBtn a{
+	
+	 padding: 0.59rem 1rem;
+
+}
+
+
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard {
+    
+    height: 34vh;
+   
+}
+
+	
+
+	
+	.pstvideoImg1 .play{
+	
+	top: 0 !important;
+	left:0 !important;
+	display: flex !important;
+   	height:100%;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+.pstvideoImg1 .play img{
+
+	width:50px;
+
+}
+
+
+.upcomingeventsDetails {
+    position: relative !important;
+   top:0 !important;
+    padding: 0 0.8rem ;
+}
+
+.upcomingeventsJoin{
+	padding: 0.5rem 2.5rem !important;
+}
+
+
+	
+	
+@media (min-width:375px) and (max-width:768px){
+	
+	.workBannerTop{
+	background-size:100% 100% !important;
+	
+}
+
+.upcomingEventsCard,.pastevntsCard{
+	width:100% !important;
+	margin: 0 !Important; 
+}
+
+.pstvideoImg1 .play{
+	
+	top: 0 !important;
+	left:0 !important;
+	display: flex !important;
+   	height:100%;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+.pstvideoImg1 .play img{
+
+	width:50px;
+
+}
+
+.time,.heartImg{
+	
+	top:1rem !important;
+}
+
+
+.pastevntsCard{
+	margin-bottom:0 !important;
+}
+
+
+
+.ms-fullWidth {
+    width: 100% !important;
+}
+
+}
+
+
+
+
+@media (min-width:768px) and (max-width:992px){
+	
+	.contentWr{
+	width: 95% !important;
+	margin:0 auto;
+	}
+	
+	
+	#DeltaPlaceHolderMain {
+    width: 100%;
+	}
+	
+	#MSOZoneCell_WebPartWPQ5{
+	
+	margin-left: 30px;
+	}
+	
+	
+
+	.sidemain{
+	margin-left:0;
+	}
+
+.upcomingEventsCard,.pastevntsCard{
+	margin: 20px 10px;
+	width: 31% !important;
+	position: relative !important;
+	top:0 !important;
+
+}
+
+
+.pstvideoImg1 .play{
+	
+	top: 0 !important;
+	left:0 !important;
+	display: flex !important;
+   	height:100%;
+    width: 100% !important;
+    justify-content: center !important;
+}
+
+
+.pstvideoImg1 .play img{
+
+	width:50px;
+
+}
+
+.time,.heartImg{
+	
+	top:1rem !important;
+}
+
+
+.footer {
+    width: 100%;
+    margin: 0;
+    margin-left: 25px;
+}
+
+}
+
+
+
+	</style>
+    </head>
+
+<body>
+    <div class="wrapper">
+            <div class="eventWorkWrapper">
+            <div class="workHeading">
+            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/Hub.aspx" class="workClick">
+                <div class="workArrow">
+                    <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon ionic-ios-arrow-back.svg" alt="Back Arrow">
+                    <h3>Connect and Community+</h3>
+                </div>
+                <div class="breadcrumbWr">
+                    <ul class="breadcrumb">
+                        <li><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpMaster.aspx" style="color:#fff; text-decoration:none;">Home</a></li>
+                        <li><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/Hub.aspx" style="color:#fff; text-decoration:none;">Hub</a></li>
+                        <li>Connect and Community+</li>
+                    </ul>
+                </div>
+            </a>
+
+        </div>
+        <div class="workBannerTop">
+            <div class="bannerTopHeading">
+                <h2 id="WorkTitle"></h2>
+                <p id="workDesc"></p>
+            </div>
+        </div>
+            <div class="pastEvntscardBottomWr">
+            
+            
+                           
+            <div class="workcardTopWr">
+            <div class="upcomingEventsHeading">
+                <h4>Upcoming Events</h4>
+            </div>
+            <div class="upcomingEventsWr">                
+            </div>
+        </div>
+        <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/PastEvents.aspx" id="right" type="button" class="btn" style="float:right; color:#FF3D97;"> View All</a>
+            	<div class="workcardBottomWr">
+            <div class="PastEventHeading">
+                <h4>Past Event Video</h4>
+            </div>
+                <div class="pastEvntsWr1">
+             </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+  
+          <div >
+    <div class="modal-content">
+              <i class="fas fa-times" id="cross" data-dismiss="modal" onclick="dismissvid()" aria-label="Close" style="cursor:pointer;position: absolute;right: -10px;color: white;top: -11px;font-size: 15px;"></i>
+      <div class="modalapp" style=" background: #FCF9EE; width: 100%; border-radius: 12px;height: auto;">
+     		<iframe id="abcde" autoplay=true  aria-hidden="true" width="500" height="400"
+  		src="">
+</iframe>
+<div class="modalfoot" style=" padding: 0px 0px 2px 10px;">
+      	<h4>
+      		
+      	</h4>
+      	<h6>
+      	</h6>
+      </div>
+      </div>
+      
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+    
+    <script>
+   function dismissvid(){
+        	$(".modalapp iframe").attr('src', "");
+    		$(".modalfoot h4").html("");
+    		$(".modalfoot h6").html("");
+    	}
+    </script>
+   
+    <!-- jQuery script -->
+    <script type="text/javascript" src="https://infornt.sharepoint.com/_catalogs/masterpage/FinalMasteEmp/jquery-3.6.0.min.js"></script>
+    <!-- bootstrap script -->
+    <script src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/js/EmpHubConandCom.js"></script>
+    <script type="text/javascript" src="https://infornt.sharepoint.com/_catalogs/masterpage/FinalMasteEmp/bootstrap.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/js/ConandCom.js"></script>   
+ <!-- Self script 
+    <script src="https://infornt.sharepoint.com/_catalogs/masterpage/FinalMasteEmp/Employee.css"></script>-->
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".reviewPopup").on('click',function () {                 
+                var rateA = $("#" + $(this).attr("lblId")).text().split(' ');
+                $("#rateno-label").text(rateA[0]);
+                $("#baseon-label").text('Based on ' + rateA[1].match(/\d+/) + ' review');
+                ratings.ratestar = rateA[0];
+                getRatings();
+            });
+        });
+        
+
+    // Initial Ratings
+    var ratings = {
+        ratestar: 1
+    }
+
+    // Total Stars
+    const starsTotal = 5;
+
+    // Run getRatings when DOM loads
+    document.addEventListener('DOMContentLoaded', getRatings);
+
+    // Get ratings
+    function getRatings() {
+        for (let rating in ratings) {
+            // Get percentage
+            const starPercentage = (ratings[rating] / starsTotal) * 100;
+
+            // Round to nearest 10
+            const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
+
+            // Set width of stars-inner to percentage
+            document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
+        }
+    }
+    // $(document).ready(function () {
+    //     //alert(localStorage["currentReviews"]);
+    //     var rateA = localStorage["currentReviews"].split(' ');
+    //     $("#rateno-label").text(rateA[0]);
+    //     $("#baseon-label").text('Based on ' + rateA[1].match(/\d+/) + ' review');
+    //     ratings.ratestar = rateA[0];
+    //     getRatings();
+    // });
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+
+</html>

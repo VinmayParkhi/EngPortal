@@ -1,0 +1,332 @@
+﻿
+.event-head{
+    padding: 8px 34px;
+  }
+  
+  
+  
+  #createEvent{
+	
+	 color: #fff !important;
+    background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat !important;
+	border:none;
+	 border-radius: 10px !important;
+    padding: 5px 25px;
+    font-size: 12px;
+
+}
+#createEvent:hover{
+	      background: rgba(255, 255, 255, 0.2);
+    /* background-size: 800px 100%; */ 
+   
+    color: #fff;
+    background-position: 50% 100%;
+    transition: all .3s ease;
+    
+    }
+
+  #file_upload{
+	    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: visible;
+    opacity: 0;
+}
+  
+  .event-data{
+    width: 94%;
+    margin: 10px auto;
+    background: #080809;
+    border-radius: 15px;
+    height: auto;
+    padding: 30px 40px;
+  }
+  .head-left h4{
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF;
+    display: inline-block;
+    margin-bottom: 0px;
+  }
+  .breadcrumb{
+    margin-bottom: 0px;
+  }
+  .head-left li{
+    font-size: 10px;
+    font-weight: 500;
+    color: #E5E5E5;
+    opacity: 0.7;
+  }
+  .head-left li a{
+    color: #E5E5E5;
+    text-decoration: none;
+  }
+  
+  .head-left li.active{
+    color: #E5E5E5;
+  }
+  
+  .head-left .arrow{
+    display: inline-block;
+    margin-right: 10px;
+    color:#fff;
+  }
+  span a{
+    color: #E5E5E5;
+    font-size: 14px;
+  }
+.sdayEv {
+    display: inline-block;
+    position: relative;
+    padding: 0 6px;
+    margin: 10px 0 0;
+  }
+  
+  .sdayEv input[type='radio'] {
+    display: none;
+  }
+  
+  .sdayEv label {
+    color: #666;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  
+  .sdayEv label:before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 5px 0 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 11px;
+    border: 1px solid #F27949;
+    background-color: transparent;
+  }
+  .serEve input[type=radio]:checked label{
+    color: #FF3D97 !important;
+  }
+  
+  .sdayEv input[type=radio]:checked + label:after {
+     border-radius: 11px;
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    top: 7px;
+    left: 8px;
+    content: " ";
+    display: block;
+    background: #F27949;
+  }
+  .serEve {
+    display: inline-block;
+    position: relative;
+    padding: 0 6px;
+    margin: 10px 0 0;
+  }
+  
+  .serEve input[type='radio'] {
+    display: none;
+  }
+  
+  .serEve label {
+    color: #666;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .event-form .s-time, .event-form .e-time{
+    width: 15%;
+  }
+  .imageData{
+    position: relative;
+    border: 1px dashed #4E4E4E;
+    border-radius: 10px;
+    height: 60px !important;
+  }
+  .imageData input{
+    visibility: hidden;
+  }
+  .imageData label{
+    position: absolute;
+    top: 18%;
+    left: 42%;
+  }
+  .event-data .a-button{
+    width: 40%;
+  }
+  .event-data .a-button .p-button{
+    color: #fff !important;
+    background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;
+  }
+  .event-data .a-button span, .event-data .a-button button{
+    color: #AFAFAF;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin: 0px 8px;
+  }
+  .event-data .a-button button{
+    padding: 0.5rem 1rem;
+  }
+  .serEve label:before {
+      content: " ";
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    margin: 0 5px 0 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 11px;
+    border: 1px solid #F27949;
+    background-color: transparent;
+  }
+  
+  .serEve input[type=radio]:checked + label:after {
+    border-radius: 11px;
+    width: 11px;
+    height: 11px;
+    position: absolute;
+    top: 7px;
+    left: 8px;
+    content: " ";
+    display: block;
+    background: #F27949;
+    color:white;
+  }
+  .form-data input,.form-data select,.form-data textarea{
+    width: 100%;
+    border-radius: 15px;
+    outline: none;
+    border: 1px solid #4E4E4E;
+    background: #232323;
+    padding: 3px 11px;
+    height: 35px;
+    font-size: 12px;
+    color: #E5E5E5;
+  }
+  .form-data input[type="file"]{
+    height: 60px;
+  }
+  .form-data textarea{
+    height: 60px;
+  }
+  .form-data label, .form-data p{
+    font-size: 10px;
+    color: #fff;
+    margin-left: 11px;
+    padding: 10px 0px 2px 0px;
+    opacity: 50%;
+    margin-left: 0rem;
+
+  }
+  .form-data p{
+    margin-left: -1.1rem;
+    margin-bottom: -1.1rem !important;
+  }
+  .event-data hr{
+    margin: 17px 0px 23px 0px;
+    width: 107%;
+    color: #fff;
+    margin-left: -40px;
+  }
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+  .calender{
+    position: absolute;
+    right: 24px;
+    top: 38px;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+  .time{
+    position: absolute;
+    top: 36px;
+    right: 22px;
+    color: #fff;
+  }
+
+  /* Accordion CSS */
+  .accordion-body{
+    width: 100%;
+    margin: 10px 0px;
+    background: #11101d;
+    border-radius: 15px;
+    height: auto;
+    padding: 0px;
+  }
+  .accordion-header{
+    position: relative;
+  }
+  .accordion-item{
+      border-width: 2px !important;
+	  border-style: solid;
+	  border-image: linear-gradient(195deg, #DE8601 0%, #FF3D97 100%) 1 !important;
+    padding: 10px 15px;
+    border-radius:15px;
+    
+    margin: 10px !important;
+    background-color: transparent !important;
+  }
+  .ui-widget-content a{
+  font-size:13px !important;
+}
+  .accordion-butto:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  .accordion-button{
+    background-color: transparent !important;
+    color: #fff !important;
+  }
+  .accordion-button{
+        width: 100%;
+    margin: 10px 0px;
+    padding: 0rem;
+    font-size: 11px;
+    background-color: transparent;
+    position: absolute;
+    top: -32px;
+    left: 20px; 
+    }
+    .accordion-button:focus{
+	
+   	box-shadow:none !important; 
+	
+}
+    #options option{
+	color: #fff;
+    background: #11101d;
+}
+
+  .accordion-button::after{
+    position: absolute;
+    right: 31px;
+    background: black;
+    padding: 12px;
+
+  }
+  .accordion-button span{
+    background: black;
+    padding: 3px 10px;
+    border-radius:5px;
+  }
+  .sdayEv input[type="radio"]:checked+label {
+        color:white !important;
+      } 
+      .serEve input[type="radio"]:checked+label {
+        color:white !important;
+      } 
+ .breadcrumb-item + .breadcrumb-item {
+    padding-left: 0rem !important;
+}
+
+

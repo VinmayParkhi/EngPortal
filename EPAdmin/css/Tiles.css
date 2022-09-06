@@ -1,0 +1,225 @@
+﻿/* SPJS Tiles v1.2+ */
+.spjs-tile-content{
+	width:275px !important;
+}
+
+.changeWidth{
+	width:1078px !important;
+}
+.changeWidth1{
+	
+	width:50% !important;
+}
+
+.changeWidth3{
+	
+	width:550px !important;
+}
+
+.changeWidth2{
+		width:1100px !important;
+	
+}
+
+div.spjs-tile-heading{
+	font-size:24px;
+	font-family:Calibri;
+	cursor:default;
+	margin:4px 0px 4px 0px;
+	color:rgb(0,114,198);
+}
+div.spjs-tile-row-wrap{
+	float:left;
+	clear:both;
+}
+div.spjs-tile-wrap{
+	float:left;
+}
+.spjs-tile-detailsbox{
+	top:137px !important;
+}
+#spjs_tiles_placeholder_01-00 > div > div{
+	 background-image: linear-gradient(to bottom, #F5DFBC, #F1A0A0) !important;
+    background-size: cover;
+
+}
+#spjs_tiles_placeholder_02-00 > div > div{
+	 background-image: linear-gradient(to bottom, #D2D8F5, #FFFFFF) !important;
+    background-size: cover;	
+}
+
+#spjs_tiles_placeholder_03-00 > div > div{
+    background-image: linear-gradient(to bottom, #E9EBD7, #FFFFFF);
+    background-size: cover;
+    padding: 10px;
+}
+#spjs_tiles_placeholder_01-00 > div > div > div > span > img,#spjs_tiles_placeholder_05-00 > div > div > div > span > img{
+
+    height: 40%;
+    margin-top: 19%;
+}
+.spjs-tile-wrap > div > div > div > span > img{
+
+    height: 50%;
+    width: 85%;
+    margin-top: 12%;
+    margin-left: 5%;
+}
+#spjs_tiles_placeholder_04-00 > div > div{
+    background-image: linear-gradient(to bottom, #F8DCF7, #FFFFFF);
+    background-size: cover;
+    padding: 10px;
+}
+.spjs-tile-li-text{
+    color: #000;
+    font-size: 12px;
+    font-weight: 600;
+
+}
+#spjs_tiles_placeholder_05-00 > div > div{
+    background-image: linear-gradient(to bottom, #D2EDF2, #FFFFFF);
+    background-size: cover;
+    padding: 10px;
+}
+
+#spjs_tiles_placeholder_06-00 > div > div{
+    background-image: linear-gradient(to bottom, #F3E2CE, #FFFFFF);
+    background-size: cover;
+    padding: 10px;
+}
+#spjs_tiles_placeholder_03-00 > div > div > div > span > img{
+	top:-9px !important;
+}
+div.spjs-tile-root{
+	float:left;
+	clear:both;
+    width: 32rem !important;
+    height: 23rem !important;	
+    margin:10px;
+}
+div.spjs-tile-content{
+width:285px;	
+	height:215px !important;
+
+	overflow:hidden;
+	position:relative;
+	background-color:rgb(0,114,198);
+	border:0px solid #eeeeee !important;
+    border-radius: 20px;
+}
+div.spjs-tile-detailsbox{
+	color:#fff;
+	position:absolute;
+	/*background:#fa551e !important;
+	background:linear-gradient(to right,#F14200,#F7A600) !important;*/
+	font-size:18px;
+	/* Fallback color for non CSS3 browsers */
+	/*background-color:#828282;*/
+	/* Transparancy */
+	/*background-color:rgba(0,0,0,0.6);*/
+	/* For transparency in IE 7-8 use this code */
+	/*background-color:#000000;
+	filter:alpha(opacity=60);
+	opacity:0.6;*/
+	
+}
+ul.spjs-tile-ul{
+	list-style:none;
+	overflow:hidden;
+	padding:6px 10px 10px 10px;
+	margin:0px;
+}
+li.spjs-tile-li{
+	list-style:none outside none;
+	color:#fff;
+	font-size:1em;
+	overflow:hidden;
+	vertical-align:bottom;
+	display:table-cell;
+}
+div.spjs-tile-li-text{
+	overflow:hidden;
+}
+
+div.spjs-tile-row-wrap{
+	float:left;
+	clear:both;
+	width:100%;
+}
+
+@media(min-width: 992px){
+#spjs_tiles_placeholder{
+	width: 100% !important;
+	margin: 0 !important;
+}
+#spjs_tiles_placeholder_03-00 > div > div,
+#spjs_tiles_placeholder_04-00 > div > div,
+#spjs_tiles_placeholder_05-00 > div > div,
+#spjs_tiles_placeholder_06-00 > div > div{
+	padding: 0;
+}
+	div.spjs-tile-row-wrap{
+		width: 94%;
+		/*height: 84vh;*/
+		display: flex;
+    	flex-wrap: wrap;
+    	justify-content: space-around;
+	}
+	div.spjs-tile-content {
+    	/*width: 100% !important;*/
+    	height: auto !important;
+    }
+    .spjs-tile-li{
+		height: auto !important;
+}
+    div.spjs-tile-content > div > span{
+		/*display: flex;
+		justiy-content: space-around;
+		position: inherit !important;*/
+		width: 100% !important;
+		height: 160px !important;
+	}
+	/*div.spjs-tile-root {
+	    margin: 10px 10px 0 0;
+	}*/
+	div.spjs-tile-root{	
+		width: 100% !important;
+	}
+	div.spjs-tile-wrap{
+		width: 30%;
+		height: 36vh;
+	}
+	#spjs_tiles_placeholder_01-00 > div > div > div > span > img{
+   	 	height: 41%;
+	}
+	.spjs-tile-wrap > div > div > div > span > img{
+		width: 85%;
+		margin-left: 5%;
+	}
+	.spjs-tile-li-text{
+	font-size: 10px;
+}
+ul.spjs-tile-ul {
+	padding: 0 0 0 10px;
+}
+}
+
+@media (min-width: 1400px){
+	div.spjs-tile-content > div > span {
+    	height: 190px !important;
+}
+.spjs-tile-li-text {
+    font-size: 12px;
+    margin-left: 0.6rem;
+}
+.spjs-tile-li {
+    height: 7vh!important;
+}
+#spjs_tiles_placeholder_01-00 > div > div > div > span > img {
+    height: 57%;
+    margin-top: 12%;
+}
+#MSOZoneCell_WebPartWPQ6{
+	margin-bottom: 3.5rem;
+}
+}

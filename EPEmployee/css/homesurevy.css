@@ -1,0 +1,141 @@
+﻿/* starts home survey css */
+.survey {
+    width: 100%;
+    /* height: 30vh; */
+    height: 41vh;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+    background-color: #131313;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+.carousel-indicators li{
+    width: 8px;
+    height: 9px;
+    margin: 3px;
+    border-radius:1rem;
+    background-color: #fff;
+    border:none;
+
+}
+.carousel-indicators .active{
+    width: 9px;
+    height: 9px;
+    margin: 3px;
+    background-color: #FF3D97;
+    border:none;
+}
+a{
+	text-decoration:none !important;
+}
+.survey .mainSurvey {
+    width: 96%;
+    /* height: 60%; */
+    margin: 0 auto;
+    /* margin-top: 1rem; */
+    border-radius: 1.5rem;
+    background-color: #000;
+    /* border: 1px solid red; */
+}
+
+.surveyWr {
+    width: 90%;
+    height: 31vh;
+    margin: 0 auto;
+    padding-top: 0rem;
+    /* border: 1px solid red; */
+}
+
+.surveyHeading {
+    display: flex;
+    color: #fff;
+    width:30%;
+}
+
+/*.surveyHeading  label{
+	display: none;
+}
+
+.surveyHeading h6 {
+    margin-right: 1rem;
+}*/
+
+.amdocsLogo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.3rem;
+}
+
+.mainSurvey .amdocsLogo .amdocsImgs {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.annualEvent {
+    color: #fff;
+    width: 50%;
+    font-weight: 600;
+    background: linear-gradient(90deg, #F6A8A8 0%, #FFABAB 47%, #FF9BEE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    justify-content: end;
+}
+
+.mainSurvey .amdocsLogo .amdocsImgs img {
+    width: 40%;
+}
+
+.amdocsImgs small {
+    color: #fff;
+}
+
+.amdocsImgs div:nth-child(2) {
+    margin-left: 2rem;
+}
+
+.surveyText {
+    color: #fff;
+}
+
+.surveyText .share {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.surveyText .share span {
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.surveyText .feedback {
+    font-size: 0.8rem;
+}
+
+.surveyText .share,
+.surveyText .feedback {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.click {
+    color: #FF3D97;
+    display: flex;
+    justify-content: center;
+}
+
+.click h6 {
+    margin: 0;
+    margin-left: 0.6rem;
+}
+
+.surveySlider {
+    padding: 2rem;
+}
+
+/* ends home survey css */

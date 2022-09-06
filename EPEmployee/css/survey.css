@@ -1,0 +1,407 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --black-color: #000;
+    --white-color: #fff;
+    --gray-shade: #e5e5e5;
+}
+a{
+	text-decoration:none !important;
+}
+html{
+    font-size: 62.5%;
+}
+.calendarWidth{
+	width:100% !important;
+}
+body,
+html {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    /* font-size: 10px; */
+    font-family: 'Montserrat', sans-serif;
+    background-color: #232323;
+}
+
+.wrapper {
+    width: 100%;
+}
+
+ul {
+    list-style-type: none;
+    /* padding: 0; */
+}
+
+a {
+    text-decoration: none;
+}
+
+.content {
+    width: 75%;
+    /* border: 1px solid red; */
+}
+
+/* starts survey page heading */
+.surveyPgHeading {
+    width: 100%;
+    color: var(--white-color);
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-top: 1.1rem;
+    margin-bottom: 2.7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.survHeading {
+    width: 85%;
+    /* border: 1px solid red; */
+}
+
+.ongoing_past {
+    width: 15%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.ongoing_past .ongoing {
+    width: 45%;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 200;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+  
+}
+.Border_line {
+    width: 45%;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1rem;
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%);
+    background-size: 100% 0.25rem;
+    background-position: bottom 0 left 0, bottom 5px left 0;
+    background-repeat: no-repeat;
+}
+
+.ongoing_past .past {
+    width: 45%;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 200;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.surveyPgHeading .surveyClick .surveyArrow {
+    display: flex;
+    align-items: center;
+}
+
+.surveyPgHeading .surveyClick h3 {
+    color: var(--white-color);
+    margin: 0;
+}
+
+.surveyPgHeading .surveyClick img {
+    width: 1rem;
+    margin-right: 1rem;
+}
+
+.surveyOngoingWr{
+    /* border: 1px solid red; */
+    display: block;
+}
+.surveyPastWr{
+    /* border: 1px solid red; */
+    display: none;
+}
+.content .surveyOngoing,
+.content .surveyPast {
+    width: 100%;
+    /* height: 16rem; */
+    /* Venu */
+    height: 12vh;
+    background-color: var(--black-color);
+    border-radius: 1.5rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.surveyTopHeading {
+    width: 90%;
+}
+
+.surveyTopHeading h2 {
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.surveyTopHeading p {
+    color: var(--gray-shade);
+}
+
+.surveyOngoing .surveyImg {
+    width: 10%;
+    /* border: 1px solid red; */
+}
+.leftBtn{
+	    display: flex;
+    align-items: center;
+    width: 25%;
+    justify-content: space-around;
+    font-size:10px;
+}
+
+.surveyOngoing .surveyImg img {
+    width: 100%;
+    border-radius:0.5rem;
+}
+
+.surveyOngoing .surveyDesc {
+    width: 63%;
+    /* border: 1px solid red; */
+    font-size:12px;
+    font-weight:500;
+}
+.surveyDescWr {
+    width: 95%;
+    margin: 0 auto;
+    color: var(--white-color);
+}
+
+.surveyOngoing .endDate {
+    color: var(--white-color);
+   }
+
+.surveyOngoing .surveyBtn .btnSurvey {
+    width: 100%;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%);
+    color: var(--white-color);
+}
+
+.surveyannualEvnt label small {
+    font-weight: 600;
+    background: linear-gradient(90deg, #F6A8A8 0%, #FFABAB 47%, #FF9BEE 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.funanza label {
+    font-size: 1.2rem;
+}
+
+.funanza label span {
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.please small {
+    font-weight: 400;
+}
+
+.surveyPstDescWr {
+    width: 95%;
+    margin: 0 auto;
+    color: var(--white-color);
+}
+.surveyPast .surveyPstImg img {
+    width: 100%;
+}
+
+.surveyPast .surveyPstDesc {
+    width: 60%;
+    /* border: 1px solid red; */
+}
+.surveyPast .surveyPstImg {
+    width: 10%;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+.surveyPast .surveyPstImg img {
+    width: 100%;
+    border-radius:0.5rem;
+}
+
+.surveyPast .surveyPstDesc {
+    width: 75%;
+    font-size: 12px;
+    font-weight: 600;
+    /* border: 1px solid red; */
+}
+
+.surveyPast .end_submit {
+    width: 15%;
+    font-size:10px;
+    /* border: 1px solid red; */
+}
+.surveyPast .endedDate{
+    width: 100%;
+}
+.surveyPast .endedDate label,
+.surveyPast .surveyPstLbl label{
+    color: #fff;
+    opacity: 0.5;
+    /* border: 1px solid red; */
+}
+.surveyPast .surveyPstLbl {
+	width: 98%;
+    display: flex;
+    justify-content: end;
+    } 
+/* ends survey page heading */
+
+/* starts Modal */
+.modal-dialog .btn-close-white {
+    position: absolute;
+    top: 9.5rem;
+    right: -1.2rem;
+}
+
+.modal-body {
+    padding: 0.6rem;
+}
+
+.modal-body .pstvideoImg1 {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+}
+
+.modal-body .pstvideoImg1 img {
+    width: 100%;
+    border-radius: 1.5rem;
+}
+
+.pstvideoImg1 .play,
+.pstvideoImg2 .play,
+.pstvideoImg3 .play {
+    position: relative;
+    top: 5.2rem;
+    left: 7.6rem;
+}
+
+.pstvideoImg1 .play img,
+.pstvideoImg2 .play img,
+.pstvideoImg3 .play img {
+    width: 3.8rem;
+}
+
+.pstvideoImg1 .heartImg,
+.pstvideoImg2 .heartImg,
+.pstvideoImg3 .heartImg {
+    position: relative;
+    top: -2rem;
+    left: 15rem;
+}
+
+.pstvideoImg1 .heartImg img,
+.pstvideoImg2 .heartImg img,
+.pstvideoImg3 .heartImg img {
+    width: 2.8rem;
+}
+
+/* .pstvideoImg2 a{
+    position: relative;
+    top: -0.8rem;
+    left: 23rem;
+    padding: 0.6rem;
+    background-color: #606060;
+    border-radius: 50%;
+}
+.pstvideoImg3 a{
+    position: relative;
+    top: -0.8rem;
+    left: 23rem;
+    padding: 0.6rem;
+    background-color: #FF3D97;
+    border-radius: 50%;
+} */
+.modal-content {
+    height: 60vh;
+    border-radius: 1.5rem;
+    /* padding: 1rem; */
+    background: linear-gradient(86deg, #DE8601 0%, #FF3D97 100%);
+}
+
+.modal-body .pastevntsDetails {
+    position: absolute;
+    bottom: 1rem;
+    left: 2.5rem;
+}
+
+.modal-body .pst h2 {
+    font-weight: 500;
+}
+
+.modal-body .pstvideoWr {
+    background-color: var(--white-color);
+    height: 100%;
+    border-radius: 1rem;
+}
+
+.modal-body .pstvideoImg1 .pasteventsDetails h5,
+.modal-body .pstvideoImg1 .pasteventsDetails p {
+    color: var(--white-color);
+}
+/* ends Modal */
+
+/* starts breadcrumb */
+ul.breadcrumb{
+    padding: 0;
+}
+
+ul.breadcrumb li {
+    display: inline;
+    font-size: 1.2rem;
+}
+
+ul.breadcrumb li+li:before {
+    padding: 0.3rem;
+    font-size: 1rem;
+    color: var(--gray-shade);
+    content: "/\00a0";
+}
+
+ul.breadcrumb li {
+    color: var(--gray-shade);
+    font-size: 1rem;
+    font-weight: 100;
+}
+/* ends breadcrumb */
+
+@media(max-width: 998px){
+    html{
+        font-size: 55%;
+    }
+}
+
+@media(max-width: 768px){
+    html{
+        font-size: 45%;
+    }
+}

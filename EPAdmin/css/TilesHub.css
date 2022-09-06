@@ -1,0 +1,328 @@
+﻿/* SPJS Tiles v1.2+ */
+body,
+html {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    /* font-size: 10px; */    
+    font-family: 'Montserrat', sans-serif;
+
+   /* background-color: #232323; */
+    /*border: 1px solid red;*/
+}
+
+.spjs-tile-detailsbox{
+    position: absolute;
+    top: 2.5rem !important; /*  !important */
+    left: 20.5rem !important;  /*  !important */
+ 
+    }
+.spjs-tile-content img{
+	
+    width: 35%;
+    height: 75%;
+}
+.spjs-tile-li-text{
+	font-weight:600;
+	font-size:1.4rem !important;  /*  !important */
+
+}
+.spjs-tile-li-description{
+	font-size:11px !important;  /*  !important */
+	padding-top:5px !important;  /*  !important */
+
+}
+.home-section hr {
+    color: #F5DFBC;
+    opacity: 0.1;
+    width: 95% !important;  /*  !important */
+    margin-left: 3.5rem !important; /*  !important */
+}
+.spjs-tile-root{
+	width: 47.5rem !important;  /*  !important */
+    height: 16.2rem !important; /*  !important */
+        margin: 10px 20px;
+}
+.spjs-tile-content{
+	width: 49.5rem !important;  /*  !important */
+    height: 17.2rem !important; /*  !important */
+    background-color: black;
+    border-radius: 2.5rem;
+}
+
+div.spjs-tile-heading{
+	font-size:24px;
+	font-family:Calibri;
+	cursor:default;
+	margin:4px 0px 4px 0px;
+	color:rgb(0,114,198);
+}
+.spjs-tile-content
+div.spjs-tile-row-wrap{
+	float:left;
+	clear:both;
+}
+div.spjs-tile-wrap{
+	float:left;
+}
+div.spjs-tile-root{
+	float:left;
+	clear:both;
+}
+div.spjs-tile-content{
+	overflow:hidden;
+	position:relative;
+	background-color:rgb(0,114,198);
+	border:0px solid #eeeeee !important; /*  !important */
+
+    border-radius: 15px;
+}
+div.spjs-tile-detailsbox{
+	color:#fff;
+	position:absolute;
+	/*background:#fa551e !important;
+	background:linear-gradient(to right,#F14200,#F7A600) !important;*/
+	font-size:12px;
+	/* Fallback color for non CSS3 browsers */
+	/*background-color:#828282;*/
+	/* Transparancy */
+	/*background-color:rgba(0,0,0,0.6);*/
+	/* For transparency in IE 7-8 use this code */
+	/*background-color:#000000;
+	filter:alpha(opacity=60);
+	opacity:0.6;*/
+	
+}
+ul.spjs-tile-ul{
+	list-style:none;
+	overflow:hidden;
+	padding:6px 10px 0 0;
+	margin:0px;
+}
+li.spjs-tile-li{
+	list-style:none outside none;
+	color:#fff;
+	font-size:1.5em;
+	overflow:hidden;
+	vertical-align:bottom;
+	display:table-cell;
+	
+}
+div.spjs-tile-li-text{
+	overflow:hidden;
+	
+}
+
+div.spjs-tile-row-wrap{
+	float:left;
+	clear:both;
+	width:100%;
+	display: flex !important;  /*  !important */
+    flex-wrap: wrap !important; /*  !important */
+    justify-content: space-between !important; /*   */
+}
+
+
+
+@media (min-width:991px){
+	.spjs-tile-content img{	
+    	height: 100%;
+	}
+	.spjs-tile-content > div > span{
+		width: 130px !important;
+		height: 173px !important;
+		position: inherit !important;
+	}
+	ul.spjs-tile-ul {
+	    margin-left: -7.5rem;
+	}
+	.spjs-tile-root{
+		width: 100% !important;
+        margin: 10px !important;
+	}
+	div .spjs-tile-content{
+		width: 35.5rem !important;
+	}
+	div.spjs-tile-row-wrap{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 99%;
+	}
+}
+
+@media (min-width: 1024px){
+	div.spjs-tile-row-wrap {
+	    width: 95%;
+        margin-left: 1%;
+}
+}
+
+@media (min-width: 1200px){
+#MSOZoneCell_WebPartWPQ5{	
+		width: 100%;
+	}
+div.spjs-tile-row-wrap {
+    width: 97%;
+}
+	div .spjs-tile-content {
+/*    width: 56.5rem !important;*/
+width: 100% !important;
+}
+.spjs-tile-root{
+	width: 43.5rem !important;
+    margin: 10px 20px !important;
+	}
+	.spjs-tile-content {
+    height: 16.2rem !important;
+}
+ul.spjs-tile-ul {
+    margin-left: -2rem;
+}
+.spjs-tile-li-text {
+    font-size: 1.5rem !important;
+}
+.spjs-tile-li-description {
+    font-size: 1.3rem!important;
+}
+div.spjs-tile-wrap {
+    	height: 28vh !important;
+	}
+}
+
+@media (min-width: 1280px){
+.spjs-tile-root {
+    width: 46.5rem !important;
+}
+	div.spjs-tile-row-wrap {
+    	width: 96%;
+    	margin: 0;
+}
+.spjs-tile-content {
+    height: 16.2rem !important;
+}
+div.spjs-tile-wrap {
+    height: 25vh !important;
+}
+}
+
+@media (min-width: 1366px){
+	.spjs-tile-root {
+    width: 52.5rem !important;
+}
+ul.spjs-tile-ul {
+    margin-left: 1rem;
+}
+.spjs-tile-content {
+    height: 19.2rem !important;
+    }
+    .spjs-tile-li-text {
+    font-size: 2rem !important;
+}
+.spjs-tile-li-description {
+    font-size: 1.5rem!important;
+}
+
+}
+
+@media (min-width: 1400px){
+	#MSOZoneCell_WebPartWPQ5{	
+		width: 100%;
+	}
+	.spjs-tile-root {
+    width: 56.5rem !important;
+    margin: 0 auto !important;
+    margin-left: 1.5rem !important;
+}
+div .spjs-tile-content {
+    width: 100% !important;
+}
+ul.spjs-tile-ul {
+    margin-left: 2rem;
+}
+.spjs-tile-li-text {
+    font-size: 2.5rem !important;
+}
+.spjs-tile-li-description {
+    font-size: 1.8rem!important;
+}
+div.spjs-tile-row-wrap {
+    width: 95%;
+}
+div.spjs-tile-wrap{
+	min-height: 23vh !important;
+	}
+	.spjs-tile-content {
+    height: 22.2rem !important;
+    }
+
+}
+
+@media (min-width: 1536px){
+#MSOZoneCell_WebPartWPQ5{	
+			width: 97%;
+    		margin-left: 1rem;
+    	}
+    	.spjs-tile-root {
+    width: 61.5rem !important;
+    }
+    ul.spjs-tile-ul {
+    margin-left: 2rem;
+    padding-top: 4rem;
+}
+}
+
+/*@media (min-width: 1600px){
+ul.spjs-tile-ul {
+    margin-left: 8rem;
+}
+.spjs-tile-root {
+    width: 66.5rem !important;
+    }
+.spjs-tile-li-text {
+    font-size: 2.5rem !important;
+}
+.spjs-tile-li-description {
+    font-size: 1.8rem!important;
+}
+.spjs-tile-content {
+    height: 24.2rem !important;
+    }
+}*/
+
+@media (min-width: 1900px){
+.spjs-tile-root {
+    width: 79.5rem !important;
+}
+.spjs-tile-content {
+    height: 28.2rem !important;
+}
+div.spjs-tile-wrap {
+    height: 27vh !important;
+}
+ul.spjs-tile-ul {
+    margin-left: 10rem;
+    }
+/*ul.spjs-tile-ul {
+    margin-left: 12rem;
+    width: 46rem;
+}
+div.spjs-tile-row-wrap {
+    width: 93%;
+}
+.spjs-tile-root {
+    width: 82.5rem !important;
+    }
+.spjs-tile-li-text {
+    font-size: 3.5rem !important;
+}
+.spjs-tile-li-description {
+    font-size: 2.5rem!important;
+}
+.spjs-tile-content {
+    height: 30.2rem !important;
+    }*/
+}

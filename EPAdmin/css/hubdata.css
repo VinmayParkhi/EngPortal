@@ -1,0 +1,388 @@
+﻿
+/* starts hub page css */
+
+.cardWr{
+  text-decoration: none;
+}
+.bannerTopHeading{
+    width: 90%;
+}
+.textCard p{
+  margin-bottom: 5px;
+  color:#E5E5E5;
+  font-size: 12px !important;
+  text-decoration: none;
+}
+.mainTiles .textCard h4{
+	 background: linear-gradient(90deg, #fff 0%, #fff 100%) 0% 0%;
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bannerTopHeading h2{
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.bannerTopHeading p{
+    color: #E5E5E5;
+}
+.mainTiles{
+	width:50%;
+}
+.mainTiles .card{
+	width:98%;
+}
+#WebPartWPQ5 > div.ms-rtestate-field > div > div:nth-child(2) > div,
+#WebPartWPQ5 > div.ms-rtestate-field > div > div:nth-child(4) > div{
+	margin-left:2rem !important;
+}
+#WebPartWPQ5 > div.ms-rtestate-field > div > div:nth-child(1) > div,
+#WebPartWPQ5 > div.ms-rtestate-field > div > div:nth-child(3) > div,
+#WebPartWPQ5 > div.ms-rtestate-field > div > div:nth-child(5) > div{
+	margin-right:2rem !important;
+}
+
+.hubheading{
+    color: #fff;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-top: 1.1rem;
+    margin-bottom: 2.7rem;
+}
+.cardBottomWr{
+     height: 75vh;
+    display: flex;
+    flex-wrap:wrap;
+    margin-left:3%;
+    /* border: 1px solid red; */
+}
+.cardsRight{
+    width: 50%;
+    /* border: 1px solid red; */
+}
+.image{
+	    position: absolute;
+    top: 0;
+    right: 10%;
+    width: 21%;
+    height: 100%;
+    display:flex;
+}
+.image img{
+	width:100%;
+}
+.cardsRight{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    /* border: 1px solid red; */
+}
+.textCard h4{
+	font-size: 2rem !important;
+	font-weight: 700;
+	background: -webkit-linear-gradient(-90deg, #DE8601, #FF3D97);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.head-left{
+    padding-left: 4%;
+}
+.head-data{
+    margin: 0 auto;
+}
+.cardimg{
+    background: #000000;
+    margin: 1% 0%;
+    height: auto;
+    width: 100%;
+    border-radius: 1rem;
+    padding: 5%;
+    
+	}
+.cardleft img{
+    width: 100%;
+    height: 100%;
+}
+.cardsRight .cardWr{
+  width: 96%;
+  height: 24vh;
+  border-radius: 1.5rem;
+  margin-bottom: 1.3rem;
+  background-color: #000;
+  display: flex;
+}
+.cardsRight .cardWr{
+    width: 96%;
+    height: 24vh;
+    border-radius: 1.5rem;
+    margin-bottom: 1.3rem;
+    background-color: #000;
+    display: flex;
+}
+.contentWr{
+  margin: 0 40px;
+}
+a{
+  text-decoration: none;
+}
+.cardsRight .cardWr:nth-child(1) .card{
+    background-image: url('../../Images/life.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    background-color: #000;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardsRight .cardWr:nth-child(2) .card{
+    background-image: url('../../Images/wellbieng.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    background-color: #000;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardsRight .cardWr:nth-child(3) .card{
+    background-image: url('../../Images/connectcommunity.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    background-color: #000;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardsRight .cardWr:nth-child(1) .card{
+    background-image: url('../../Images/life.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    background-color: #000;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardsRight .cardWr:nth-child(2) .card{
+    background-image: url('../../Images/wowprice.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    background-color: #000;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cardsRight .cardWr .card .textCard,
+.cardsRight .cardWr .card .textCard{
+    margin-left: 10rem;
+    color: #E5E5E5;
+}
+.cardsRight .cardWr .card .textCard h4,
+.cardsRight .cardWr .card .textCard h4{
+    font-weight: bold;
+    margin-bottom: 0.9rem;
+}
+.cardsRight .cardWr .card .textCard p{
+    font-size: 1.1rem;
+}
+.cardsRight .cardWr .card .textCard .details,
+.cardsRight .cardWr .card .textCard .details{
+    color: #F94D78;
+}
+.cardsRight .cardWr:nth-child(1) .card .textCard{
+    margin-left: 10rem;
+}
+.cardsRight .cardWr:nth-child(2) .card .textCard{
+    margin-left: 12rem;
+}
+.cardsRight .cardWr:nth-child(3) .card .textCard{
+    margin-left: 12.3rem;
+}
+.cardsRight .cardWr:nth-child(1) .card .textCard{
+    margin-left: 5rem;
+}
+.cardsRight .cardWr:nth-child(2) .card .textCard{
+    margin-left: 12rem;
+}
+
+/* starts Contact css */
+.content .cntHeading{
+    color: #fff;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-top: 1.1rem;
+    margin-bottom: 2.7rem;
+}
+.content .contactWr{
+    width: 100%;
+    height: 130vh; 
+    background-color: #000;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+.content .contactWr .mainContact{
+    width: 80%;    
+    height: 67vh;
+    display: flex;
+    margin-top: 3.5rem;
+    /* border: 1px solid red; */
+}
+.content .contactWr .mainContact .contactFormWr{
+    width: 70%;    
+    /* border: 1px solid red; */
+}
+.content .contactWr .mainContact .contactFormWr .contactForm{
+    width: 95%;
+    height: 100%;
+    border-radius: 1.5rem;
+    background-color: #232323;
+    border: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+.content .contactWr .mainContact .connectOptions{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+.content .contactWr .mainContact .connectOptions .connectTeams{
+    width: 96%;
+    height: 42%;
+    border-radius: 1.5rem;
+    background-color: #232323;
+    border: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+.content .contactWr .mainContact .connectOptions .connectEmail{
+    width: 96%;
+    height: 42%;
+    border-radius: 1.5rem;
+    background-color: #232323;
+    border: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+.content .contactWr .mainContact .connectOptions .or{
+    width: 96%;
+    color: #fff;
+    display: flex;
+    justify-content: end;
+}
+.content .contactWr .mainContact .connectOptions .connectTeams a,
+.content .contactWr .mainContact .connectOptions .connectEmail a{
+    width: 20%;
+    height: 23%;
+    border-radius: 50%;
+    background: linear-gradient(83deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    border: 1px solid red;
+}
+.content .contactWr .mainContact .connectOptions .connectTeams a img,
+.content .contactWr .mainContact .connectOptions .connectEmail a img{
+    width: 65%;
+}
+.content .contactWr .mainContact .connectOptions .connectTeams p,
+.content .contactWr .mainContact .connectOptions .connectEmail p{
+    color: #fff;
+    font-size: 1.2rem;
+}
+.reachText{
+    text-align: center;
+}
+/* starts Form */
+#contactForm input {
+    border: 1px solid #B8B8B8;
+    width: 30rem;
+    height: 4rem;
+    border-radius: 5rem;
+    background-color: transparent;
+}
+
+#contactForm .textarea {
+    width: 30rem;
+    height: 25vh;
+    border-radius: 1rem;
+    background-color: transparent;
+}
+
+#contactForm label .name,
+#contactForm label .email-label {
+    color: #ffF;
+    font-family: var(--futura-book);
+    font-size: 1.3rem;
+    background-color: #232323;
+    width: 2.813rem;
+    height: 0.75rem;
+}
+
+#contactForm .message-label {
+    color: #ffF;
+    font-family: var(--futura-book);
+    font-size: 1.2rem;
+    background-color: #232323;
+    width: 2.813rem;
+    height: 0.75px;
+    top: -12px;
+    left: 25px;
+}
+
+#contactForm .label_name {
+    top: 0.5rem;
+    left: 26px;
+}
+
+#contactForm .label_email {
+    top: 0.5rem;
+    left: 25px;
+}
+
+#contactForm .label_message {
+    top: -0.9rem;
+    left: 24px;
+}
+
+#contactForm span {
+    color: #FF7E4F;
+}
+
+.submit-button {
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    border-radius: 0.313rem;
+    color: #E5E8E9;
+}
+#email{
+    border: 1px solid #B8B8B8;
+    width: 30rem;
+    height: 4rem;
+    border-radius: 5rem;
+    background-color: transparent;
+    color: #fff;
+}
+/* ends form */
+/* ends Contact css */

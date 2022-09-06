@@ -1,0 +1,1023 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work | Engagement Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/css/create_event_2.css">
+     <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/css/access-control.css">
+      <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">
+      <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+     <script src="https://infornt.sharepoint.com/SiteAssets/Admin/Image_Calender/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.runtime.js"></script>
+	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.init.js"></script>
+	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.js"></script>
+	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.core.js"></script>	
+	 <script type="text/javascript" src="https://infornt.sharepoint.com/SiteAssets/Admin/Image_Calender/jquery.multifile.js"></script> 
+	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/life.js"></script>
+	  <script type="text/javascript" src="https://infornt.sharepoint.com/SiteAssets/Admin/Image_Calender/validations.js"></script>
+	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/AdHubLifeevents.js"></script>	
+		
+    <style type="text/css">
+    .modal-content{
+    height: auto;
+    border-radius: 1.5rem;
+    /* padding: 1rem; */
+    background: linear-gradient(86deg, #DE8601 0%, #FF3D97 100%);
+    width: 518px;
+    padding: 8px;
+    margin-top: 17%;
+}
+.player{
+	    position: absolute;
+    top: 4.4rem !important;
+    left: 14rem;
+}
+.headinput{
+    position: relative;
+    /* background: #000000; */
+    padding: 5px 10px;
+    width: 100%;
+    margin: 0px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+  }
+  
+  .event-head a{
+    text-decoration: none;
+  }
+  .span-data {
+    margin-top: 2%;
+    font-size: 12px;
+    color: #232323;
+    font-weight: 600;
+  }
+  .tdesk{
+    width: 100% !important;
+  }
+  .leftspan{
+    width: 79%;
+  }
+  .editstart{
+    cursor: pointer;
+  }
+  .leftspan input{
+    width: 97%;
+    font-size: 12px;
+    background: transparent;
+    padding: 6px 9px;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    pointer-events: none;
+  }
+  
+  .leftspan1 span{
+    margin: 10px 0px;
+  }
+  .leftspan1 label{
+    font-size: 11px;
+    color: #fff;
+  }
+  /* Commented by Venu */
+  /* .publishbtn1{
+    position: absolute;
+    right: 10px;
+    top: 13px;
+  } */
+  .tbaner{
+    width: 40%;
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid #4E4E4E;
+  background: #232323;
+  padding: 0px 11px;
+  height: 30px;
+  font-size: 12px;
+  color: #E5E5E5;
+  }
+  .tdesk{
+    width: 40%;
+  border-radius: 15px;
+  outline: none;
+  border: 1px solid #4E4E4E;
+  background: #232323;
+  padding: 0px 11px;
+  height: 45px;
+  font-size: 12px;
+  color: #E5E5E5;
+  resize: none;
+  }
+  .leftspan1{
+    width: 79%;
+    margin-left: 1rem;
+  }
+  .leftspan1 input{
+    font-size: 12px;
+    padding: 6px 9px;
+    color: #fff;
+    background-color: #D19FE3;
+    outline: none;
+  }
+  .editon{
+    pointer-events: all !important;
+    border: 1px solid #a7a7a7 !important;
+  }
+  .publishbtn{
+    background: rgba(255, 255, 255, 0.2);
+    /* background-size: 800px 100%; */ 
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #747474;
+    background-position: 50% 100%;
+    transition: all .3s ease;
+  }
+  .publishbtn:hover{
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 5px 10px;
+    box-shadow: 0 0 6px 0 rgb(157 96 212 / 50%);
+    border: solid 1.5px transparent;
+    background: #fff;
+    box-shadow: 2px 1000px 1px #000000 inset;
+    color: #fbfbfbc4;
+  }
+  
+
+  .divider1 img{
+    transform: rotate(90deg);
+    width: 100%;
+    height: 1px;
+  }
+  footer .divider1 img{
+   
+    width: 15%;
+    height: 79%;
+    transform: rotate(0deg);
+    margin-top: 26px;
+}
+ 
+  .dividermin img{
+    width: 100%;
+    height: 16px;
+  }  
+.mainInformationContrainer{
+    position: relative;
+  }
+  .mainInformationContrainer ul{
+    margin-bottom: 0px;
+    padding-left: 5px;
+  }
+  .mainInformationContrainer ul li{
+    list-style: none;
+    width: 100%;
+    /* margin-bottom: 10px; */
+    overflow: auto;
+  }
+  .mainInformationContrainer ul li label{
+    width: 15%;
+    display: block;
+    float: left;
+    color: #444;
+    font: 13px/1.7em "Open Sans", "trebuchet ms", arial, sans-serif;
+  }
+  .mainInformationContrainer ul li .oneInfo{
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .mainInformationContrainer ul li .oneInfo span{
+    color: #ffffff;
+    font-size: 11px;
+  }
+  .mainInformationContrainer ul li  input[type="submit"], .mainInformationContrainer ul li  input[type="file"]{
+    color: #ffffff;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    background-color: #e5412d;
+    border-color: #dd301b;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius:4px;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  .mainInformationContrainer ul li  input[type="submit"]:hover{
+    background-color: red;
+  }
+  
+  
+  .mainInformationContrainer ul li .oneInfo img {
+    height: 100%;
+  }
+    
+  
+  #file_input{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+    display: block;
+  }
+  .fa-upload{
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  .selectImage{
+    position: relative;
+        display: inline-block;
+    padding: 6px 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+  }
+    .imageli{
+    border-radius: 15px;
+    margin-bottom: 0px !important;
+  }
+  
+.main-data-section{
+    /* background-color: #232323; */
+    background-color: #131313;
+       padding: 1.5rem 2rem;
+    border-radius: 11px;
+}
+.headEvent{
+    display: flex;
+    justify-content: space-between;
+}
+.dataspan{
+    font-size: 11px !important;
+    opacity: 0.7;
+}
+.eventDataHead span{
+    font-size: 13px;
+    font-weight: 600;
+}
+.EventData p{
+    font-size: 12px;
+    margin-top: 2%;
+}
+.EventData{
+    background-color: #000000;
+    padding: 20px 23px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.eventDataHead a small{
+   margin-right: 5px;
+
+}
+.headEvent span{
+    font-size: 14px;
+    font-weight: 600;
+}
+.eventlist{
+    margin-top: 1.5%;
+}
+.headEvent span small{
+    font-weight: 400;
+    margin-right: 5px;
+}
+.eventDataHead a{
+    text-decoration: none;
+    font-size: 12px;
+    color: #FF3D97;
+}
+.eventlist .card{
+    background-color: #000000;
+    width: 30%;
+    padding:0px 0px 20px 0px;
+    border-radius: 8.5%;
+    /* height: 41vh; */
+}
+.card .img{
+    text-align: center;
+}
+.card img{
+    width: 90%;
+    border-top-left-radius: 8.5%;
+    border-top-right-radius: 8.5%;
+    text-align: center;
+    margin-top: -13px;
+}
+.card-data{
+    background-image: linear-gradient(to bottom, #00000000 0%, #00000042 10%, #000000ab 25%, #000000 50%);
+    background-size: cover;
+     margin-top: -106px;
+    padding-top: 30px !important;
+    padding: 0px 17px;
+    border-bottom-left-radius: 8.5%;
+    border-bottom-right-radius: 8.5%;
+}
+.card-data small{
+    display: block;
+    font-size: 10px;
+    color: #E8B0FC; /* Venu */
+    font-weight: 400;
+}
+.card-data span{
+    font-size: 14px;
+    font-weight: 600;
+}
+.card-data p{
+    font-size: 10px;
+    margin-bottom: 0px;
+    color: #E5E5E5;
+}
+.card-data .date, .card-data .timedata{
+    color: #6B6B6B;
+    font-size: 11px;
+}
+.card-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* margin-top: 15px; */
+    margin-bottom: -22px;
+}
+.card-left{
+    display: flex;
+}
+.card-left a img{
+    width: 40% !important;
+}
+.card-left a{
+    text-decoration: none;
+    margin: 10px 0px;
+}
+.card-right button{
+    color: #fff;
+    font-size: 11px;
+}
+.workcardTopWr .upcomingEventsWr {
+    position: relative;
+}
+
+.upcomingeventsDetails {
+    position: absolute;
+    bottom: 3.7rem;
+    padding: 0 0.8rem;
+}
+
+.workcardTopWr .upcomingEventsWr,
+.workcardBottomWr .pastEventsWr {
+    width: 100%;
+    height: 34vh; /*venu */
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard {
+    width: 31%;
+    height: 30vh;
+    border-radius: 1.5rem;
+    background-color: var(--black-color);
+    padding: 1.4rem;
+    margin-bottom: 2rem;
+    /* border: 1px solid red; */
+}
+
+.workcardBottomWr .pastEventsWr .pastEventsWr {
+    width: 30%;
+    height: 100%;
+    border-radius: 1.5rem;
+    background-color: var(--black-color);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    /* border: 1px solid red; */
+}
+
+.workcardTopWr .upcomingEventsHeading {
+    margin-bottom: 3rem;
+}
+
+.workcardTopWr .upcomingEventsHeading h4,
+.workcardBottomWr .PastEventHeading h4 {
+    color: var(--white-color);
+    font-weight: 700;
+    line-height: 3;
+}
+
+.upcomingEventsWr,
+.pastEventsWr {
+    width: 100%;
+    max-height: 130vh;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+}
+
+.upcomingEventsWr .upcomingEventsCard {
+    width: 30%;
+    height: 35%;
+    border-radius: 1.5rem;
+    background-color: var(--black-color);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.pastEventsWr .pasteventsCard {
+    width: 31%;
+    height: 34vh; /*venu */
+    border-radius: 1.5rem;
+    /* background-color: var(--black-color);
+    padding: 2rem; */
+    margin-bottom: 2rem;
+    /* border: 1px solid red; */
+}
+
+.upcomingEventsCard .upcomingeventsImg,
+.pastEventsWr .pasteventsImg {
+    position: relative;
+}
+
+.upcomingEventsCard .upcomingeventsImg .userImg1 {
+    width: 100%;
+    height: 22.3vh;
+    border-radius: 1.5rem;
+    position: absolute;
+    top: -3rem;
+    background-image: linear-gradient(180deg, #00000000 0%, #0D0D0DE8 59%, #000000 100%), url(../Images/shutterstock_1626984043/shutterstock_1626984043.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.upcomingEventsCard .upcomingeventsImg .userImg2 {
+    width: 100%;
+    height: 22.3vh;
+    border-radius: 1.5rem;
+    position: absolute;
+    top: -3rem;
+    background-image: linear-gradient(180deg, #00000000 0%, #0D0D0DE8 59%, #000000 100%), url(../Images/shutterstock_633366266/shutterstock_633366266.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 235%;
+}
+
+.upcomingEventsCard .upcomingeventsImg .userImg3 {
+    width: 100%;
+    height: 22.3vh;
+    border-radius: 1.5rem;
+    position: absolute;
+    top: -3rem;
+    background-image: linear-gradient(180deg, #00000000 0%, #0D0D0DE8 59%, #000000 100%), url(../Images/shutterstock_2036186210/shutterstock_2036186210.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 119%;
+}
+
+.pastEventsWr .pasteventsImg .userImg {
+    width: 100%;
+    /* border: 1px solid red; */
+}
+
+.upcomingEventsCard .upcomingeventsImg .userImg img,
+.pastEventsWr .pasteventsImg .userImg img {
+    width: 100%;
+    border-radius: 1.5rem;
+}
+
+.upcomingEventsCard .upcomingeventsDetails h5,
+.pasteventsCard .pasteventsDetails h5 {
+    color: var(--white-color);
+}
+
+.upcomingEventsCard .upcomingeventsDetails .work {
+    color: #E8B0FC;
+    margin: 0;
+}
+
+.upcomingEventsCard .upcomingeventsDetails .wow {
+    color: #FBAFA0;
+    margin: 0;
+}
+
+.upcomingEventsCard .upcomingeventsDetails .wellbeing {
+    color: #C7CFF8;
+    margin: 0;
+}
+
+.upcomingEventsCard .upcomingeventsDetails p,
+.pasteventsCard .pasteventsDetails p {
+    color: var(--gray-shade);
+}
+
+.upcomingeventsDetails .upcomingeventsDate_Time,
+.pasteventsDetails .pasteventsBtn {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.upcomingeventsDetails .upcomingeventsDate_Time a img,
+.pasteventsDetails .pasteventsBtn a img {
+    width: 1.2rem;
+}
+
+.upcomingeventsDetails .upcomingeventsDate_Time .upcomingeventsCalendar a,
+.upcomingeventsDetails .upcomingeventsDate_Time .upcomingeventsClock a,
+.pasteventsDetails .pasteventsBtn .upcomingeventsCalendar a,
+.pasteventsDetails .pasteventsBtn .upcomingeventsClock a {
+    color: #6B6B6B;
+    display: flex;
+    align-items: center;
+}
+
+.upcomingeventsDetails .upcomingeventsDate_Time .upcomingeventsCalendar a img,
+.upcomingeventsDetails .upcomingeventsDate_Time .upcomingeventsClock a img,
+.pasteventsDetails .pasteventsBtn .upcomingeventsCalendar a img,
+.pasteventsDetails .pasteventsBtn .upcomingeventsClock a img {
+    margin-right: 0.5rem;
+}
+
+.upcomingeventsDetails .upcomingeventsDate_Time .upcomingeventsClock,
+.pasteventsDetails .pasteventsBtn .upcomingeventsClock {
+    margin-left: 2rem;
+}
+
+.upcomingeventsCalendar a label {
+    padding-top: 0.3rem;
+}
+
+.upcomingeventsClock a label {
+    padding-top: 0.2rem;
+}
+
+/* For buttons */
+.upcomingeventsDetails .upcomingeventsBtn,
+.pasteventsDetails .pasteventsBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.upcomingeventsDetails .upcomingeventsBtn a,
+.pasteventsDetails .pasteventsBtn a {
+    width: 1.5rem;
+}
+
+.upcomingeventsDetails .upcomingeventsBtn .upcomingeventsReminder a,
+.upcomingeventsDetails .upcomingeventsBtn .upcomingeventsJoin a,
+.pasteventsDetails .pasteventsBtn .upcomingeventsReminder a,
+.pasteventsDetails .pasteventsBtn .upcomingeventsJoin a {
+    color: var(--white-color);
+}
+
+.upcomingeventsDetails .upcomingeventsBtn .upcomingeventsReminder a {
+    background-color: #232323;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    /* margin-right: 2rem; */
+}
+
+.upcomingeventsDetails .upcomingeventsBtn .upcomingeventsJoin a {
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%);
+    padding: 0.5rem 4rem;
+    border-radius: 0.5rem;
+}
+
+.upcomingeventsDetails .upcomingeventsBtn .upcomingeventsClock,
+.pasteventsDetails .pasteventsBtn .upcomingeventsJoin {
+    margin-left: 2rem;
+}
+
+.userImg1 .cornerBtns,
+.userImg2 .cornerBtns,
+.userImg3 .cornerBtns {
+    display: flex;
+    justify-content: end;
+    margin-top: 0.8rem;
+    height: 4vh;
+}
+
+.userImg1 .cornerBtns .share a,
+.userImg2 .cornerBtns .share a,
+.userImg3 .cornerBtns .share a {
+    width: 65%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #1c1c1ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userImg1 .cornerBtns .heart a,
+.userImg3 .cornerBtns .heart a {
+    width: 65%;
+    height: 95%;
+    border-radius: 50%;
+    background-color: #FF3D97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userImg2 .cornerBtns .heart a {
+    width: 65%;
+    height: 95%;
+    border-radius: 50%;
+    background-color: #1c1c1ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userImg1 .cornerBtns .share a img,
+.userImg1 .cornerBtns .heart a img,
+.userImg2 .cornerBtns .share a img,
+.userImg2 .cornerBtns .heart a img,
+.userImg3 .cornerBtns .share a img,
+.userImg3 .cornerBtns .heart a img {
+    width: 50%;
+    height: 5vh;
+}
+
+/* starts workcardBottomWr css */
+.pasteventsCard .videoImg1 {
+    width: 100%;
+    height: 26vh;
+    border-radius: 1.5rem;
+    background: linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%), url(../../../_catalogs/masterpage/AdminMaster/New_Admin/All_Images/girl.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+/* starts Modal */
+.modal-dialog .btn-close-white{
+    position: absolute;
+    top: 9.5rem;
+    right: -1.2rem;
+}
+.modal-body{
+    padding: 0.6rem;
+}
+.modal-body .videoImg1 {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    /* background: linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%), url(../Images/girl.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 100% 100%;
+    position: relative; */
+}
+.modal-body .videoImg1 img{
+    width: 100%;
+    border-radius: 1.5rem;
+}
+.modal-body .pasteventsDetails{
+    position: absolute;
+    bottom: 1rem;
+    left: 2.5rem;
+}
+.modal-body .past h2{
+    font-weight: 500;
+}
+.modal-body .videoWr{
+    background-color: var(--white-color);
+    height: 100%;
+    border-radius: 1rem;
+}
+.pasteventsDetails label{
+    font-size: 10px;
+}
+.modal-body .videoImg1 .pasteventsDetails h5,
+.modal-body .videoImg1 .pasteventsDetails p{
+    color: var(--white-color);
+}
+/* ends Modal */
+.pasteventsCard .videoImg1 {
+    width: 100%;
+    height: 26vh;    border-radius: 1.5rem;
+    background: linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%), url(../../../_catalogs/masterpage/AdminMaster/New_Admin/All_Images/girl.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /* border: 1px solid red; */
+}
+.pasteventsCard .videoImg2 {
+    width: 100%;
+    height: 26vh;    border-radius: 1.5rem;
+    background: linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%), url(../../../_catalogs/masterpage/AdminMaster/New_Admin/All_Images/girl.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+.pasteventsCard .videoImg3 {
+    width: 100%;
+    height: 26vh;    border-radius: 1.5rem;
+    background: linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%), url(../../../_catalogs/masterpage/AdminMaster/New_Admin/All_Images/girl.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    /* border: 1px solid red; */
+}
+
+.videoImg1 .pasteventsDetails,
+.videoImg2 .pasteventsDetails,
+.videoImg3 .pasteventsDetails {
+    position: absolute;
+    bottom: 0;
+    left: 1.4rem;
+}
+
+/* ----------------------- written by Venu ----------------------- */
+
+body{
+    background-color: #000000;
+    font-size: 10px;
+    font-family: 'Montserrat';
+}
+.arrow a{
+    display: flex;
+    align-items: center;
+    /*color: #fff;
+    text-decoration: none;*/
+}
+.arrow a img{
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-right: 0.5rem;
+}
+.arrow a h5{
+    margin: 0;
+}
+.breadcrumb .breadcrumb-item a{
+    color: #fff;
+    text-decoration: none;
+}
+.breadcrumb li{
+    padding: 0;
+    margin: 0;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+    padding-right: 0.2rem;
+    color: #fff;
+}
+.breadcrumb-item + .breadcrumb-item{
+    padding-left: 0;
+}
+.head-left nav{
+    margin-left: 0.2rem;
+    margin-top: 0.1rem;
+}
+
+.leftspan1 input::placeholder{
+    color: #191718;
+}
+
+.completedEvent,
+.upcomingEvent,
+.workcardBottomWr{
+    color: #fff;
+    margin-top:2%;
+}
+
+.completedEvent .dataspan img,
+.upcomingEvent .dataspan img{
+    width: 20%;
+}
+
+.card-data .card-left small{
+    color: #fff;
+}
+
+.leftspan1 .lftspanBaner{
+    width: 80%;
+}
+.leftspan1 .lftspanPublishbtn{
+    width: 20%;
+    display: flex;
+    align-items: center;
+}    
+#EventDesc{
+	max-width: 300px;
+    -webkit-line-clamp: 2;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+.sidebar{
+	height:128rem;
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+       .event-data  {
+               height:91.5rem;
+    }
+
+
+
+}
+@media (min-width: 1200px) and (max-width: 1400px){
+     .event-data  {
+               height:114rem;
+               width:121rem;
+    }
+   .FA-1{
+	    width: 92.5% !important;
+    margin-left: 3.5% !important;
+    }
+
+ .spanForFileInput{
+	margin-left:1px !important;
+	 width: 93% !important;
+
+}
+
+}
+@media (min-width: 1400px) and (max-width: 1600px){
+    .event-data  {
+               height:auto;
+                width:151.5rem;
+                margin-left:3% !important;
+ }
+  .FA-1{
+	   width: 92% !important;
+    margin-left: 3.5% !important;
+    }
+
+    .sidebar{
+	height:149rem;
+}
+ .spanForFileInput{
+	margin-left:1px !important;
+
+
+
+}
+}
+</style>   
+</head>
+<body>
+    <div class="head-section">
+     <div class="event-head d-flex justify-content-between align-items-center">
+
+<div class="head-left">
+                <span class="arrow"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/manage_hub.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a></span>
+                <h4>Life</h4>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx">Home</a></li>
+                    <li class="breadcrumb-item"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/manage_hub.aspx">&nbsp; Manage hub</a></li>
+                    <li class="breadcrumb-item"><a href="#">&nbsp;Life</a></li>
+                    </ol>
+                </nav>
+            </div>
+      </div>
+ 
+        <div class="main-data-section event-data">
+
+            <section class="headinput my-3 d-flex">
+                <div class="mainInformationContrainer">
+                    <ul>
+                        <li class="imageli">
+                            <div class="oneInfo thumbnail" style="height: 120px;width: 185px;border-radius:15px; text-align: center; background-color: #000;">
+                                <img alt="img notfound" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/163-large.png" id="imageID">
+                            </div>
+                        </li>
+                        <li>
+                            <div class="oneInfo" id="attachFilesHolder" style="width: 200px; overflow: hidden">
+                                <span class="spanForFileInput" style="background-color: transparent;">
+                                    <span class="selectImage"><i class="fa-solid fa-upload"></i>Upload
+                                        Image</span>
+                                    <!-- <input type="button" class="selectImage" value="Select Image"/> -->
+                                    <input type="file" value="Select Image" id="file_input" class="publishLifeImage">
+                                </span>
+                            </div>
+                        </li>
+                        <!-- <li>
+                            <label></label>
+                            <div class="oneInfo">
+                    
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+                <!-- <span class="editstart">
+                    <input type="file">
+                </span> -->
+                <span class="leftspan1">
+                    <span class="d-flex">
+                        <div class="lftspanBaner">
+                        <label for="" class="d-block">Banner Title</label>
+                        <input class="tbaner" type="text" title='Baner Title' style="background-color: #D19FE3 !important ;font-weight: 600;" id="PublishLifeTitle" placeholder="Life">
+                    </div>
+
+                    <div class="lftspanPublishbtn">
+                        <span class="divider1" style="width: 40px;">
+                            <img src="Images/divider1.png" alt="">
+                        </span>
+                        <button name="Publish" target="_self" type="button" class="publishbtn publishbtn1" id="publishLife">Publish</button>
+                    </div>
+                    </span>
+                    <span class="d-block">
+                        <label for="">Description</label>
+                   		<input class="tdesk" type="text" title='Description' id="PublishLifeDesc" placeholder="">
+                    </span>
+                    <input type="hidden" value="Life" title="Pillar">
+                </span>
+
+
+            </section>
+            <div class="completedEvent">
+                <div class="headEvent">
+                    <span>Completed Events</span>
+                    <span class="dataspan"><small>July 2022</small> 
+                        <!-- <i class="fa-solid fa-calendar-days"></i> -->
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/calendar.png" alt="Calendar">
+                    </span>
+                </div>
+                <div class="EventData">
+                    <div class="eventDataHead d-flex justify-content-between">
+                        <span id="EventCount"></span>
+                        <a href="https://infornt.sharepoint.com/SitePages/ENG_Admin/Admin_ManagePastEvents.aspx"><small>See more details</small> 
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <p>All Event tag to Work Hub with Description will be available here</p>
+                </div>
+            </div>
+            <div class="upcomingEvent mt-3">
+                <div class="headEvent workcardBottomWr">
+                    <span>Upcoming Events</span>
+                    <input type="text" id="cal">
+                    <span class="dataspan"><small>July 2022</small> 
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/icons8-calendar-24.png" alt="Calendar">
+                        <!-- <i class="fa-solid fa-calendar-days"></i> -->
+                    </span>
+                </div>
+                <div class="eventlist d-flex flex-wrap align-items-center w-100" style="margin-left:-13px">
+                    
+                    
+                </div>
+            </div>
+                        <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/manage_past_event.aspx" id="right" type="button" class="btn" style="float:right; color:#FF3D97; font-size:100%"> View All</a>
+
+            <div class="workcardBottomWr">
+                <div class="PastEventHeading">
+                    <h4>Past Event Video</h4>
+                </div>
+                <div class="pastEventsWr">
+                                    </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="https://infornt.sharepoint.com/_catalogs/masterpage/AdminMaster/New_Admin/All_JS/main.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+</body>
+
+</html>
