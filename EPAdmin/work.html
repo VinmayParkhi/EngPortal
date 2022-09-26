@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Expires" content="0" />
+	<meta http-equiv="Pragma" content="no-cache" />
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,15 +29,32 @@
 	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.core.js"></script>	
 	 <script type="text/javascript" src="https://infornt.sharepoint.com/SiteAssets/Admin/Image_Calender/jquery.multifile.js"></script> 
 	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/work.js"></script>
-	 <script type="text/javascript" src="https://infornt.sharepoint.com/SiteAssets/Admin/Image_Calender/validations.js"></script> 
+	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/validations.js"></script> 
 	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/AdHubWorkevents.js"></script>	
 		
     <style type="text/css">
     
-.headinput{
+    #publishWork{
+	pointer-events:none;
+	}
+.EnableBtn{
+	 background: linear-gradient(90deg , #DE8601 0%, #FF3D97 100%) !important;
+    font-size: 11px;
+    color:#fff !important;
+    pointer-events:auto !important;
+}
+
+    
+    .sidebar {
+    height: auto;
+}
+.event-data{
+	height: auto;
+}
+.head-section .event-head .headinput{
     position: relative;
-    /* background: #000000; */
-    padding: 5px 10px;
+    background: transparent;
+    padding: 0px !important;
     width: 100%;
     margin: 0px;
     border-radius: 10px;
@@ -43,6 +63,12 @@
     opacity: 0.7;
   }
   
+  #WebPartWPQ5 > div.ms-rtestate-field > div.head-section > div.main-data-section.event-data > div.completedEvent > div.EventData > p{
+	    color: darkgrey;
+}
+  .tbaner{
+	color:black !important;
+}
   .event-head a{
     text-decoration: none;
   }
@@ -74,7 +100,7 @@
   }
   
   .leftspan1 span{
-    margin: 10px 0px;
+    margin: 0px;
   }
   .leftspan1 label{
     font-size: 11px;
@@ -114,11 +140,13 @@
     margin-left: 1rem;
   }
   .leftspan1 input{
+  	width: 223px;
     font-size: 12px;
     padding: 6px 9px;
     color: #fff;
-    background-color: #D19FE3;
+    background-color: #232323;
     outline: none;
+    margin-bottom: 0.3rem;
   }
   .editon{
     pointer-events: all !important;
@@ -275,6 +303,7 @@
 .dataspan{
     font-size: 11px !important;
     opacity: 0.7;
+    margin-right: -3px;
 }
 .eventDataHead span{
     font-size: 13px;
@@ -286,7 +315,7 @@
 }
 .EventData{
     background-color: #000000;
-    padding: 20px 23px;
+    padding: 20px;
     margin-top: 10px;
     border-radius: 10px;
 }
@@ -313,10 +342,11 @@
 }
 .eventlist .card{
     background-color: #000000;
-    width: 30%;
+    width: 31%;
     padding:0px 0px 20px 0px;
     border-radius: 8.5%;
-    /* height: 41vh; */
+    margin: 0;
+    /*height: 41vh;*/
 }
 .card .img{
     text-align: center;
@@ -390,28 +420,31 @@
 .workcardTopWr .upcomingEventsWr,
 .workcardBottomWr .pastEventsWr {
     width: 100%;
-    height: 34vh; /*venu */
+    height: auto; /*venu */
+    display: flex;
+    /*justify-content: space-between;*/
+    /* border: 1px solid red; */
+}
+
+.workcardBottomWr .PastEventHeading {
     display: flex;
     justify-content: space-between;
-    /* border: 1px solid red; */
+    align-items: center;
 }
 
 .workcardTopWr .upcomingEventsWr .upcomingEventsCard {
     width: 31%;
     height: 30vh;
     border-radius: 1.5rem;
-    background-color: var(--black-color);
+    background-color: #000;
     padding: 1.4rem;
     margin-bottom: 2rem;
     /* border: 1px solid red; */
 }
 
-.workcardBottomWr .pastEventsWr .pastEventsWr {
-    width: 30%;
-    height: 100%;
+.workcardBottomWr .pastEventsWr {
+    width: 100%;
     border-radius: 1.5rem;
-    background-color: var(--black-color);
-    padding: 2rem;
     margin-bottom: 2rem;
     /* border: 1px solid red; */
 }
@@ -422,7 +455,7 @@
 
 .workcardTopWr .upcomingEventsHeading h4,
 .workcardBottomWr .PastEventHeading h4 {
-    color: var(--white-color);
+    color: #fff;
     font-weight: 700;
     line-height: 3;
 }
@@ -434,7 +467,7 @@
     border-radius: 1.5rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     /* border: 1px solid red; */
 }
 
@@ -442,18 +475,18 @@
     width: 30%;
     height: 35%;
     border-radius: 1.5rem;
-    background-color: var(--black-color);
+    background-color: #000;
     padding: 2rem;
     margin-bottom: 2rem;
 }
 
 .pastEventsWr .pasteventsCard {
     width: 31%;
-    height: 34vh; /*venu */
+    height: auto; /*venu */
     border-radius: 1.5rem;
     /* background-color: var(--black-color);
-    padding: 2rem; */
-    margin-bottom: 2rem;
+    padding: 2rem; 
+    margin-bottom: 2rem;*/
     /* border: 1px solid red; */
 }
 
@@ -510,7 +543,7 @@
 
 .upcomingEventsCard .upcomingeventsDetails h5,
 .pasteventsCard .pasteventsDetails h5 {
-    color: var(--white-color);
+    color: #fff;
 }
 
 .upcomingEventsCard .upcomingeventsDetails .work {
@@ -591,7 +624,7 @@
 .upcomingeventsDetails .upcomingeventsBtn .upcomingeventsJoin a,
 .pasteventsDetails .pasteventsBtn .upcomingeventsReminder a,
 .pasteventsDetails .pasteventsBtn .upcomingeventsJoin a {
-    color: var(--white-color);
+    color: #fff;
 }
 
 .upcomingeventsDetails .upcomingeventsBtn .upcomingeventsReminder a {
@@ -726,7 +759,7 @@
 }
 .modal-body .videoImg1 .pasteventsDetails h5,
 .modal-body .videoImg1 .pasteventsDetails p{
-    color: var(--white-color);
+    color: #fff;
 }
 /* ends Modal */
 .pasteventsCard .videoImg1 {
@@ -763,7 +796,7 @@
 .videoImg3 .pasteventsDetails {
     position: absolute;
     bottom: 0;
-    left: 1.4rem;
+    left: 0;
 }
 
 /* ----------------------- written by Venu ----------------------- */
@@ -815,6 +848,7 @@ body{
 .upcomingEvent,
 .workcardBottomWr{
     color: #fff;
+    padding: 0px 4px;
 }
 
 .completedEvent .dataspan img,
@@ -830,12 +864,18 @@ body{
     width: 80%;
 }
 .leftspan1 .lftspanPublishbtn{
-    width: 20%;
+    /*width: 20%;*/
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }    
+.headinput .divider1 img{
+	/*margin-top: -18px;*/
+	margin-left: 18px;
+}
 #EventDesc{
 	max-width: 300px;
+	height: 35px;
     -webkit-line-clamp: 2;
     padding: 0px;
     -webkit-box-orient: vertical;
@@ -843,19 +883,100 @@ body{
     text-overflow: ellipsis;
     display: -webkit-box;
 }
+.publishbtn1 {
+    position: absolute;
+    right: 18px;
+    top: 24px;
+}
+
+.head-section .event-data{
+	padding: 15px 25px 25px !important;
+}
+
+.upcomingEvent .headEvent{
+	margin-bottom: 3rem !important;
+}
+.ms-webpartzone-cell{
+	margin: 0px !important;
+}
+
+#upcomEvent:nth-child(2){
+	margin-left: 2.36rem;
+	margin-right: 2.36rem;
+}
+.event-data .workcardBottomWr .pastEventsWr .pasteventsCard:nth-child(2){
+	margin-left: 2.36rem;
+	margin-right: 2.36rem;
+}
+.ms-rtestate-field p{
+	margin: 0;
+}
+
+/*=============================================================================*/
+.publishbtn1 {
+    position: absolute;
+    right: 0px;
+    top: 24px;
+}
+
+.tdesk {
+    width: 101% !important;
+}
+
+
+.completedEvent, .upcomingEvent, .workcardBottomWr {
+    color: #fff;
+    padding: 0px 0px; 
+}
+.player{
+	cursor:pointer;
+ 	width: 22%;
+}
+
+select {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;       /* Remove default arrow */
+       background-color: #131313;
+           color: white;
+           border:none;
+               outline: none;
+} 
+
+/*=============================================================================*/
+
 
 @media(min-width: 992px) and (max-width: 1200px){
+/*.ms-webpartzone-cell{
+	margin: 0px;
+}*/
+	.event-head{
+		padding: 8px 18px;
+	}
        .event-data  {
-                height:91.5rem;
+       	/*height:91.5rem;*/
+       	height: auto;       	
     }
-
-
-
+    .imgPublish{
+	height: 9vh;
+	}
+	footer{
+	width: 93%;
+    margin: 30px 36px 15px !important;
+	}
+		
+    }
+    
+    @media (min-width: 1024px){
+	footer {
+    width: 92.98%;
+    }
 }
 @media(min-width: 1200px) and (max-width: 1400px){
-     .event-data  {
-                height:114rem;;
-               width:121rem;
+    .event-data  {
+               /*height:114rem;*/
+               width:92%;
+               margin-left:3% !important;
     }
    .FA-1{
 	    width: 92% !important;
@@ -866,38 +987,132 @@ body{
 	width:93% !important;
 }
 .sidebar{
-	height:128rem;
+	height:auto;
+}
+#s4-bodyContainer > div > section > div > hr{
+	width:92% !important;
+	margin-left:3% !important;
+}
+
+.action .menu.active {
+	    margin-right: 0rem;
+}
+.action .menu{
+	width:22rem;
+}
+.player {
+    cursor: pointer;
+    width: 18% !important;
+}
+#upcomEvent:nth-child(2) {
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+.event-data .workcardBottomWr .pastEventsWr .pasteventsCard:nth-child(2){
+	margin-left: 3rem;
+	margin-right: 3rem;
 }
 
 }
+
+@media (min-width: 1280px){
+	.divider1 img{
+	margin-top: 3px !important;
+}
+#upcomEvent:nth-child(2) {
+    margin-left: 3.25rem;
+    margin-right: 3.25rem;
+}
+.event-data .workcardBottomWr .pastEventsWr .pasteventsCard:nth-child(2){
+	margin-left: 3.25rem;
+	margin-right: 3.25rem;
+}
+}
+
+@media (min-width: 1366px){
+#upcomEvent:nth-child(2) {
+    margin-left: 3.6rem;
+    margin-right: 3.6rem;
+}
+.event-data .workcardBottomWr .pastEventsWr .pasteventsCard:nth-child(2){
+	margin-left: 3.6rem;
+	margin-right: 3.6rem;
+}
+}
+
 @media(min-width: 1400px) and (max-width: 1600px){
     .event-data  {
-               height:auto;
-                width:151.5rem;
+                 height:auto;
+                width:92%;
                 margin-left:3% !important;
- }
+}
     .sidebar{
-	height:142.5rem;
+	height:auto;
 }
 .spanForFileInput{
 	margin-left:1px !important;
 	width:93% !important;
 }
-.FA-1{
-	    width: 92% !important;
+    
+    footer{
+	    width: 92.5% !important;
+    /*margin-left: 4% !important;
+    width: 94.3%;*/
     margin-left: 3.5% !important;
     }
-  
-  .player{
-	       position: absolute;
-    top: 4.4rem !important;
-    left: 14rem;
- }
+ .player img{
+	width: 100%;
+}
+ .action .menu.active {
+	    margin-right: 0rem;
+}
+.action .menu{
+	width:22rem;
+}
+#s4-bodyContainer > div > section > div > hr{
+	width:92% !important;
+	margin-left:3% !important;
+}
+#upcomEvent:nth-child(2) {
+    margin-left: 3.82rem;
+    margin-right: 3.82rem;
+}
+.event-data .workcardBottomWr .pastEventsWr .pasteventsCard:nth-child(2){
+	margin-left: 3.82rem;
+	margin-right: 3.82rem;
+}
+
 }   
 
-@media (min-width: 1600px) and (max-width: 1980px){
+
+@media (min-width: 1536px){
+	footer{
+	width: 94%;
+}
+.player {
+    cursor: pointer;
+    width: 18%;
+}
+.publishbtn1{
+	right: 3px;
+}
+.headinput .divider1 img {
+    /* margin-top: -18px; */
+    margin-left: 90px;
+}
+#upcomEvent:nth-child(2) {
+    margin-left: 4.1rem;
+    margin-right: 4.1rem;
+}
+.event-data .workcardBottomWr .pastEventsWr .pasteventsCard:nth-child(2){
+	margin-left: 4.1rem;
+	margin-right: 4.1rem;
+}
+}
+
+@media (min-width: 1600px){
 	.sidebar{
-	height:166rem !important;
+	height:auto !important;
 }
 .event-data  {
                height:auto;
@@ -909,10 +1124,36 @@ body{
 	    width: 92% !important;
     margin-left: 3.5% !important;
     }
+    #upcomEvent:nth-child(2) {
+    margin-left: 4.3rem;
+    margin-right: 4.3rem;
+}
+.event-data .workcardBottomWr .pastEventsWr .pasteventsCard:nth-child(2){
+	margin-left: 4.3rem;
+	margin-right: 4.3rem;
+}
+}
+
+
+@media (min-width: 1900px){
+.headinput .divider1 img {
+    margin-left: 190px;
+}
+.player {
+    cursor: pointer;
+    width: 16%;
+}
+#upcomEvent:nth-child(2) {
+    margin-left: 5.38rem;
+    margin-right: 5.38rem;
+}
+.event-data .workcardBottomWr .pastEventsWr .pasteventsCard:nth-child(2){
+	margin-left: 5.38rem;
+    margin-right: 5.38rem;
+}
 
 }
 
- 
  </style>   
 </head>
 
@@ -940,13 +1181,15 @@ body{
                     <ul>
                         <li class="imageli">
                             <div class="oneInfo thumbnail" style="height: 120px;width: 185px;border-radius:15px; text-align: center; background-color: #000;">
-                                <img alt="img notfound" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/163-large.png" id="imageID">
+                                <img alt="img notfound" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/MicrosoftTeams-image (5) (2).png" id="imageID">                                
                             </div>
+                            <span style="color: #ff6fe7;margin-left: 20px;font-size: 8px;">Min Width:1600Px | Min Height:700Px</span>
                         </li>
                         <li>
-                            <div class="oneInfo" id="attachFilesHolder" style="width: 200px; overflow: hidden">
-                                <span class="spanForFileInput" style="background-color: transparent;">
-                                    <span class="selectImage"><i class="fa-solid fa-upload"></i>Upload
+                            <div class="oneInfo" id="attachFilesHolder" style="width: 195px; overflow: hidden;margin-left: -1px;">
+                                <span class="spanForFileInput" style="background-color: transparent;display: flex;justify-content: center;align-items: center;">
+                                    <span class="selectImage">
+                                    <i class="fa-solid fa-arrow-up-from-bracket" style="font-size: 1.6rem;"></i>&nbsp;&nbsp; Upload
                                         Image</span>
                                     <!-- <input type="button" class="selectImage" value="Select Image"/> -->
                                     <input type="file" value="Select Image" id="file_input" class="publishWorkImage">
@@ -964,7 +1207,7 @@ body{
                 <!-- <span class="editstart">
                     <input type="file">
                 </span> -->
-                <span class="leftspan1">
+                <!--<span class="leftspan1">
                     <span class="d-flex">
                         <div class="lftspanBaner">
                         <label for="" class="d-block">Banner Title</label>
@@ -972,8 +1215,8 @@ body{
                     </div>
 
                     <div class="lftspanPublishbtn">
-                        <span class="divider1" style="width: 40px;">
-                            <img src="Images/divider1.png" alt="">
+                        <span class="divider1" style="width: 40px;display: flex;align-items: center;justify-content: center;">
+                            <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/divider1.png" alt="">
                         </span>
                         <button name="Publish" target="_self" type="button" class="publishbtn publishbtn1" id="publishWork">Publish</button>
                     </div>
@@ -983,20 +1226,69 @@ body{
                    		<input class="tdesk" type="text" title='Description' id="PublishWorkDesc" placeholder="">
                     </span>
                     <input type="hidden" value="Work" title="Pillar">
-                </span>
+                </span>-->
+                
+                <div class="row leftspan1">
+                    
+                    <div class="col-md-8">
+                    	<div class="lftspanBaner" style="width:29rem;margin-bottom: 1rem;">
+                        	<label for="" class="d-block">Banner Title</label>
+                        	<input class="tbaner" type="text" title="Baner Title" style="background-color: #D19FE3 !important ;font-weight: 600;" id="PublishWorkTitle" placeholder="Work">
+                    	</div>
+
+                    </div>
+
+					<div class="row align-items-center col-md-4 imgPublish">
+						 <div class="col-md-8 col-lg-9 justify-content-xl-center lftspanPublishbtn">
+	                        <span class="divider1" style="width: 40px; ">
+	                            <img src="https://infornt.sharepoint.com/SiteAssets/Images/Image Icon/Image Icon/divider1.png" style="margin-top: 10px;" alt="" data-themekey="#">
+	                        </span>
+	                     </div>
+	                     <div class="col-md-4 col-lg-3">
+
+	                        <button name="Publish" target="_self" type="button" class="publishbtn publishbtn1" id="publishWork">Publish</button>
+	                    </div>
+
+                    </div>
+                    <div class="col-md-12 d-block">
+                        <label for="">Description</label>
+                   		<input class="tdesk" type="text" title="Description" id="PublishWorkDesc" placeholder="">
+                    </div>
+                    <input type="hidden" value="Work" title="Pillar">
+                </div>
 
 
             </section>
             <div class="completedEvent">
                 <div class="headEvent">
                     <span>Completed Events</span>
-                    <span class="dataspan"><small>July 2022</small> 
+                    <span class="dataspan"><small>
+                    	 <select class="compmonth" placeholder="Month">
+				        <option name="" value="" style="display:none;">Select Month</option>
+				        <option name="January" value="01">January</option>
+				        <option name="February" value="02">February</option>
+				        <option name="March" value="03">March</option>
+				        <option name="April" value="04">April</option>
+				          <option name="May" value="05">May</option>
+				        <option name="June" value="06">June</option>
+				        <option name="July" value="07">July</option>
+				        <option name="August" value="08">August</option>
+				          <option name="September" value="09">September</option>
+				        <option name="October" value="10">October</option>
+				        <option name="November" value="11">November</option>
+				        <option name="December" value="12">December</option>
+				      </select>
+				      <select>
+				        <option id="compyear"></option>
+				      </select>
+
+                    </small> 
                         <!-- <i class="fa-solid fa-calendar-days"></i> -->
-                        <img src="../../../_catalogs/masterpage/AdminMaster/New_Admin/All_Images/calender.png" alt="Calendar">
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/icons8-calendar-24.png" alt="Calendar">
                     </span>
                 </div>
                 <div class="EventData">
-                    <div class="eventDataHead d-flex justify-content-between">
+                    <div class="eventDataHead mb-4 d-flex justify-content-between">
                         <span id="EventCount"></span>
                         <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/manage_past_event.aspx"><small>See more details</small> 
                             <i class="fa-solid fa-arrow-right"></i>
@@ -1008,20 +1300,45 @@ body{
             <div class="upcomingEvent mt-3">
                 <div class="headEvent">
                     <span>Upcoming Events</span>
-                    <span class="dataspan"><small>July 2022</small> 
-                        <img src="../../../_catalogs/masterpage/AdminMaster/New_Admin/All_Images/calender.png" alt="Calendar">
+                    <span class="dataspan"><small>
+                    	  <select class="month" id="month" placeholder="Month">
+				        <option name="" value="" style="display:none;">Select Month</option>
+				        <option name="January" value="01">January</option>
+				        <option name="February" value="02">February</option>
+				        <option name="March" value="03">March</option>
+				        <option name="April" value="04">April</option>
+				          <option name="May" value="05">May</option>
+				        <option name="June" value="06">June</option>
+				        <option name="July" value="07">July</option>
+				        <option name="August" value="08">August</option>
+				          <option name="September" value="09">September</option>
+				        <option name="October" value="10">October</option>
+				        <option name="November" value="11">November</option>
+				        <option name="December" value="12">December</option>
+				      </select>
+				      <select>
+				        <option id="year"></option>
+				      </select>
+
+                    </small> 
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/icons8-calendar-24.png" alt="Calendar">
                         <!-- <i class="fa-solid fa-calendar-days"></i> -->
                     </span>
                 </div>
-                <div class="eventlist d-flex flex-wrap align-items-center w-100" style="margin-left:-13px">
+                <div class="row align-items-center w-100 eventlist"> <!--  style="margin-left:-13px" -->
                     
                     
                 </div>
             </div>
-            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/manage_past_event.aspx" id="right" type="button" class="btn" style="float:right; color:#FF3D97; font-size:100%"> View All</a>
+            
             <div class="workcardBottomWr">
                 <div class="PastEventHeading">
+                <div>
                     <h4>Past Event Video</h4>
+                </div>
+                <div>
+                    <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/manage_past_event.aspx" id="right" type="button" class="btn" style="color:#FF3D97; font-size:100%; padding: 0;text-decoration: underline;"> View All</a>
+                </div>
                 </div>
                 <div class="pastEventsWr">
                 

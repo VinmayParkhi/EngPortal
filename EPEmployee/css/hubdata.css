@@ -7,16 +7,26 @@
 .bannerTopHeading{
     width: 90%;
 }
+.mainTiles .card .textCard{
+	position: absolute;
+    top: 18%;
+	left: 42%;
+}
 .textCard p{
   margin-bottom: 5px;
   color:#E5E5E5;
-  font-size: 12px !important;
+  font-size: 1rem;
   text-decoration: none;
 }
 .mainTiles .textCard h4{
 	 background: linear-gradient(90deg, #fff 0%, #fff 100%) 0% 0%;
     -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 0;
+  color: #D0D0D0;
+}
+.cardBottomWr .mainTiles .textCard p{
+	color: #8d8d8d;
 }
 .bannerTopHeading h2{
     background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
@@ -27,14 +37,22 @@
     color: #E5E5E5;
 }
 .mainTiles{
-	width:50%;
+	width:49%;
 }
 .mainTiles .card{
-	width:98%;
+	width:100%;
 }
 #WebPartWPQ5 > div.ms-rtestate-field > div.cardBottomWr > div:nth-child(2) > div,
 #WebPartWPQ5 > div.ms-rtestate-field > div.cardBottomWr > div:nth-child(4) > div{
 	margin-left:1rem;
+}
+
+.mainTiles:nth-child(5) .card{
+	margin-bottom: 0 !important;
+}
+
+.sidebar{
+	height: auto;
 }
 
 .hubheading{
@@ -46,8 +64,9 @@
 }
 .cardBottomWr{
     width: 100%;
-    height: 100vh;
+    height: auto;
     display: flex;
+    justify-content: space-between;
     flex-wrap:wrap;
     /* border: 1px solid red; */
 }
@@ -88,7 +107,7 @@
 }
 .card{
     background: #000000;
-    margin: 1% 0%;
+    margin: 1rem 0;
     height: auto;
     width: 100%;
     border-radius: 1rem;
@@ -380,3 +399,228 @@ a{
 }
 /* ends form */
 /* ends Contact css */
+
+.Header > h4:nth-child(1){
+	font-size: large;
+	font-weight:700;
+}
+
+/*Mobile responsive query start*/
+ @media (min-width:375px) and (max-width:767px){
+ 
+ 
+ .ms-fullWidth {
+    width: 100% !important;
+}
+ 
+   .mainTiles {
+  width: auto;
+}
+.mainTiles .card {
+  width: auto;
+  margin-bottom: 1rem;
+}
+ .mainTiles .card .textCard {
+	    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    height: 9vh;
+        }
+.cardHeadWr .textCard{
+	text-align: center;
+    margin: 0 auto;
+    width: 80%;
+}
+ .cardBottomWr {
+   display: block;
+   height: auto !important;
+  }  
+#WebPartWPQ5 > div.ms-rtestate-field > div.cardBottomWr > div:nth-child(2) > div, 
+#WebPartWPQ5 > div.ms-rtestate-field > div.cardBottomWr > div:nth-child(4) > div
+{
+  margin-left: 0;
+}
+.cardPoster1{
+	height: 12rem !important;
+}
+.subCardText1{
+	text-align:left;
+}
+.subCardText1 h4 {
+  font-size: 1.3rem !important;
+  }
+  .footer {
+  margin: 0;
+   width: 92% !important;
+   margin-left: -5px;
+}
+.footer .footerWr .footerEngPortal .square {
+  width: 4rem;
+  height: 4rem;
+  }
+  .footer .footerWr .footerEngPortal {
+    align-items: normal;
+  }
+   .footer .footerWr .footerEngPortal a h3 {
+   font-size: 1.5rem;
+  margin-top: 0rem;
+}
+.footerWr {
+    height: 3vh;
+  }
+  footer {
+  height: 12vh !important;
+ 
+  }
+  .amdocsCopyright{
+	margin-top: 3rem;
+	font-size: 14px;
+}
+
+}
+
+@media (min-width: 390px){
+	.cardBottomWr .mainTiles .textCard p{
+	width:91%;
+}
+}
+
+@media (min-width:768px) and (max-width:1024px){
+.cardHeadWr .cardPoster{
+	display: flex;
+    justify-content: center;
+    height: 22vh;
+}
+
+.cardBottomWr .mainTiles .textCard p {
+    	width: 100%;
+	}
+.d-md-flex {
+  display: none!important; 
+}
+.mainTiles .card{	
+	height: 15rem !important;
+}
+.mainTiles .card .textCard {
+    left: 46%;
+    margin-left: 5%;
+}
+.sidemain{
+	margin-left:0;
+	margin-right:20px;
+}
+
+#DeltaPlaceHolderMain {
+    width: 100%;
+}
+
+.cardBottomWr {
+	height: auto;
+}
+
+.subCardText1 h4 {
+  font-size: 1.3rem !important;
+  }
+
+.mainContent {
+  flex-direction: column;
+}
+.contentWr {
+  width: 92%;
+ min-height:0 !important;
+ margin: 0 30px;
+  }
+.footer .footerWr .footerEngPortal .square {
+  width: 4rem;
+  height: 4rem;
+  }
+  .footer .footerWr .footerEngPortal {
+    align-items: normal;
+  }
+  .footer .footerWr .footerEngPortal a h3 {
+   font-size: 1.5rem;
+  margin-top: 0rem;
+}
+.footerWr {
+    height: auto;
+  }
+  footer {
+  height: auto;
+  margin-left: 30px !important;
+  width: 93vw !important;
+ }
+ .amdocsCopyright{
+		font-size: 14px;
+}
+
+}
+
+@media (min-width: 992px){
+	.mainTiles .card .textCard {
+    position: absolute;
+    top: 28%;
+    left: 42%;
+    height: 11vh;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.cardHeadWr .cardPoster{
+	height: 32vh;
+	display: flex;
+    justify-content: center;
+}
+}
+
+@media (min-width: 1024px){
+	.subCardText1 h4 {
+    font-size: 1.3rem !important;
+}
+.cardBottomWr .mainTiles .textCard p {
+    width: 100%;
+}
+.mainTiles .card .textCard {
+    left: 46%;
+}
+.mainTiles .card{
+	height: 14rem !important;
+}
+.cardHeadWr .card{
+	padding: 5rem 0 !important;
+}
+.cardHeadWr .card .textCard {
+	width: 80%;
+    margin-left: 5%;
+}
+}
+
+@media (min-width: 1200px){
+	.mainTiles .card .textCard {
+    top: 25%;
+    height: 10vh;
+    }
+}
+
+@media (min-width: 1536px){
+	.mainTiles .card .textCard {
+    left: 38%;
+    height: 7vh;
+}
+}
+
+@media (min-width: 1900px){
+	.cardHeadWr .cardPoster{
+		height: 28vh;	
+	}
+	.mainTiles .card .textCard {
+    	left: 30%;
+	}
+	.contentWr {
+    	height: auto;
+	}
+}
+
+
+

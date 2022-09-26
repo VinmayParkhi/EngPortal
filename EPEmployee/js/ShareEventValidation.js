@@ -10,6 +10,8 @@ $(document).ready(function() {
     $('#EventLinks').hide();
     $('#s4-ribbonrow').hide();
     
+    $(".ms-dlgTitle").css("background-color", "yellow");
+        
     $("input[value$='Save']").attr('value', "Share");
     
  });

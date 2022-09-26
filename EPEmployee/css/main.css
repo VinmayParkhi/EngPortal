@@ -1,6 +1,51 @@
 ﻿
 /* classes attached to <body> */
 /* TODO: make fc-event selector work when calender in shadow DOM */
+
+:root {
+  --left: #DE8601;
+  --right: #FF3D97;
+}
+.EventLink{
+	 max-width: 60px;
+  -webkit-line-clamp: 1; 
+  padding: 0px; 
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  display: -webkit-box;
+
+}
+#calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-sun.fc-day-today{
+	background:#101010;
+	border-bottom:1px solid #DE8601;
+}
+#calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-sat.fc-day-future{
+	background:#232323 !important;
+}
+.EventLink1{
+	 max-width: 100px;
+  -webkit-line-clamp: 1; 
+  padding: 0px; 
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  display: -webkit-box;
+
+}
+
+
+
+.EventDesc{
+ max-width: 300px;
+  -webkit-line-clamp: 2; 
+  padding: 0px; 
+  -webkit-box-orient: vertical; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  display: -webkit-box;
+}
+
 .fc-not-allowed,
 .fc-not-allowed .fc-event { /* override events' custom cursors */
   cursor: not-allowed;
@@ -324,17 +369,16 @@ When it's NOT activated, the fc-button classes won't even be in the DOM.
 }
 #calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-sun,
 #calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-thu,
-#calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-tue{
-	background:#101010;
-}
+#calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-tue,
 #calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-wed,
 #calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-fri,
 #calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-mon{
 	background:#232323;
 }
-#calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-wed.fc-day-today{
-	background:#000;
-}
+#calendar > div.fc-view-harness.fc-view-harness-active > div > table > thead > tr > th > div > div > table > thead > tr > th.fc-col-header-cell.fc-day.fc-day-thu.fc-day-today{	background:#000;
+	background : #101010 !important;
+	border-bottom: 2px solid var(--left);
+   }
 .fc .fc-toolbar.fc-footer-toolbar {
     margin-top: 1.5em;
   }
@@ -386,8 +430,10 @@ border-radius:1rem;
   }
   #calendar > div.fc-view-harness.fc-view-harness-active > div{
 	overflow: hidden;
-    border-bottom-left-radius: 1.5rem;
-    border-bottom-right-radius: 1.5rem;
+   /* border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;*/
+    border-radius:1rem;
+    border-top-left-radius: 0;
 }
 .fc .fc-timegrid-slot-label{
 	background:#000;
@@ -424,9 +470,27 @@ border-radius:1rem;
     }
 .fc .fc-scrollgrid-section table {
       height: 1px;
+      width:100% !Important;
         /* for most browsers, if a height isn't set on the table, can't do liquid-height within cells */
         /* serves as a min-height. harmless */
     }
+    
+
+.fc-timegrid-slots table, .fc-timegrid-body{
+	
+	width:100% !Important;
+
+} 
+
+
+.fc-timegrid-cols table{
+	
+	width:100% !Important;
+}
+    
+
+
+
 .fc .fc-scrollgrid-section-liquid > td {
       height: 100%; /* better than `auto`, for firefox */
     }
@@ -1034,6 +1098,7 @@ A VERTICAL event
     max-height: 100%; /* clip overflow */
     overflow: hidden;
     color:#000;
+    font-size:10px !Important;
   }
   .fc-timegrid-event .fc-event-time{
 	color:#000;
@@ -1154,7 +1219,7 @@ A VERTICAL event
   }
 .fc .fc-timegrid-slot-label {
 	border:none;
-    vertical-align: middle; /* vertical align the slots */
+    vertical-align: top; /* vertical align the slots */
   }
 .fc {
 
@@ -1296,16 +1361,18 @@ A VERTICAL event
 }
 .fc-timegrid-event,
 .fc-timegrid-more-link { /* events need to be root */
-  font-size: .85em;
-  font-size: var(--fc-small-font-size, .85em);
+  font-size: 10px;
+  
   border-radius: 3px;
 }
 .fc-timegrid-event { /* events need to be root */
-  margin-bottom: 1px /* give some space from bottom */
+  margin-bottom: 5px /* give some space from bottom */
 }
 .fc-timegrid-event .fc-event-main {
     padding: 1px 1px 0;
-  }
+    display:block;	
+    padding: 2px;					
+}
 .fc-timegrid-event .fc-event-time {
     white-space: nowrap;
     font-size: .85em;

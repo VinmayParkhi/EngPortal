@@ -1,5 +1,5 @@
 ﻿.toughtOftheDay {
-    width: 100%;
+    width: 100% ;
     height: 6vh;
     background: linear-gradient(89deg, #E6E3BA 0%, #FCDEBD 27%, #F5D8E0 54%, #D7E0E5 78%, #FEDADE 100%) 0% 0%;
     border-radius: 1.5rem;
@@ -31,18 +31,61 @@
     
 
 
-   @media (min-width:375px) and (max-width:768px){
+   @media (min-width:375px) and (max-width:767px){
    
    
    .toughtOftheDay{
 	
+	width:90vw !important;
 	align-items:start;
 }
 
 .toughtOftheDay .thoughtImg {
-  width: 35px;
+  width: 30px;
   margin-top: 5px;
 }
 
+#thoughtdsc{
+	padding: 10px 0;
+	font-size:10px !important;
+}
 
+}
+
+
+    @media (min-width:768px) and (max-width:991px){
+    
+    
+    #profileIMG img {
+    width: 100%;
+	}
+	
+	
+	.green {
+   
+     margin-left: 0 !important; 
+}
+    
+    
+    .toughtOftheDay {
+    width: 93%!important;
+}
+
+    
+    #thoughtdsc{
+	
+	font-size:11px!important;
+}
+
+	.pillarmain {
+	width:90%;
+    display: flex;
+    align-items: center;
+    justify-content: start !important;;
+    flex-wrap: wrap !important;
+    margin:0 auto;
+    margin-top:0 !Important;
+    margin-bottom:10px;
+}
+    
 }

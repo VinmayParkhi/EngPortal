@@ -2,31 +2,33 @@
  	var text;
  	var username;
  	var EmpId;
+ 	var Dept;
+ 	var Loc;
  $(document).ready(function() { 
-  $(".btnSubmit").on("click", function(){
-  MoodMeterCheck1();
-  });
+ 
  $(".emoji").on("click", function() { 
  		username = $("#username").text();
- 		EmpId = $("#EMpID").text();
- 		text = $(this).find("input").val();
- 		//console.log("testdata :"+text);
- 		//alert("Your mood now :- "+username);
-		//alert("test"+text);
-		$(".btnSubmit").removeClass("disabled");
+ 		Dept = $("#dept").html();
+ 		Loc = $("#loc").html();
+ 		EmpId = $("#userEmail").text();
+ 		text = $(this).find("input").val();		
+ 		$("#BtnSubmitCount").removeClass("disabled");
  	}); 
  });  
-function MoodMeterCheck1(){  	
-	var d = new Date();
-	var month = d.getMonth()+1;
-	var day = d.getDate();	
-	var output = d.getFullYear() + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '0' : '') + day;
+ 
+  $("#BtnSubmitCount").on("click", function(){
+  		//MoodCountCheck();
+  		MoodCountCheck()
+  });
+
+function MoodCountCheck(){  	
   	var item={
   	 	"__metadata":{'type': 'SP.Data.EPMoodMeterListItem'},
    		"Mood":text,
-		"EmpID":EmpId,
-		//"MoodDate":output,
-		"EmpName":username 
+		"EmpID":EmpId,		
+		"EmpName":username,
+		"EmpLocation":Loc,
+		"EmpDepartment":Dept
   	};
   	  	$.ajax({
 		url:_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPMoodMeter')/items",
@@ -44,7 +46,7 @@ function MoodMeterCheck1(){
 		//alert("Sucessfully updated");
 	}
     function OnError(data){
-		alert("Update error");
+		//alert("Update error");
 	}
 };
 

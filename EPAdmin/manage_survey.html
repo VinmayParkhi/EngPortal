@@ -18,10 +18,36 @@
     <link href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
      <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/managesurvey.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
  	<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
     <title>Manage Event Data</title>
     
     <style>
+      
+    .cm_calendar{
+	position:static !important;
+}
+
+.event-desc{
+	
+}
+
+
+.Published{
+	color:#AFAFAF!important;
+
+}
+.Autopublish{
+	color:#FF706B!important;
+
+}
+.Draft{
+	color:#EC9A2E!important;
+
+}
+.Completed{
+	color:#71BC4C!important;
+}
    #s4-workspace {
     overflow-x: hidden;
     }
@@ -36,22 +62,132 @@
     text-overflow: ellipsis;
     display: -webkit-box;
 }
-.table{
+.main-style{
+	width: 100%;
 }
-   @media (min-width: 992px) and (max-width: 1200px){
+table.dataTable thead th{
+	padding:10px 0px;
+}
+#temp{
+	text-align:right;
+}
+.breadcrumb-item + .breadcrumb-item{
+	padding-left: 0px;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+	    color: #E5E5E5;
+}
+/*::-webkit-scrollbar {
+  width:5px;
+}*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.dataTables_wrapper .dataTables_scroll{
+		margin-bottom: 4rem;
+	    margin-top: 4rem;
+}
+.dataTables_scrollHead{
+    border-bottom: 1px solid #AFAFAF !important;
+}
+#dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th.T-color1.sorting_disabled,
+#dataTable2 > tbody > tr > td:nth-child(1){
+opacity: 0.4;
+}
+#dataTable2_length > label {
+    text-transform: capitalize;
+        font-size: 11px;
+}
+#dataTable2 > tbody > tr > td:nth-child(3),
+#dataTable2 > tbody > tr > td:nth-child(4){
+	opacity: 0.6 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #FF3D97;
+}
+.sidebar{
+	height:auto; 
+	    margin-bottom: 2.3rem;
+}
+#dataTable2_wrapper {
+    height: auto !important;
+        min-height: 450px;
+    }
+.dataTables_wrapper .dataTables_paginate, #dataTable2_info{
+	position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+#dataTable2_info{
+    left: 3rem;
+}
+#dataTable2 > tbody > tr > td:nth-child(5){
+	    font-style: italic;
+}
+.calenderView input {
+border: solid 1px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px black inset;
+    border-radius: 5px;
+        margin-right: 0.5rem;
+}
+.calenderView input:hover{
+	border:1px solid transparent;
+}
+#arrimg{
+  transition: transform .5s ease-in-out;
+}
+.arrow-img:hover #arrimg{
+  transform: rotate(180deg);
+}
+
+@media (min-width: 992px){
         .sidebar{
 	    margin-left: 22px;
 }
 	.right-left{
-    margin-left: 46.3rem;
+    text-align: right;
+        width: 50%;
+            margin-right: 1rem;
 }
 
 #dataTable2_wrapper{
-    height: 100vh;
-    width: 93%;
+    height: 110vh;
 }
 .right-nav{
 	margin-right:0px;
+}
+#dataTable2 {
+    width: 100% !important;
+}
+.head-left{
+	margin-left: 4%;
+    width: 50%;
+}
+.calenderView{
+    right: 7%;
+}
+.profile h4{
+	margin-left:0px;
 }
 }
 
@@ -81,78 +217,76 @@
     height: 30px;
     width: 67px;
     position: relative;
-    top: -29px;
-    left: -36px;
+    top: -23px;
+    left: -13px;
     background-image: url(https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/groupimg.png);
     background-size: 100% 100%;
 }
 
 
 
-@media (min-width: 1200px) and (max-width: 1280px){
+@media (min-width: 1200px){
      .sidebar{
     margin-left: 4.5rem;
-	    min-height: 121vh;
 }
 #dataTable2_wrapper {
-    width: 100%;
     padding-left: 10px;
     padding-right: 10px;
-        height: 81.5rem;
+    height: 109.6vh;
+    width: 93.5%;
     }
 .right-left {
-    margin-left: 65rem;
+    margin-right: 4.2rem;
 }
 .head-left{
-    margin-left: 4rem!important;
+    margin-left: 2.5%!important;
     }
 .right-nav {
     margin-right: 4rem;
 }
 .calenderView{
-    right: 0px;
+    right: 8%;
+}
+.FA-1{
+	    width: 92.7%;
+	        margin-left: 3.5% !important;
 }
 }
-@media (min-width: 1280px) and (max-width: 1400px){
-.right-left {
-    margin-left: 89rem;
-}
-#dataTable2_wrapper {
-    height: 81.5rem;
-     width: 93% !important;
-
+@media (min-width: 1280px) {
+.dataTables_scrollBody{
+	    height: 527px !important;
 }
 }
-@media (min-width: 1400px) and (max-width: 1600px){
-     #dataTable2 {
-    width: 1087px !important;
-}
-.head-left{
-    margin-left: 4.5rem!important;
+@media (min-width: 1400px){
+    .head-left{
+        width: 43%;
     }
-.right-left {
-    margin-left: 124rem;
+  .right-left {
+    margin-right: 5.7rem;
 }
 .right-nav {
     margin-right: 4.7rem;
 }
-#dataTable2_wrapper {
-   height: 108vh !important;
-    width: 98%;}
 footer{
 	width:95.5%;
 }
 .calenderView{
     right: 0px;
 }
-
+.FA-1{
+    width: 93.5% !important;
+    margin-left: 3.5% !important;
+    }
+.dataTables_scrollBody{
+	    height: 680px !important;
 }
-@media(min-width: 1600px)and (max-width:1950px){
-	#dataTable2_wrapper{
-    height: 165rem;
-        width: 118.5%;
+.home-section .hr1{
+	    width: 93.5%;
+	        margin-left: 2.5%;
 }
 }
+@media(min-width: 1600px){
+	}
 
 
 ::-webkit-scrollbar {
@@ -186,6 +320,49 @@ footer{
         border-radius: 10px;
         
     }
+#myImg{
+	background: url("https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/Group 11047.png") no-repeat;
+	position: fixed;
+    z-index: 1;
+   right: 13.8rem;
+    top: 9.5rem;
+    height: 17rem;
+    width: 14rem;
+    background-size: contain;
+    font-size: smaller;
+     }
+#ulimg{
+  	list-style-type: none;
+    color: black;
+    position: relative;
+    top: 28px;
+}
+#ulimg li{
+	margin-bottom:4px;
+	margin-left: -7px;
+}
+#btn1{
+	cursor:context-menu;
+}
+#arrimg{
+	width:13px;
+}
+#ui-datepicker-div{
+    width:auto ;
+    height:
+    }
+    #ui-datepicker-div{
+	left:1020px !important;
+}
+    #ui-datepicker-div > table{
+	line-height:110% !important;
+}
+
+	.cm_calendar{
+	position:static !important;
+	
+}
+
 
 
     </style>
@@ -208,20 +385,22 @@ footer{
                                 </ol>
                               </nav>
                         </div>
-		<div class="right-left offset-8">
+		<div class="right-left">
 		<a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/create_survey.aspx" type="button" class="btn p-button border-transparent" id="createSurvey">Create survey</a>
 		</div>
 
 </div>
            
 
-    <div class="container mt-1 main-style">
+    <div class="mt-1 main-style">
            
-<span class="calenderView">
+<span class="calenderView" style="margin-top: -6px;">
+<img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/data_range_calendar.png" style="position: absolute;left: -27px;width: 18px;top: 2px;">
 
-            <input type="text"  id="min">to
 
-             <input type="text"  id="max" style="margin-left: 6px;">
+            <input type="text"  id="min" placeholder="Start Date">to
+
+             <input type="text"  id="max" style="margin-left: 6px;" placeholder="End Date">
 
          </span>
 
@@ -233,9 +412,27 @@ footer{
                     <th scope="col">SurveyDetails</th>
                     <th scope="col">Start Date</th>
                     <th scope="col">End Date</th>
-                    <th scope="col" style="width:13%;">Responses</th>
-                    <th scope="col" style="width: 120px; text-align: center;">Status</th>
-                    <th scope="col" >Actions</th>
+                    <th scope="col" style="width: 120px;" class="arrow-img">Status <img id="arrimg" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/Icon feather-chevron-down.svg"><div id="myImg" style="display:none">
+                    <ul id="ulimg">
+                    	<li>
+                    		All Events( <span id="AllCount"> </span> )
+                   		</li>
+                   		<li>
+                   			Scheduled( <span id="scheduled"> </span> )
+                   		</li>
+                   		<li>
+                   			Auto-published( <span id="autopublished"> </span> )
+                   		</li>
+                   		<li>
+                   			Draft( <span id="Draft"> </span> )
+                   		</li>
+                   		<li>
+                   			Past( <span id="Completed"> </span> )
+                   		</li>
+                    </ul>
+                    </div>
+</th>
+                    <th scope="col" style="width: 66px;" >Actions</th>
                  </tr>
             </thead>
             

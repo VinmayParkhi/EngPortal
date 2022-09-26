@@ -26,6 +26,12 @@
 	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/validations.js"></script>
 	<style>
 	
+.publishbtn{
+	pointer-events:none;
+	}
+	
+
+	
 	@media(min-width:1200px)and (max-width: 1400px){
 	.head-section-2{
 	margin-right:2.5%;
@@ -33,23 +39,82 @@
 	width:100%;
     }
 	
+.action .menu.active {
+	    margin-right: 0rem;
 }
-	@media(min-width:1400px)and (max-width: 1550px){
+.action .menu{
+	width:22rem;
+}
+
+	.hr1{
+	height: 1px;
+	width: 92%!important;
+	margin-left: 3%!important;
+}
+
+}
+	@media(min-width:1400px){
 	.head-section-2{
 	margin-right:2.5%;
 	margin-left:19px;
 	width:99%;
     }
+    	.hr1{
+	height: 1px;
+	width: 92%!important;
+	margin-left: 3%!important;
+}
 
 }
-	
+
+@media(min-width:1550px){
+	.head-section-2{
+	margin-right:2.5%;
+	margin-left:19px;
+	width:100%;
+    }
+}
+	.sideimg{
+	transform: rotate(90deg);
+    width: 40px;
+    height: 1px;
+    position: absolute;
+    right: 90px;
+    top: 26px;
+}
+#publishHub{
+  background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    padding: 5px 25px;
+    font-size: 12px;
+    color: #747474;
+    background-position: 50% 100%;
+    transition: all .3s ease;
+}
+#publishHub:hover {
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 5px 25px;
+    box-shadow: 0 0 6px 0 rgb(157 96 212 / 50%);
+    border: solid 1.5px transparent;
+    background: #fff;
+    box-shadow: 2px 1000px 1px #000000 inset;
+    color: #fbfbfbc4;
+}
+.EnableBtn{
+	 background: linear-gradient(90deg , #DE8601 0%, #FF3D97 100%) !important;
+    font-size: 11px;
+    color:#fff !important;
+    pointer-events:auto !important;
+}
+
 	</style>
 	
    </head>
 
 <body>
                    <div class="head-section head-section-2"> 
-                    <div class="head-left" style="margin-left:-1.5%;">
+                    <div class="head-left" style="margin-left:-2.5%;">
                      <span class="arrow"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a></span>  
                             <h4>Manage Hub</h4>
                             <nav aria-label="breadcrumb">
@@ -65,14 +130,16 @@
                         <div class="mainInformationContrainer" >
                             <ul>
                             <li class="imageli">
-                                <div class="oneInfo thumbnail" style="height: 120px;width: 185px;border-radius: 15px;">
-                                    <img alt="img not found" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/163-large.png" id="imageID">
+                                <div class="oneInfo thumbnail" style="height: 115px;width: 185px;border-radius: 15px;margin-bottom: 5px;">
+                                    <img alt="img not found" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/MicrosoftTeams-image (5) (2).png" id="imageID">
                                 </div>
+                                 <span style="color: #ff6fe7;margin-left: 20px;font-size: 8px;">Min Width:1600Px | Min Height:700Px</span>
+
                             </li>
                             <li>
-                                <div class="oneInfo" id="attachFilesHolder" style="width: 200px; overflow: hidden">
+                                <div class="oneInfo" id="attachFilesHolder" style="width: 200px; overflow: hidden;margin-left: -1px;">
                                     <span class="spanForFileInput" style="background-color: transparent;">
-                                        <span class="selectImage"><i class="fa-solid fa-upload"></i>Upload Image</span>
+                                        <span class="selectImage"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Image</span>
                                         <!-- <input type="button" class="selectImage" value="Select Image"/> -->
                                             <input type="file" value="Select Image" id="file_input" class="file_inputupload">
                                     </span>
@@ -97,6 +164,7 @@
                         <span class="divider1" style="width: 34px;position: absolute;right: 67px;top: 5px;">
                             <img src="Images/divider1.png" alt="">
                         </span>
+                        <img class="sideimg"src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/divider1.png">
                             <button name="Publish" target="_self" type="button" class="btn publishbtn publishbtn1" id="publishHub">Publish</button>    
                          
                         </span>
@@ -137,7 +205,20 @@
                     reader.readAsDataURL(input.files[0]);
                 }
             }
-        </script>    
+           
+        
+        </script>  
+        <script>
+         
+   var checkTextarea = (e) => {
+  const content = $("#BannerHubTitle").val().trim();
+  $('#publishHub').prop('disabled', content === '');
+};
+
+
+$(document).on('keyup', '#BannerHubTitle', checkTextarea);        
+        </script>
+         
     
 </body>
 

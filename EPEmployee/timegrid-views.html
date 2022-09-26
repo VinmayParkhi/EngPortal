@@ -2,24 +2,22 @@
 <html>
 <head>
 <meta charset='utf-8' />
-<link href='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/main.css' rel='stylesheet' />    
+<link href='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/main.css' rel='stylesheet' />  
+ 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/js/fullCalender.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
 
-  getEventCalender();
-
+  getEventCalender(); 
 });
- 
- 
- 
-			
+ 			
  function getEventCalender() {
     var calendarEl = document.getElementById('calendar');
-	var heading = "India";
+	//var heading = "India";
 	var firstHour = new Date().getUTCHours() - 5;
-    var calendar = new FullCalendar.Calendar(calendarEl, {
+	var events = [];  
+    var calendar = new FullCalendar.Calendar(calendarEl,{
       initialDate: new Date(),
       initialView: 'timeGridWeek',
       nowIndicator: true,
@@ -27,7 +25,7 @@ $(document).ready(function () {
       headerToolbar: {
       	right: 'prev,title,next'
       },
-     
+     eventMaxStack : true,
       slotLabelFormat: {hour: 'numeric', minute: '2-digit', hour12: false},
        eventTimeFormat: {
 	        hour: '2-digit',
@@ -36,24 +34,17 @@ $(document).ready(function () {
     	},
   	  scrollTime: '10:00:00',
   	  navLinks: true,
-      editable: true,
-      selectable: true,
+      editable: false,
+      selectable: false,
       selectMirror: true,
       dayMaxEvents: true,
-      //slotLabelFormat: "HH:mm",
-      
-        eventClick:  function(info) {
-	          $('#calendarModal').modal('show');
-	          $('#modalBody').html(info.event.title+'  '+info.event.start.format("MMM HH:mm:ss")+'  '+info.event.end.format("MMM HH:mm:ss"));
-	          //$('#modalBody').html(info.event.start);
-	 	          
-        },
-     /* eventClick: function(event) {
-            // open events in a popup window
-          //alert("event check");
-            return false;
-        }, */
-      events: function( fetchInfo, successCallback, failureCallback ) { //include the parameters fullCalendar supplies to you!
+      theme: true,	  
+      eventContent: function(eventInfo) {
+	      return { 
+	      	html: eventInfo.event.extendedProps.customHtml 
+	      }
+	  },
+       events: function( fetchInfo, successCallback, failureCallback ) { //include the parameters fullCalendar supplies to you!
 
 		  var events = [];
 		var site = 'https://infornt.sharepoint.com';
@@ -63,57 +54,153 @@ $(document).ready(function () {
 		    type: 'GET',		    
 		    headers: { "Accept": "application/json;odata=verbose" },
 		    success: function (data) {
-			    var events = [];  
-	       		$.each(data.d.results, function (index, value) {  
-	          	 events.push(  
-	           	  {  
-	               title: value.Title+' = '+value.EventDescription+' = '+value.EventDate+' = '+value.EventLink,  
-	               start: value.EventStartTime,
-	               end: value.EventEndTime,
-	               //title: value.EventLink,
-	               backgroundColor: value.EventColor                  
-	           		});  
-	           		var EventArr = [];
-	           		for(var i=0; i<events.length; i++) {
-	           		console.log(events[i].title);
-	           		  EventArr = events[i].title;
-	           		}       
-	           		EventArr = text.split("=");     
-	           		console.log(EventArr);             
+			    
+	       		$.each(data.d.results, function (index, value) { 
+	       		var Title = value.Title; 
+	       		//var arr = value.EventDescription+' \n '+value.EventDate+' \n  '+value.EventLink;
+				//console.log(arr);
+	       		var Description = value.EventDescription;
+	       		var Organizer = value.EventOrganizerName;	
+	       		var Pillar = value.Pillar;       		
+	       		var EventId  = value.ID;       		
+	       		var EventDate = moment(value.EventDate).format("DD MMM,YYYY");
+	       		var StartTime = moment(value.EventStartTime).format("hh:mm a");
+	       		var EndTime = moment(value.EventEndTime).format("hh:mm a");
+				var UtcStartTime = moment.utc(value.EventStartTime).format('YYYY-MM-DDTHH:mm:SS');
+				var UtcEndTime = moment.utc(value.EventEndTime).format('YYYY-MM-DDTHH:mm:SS');		
+				var eventColor;		
+				console.log("Title "+Title+" and "+"Pillar "+Pillar+" and "+UtcStartTime  +" and "+UtcEndTime);				
+			    if (Pillar == "Work"){
+			    		eventColor = "#E8B0FC";
+			    }else if (Pillar == "Life"){
+			    		eventColor = "#FFD08A";
+			    }else if (Pillar == "Wellbeing"){
+			    		eventColor = "#A4C6F9";
+			    }else if (Pillar = "Wow and pride"){
+			    	eventColor = "#FF8A72";
+			    }else if (Pillar == "Connect and community"){
+			    	eventColor = "#C8DB88";
+			    }
+			    var EventLink = value.EventLink;
+	       		var EventDom = "<div style='margin-bottom:1rem; display:flex; justify-content: space-between;'><span>Event Calendar</span><span><a href='https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpEventDetails.aspx?EventID="+EventId+"' style='color:#FF1762;'> More Details <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/icons8-right-arrow-24.png' alt='' class='' style='width:1.5rem;'> </a></span></div><div><div style='font-weight:600; margin-bottom:0.5rem;'>"+Title+"</div>\n<div style='margin-bottom:0.5rem;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-calendar.svg' alt='' class='PopupImg' width='15' height='15'>"+EventDate+"</div><div style='margin-bottom:0.5rem;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-clock.svg' alt='' class='PopupImg' width='15' height='15'>"+StartTime+"-"+EndTime+"</div><div style='display:flex;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-map-pin.svg' alt='' class='PopupImg' width='15' height='15'><a class='EventLink1' href='"+EventLink+"'>"+EventLink+"</a></div></div>";
+	       		//$(".fc-event-title fc-sticky").html(EventDom);	          	 
+	       		events.push({  
+	          	   title: EventDom, 	               
+	          	   start: UtcStartTime,
+	               end: UtcEndTime,
+	               backgroundColor: eventColor,
+	               customHtml: "<div style='color:black; margin-bottom: 2px'><b class='EvTitle'>"+Title+"</b></div><div style='display:flex;font-weight: 500; margin-bottom: 2px'><img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/icons8-location-24-red.png' alt='location' style='width:1.5rem; height:1.3rem;margin-right: 0.2rem;'><a class='EventLink' href="+EventLink+" style='color:black;'>"+EventLink+"</a></div> <div style='display:flex; color:black;font-weight: 500; margin-bottom: 2px'><img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/icons8-user-24-red.png' alt='organizer' style='width:1.5rem; height:1.5rem;margin-right: 0.2rem;'><p class='EventDesc'>"+Organizer+"</p></div>"	           	
+	            });             	
+	           		           
 	       		});  	
        			successCallback(events);
-          	}, 
-		    error: function(jqXHR, textStatus, errorThrown)
+          	},
+          	 error: function(jqXHR, textStatus, errorThrown)
        		{
          		alert("Error when fetching events: " + textStatus + " - " + errorThrown);
        		}
 		  });
-		}       
-    });
-	
+		},
+		eventClick:  function(info) {
+		
+	          $('#calendarModal').modal('show');
+	          debugger
+	           $('#modalBody').html("<span>"+info.event.title+"</span>");
+	           var a = info.event.title;
+	               var array = a.split("href");
+				    var array1 = array[2].split(">");
+				    var array2 = array1[0].split("='");
+				    var array3 = array2[1].split("'");
+				   
+	           $('#CalPopJoin').attr("href", array3[0]);
+	           
+	          //$('#modalBody').html(info.event.start);
+	          	var data = info.event.title;
+  		        //alert(data);         
+        },
+               		//eventContent: { html: '<i>'+events.title+'</i><span>'+events.EventDescription+'</span>' }       
+    });    
     calendar.render();
-    
-    
-    
-     $('#calendar > div.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr > div:nth-child(1)').append('<div class="label d-flex align-items-center"><img style="width:9%;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Group 346.svg" alt="testImage"><span style="color: #E5E5E5; font-size:14px;margin-left: 1rem;">Amdocs India Event</span></div>');
+   $('#calendar > div.fc-header-toolbar.fc-toolbar.fc-toolbar-ltr > div:nth-child(1)').append('<div class="label d-flex align-items-center"><img style="width:9%;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Group 346.svg" alt="testImage"><span style="color: #E5E5E5; font-size:14px;margin-left: 1rem;">Amdocs India Event</span></div>');
+     	
+   /*  $(".CalEventWr").append('<div class="EveTitle '+Title+'"><div class="EveDesc"  '+Description+'"><div class="StartDt" '+EventDate+'>'+
+                             '<a  class="EveLink" '+EventLink+'></div></div> </div>');
+*/
   }
-
   
+  $(".fc-timegrid-event").on("click", function(){
+  		var data = $(".fc-event-title").html();
+  		alert(data);
+  })
+
+	
   </script>
 <style>
-
+	
   body {
     margin: 40px 10px;
     padding: 0;
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-size: 14px;
   }
+  .EvTitle{
+	max-width:60px;
+    -webkit-line-clamp: 1;
+    padding:0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
    #calendarModal > div{
 	    width: 16%;
 }
+
+
+.home{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+}
+
+.home img{
+	background: #B15610 !important;
+}
+
+ .fc-event-past {
+        opacity:0.3;
+        border:none;
+        pointer-events:none;
+    }
+
+#DeltaPlaceHolderMain > table > tbody > tr:nth-child(2){
+	
+	display:flex;
+	align-items:end;
+}
+
+
+#DeltaPlaceHolderMain > table > tbody > tr:nth-child(2) > td:nth-child(1){
+	
+	width:70%
+}
+
+
+#DeltaPlaceHolderMain > table > tbody > tr:nth-child(2) > td:nth-child(2){
+	
+	width:35%
+}
+
+
+
+
+.fc-timegrid-axis{
+	
+	border-bottom:1px solid black !important;
+}
+
    #calendarModal > div > div > div.modal-header{
 	display: flex;
-    background-color: #fff;
+   background: #FCF9EE 0% 0% no-repeat padding-box;
     flex-shrink: 0;
     align-items: center;
     justify-content: space-between;
@@ -124,18 +211,27 @@ $(document).ready(function () {
   }
   .close:not(:disabled):not(.disabled){
 	position: absolute;
-    right: -2rem;
+    right: -4rem;
       }
-  #calendarModal > div > div > div.modal-footer > button{
+  #calendarModal > div > div > div.modal-footer > a{
 	background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
-	position: relative;
-    right: 6rem;
+	text-align: center;
+    color: white;
+    border-radius: 6px;
+    width: 10rem;
+    padding: 0.5rem;
+  }
+  
+  
+  
+  .modal-footer {
+  justify-content: center !important;
   }
   #calendar {
     max-width: 1100px;
     margin: 0;
-    width: 90%;
-    height: auto;
+    width: 96%;
+    height: 45rem;
     margin-top:25px;
   }
   
@@ -145,6 +241,21 @@ $(document).ready(function () {
 	width:100% !important;
 }
 
+
+.sidebar {
+    
+    height: auto;
+  
+}
+.modal-content {
+background: #FCF9EE 0% 0% no-repeat padding-box !important;
+}
+#modalBody{
+	margin: 0 !important;
+}
+.PopupImg{
+	margin-right:1rem;
+}
   
   /*  timegrid-view.html Mobile responsive */
   
@@ -160,6 +271,43 @@ $(document).ready(function () {
 	width:100% !important;
 }
 }
+
+
+@media (min-width:991px) and (max-width:1199px){
+	
+	
+	.sidebar{
+	
+		width:92%;
+		height: auto;
+	}
+	
+	
+	
+	
+	.sidebar .card .empName h5{
+	
+		font-size: 1.5rem;
+	}
+	
+	
+	.sidebar .card .empDesignation p {
+    	font-size: 0.8rem;
+   	
+	}
+	
+	
+	.sidebar .nav-links a li .link_name {
+    font-size: 0.8rem;
+    
+	}
+	
+	
+
+}
+
+
+
 </style>
 </head>
 <body>
@@ -174,9 +322,10 @@ $(document).ready(function () {
             <h4 id="modalTitle" class="modal-title"></h4>
         </div>
         <div id="modalBody" class="modal-body">
+        
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Join</button>
+            <a href="#" type="button" class="EventLink1" id="CalPopJoin" class="btn btn-default" >Join</a>
         </div>
     </div>
 </div>

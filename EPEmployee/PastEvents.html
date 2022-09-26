@@ -2,6 +2,9 @@
 <html>
 
 <head>
+	<meta http-equiv='cache-control' content='no-cache'>
+	<meta http-equiv='expires' content='0'>
+	<meta http-equiv='pragma' content='no-cache'>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Past Events | Engagement Portal</title>
@@ -15,6 +18,239 @@
     <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/pastEvents.css" type="text/css">
     <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/rateReview.css" type="text/css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    
+    <style type="text/css">
+    
+    
+    .home{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+	}
+
+	.home img{
+	background: #B15610 !important;
+	}
+
+    
+    
+    #starAv1,#starAv2,#starAv3,#starAv4,#starAv5{
+	 font-size:14px;
+    }
+    
+    .ratetext{
+	margin-top:5px;
+    }
+    #starAvHalf1,#starAvHalf2,#starAvHalf3,#starAvHalf4{
+	font-size:14px;
+	color:orange;
+	display:none;
+}
+.ratestar{
+	display:flex;
+}
+
+.evntTitle{
+	white-space: nowrap; 
+  width: 135px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+ }
+        
+    
+    @media only screen and (min-width: 375px){
+ .pastEvntsHeading {
+ display: block;
+ }
+ .pastEvntsPagecardBottomWr .pastEvntsWr, .pastEvntscardBottomWr .pastEvntsWr1{
+	display: block;
+}
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard, .pastEvntsPagecardBottomWr .pastEvntsWr1 .pastevntsCard {
+  width: 95%;
+ }
+ 
+ .radioBtns {
+  width: 100%;
+  flex-wrap: wrap;
+   }
+ 
+  .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1{
+		height: 25vh;
+		background-size: cover !important;
+}
+
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1 .play,
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg2 .play,
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg3 .play{
+   
+  top: 0 !important;
+left: 0 !important;
+	width: 100%;
+display: flex;
+height: 100%;
+justify-content: center;
+}
+
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .play img{
+	width:40px !important;
+}
+
+.modal-content {
+/*width: auto !important;*/
+width: 94% !important;
+margin-left: 1rem;
+}
+
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1 .pastevntsDetails, .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg2 .pastevntsDetails, .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg3 .pastevntsDetails {
+    position: absolute;
+    bottom: 2rem;
+    left: 1.4rem;
+    }
+
+
+.pastEvntsPagecardBottomWr{
+
+height: 141vh;
+   /* border: 1px solid red;*/
+    overflow-y: scroll;}
+	
+	.pastEvntsWr{
+	height:auto !important;
+	}
+
+ }
+ @media only screen and (min-width: 768px) {
+ #abcde{
+	width: 100% !important;
+}
+.pastEvntsHeading {
+     display: flex; 
+     }
+     .pastEvntsPagecardBottomWr .pastEvntsWr, .pastEvntscardBottomWr .pastEvntsWr1 {
+    display: flex;
+   
+}
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard, .pastEvntsPagecardBottomWr .pastEvntsWr1 .pastevntsCard {
+    width: 47%;
+}
+.pastEvntsWr{
+	height: 86rem !important;
+}
+#DeltaPlaceHolderMain {
+    width: 100%;
+}
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+.pastEvntsWr {
+    height: 59rem !important;
+}
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard, .pastEvntsPagecardBottomWr .pastEvntsWr1 .pastevntsCard {
+    width: 30%;
+}
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1 .pastevntsDetails, .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg2 .pastevntsDetails, .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg3 .pastevntsDetails {
+    position: absolute;
+    bottom: 1rem;
+    left: 1.4rem;
+    width: 90%;
+}
+.pastEvntsPagecardBottomWr{
+
+height: 141vh;
+   /* border: 1px solid red;*/
+    overflow-y: scroll;}
+	
+	.pastEvntsWr{
+	height:auto !important;
+	}
+	
+	 
+ }
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard, .pastEvntsPagecardBottomWr .pastEvntsWr1 .pastevntsCard {
+    width: 30%;
+    }
+   .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1 {
+    height: 25vh;
+    }
+    .radios_Rating, .title_review {
+        margin-bottom: 0rem !important;
+      }
+      
+      .pastEvntsPagecardBottomWr{
+
+height: 141vh;
+   /* border: 1px solid red;*/
+    overflow-y: scroll;}
+	
+	.pastEvntsWr{
+	height:auto !important;
+	margin-top: 1rem;
+	
+	}
+	}
+     
+     @media only screen and (min-width: 1400px){
+	.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard, .pastEvntsPagecardBottomWr .pastEvntsWr1 .pastevntsCard {
+    width: 31%;
+    }
+     .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1 {
+    height: 25vh;
+    }
+     .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .play img {
+    width: 50px !important;
+}
+
+.radioBtns {
+	font-size:13px;
+}
+
+
+.sidebar {
+	height: 91vh;
+}
+.pastEvntsPagecardBottomWr {
+    height: 81vh;
+    }
+    
+    .radios{
+	font-size:13px;
+}
+.evntTitle label{
+	font-size: 14px;
+    	
+}
+
+
+}
+@media only screen and (min-width: 1600px){
+	.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard, .pastEvntsPagecardBottomWr .pastEvntsWr1 .pastevntsCard {
+    width: 31% !important;
+    }
+     .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1 {
+    height: 25vh !important;
+    }
+    
+    @media only screen and (min-width: 1900px){
+	.pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard, .pastEvntsPagecardBottomWr .pastEvntsWr1 .pastevntsCard {
+    width: 31% !important;
+    }
+     .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1 {
+    height: 30vh !important;
+    }
+    
+    .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .play img {
+    width: 50px !important;
+}
+    }
+
+
+
+
+    </style>
 </head>
 
 <body>
@@ -23,7 +259,7 @@
            <div class="modal fade" id="ratereviewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
             style="display: none;">
             <div class="modal-dialog modal-dialog-centered">
-                <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="modal"></button>
+                <!--<button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="modal"></button>-->
                 <div class="modal-content">
                     <div class="modal-body">
                     	 <div class="ratereview">
@@ -32,9 +268,9 @@
                 <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
                 <h5>Rate and Review</h5>
             </div>
-            <!--<div class="closeBtn">
+            <div class="closeBtn">
                 <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="modal"></button>
-            </div>-->
+            </div>
         </div>
         <div class="ratereviewbody">
             <div class="ratereviewbodyWr">
@@ -56,16 +292,26 @@
                      </div> 
                     <div class="ratingBox">
                         <div class="rateno">
-                            <label id="rateno-label">4.5</label>
+                            <label id="rateno-label"></label>
                         </div>
                         <div class="ratestar">
-                            <div class="stars-outer">
+                        <span class="fa-regular fa-star" id="starAv1"></span>
+                        <span class="fa-solid fa-star-half-stroke" id="starAvHalf1"></span>
+						<span class="fa-regular fa-star" id="starAv2"></span>
+						<span class="fa-solid fa-star-half-stroke" id="starAvHalf2"></span>
+						<span class="fa-regular fa-star" id="starAv3"></span>
+						<span class="fa-solid fa-star-half-stroke" id="starAvHalf3"></span>
+						<span class="fa-regular fa-star" id="starAv4"></span>
+						<span class="fa-solid fa-star-half-stroke" id="starAvHalf4"></span>
+						<span class="fa-regular fa-star" id="starAv5"></span>
+
+                            <!--<div class="stars-outer">
                                 <div class="stars-inner"></div>
                               </div>
-                              <span class="number-rating"></span>
+                              <span class="number-rating"></span>-->
                          </div>
                         <div class="ratetext">
-                            <label id="baseon-label">Based on 250 review</label>
+                            <label id="baseon-label"></label>
                         </div>
                     </div>
                 </div>
@@ -77,144 +323,10 @@
                     </div>
                     <div class="reviewBtns">
                         <button type="button" class="cancelBtn" data-bs-dismiss="modal">Cancel</button>
-                        <button type="button" class="submitBtn" >Submit</button>
+                        <button type="button" class="submitBtn" data-bs-dismiss="modal">Submit</button>
                     </div>
                 </div>
                 <div class="commentBox">
-                
-                     <!--<div class="review1Box">
-                        <div class="box1Heading">
-                            <div class="namestar">
-                                <div class="ppimg">
-                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic">
-                                </div>
-                                <div class="ppname_star">
-                                    <div class="ppname">
-                                        <label id="uName"></label>
-                                    </div>
-                                    <div class="ppstar">
-                                        <ul class="ppsmallStar">
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (5).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <label>04</label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="reviewday">
-                                <label id="reviewTime">1 day ago</label>
-                            </div>
-                        </div>
-                        <div class="reviewpara">
-                            <p id="reviewText"></p>
-                        </div>
-                    </div> -->
-                    
-                  <!--  <div class="review2Box">
-                        <div class="box1Heading">
-                            <div class="namestar">
-                                <div class="ppimg">
-                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic">
-                                </div>
-                                <div class="ppname_star">
-                                    <div class="ppname">
-                                        <label>Kenny</label>
-                                    </div>
-                                    <div class="ppstar">
-                                        <ul class="ppsmallStar">
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (5).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (5).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <label>03</label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="reviewday">
-                                <label>2 day ago</label>
-                            </div>
-                        </div>
-                        <div class="reviewpara">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="review1Box">
-                        <div class="box1Heading">
-                            <div class="namestar">
-                                <div class="ppimg">
-                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic">
-                                </div>
-                                <div class="ppname_star">
-                                    <div class="ppname">
-                                        <label>Shawn Givens</label>
-                                    </div>
-                                    <div class="ppstar">
-                                        <ul class="ppsmallStar">
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (5).svg" alt="Star">
-                                            </li>
-                                            <li>
-                                                <label>04</label>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="reviewday">
-                                <label>1 day ago</label>
-                            </div>
-                        </div>
-                        <div class="reviewpara">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum has been the industry's standard dummy text ever since the 1500s</p>
-                        </div>
-                    </div> -->
-                    
-                    
                                  
                 </div>
                 
@@ -231,17 +343,11 @@
             </div>
         </div>
 
-
-        <!-- ends video modal -->
-
-       <!-- starts rate-review modal -->
-        
-        <!-- ends rate-review modal -->
         <div class="">
             <div class="pastEvntsHeading">
                 <div class="pstHeading">
-                    <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpMaster.aspx" class="pastEvntsClick">
-                        <div class="pastEvntsArrow">
+                    <a href="#" class="pastEvntsClick">
+                        <div class="pastEvntsArrow" id="PastBack">
                             <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon ionic-ios-arrow-back.svg" alt="Back Arrow">
                             <h3>Past Events</h3>
                         </div>
@@ -249,6 +355,7 @@
                             <ul class="breadcrumb">
                                 <li>Home</li>
                                 <li>Past Events</li>
+                                
                             </ul>
                         </div>
                     </a>
@@ -296,8 +403,8 @@
                     </div>
                 </div>
             </div>
-            <div class="pastEvntscardBottomWr">
-                <div class="pastEvntsWr" style="height: 70rem;overflow-y: auto;padding-top: 2rem !important;">
+            <div class="pastEvntsPagecardBottomWr">
+                <div class="pastEvntsWr">
                     
                                     </div>
             </div>

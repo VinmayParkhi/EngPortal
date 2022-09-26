@@ -33,43 +33,106 @@
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
 	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/jquery.multifile.js"></script> 
 	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/create_survey.js"></script>
-
+	  <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/save_now_survey.js"></script>
+	<!--<script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/AutoPublishSurvey.js"></script>-->
     <link href="botstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="create_event.css">
     <style>
+    
+    	input[type=text]:focus,
+    	input[type=button]:focus,
+    	 textarea:focus {
+  border: 1px solid #FF3D97 !important;
+}
+	input[type=text]:hover,
+	input[type=button]:hover,
+	textarea:hover{
+  border: 1px solid #FF3D97 !important;
+}	
+
+    
+    #ui-datepicker-div{
+	width:auto !important;
+}
     #imageID {
     width: 37%;
     padding: 6px;
     border-radius: 15px;
 }
- @media (min-width: 1200px) and (max-width: 1400px){
+.breadcrumb-item + .breadcrumb-item::before{
+	    color: #E5E5E5;
+}
+.p-button{
+	    padding: 0.5rem 3rem !important;
+}
+.event-data{
+    height: 71vh;
+}
 .sidebar {
-    height: 100vh !important;
-    }
+    height: auto !important;
+        margin-bottom: 2.3rem;
+}
  .event-data{
-	height: 79vh;
+    height: auto;
 	width: 92.5%;
+    min-height: 450px;
 }
 .FA-1{
-	    width: 92.5% !important;
+	    width: 92.5%;
+}
+.w3-button, .p-button{
+	border: solid 1px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px black inset;
+}
+.w3-button:hover, .p-button:hover{
+	border: solid 1px transparent;
+        box-shadow: 0px 0px black inset;
+}
+.p-button{
+	width:21%;
+	}
+	
+	.w3-button {
+    width: 19%;
+}
+ @media (min-width: 1200px) and (max-width: 1400px){
+.FA-1{
+    width: 92% !important;
     margin-left: 3.5% !important;
  }
-
+.hr1{
+	height: 1px;
+	width: 92% !important;
+	margin-left: 3% !important;
+}
+.p-button {
+    width: 18%;
+}
+.w3-button {
+    width: 17%;
+}
 }
 
 
- @media (min-width: 1400px) and (max-width: 1600px){
-.sidebar {
-    height: 100vh !important;
-    }
- .event-data{
-	height: 79vh;
-	width: 92.5%;
-}
+ @media (min-width: 1400px){
 .FA-1{
-	    width: 92.5% !important;
+	    width: 92% !important;
     margin-left: 3.5% !important;
   }
+.p-button,
+.w3-button{
+	width:15%;
+	}
+
+}
+ @media (min-width: 1400px){
+.p-button,
+.w3-button{
+	width:12%;
+	}
 
 }
 
@@ -100,9 +163,9 @@
             <div class="d-flex">
                 
                 <div class="a-button ms-auto">
-                    <span class="pe-3">Save for now</span>
-                    <button type="button" class="btn border" data-bs-toggle="modal" data-bs-target="#publishSurveyModal">Autopublish</button>
-                    <button type="button" class="btn p-button border-transparent" id="publishSurvey">Publish</button>
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#SaveEventBtn" class="btn savenowsurvey" id="saveNowsurvey" value="Draft" style="background: none;border: none;">Save for now</button>
+                    <button data-bs-toggle="modal" data-bs-target="#AutopublishModal1" class="w3-button bg-transparent" id="AutopublishEventMain" type="button" class="btn border ">Autopublish</button>
+                    <button type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn p-button border-transparent" id="publishSurvey">Publish</button>
                 </div>
 
             </div>
@@ -122,9 +185,9 @@
                  <div class="form-data col-lg-4" style="height:10rem">
                     <label for="evTitle" class="d-block">Survey Image</label>
                     <div class="imageData" id="attachFilesHolder">
-                    	<img src="../../../_catalogs/masterpage/AdminMaster/New_Admin/All_Images/163-large.png" id="imageID">
-                        <input type="file" name="" class="custom-file-input" id="file_upload">
-                        <label for="file_upload"><i class="fa-solid fa-upload"></i> Upload File</label>
+                    	<img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/background.png" id="imageID">
+                        <input type="file" name="" class="custom-file-input" onchange="readURL(this);" id="file_upload">
+                        <label for="file_upload"><i class="fa-solid fa-upload"></i> Upload Image</label>
                     </div>
                 </div>
 
@@ -152,43 +215,112 @@
        
        
     </div>
-    
-    
-    
-    <!-- Modal popup for publish button start-->
-    
-    <div class="modal fade" id="publishSurveyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="publishSurveyModalLabel" aria-hidden="true">
-                    <div class="modal-dialog  modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                            <span class="me-2"><img src=" https://infornt.sharepoint.com/_catalogs/masterpage/AdminMaster/Images/icons8-schedule-64.png" alt="img" style="width:25px;"></span><p class="modal-title" id="publishSurveyModalLabel" style="margin:0px;">Schedule Auto Publish</p>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+     <!-- Modal popup for Saved as draft button start-->
+       <div class="modal fade" id="SaveEventBtn" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src=" https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Survey Saved as draft  </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
                         </div>
-                        <div class="modal-body">
-                        <!--<span class="mx-auto"><i class="fa-solid fa-trash-can"></i></span>
-                        <span class="message">Are you sure you want to delete this member</span>-->
-                      
-						<div class="container">
-						  <div class="row g-3">
-                        <div class="col-md-6">
-							    <label for="inputEmail4" class="form-label">Email</label>
-							    <input type="email" class="form-control" id="inputEmail4">
-							  </div>
-							  <div class="col-md-6">
-							    <label for="inputPassword4" class="form-label">Password</label>
-							    <input type="password" class="form-control" id="inputPassword4">
-							  </div>
-                        </div>
-                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have saved a survey successfully</span>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn" data-bs-dismiss="modal" style="font-size: 11px;">Cancle</button>
-                            <button type="button" class="btn btn-primary okbtn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Done</button>
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okay" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;">Okay</button>
                         </div>
                       </div>
                     </div>
-                  </div>
-        <!-- Modal popup for publish button start-->
+</div>
+         <!-- Modal popup for Saved as draft button End-->
+    
+    
+    <!-- Modal popup for publish button start-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src=" https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Survey Published Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have published a survey successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okay" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+    
+     
+    <!-- Modal popup for publish button End-->
+
+    
+    
+        <!-- Modal popup for Autopublish button start-->
+        
+         <div class="modal fade" id="AutopublishModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered justify-content-center">
+    <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE">
+      <!--<div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+        <h5 class="modal-title" id="exampleModalLabel" style="margin: 0px;">Modal title</h5>
+        <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+      </div>-->
+      <div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src=" https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Schedule Auto Publish </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+     <!-- <div class="modal-body">
+         <div class="form-data" style="position: relative;">
+                   
+                    <input type="date" name="" id="surveyDate">
+                    <i class="fa-solid fa-calendar-days calender"></i>
+                </div>
+      </div>
+       <div class="form-data" style="position: relative;">
+                    <label for="time" class="d-block">Start Time</label>
+                    <input type="time" name="" id="surveyTime">
+                    <i class="fa-solid fa-clock time"></i>
+                </div>-->
+                
+  <div class="modal-body" style="display: flex;flex-direction: row">
+  
+  <div class="form-data"  style="position: relative;width: 50%;margin-right: 5px;">
+                   <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-weight: 500;font-size: 9px;">Select Date</label>
+                   <input type="date" name="" id="surveyDate" style="color: black;background: #FFFFFF;">
+                    <!-- <i class="fa-solid fa-calendar-days calender"></i> -->
+                </div>
+                <div class="form-data" style="position: relative;width: 50%;margin-right: 0px;font-weight: 500">
+                    <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-size: 9px;">Select Time</label>
+                    <input type="time" name="" id="surveyTime" style="color: black;background: #FFFFFF;">
+                    <!-- <i class="fa-solid fa-clock time"></i> -->
+                </div>
+               
+
+                                               </div>
+                                                <div style="text-align: center;position: relative;bottom: 50px;left: 0px;font-size: 9px;font-weight: 500;"> 
+              <!--   <p>NOTE: This event will publish automatically on 06 Aug 2022,11:00PM</p>-->
+                </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 5px;">Close</button>
+        <button type="button" class="btn btn-primary publishevent " data-bs-dismiss="modal" id="AutopublishEvent2" value="Autopublish" style="background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;border-radius: 5px;">Save changes</button>
+      </div>
+    
+  </div>
+</div>
+</div>
+      
+
+        <!-- Modal popup for Autopublish button End-->
+
+
 
 
 <script type="text/javascript">        
@@ -231,11 +363,26 @@ $(".serveyEventForm select").val("");
 </script>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
+	<script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/AutoPublishSurvey.js"></script>
    <script>
   $( function() {
     $( "#sDate, #eDate" ).datepicker();
   } );
+  
+  
+  
+  function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imageID')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
   </script>
 
  </body>

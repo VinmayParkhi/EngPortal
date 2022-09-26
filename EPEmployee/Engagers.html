@@ -3,6 +3,18 @@
 <head>
 
 <style>
+
+
+.engteam{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+}
+
+.engteam img{
+	background: #B15610 !important;
+}
+
+
 html{
 	font-size: 62.5%;
 }
@@ -17,10 +29,10 @@ html{
 }
 #groupid{
 	display: flex;
-	flex-direction: column;
+	/*flex-direction: column;*/
     flex-wrap: wrap;
-    /*overflow-y: scroll;*/
-    height: auto;
+    overflow-y: auto;
+    height: 604px;
     margin-top:2rem;
 }
 
@@ -78,28 +90,34 @@ font-family:'Montserrat';
 	margin-right:2rem;
 }
 
+.emp-card{
+
+margin-bottom: 0 !important;
+		margin-top: 2rem;
+}
+
 /* css for vertical scroll start*/
 /* width */
-::-webkit-scrollbar {
+/*::-webkit-scrollbar {
 	width: 10px;
-}
+}*/
 
 /* Track */
-::-webkit-scrollbar-track {
+/*::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 5px grey; 
 	border-radius: 10px;
-}
+}*/
  
 /* Handle */
-::-webkit-scrollbar-thumb {
+/*::-webkit-scrollbar-thumb {
 	background: black; 
 	border-radius: 10px;
-}
+}*/
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+/*::-webkit-scrollbar-thumb:hover {
 	background: black; 
-}
+}*/
 /* css for vertical scroll end*/
 
 /* @media (min-width: 375px){
@@ -116,15 +134,15 @@ font-family:'Montserrat';
 
 @media (min-width: 768px){
 #groupid{
-	width: 100%;
+	width: 98%;
 	display: flex;
-	flex-direction: row;
+	/*flex-direction: row;
     flex-wrap: wrap;
-    /*overflow-y: scroll;*/
-    height: auto;
+    overflow-y: scroll;*/
+    height: 500px;
     margin-top:2rem;
     margin-left: 1.5rem !important;
-    justify-content: space-between;
+   
 }
 event-head{
 	margin-left: 0.6rem;
@@ -137,9 +155,10 @@ event-head{
 	height:auto;
 	/*margin-right: 2rem;*/
 	margin-bottom: 1.8rem;
+	margin-left: 0.8rem;
 }
 .card-image{
-	height: 16vh;
+	height: 23vh;
 	width: 92%;
 }
 .card-body{
@@ -166,54 +185,59 @@ event-head{
     right: 8px ;
     left: auto;
 }
-
-/* css for vertical scroll start*/
-/* width */
-::-webkit-scrollbar {
-	width: 10px;
+footer{
+	width: 96%;
+	margin-left: 2rem;
 }
-
-/* Track */
-::-webkit-scrollbar-track {
-	box-shadow: inset 0 0 5px grey; 
-	border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-	background: black; 
-	border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background: black; 
-}
-/* css for vertical scroll end*/
 }
 
 @media (min-width: 992px){
 .sidebar{
-	height: 98%;
+	height: auto;
+	/*margin-bottom: 1.8rem;*/
+}
+/*footer{
+    margin-left: 4.2rem;
+	width:92%;
+}*/
+footer {
+    margin-left: 2.5rem;
+    width: 92%;
+    width: 93% !important;
 }
 .footer{
 	margin:0;
+	
 }
 #groupid{
+	width: 100%;
+    height: 650px;
 	margin-left: 0 !important;
-	justify-content: space-between;
+	
 }
 	.emp-card{
 		width: 32%;
 		margin-right: 0 !important;
+		
+}
+.emp-card{
+
+margin-bottom: 0 !important;
+		margin-top: 2rem;
+		    margin-left: 0.9rem;
+}
+
+		
 	}
 	.event-head .head-left a h4 {
     	margin-left: 0;
     }
     .card-image{
 	width: 93%;
-	height: 34vh;
-	margin-top: 23px;
+	height: 30vh;
+	margin-top: 15px;
+	/*height: 34vh;
+	margin-top: 23px;*/
 }
 .card-body {
     width: 99%;
@@ -230,7 +254,57 @@ event-head{
 	margin-bottom: 0;
 }
 }
+/*@media (min-width: 1200px){
+footer{
+	margin-left: 5rem;
+}
+}*/
+@media (min-width: 1280px){
+	#groupid {
+    height: 650px;
+    }
+    footer {
+    margin-left: 5rem;
+    width: 90% !important;
+	}
+	
+	.emp-card{
+
+	margin-bottom: 0 !important;
+		margin-top: 2rem;
+}
+
+}
+
+@media (min-width: 1366px){
+	footer {
+    width: 90.5% !important;
+	}
+}
+
+@media (min-width: 1400px){
+	#groupid {
+    height: 666px;
+}
+}
+
+@media (min-width: 1536px){
+	footer {
+    margin-left: 6rem;
+    }
+}
+
+@media (min-width: 1900px){
+	#groupid {
+    height: 807px;
+	}
+	
+	footer {
+    margin-left: 7.5rem;
+	}
+}
 </style>
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
@@ -295,7 +369,7 @@ $.ajax({
 					//dept = "O365"Department
 				}
 			}         
-			$("#groupid").append("<div class='col-12 col-md-4 card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard();'><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' class='profilepic' style='border-radius:50%;width: 100px;'></div><div class='card-body mx-auto'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div><div class='send'><div class='sendEmail'><a href='https://mail.zoho.com/zm/#compose' style='display: flex;align-items: center'><img style='width: 15%;' src='https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-mail.svg' alt='Mail'><span style='font-size:1.2rem; color:#fff; margin-left:5px; font-weight:500;'>Send email</span></a></div><div class='sendMessage'><a href='https://teams.microsoft.com/_?lm=deeplink&lmsrc=NeutralHomePageWeb&cmpid=WebSignIn&culture=en-in&country=in#/conversations/19:meeting_NzgyM2U1MDUtZGFkMy00ZTI2LWJhOWYtYjY2NjY5MDQxNjhl@thread.v2?ctx=chat' style='display: flex;align-items: center'><img  style='width: 15%;' src='https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-message-circle.svg' alt='Message'><span style='font-size:1.2rem; color:#fff; margin-left:5px; font-weight:500;'>Send Message</span></a></div></div></div>");
+			$("#groupid").append("<div class='col-12 col-md-4 card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard();'><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' class='profilepic' style='border-radius:50%;width: 100px;'></div><div class='card-body mx-auto'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div><div class='send'><div class='sendEmail'><a href='https://mail.zoho.com/zm/#compose' style='display: flex;align-items: center'><img style='width: 15%;' src='https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-mail.svg' alt='Mail'><span style='font-size:1rem; color:#fff; margin-left:5px; font-weight:500;'>Send email</span></a></div><div class='sendMessage'><a href='https://teams.microsoft.com/_?lm=deeplink&lmsrc=NeutralHomePageWeb&cmpid=WebSignIn&culture=en-in&country=in#/conversations/19:meeting_NzgyM2U1MDUtZGFkMy00ZTI2LWJhOWYtYjY2NjY5MDQxNjhl@thread.v2?ctx=chat' style='display: flex;align-items: center'><img  style='width: 15%;' src='https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-message-circle.svg' alt='Message'><span style='font-size:1rem; color:#fff; margin-left:5px; font-weight:500;'>Send Message</span></a></div></div></div>");
 		},
 		error: function (error){
 			console.log(error);
@@ -315,7 +389,7 @@ $.ajax({
                             </a>                            
                         </div>
                     </div>
-<div id="groupid" class="row ms-2">
+<div id="groupid" class="row mx-2 ms-md-2">
 </div>
 </body>
 </html>

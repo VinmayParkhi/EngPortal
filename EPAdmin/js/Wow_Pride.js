@@ -5,10 +5,10 @@
  $(document).ready(function() { 
  //$('#file_input').multifile();//For facilitate multi file upload 
 
- $("#publishWowPride").click(function() {
+ $("#publishWowndPride").click(function() {
  	formSave();
  
- }); 
+ });  
      
   });
  function formSave() { 
@@ -24,9 +24,9 @@
  }); 
  arraycount += fileArray.length;
  data.push({ 
- "Title": $("#Wowpridetitle").val(), 
- "BannerDescription": $("#WowprideDesc").val(),
- "Pillar": $("#Wowpridepillar").val(), 
+ "Title": $("#PublishWowndPrideTitle").val(), 
+ "BannerDescription": $("#PublishWowndPrideDesc").val(),
+ "Pillar": $("#PublishWowndPrideInput").val(), 
  "Files": fileArray 
  }); 
  
@@ -150,12 +150,12 @@ var clientContext = new SP.ClientContext(siteUrl);
 
 function onQuerySucceeded() {
 
-    alert('Item updated!');
+    //alert('Item updated!');
 }
 
 function onQueryFailed(sender, args) {
 
-    alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+    //alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
 }
 
   
@@ -295,13 +295,13 @@ function onQueryFailed(sender, args) {
  getPillar();
  
  
- alert("Uploaded");
+ //alert("Uploaded");
  //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
 
  
  },
  error: function(error){
- alert("error :"+error);
+ //alert("error :"+error);
  }
 
  });

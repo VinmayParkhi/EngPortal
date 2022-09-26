@@ -3,7 +3,7 @@
             background: #000000 0% 0% no-repeat padding-box;
             border-radius: 25px;
 			width:96%;
-            padding: 30px;
+            padding: 20px;
             opacity: 1;
             backdrop-filter: blur(50px);
             -webkit-backdrop-filter: blur(50px);
@@ -14,7 +14,7 @@
         #dataTable2_length,
         #dataTable2_length>label>select {
             color: #AFAFAF;
-            margin-bottom: 4px;
+           /* margin-bottom: 4px;*/
         }
 		#createSurvey{
 	
@@ -42,7 +42,7 @@
 
         #dataTable2_length>label>select {
             width: 50px;
-            height: 18px;
+            height: 20px;
             background: #232323 0% 0% no-repeat padding-box;
             border: 1px solid #4E4E4E;
             border-radius: 5px;
@@ -61,7 +61,7 @@
             opacity: 1;
             font-size: 12px;
             color:white;
-            margin-top: -9px;
+            /*margin-top: -9px;*/
         }
         .main-style{
             position: relative;
@@ -73,7 +73,7 @@
             z-index: 111;
             width: 20%;
             top: 25px;
-            font-size: 12px;
+            font-size: 10px;
             color: #AFAFAF;
         }
         .calenderView input{
@@ -86,12 +86,12 @@
         background:transparent !important;
         color:#fff;
 }
-#dataTable2 > tbody > tr> td:nth-child(4){
+/*#dataTable2 > tbody > tr> td:nth-child(4){
 	text-align:center !important;
 }
 #dataTable2 > tbody > tr> td:nth-child(5){
 	text-align:center !important;	
-}
+}*/
         #dataTable2_info {
            letter-spacing: 0px;
             color: #AFAFAF;
@@ -263,6 +263,6 @@
 	background: #FF3D97;
 	}
 	table.dataTable tbody td{
-	padding: 15px 5px;
-	font-size: 12px !important;
-}
+	padding: 5px 10px 5px 0px;
+    font-size: 11px !important;
+    }

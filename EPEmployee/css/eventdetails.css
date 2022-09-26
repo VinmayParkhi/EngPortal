@@ -111,9 +111,14 @@ a {
 .eventdtlsText .eventdtlspara{    
     margin-bottom: 1.5rem;
 }
+.eventdtlsText .eventdtlspara {    
+    margin-bottom: 1.5rem;
+}
+
 .eventdtlsText .eventdtlspara h6 label{
     color: #E5E5E5;
     opacity: 0.8;
+    text-align: justify !important;
 }
 .eventdtlsText .eventdtlsDateTime{
     display: flex;
@@ -149,7 +154,7 @@ a {
 }
 .eventdtlsBtn .eventdtlsReminder a {
     background-color: #232323;
-    padding: 0.6rem 4rem;
+    padding: 0.6rem 2rem;
     border-radius: 0.5rem;
     color: #FFFFFF;
     font-size: 1.1rem;
@@ -222,9 +227,9 @@ a {
     -webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-.fa-solid{
+/*.fa-solid{
     font-weight: 100;
-}
+}*/
 .emoji i{
        font-size: 1.5rem;
     color: #fff;
@@ -259,138 +264,29 @@ ul.breadcrumb li {
     font-weight: 100;
 }
 
+
+@media (min-width: 768px) and (max-width: 991px){
+	
+	
+	
+
+
+.navWr {
+    width: 92% !important;
+    
+}
+
+.navWr .rightNav .search{
+	
+	width:45%;
+}
+
+#SearchBox {
+    display:none !important;
+}
+
+}
+
 /* ends breadcrumb */
-
-
-/*Mobile responsive query start*/
- @media (min-width:375px) and (max-width:768px){
- .eventdetailsWr{
-	min-height: 75vh;
-	}
- 
- .evntdtlsHeading{
-	margin-top: 0;
-	margin-bottom: 0;
-}
-.eventdetailsWrcontent {
-  width: 94%;
-  padding-top: 1.5rem;
-}
-
-.eventdtlsDateTime {
-  display: block !important;
-  }
-  
-  .eventdtlsClockText,.eventdtlsCalendarText > div:nth-child(1){
-	margin-bottom:1rem;
-}
-.eventdtlsFeel {
-  display: block;
-  }
-  .borderLinear1, .borderLinear2{
-	margin-right:3rem;
-}
-.breadcrumb > li:nth-child(2) > a:nth-child(2) > label:nth-child(1),
-.breadcrumb > li:nth-child(3) > a:nth-child(1) > label:nth-child(1),
-#Pillar{
-	color:white;
-}
-.eventdtlsBtn{
-	justify-content: center;
-}
-
-label {
-margin-bottom: 0!important;
-}
-
-/*font-size changes */
-.eventdtlsTitleLeft > h5:nth-child(2) > label:nth-child(1){
-	font-size: 2rem;
-}
-.eventwork{
-	font-size: 1.2rem;
-}
-
-.eventdtlspara > h6:nth-child(1) > label:nth-child(1),
-.eventdtlsDateTime, .feelText > h6:nth-child(1) > label:nth-child(1){
-font-size: 1.3rem;
-text-align: justify;
-}
-.emoji i {
-  font-size: 2rem;
-  }
-  .emoji-1 > h6:nth-child(2),.emoji-2 > h6:nth-child(2), .emoji-3 > h6:nth-child(2){
-	font-size: 1.3rem;
-
-}
-#reminderBtn, .eventdtlsJoin > a:nth-child(1){
-	font-size: 1.5rem;
-}
-	
-}
-
-@media (min-width:768px) and (max-width:1024px){
-.eventdetailsWr {
-	margin-left:3rem;
-}
-.evntdtlsHeading{
-	margin-top: 0;
-	margin-bottom: 0;
-	margin-left:3rem;
-}
-.eventdetailsWrcontent {
-  width: 94%;
-  padding-top: 1.5rem;
-}
- .eventdtlsClockText,.eventdtlsCalendarText > div:nth-child(1){
-	margin-bottom:1rem;
-}
-
-.eventdtlsFeel {
-  display: block;
-  }
-
-
-.borderLinear1, .borderLinear2{
-	margin-right:3rem;
-}
-.breadcrumb > li:nth-child(2) > a:nth-child(2) > label:nth-child(1),
-.breadcrumb > li:nth-child(3) > a:nth-child(1) > label:nth-child(1),
-#Pillar{
-	color:white;
-}
-
-.eventdtlsTitleLeft > h5:nth-child(2) > label:nth-child(1){
-	font-size: 2rem;
-}
-.eventwork{
-	font-size: 1.2rem;
-}
-
-.eventdtlspara > h6:nth-child(1) > label:nth-child(1),
-.eventdtlsDateTime, .feelText > h6:nth-child(1) > label:nth-child(1){
-font-size: 1.3rem;
-text-align: justify;
-}
-.emoji i {
-  font-size: 2rem;
-  }
-  .emoji-1 > h6:nth-child(2),.emoji-2 > h6:nth-child(2), .emoji-3 > h6:nth-child(2){
-	font-size: 1.3rem;
-
-}
-#reminderBtn, .eventdtlsJoin > a:nth-child(1){
-	font-size: 1.5rem;
-}
-.emoji {
-  width: auto !important;
-  margin: 0 !important;
-}
-	
-}
-
-
-
-
 
 

@@ -26,7 +26,7 @@
  data.push({ 
  "Title": $("#PublishLifeTitle").val(), 
  "BannerDescription": $("#PublishLifeDesc").val(),
- "Pillar": $("input[title='Pillar']").val(), 
+ "Pillar": $("#LifeInput").val(), 
  "Files": fileArray 
  }); 
  
@@ -150,12 +150,12 @@ var clientContext = new SP.ClientContext(siteUrl);
 
 function onQuerySucceeded() {
 
-    alert('Item updated!');
+    //alert('Item updated!');
 }
 
 function onQueryFailed(sender, args) {
 
-    alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+    //alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
 }
 
   
@@ -295,13 +295,13 @@ function onQueryFailed(sender, args) {
  getPillar();
  
  
- alert("Uploaded");
+ //alert("Uploaded");
  //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
 
  
  },
  error: function(error){
- alert("error :"+error);
+ //alert("error :"+error);
  }
 
  });

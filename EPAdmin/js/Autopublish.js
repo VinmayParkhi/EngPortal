@@ -11,9 +11,8 @@
   
  //$(".savenow").click(function() {formSave()}); 
      
-     
-     
-   
+     GetAutoPublish()     
+   UpDateComplete();
  $("select.pillar").change(function(){
         Pillar = $(this).children("option:selected").val();
 
@@ -33,17 +32,17 @@
   });
 
 
-   $(".publishevent").on("click", function(){
-   PubDate = $("#Date").val();
-   pubTime = $("#Time").val();
-   publisheventstatus =PubDate+" "+pubTime;
-    console.log(publisheventstatus);
-    formSave()
+   $("#AutopublishEvent2").on("click", function(){
+	   PubDate = $("#Date").val();
+	   	pubTime = $("#Time").val();
+	   	publisheventstatus =PubDate+" "+pubTime;
+	    console.log(publisheventstatus);
+	    AutopublishData()
      })
    
   });
   
- function formSave() { 
+ function AutopublishData() { 
  	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
 	 var data = []; 
 	 var fileArray = []; 
@@ -57,9 +56,9 @@
  	var EventEndTime = $("input[id='SETime1']").val();
  	
  	
- var EventStartDateTime = moment(EventDate+ ' ' +EventStartTime).format('YYYY/MM/DD HH:mm');
+ 	var EventStartDateTime = moment(EventDate+ ' ' +EventStartTime).format('YYYY/MM/DD HH:mm');
     var EventEndDateTime = moment(EventDate+ ' ' +EventEndTime).format('YYYY/MM/DD HH:mm');    
-    console.log("Start :"+EventStartDateTime +" End :"+EventEndDateTime);
+    //console.log("Start :"+EventStartDateTime +" End :"+EventEndDateTime);
 	arraycount += fileArray.length;
 	data.push({ 
 	"EventType":Etype,
@@ -74,13 +73,13 @@
 	"EventKeywords": $("input[id='evKey']").val(),
 	"EventLink": $("input[id='evLink']").val(),
 	"Status": "Autopublish",
-	"AutoPulishDate": publisheventstatus,	
+	"AutoPublishDateTime": $("#Date").val() +" "+ $("#Time").val(),	
 	"Files": fileArray 
 	}); 
 	
     
     
-	createNewItemWithAttachments("EPEvent", data).then( 
+	createNewItemWithAttachmentsAutoPub("EPEvent", data).then( 
 	function() { 
 	//if (oLoader.close) setTimeout(function () { oLoader.close(); }, 3000); 
 	//window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");   
@@ -91,7 +90,7 @@
 } 
   
   
- var createNewItemWithAttachments = function(listName, listValues) { 
+ var createNewItemWithAttachmentsAutoPub = function(listName, listValues) { 
  var fileCountCheck = 0; 
  var fileNames; 
  var context = new SP.ClientContext.get_current(); 
@@ -101,7 +100,7 @@
  var itemCreateInfo = new SP.ListItemCreationInformation(); 
  var listItem = targetList.addItem(itemCreateInfo);
   
- //listItem.set_item("Title","Title123"); 
+ listItem.set_item("Title","Title123"); 
  listItem.set_item("EventType", listValues[0].EventType);
  listItem.set_item("Title", listValues[0].Title); 
  listItem.set_item("Pillar", listValues[0].Pillar);
@@ -114,14 +113,14 @@
  listItem.set_item("EventKeywords", listValues[0].EventKeywords); 
  listItem.set_item("EventLink", listValues[0].EventLink);
  listItem.set_item("Status", listValues[0].Status);
- listItem.set_item("AutoPulishDate", listValues[0].AutoPulishDate);
+ listItem.set_item("AutoPublishDateTime", listValues[0].AutoPublishDateTime);
  listItem.update(); 
  context.executeQueryAsync( 
  function() { 
  var id = listItem.get_id(); 
  if (listValues[0].Files.length != 0) { 
  if (fileCountCheck <= listValues[0].Files.length - 1) { 
- loopFileUpload(listName, id, listValues, fileCountCheck).then( 
+ loopFileUploadAutoPub(listName, id, listValues, fileCountCheck).then( 
  function() { 
  }, 
  function(sender, args) { 
@@ -142,9 +141,9 @@
  return dfd.promise(); 
  } 
   
- function loopFileUpload(listName, id, listValues, fileCountCheck) { 
+ function loopFileUploadAutoPub(listName, id, listValues, fileCountCheck) { 
  var dfd = $.Deferred(); 
- uploadFileHolder(listName, id, listValues[0].Files[fileCountCheck].Attachment).then( 
+ uploadFileHolderAutoPub(listName, id, listValues[0].Files[fileCountCheck].Attachment).then( 
  function (data) { 
  var objcontext = new SP.ClientContext(); 
  var targetList = objcontext.get_web().get_lists().getByTitle(listName); 
@@ -154,7 +153,7 @@
  console.log("Reload List Item- Success"); 
  fileCountCheck++; 
  if (fileCountCheck <= listValues[0].Files.length - 1) { 
- loopFileUpload(listName, id, listValues, fileCountCheck); 
+ loopFileUploadAutoPub(listName, id, listValues, fileCountCheck); 
  } else { 
  console.log(fileCountCheck + ": Files uploaded"); 
  attcount += fileCountCheck; 
@@ -179,7 +178,7 @@
   
   //File Upload code
   
- function uploadFileHolder(listName, id, file) { 
+ function uploadFileHolderAutoPub(listName, id, file) { 
 	 //file = $(this)[0].files[0];
 
  	var getFileBuffer = function(file) {
@@ -202,13 +201,12 @@
 
  };
 
- getFileBuffer(file).then(function(buffer) {
+ getFileBufferAutoPub(file).then(function(buffer) {
 
  $.ajax({
 
 
- url: _spPageContextInfo.webAbsoluteUrl +
- "/_api/web/lists/getbytitle('" + listName + "')/items(" + id + ")/AttachmentFiles/add(FileName='" + file.name + "')",
+ url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + listName + "')/items(" + id + ")/AttachmentFiles/add(FileName='" + file.name + "')",
 
  method: 'POST',
 
@@ -249,7 +247,7 @@
 
 
  
- function getFileBuffer(file) { 
+ function getFileBufferAutoPub(file) { 
  var deferred = $.Deferred(); 
  var reader = new FileReader(); 
  reader.onload = function(e) { 
@@ -261,5 +259,168 @@
  reader.readAsArrayBuffer(file); 
  return deferred.promise(); 
  } 
-  
  
+ 
+ 
+
+function UpdateNotification(id){
+  	var Status = "Read";  	
+  	var item={
+  	 	"__metadata":{'type': 'SP.Data.EPContactUsListItem'},
+  	 	"Status":Status		
+  	};
+  	$.ajax({
+		url:_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPContactUs')/items("+id+")",
+		method: "POST",
+		contentType: "application/json; odata=verbose",
+		data:JSON.stringify(item),
+		headers: {
+			"Accept": "application/json; odata=verbose",
+			"X-RequestDigest":$("#__REQUESTDIGEST").val(),
+			"IF-MATCH":"*",
+			"X-HTTP-Method":"MERGE",
+			
+		},
+		success:OnSuccess,
+		error:OnError
+	});
+	function OnSuccess(data){
+	 	Notification();
+		//alert(id+"Updated Successfully");
+	}
+
+    function OnError(data){
+		alert("Update error");
+	}
+  };
+setInterval(GetAutoPublish, 10000);
+
+function GetAutoPublish() {
+ 	var today = moment().format('YYYY-MM-DDTHH:mm:00'); 	
+ 	$.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Status,AutoPublishDateTime&$filter=(Status eq 'Autopublish') and ( AutoPublishDateTime le '"+today+"')&$orderby=Created desc",
+        method: "GET",
+        headers:
+           {
+               "Accept": "application/json;odata=verbose"
+           },
+           
+        success: function (data, status, xhr) {
+           var dataresults = data.d.results;
+            console.log(dataresults);
+				if(dataresults.length > 0){
+               var AutoPublishDate =data.d.results[0].AutoPublishDateTime;               
+               var Status = data.d.results[0].Status;
+               		var ID = data.d.results[0].ID;
+               		console.log(AutoPublishDate +" "+ Status +" "+ ID);
+               UpdatePublish(ID);
+           			}	                 
+        },
+        error: function (xhr, status, error) {
+            //console.log("Failed");
+        }
+    });
+}
+
+function UpdatePublish(id) {
+	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items("+id+")"
+	var item = {
+		__metadata: { 'type': 'SP.Data.EPEventListItem' },
+  		"Status":"Published"
+  		//"AutoPublishDate" : ""
+  	}
+	//console.log(data);
+	$.ajax({
+		url: siteUrl,
+		type: "POST",
+		async:false,
+		data: JSON.stringify(item),
+		headers: {
+				"accept": "application/json;odata=verbose",
+				"content-type": "application/json;odata=verbose",
+				"X-RequestDigest": $("#__REQUESTDIGEST").val(),
+				"IF-MATCH": "*",           
+				"X-HTTP-Method": "MERGE"
+
+		},
+		success: SuccessFunction,
+		error: ErrorFunction
+	});
+}
+
+function SuccessFunction(data) {
+alert("test done");
+
+//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
+}
+
+function ErrorFunction(error) {
+alert('Error!' +error.responseText);
+}
+
+
+setInterval(UpDateComplete, 10000);
+
+function UpDateComplete() {
+ 	var today = moment().format('YYYY-MM-DDTHH:mm:00'); 	
+ 	$.ajax({
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Status,EventEndTime&$filter=(Status eq 'Published') and ( EventEndTime le '"+today+"')&$orderby=Created desc",   
+        method: "GET",
+        headers:
+           {
+               "Accept": "application/json;odata=verbose"
+           },
+           
+        success: function (data, status, xhr) {
+           var dataresults = data.d.results;
+            console.log(dataresults);
+				if(dataresults.length > 0){
+               var AutoPublishDate =data.d.results[0].EventEndTime;               
+               var Status = data.d.results[0].Status;
+               		var ID = data.d.results[0].ID;
+               		console.log(AutoPublishDate +" "+ Status +" "+ ID);
+               UpdateCompleted(ID);
+           }		                 
+        },
+        error: function (xhr, status, error) {
+            //console.log("Failed");
+        }
+    });
+}
+
+function UpdateCompleted(id) {
+	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items("+id+")"
+	var item = {
+		__metadata: { 'type': 'SP.Data.EPEventListItem' },
+  		"Status":"Completed",
+  		//"AutoPublishDate" : ""
+  	}
+	//console.log(data);
+	$.ajax({
+		url: siteUrl,
+		type: "POST",
+		async:false,
+		data: JSON.stringify(item),
+		headers: {
+				"accept": "application/json;odata=verbose",
+				"content-type": "application/json;odata=verbose",
+				"X-RequestDigest": $("#__REQUESTDIGEST").val(),
+				"IF-MATCH": "*",           
+				"X-HTTP-Method": "MERGE"
+
+		},
+		success: SuccessFunction,
+		error: ErrorFunction
+	});
+}
+
+function SuccessFunction(data) {
+//alert("test done");
+
+//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
+}
+
+function ErrorFunction(error) {
+alert('Error!' +error.responseText);
+}
+

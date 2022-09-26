@@ -1,9 +1,8 @@
  var oLoader; 
  var attcount = 0; 
  var arraycount = 0; 
-// var Pillar;
- //var Etype;
-
+ var Pillar;
+ var Etype;
  $(document).ready(function() { 
  //$('#file_input').multifile();//For facilitate multi file upload 
   
@@ -12,8 +11,16 @@
      
      
    
+ $("select.pillar").change(function(){
+        Pillar = $(this).children("option:selected").val();
 
-  $("#publishSurvey > div > div > div.modal-footer > button").click(function(){
+    });
+    $("select.evType").change(function(){
+        Etype= $(this).children("option:selected").val();
+
+    });
+
+  $("#PublishEventBtn1 > div > div > div.modal-footer > button").click(function(){
     //alert("The paragraph was clicked.");
     
     
@@ -21,45 +28,61 @@
     $(".single-day textarea").val("");
     $(".single-day select").val("");
   });
-    
+
+
+     
      
   });
   
  function formSave() { 
- //oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
-  
-  
- var data = []; 
- var fileArray = []; 
- $("#attachFilesHolder input:file").each(function() { 
- if ($(this)[0].files[0]) { 
- fileArray.push({ "Attachment": $(this)[0].files[0] }); 
- } 
- }); 
- arraycount += fileArray.length;
- data.push({ 
- "Title": $("#sTitle").val(),
- "SurveyDescreption": $("textarea#sDesc").val(),
- "SurveyStartDate": $("input[id='sDate']").val(),
- "SurveyEndDate":$("input[id='eDate']").val(),
- "SurveyLink": $("input[id='sLink']").val(),
- "Files": fileArray 
- }); 
- console.log(data);
- createNewItemWithAttachments("EPSurvey", data).then( 
- function
- () { 
- //if (oLoader.close) setTimeout(function () { oLoader.close(); }, 3000); 
- //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx"); 
-  
- }, 
- function(sender, args) { 
- console.log('Error occured' + args.get_message()); 
- } 
- ) 
-  
-  
- } 
+ 	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
+	 var data = []; 
+	 var fileArray = []; 
+	 $("#attachFilesHolder input:file").each(function() { 
+		 if ($(this)[0].files[0]) { 
+		 fileArray.push({ "Attachment": $(this)[0].files[0] }); 
+		 } 
+ 	}); 
+ 	var SurveyDate = $("input[id='sDate']").val();
+ 	var SurveyEndDate = $("input[id='eDate']").val();
+ 	//var EventStartTime = $("input[id='SSTime1']").val(); 	
+ 	//var EventEndTime = $("input[id='SETime1']").val();
+ 	
+ //var EventStartDateTime = moment(EventDate+ ' ' +EventStartTime).format('YYYY/MM/DD HH:mm');
+    //var EventEndDateTime = moment(EventDate+ ' ' +EventEndTime).format('YYYY/MM/DD HH:mm');    
+    //console.log("Start :"+EventStartDateTime +" End :"+EventEndDateTime);
+    SurveyDate = moment(SurveyDate).format("YYYY/MM/DD");    
+    SurveyEndDate = moment(SurveyEndDate).format("YYYY/MM/DD");
+	arraycount += fileArray.length;
+	data.push({ 
+	//"EventType":Etype,
+	"Title": $("#sTitle").val(),
+	//"Pillar":Pillar,
+	"SurveyDescreption": $("textarea#sDesc").val(),
+	"SurveyStartDate": SurveyDate,
+	
+	"SurveyEndDate": SurveyEndDate,
+	//"EventStartTime":EventStartDateTime,
+	//"EventEndTime": EventEndDateTime,
+	//"EventSpeakerName": $("input[id='evSpeaker']").val(),
+	//"EventOrganizerName": $("input[id='evOrg']").val(),
+	//"EventKeywords": $("input[id='evKey']").val(),
+	"SurveyLink": $("input[id='sLink']").val(),
+	"Status": "Published",
+	"Files": fileArray 
+	}); 
+	
+    console.log(data);
+    
+	createNewItemWithAttachments("EPSurvey", data).then( 
+	function() { 
+	//if (oLoader.close) setTimeout(function () { oLoader.close(); }, 3000); 
+	//window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");   
+	}, 
+	function(sender, args) { 
+	console.log('Error occured' + args.get_message()); 
+	})
+} 
   
   
  var createNewItemWithAttachments = function(listName, listValues) { 
@@ -72,11 +95,20 @@
  var itemCreateInfo = new SP.ListItemCreationInformation(); 
  var listItem = targetList.addItem(itemCreateInfo);
   
-  listItem.set_item("Title", listValues[0].Title);
+ //listItem.set_item("Title","Title123"); 
+ //listItem.set_item("EventType", listValues[0].EventType);
+ listItem.set_item("Title", listValues[0].Title); 
+ //listItem.set_item("Pillar", listValues[0].Pillar);
  listItem.set_item("SurveyDescreption", listValues[0].SurveyDescreption); 
- listItem.set_item("SurveyStartDate", listValues[0].SurveyStartDate); 
- listItem.set_item("SurveyEndDate", listValues[0].SurveyEndDate); 
- listItem.set_item("SurveyLink", listValues[0].SurveyLink); 
+ listItem.set_item("SurveyStartDate", listValues[0].SurveyStartDate);
+ listItem.set_item("SurveyEndDate", listValues[0].SurveyEndDate);
+ //listItem.set_item("EventStartTime", listValues[0].EventStartTime);  
+ //listItem.set_item("EventEndTime", listValues[0].EventEndTime); 
+ //listItem.set_item("EventSpeakerName", listValues[0].EventSpeakerName); 
+ //listItem.set_item("EventOrganizerName", listValues[0].EventOrganizerName);  
+ //listItem.set_item("EventKeywords", listValues[0].EventKeywords); 
+ listItem.set_item("SurveyLink", listValues[0].SurveyLink);
+ listItem.set_item("Status", listValues[0].Status);
  listItem.update(); 
  context.executeQueryAsync( 
  function() { 
@@ -122,7 +154,7 @@
  attcount += fileCountCheck; 
  if (arraycount == attcount) { 
 // if (oLoader.close) setTimeout(function () { oLoader.close();  }, 3000); 
- 	//window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
+ 	window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
  } 
   
  } 
@@ -200,7 +232,7 @@
  
  },
  error: function(error){
- alert("error :"+error);
+ //alert("error :"+error);
  }
 
  });
@@ -208,6 +240,7 @@
  });
  }
  
+
 
  
  function getFileBuffer(file) { 

@@ -1,8 +1,14 @@
+ var oLoader; 
+ var attcount = 0; 
+ var arraycount = 0; 
  var Pillar;
  var Etype;
  $(document).ready(function() { 
-   seriesHtml(2);
+     
+     $.noConflict();
+	   seriesHtml(2);
    
+   $("#collapseOne1").addClass("show");
    $(".publishSeriesEvent").click(function() {getSeriesData()});
     
    $("select.SREPillar").change(function(){
@@ -11,177 +17,237 @@
    
    $("select.SREtype").change(function(){
        Etype= $(this).children("option:selected").val();
-   });
- }); 
- 
-function getSeriesData(){
-	var DDLvalue = $('select#options option:selected').val();
-	for(i=1;i<=DDLvalue;i++){
-		var ename = $("#evTitle"+i).val();
-	  	var pillar = $("#evPillar"+i).val();
-	  	var subTitle = $("#evsubTitle"+i).val();
-		var evtype = $("#evType"+i).val();
-		var evdesc = $("#evDesc"+i).val();
-		//var evdate = $("#evDate"+i).val();
-		//var evstime = $("#evSTime"+i).val();
-		//var evetime = $("#evETime"+i).val();
-		var evlink = $("#evLink"+i).val();
-		var evspname = $("#evSpeaker"+i).val();
-		var evorg = $("#evOrga"+i).val();
-		var evkey = $("#evKey"+i).val();
-		
-		var fileArray = []; 
-		$("#attachFilesHolder input:file").each(function() { 
-			if ($(this)[0].files[0]) { 
-				fileArray.push({ "Attachment": $(this)[0].files[0] }); 
-			} 
-		}); 
-		insertSeriesEventdata(i,ename,pillar,subTitle,evtype,evdesc,evlink,evspname,evorg,evkey,fileArray);
-		console.log("Test Series Data : "+i+" - "+ename+" - "+pillar+" - "+subTitle+" - "+evtype+" - "+evdesc+" - "+evlink+" - "+evspname+" - "+evorg+" - "+evkey)
-	}
-}
+   }); 
 
-function insertSeriesEventdata(i,ename,pillar,subTitle,evtype,evdesc,evlink,evspname,evorg,evkey,fileArray){
-
-  	var item={
-  	 	"__metadata":{'type': 'SP.Data.EPEventListItem'},
-  	 	"Title":ename,
-  	 	"Pillar":pillar,
-  	 	"EventSubtitle":subTitle,  	 	
-  	 	"EventType":evtype,
-  	 	"EventDescription":evdesc,
-		//"EventDate":evdate,
-		//"EventStartTime":evstime,
-		//"EventEndTime":evetime,
-		"EventLink":evlink,
-		"EventSpeakerName":evspname,
-		"EventOrganizerName":evorg,
-		"EventKeywords":evkey
-		
-  	};
-  	$.ajax({
-		url:_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items",
-		method: "POST",
-		contentType: "application/json; odata=verbose",
-		data:JSON.stringify(item),
-		headers: {
-			"Accept": "application/json; odata=verbose",
-			"X-RequestDigest":$("#__REQUESTDIGEST").val()			
-		},
-		success:OnSuccess,
-		error:OnError
-	});
-	function OnSuccess(data){
-		var id = data.d.ID;
-		if(fileArray.length > 0){
-			//AddAttachments(i,id,fileArray);
-			//uploadFileHolder('CreateEve',id,fileArray)
-		}
-		alert("Sucessfully updated");
-	}
-
-    function OnError(data){
-		console.log("Error occured." + data.responseText);
-	}
-  };
-
-
-function AddAttachments(i,id,fileArray){   
-    var digest = "";
-    $.ajax(
-    {
-	    url: "/_api/contextinfo",
-	    method: "POST",
-	    headers: {
-	                    "ACCEPT": "application/json;odata=verbose",
-	                    "content-type": "application/json;odata=verbose"
-	    },
-	    success: function (data) {
-	    digest = data.d.GetContextWebInformation.FormDigestValue;
-	    },
-	    error: function (data) {
-	
-	    }
-    }).done(function() {
-        var fileInput = $('#file_upload'+i);
-        var fileName = fileArray[0].Attachment.name;
-        alert(fileName)
-        var reader = new FileReader();
-        reader.onload = function (e) {
-        var fileData = e.target.result;
-            var res11 = $.ajax({                             
-                url:  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items(" + id + ")/AttachmentFiles/add(FileName='" + fileName + "')",                                       
-                method: "POST",
-                binaryStringRequestBody: true,
-                data: fileData,
-                processData: false,
-                headers: {
-                                "ACCEPT": "application/json;odata=verbose",          
-                                "X-RequestDigest": document.getElementById("__REQUESTDIGEST").value,
-                                "content-length": fileData.byteLength
-                },                                                                                                                            
-                success: function (data) {                                            
-                        console.log("success for : "+i+" - "+fileName);                                               
-                },
-                error: function (data) {                                                
-                        console.log("Error occured." + data.responseText);
-                }
-            });                          
-        };
-        reader.readAsArrayBuffer(fileInput[0].files[0]);
-
-    });                                          
-}
-
-
-function uploadFileHolder(listName, id, file) { 	
-	var getFileBuffer = function(file) {
-	var deferred = $.Deferred();
-	var reader = new FileReader();
-	reader.onload = function(e) {
-	deferred.resolve(e.target.result);
-	}
-	reader.onerror = function(e) {
-	deferred.reject(e.target.error);
-	}
-	reader.readAsArrayBuffer(file);
-	return deferred.promise();
-};
-
-getFileBuffer(file).then(function(buffer) {
-
-	$.ajax({
-	url: _spPageContextInfo.webAbsoluteUrl +"/_api/web/lists/getbytitle('" + listName + "')/items(" + id + ")/AttachmentFiles/add(FileName='" + file.name + "')",
-	method: 'POST',
-	data: buffer,
-	processData: false,
-	headers: {
-		"Accept": "application/json; odata=verbose",
-		"content-type": "application/json; odata=verbose",
-		"X-RequestDigest": document.getElementById("__REQUESTDIGEST").value,
-		"content-length": buffer.byteLength
-		},
-		success: function(response) {
-		},
-		error: function(error){
-		alert("error :"+error);
-		}
-	});
-
-});
-}
- 	function getFileBuffer(file) { 
- 		var deferred = $.Deferred(); 
-		var reader = new FileReader(); 
- 		reader.onload = function(e) { 
- 		deferred.resolve(e.target.result); 
-		} 
- 		reader.onerror = function(e) { 
- 		deferred.reject(e.target.error); 
- 		} 
- 		reader.readAsArrayBuffer(file); 
- 		return deferred.promise(); 
- 	} 
+  });
   
- 
+ function getSeriesData() { 
+ 	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
+	 /*var data = []; 
+	 var fileArray = []; 
+	 $("#attachFilesHolder input:file").each(function() { 
+		 if ($(this)[0].files[0]) { 
+		 fileArray.push({ "Attachment": $(this)[0].files[0] }); 
+		 } 
+ 	}); */
+ 	 var SeriesfileArray = []; 
+	 $(".attachFilesHolderData input:file").each(function() { 
+		 if ($(this)[0].files[0]) { 
+		 SeriesfileArray.push({ "Attachments": $(this)[0].files[0] }); 
+		 } 
+ 	}); 
+ 	
 
+	arraycount += SeriesfileArray.length;
+    var DDLvalue = $('select#options option:selected').val();
+	for(i=1;i<=DDLvalue;i++){
+	 var data = []; 	
+	  	var EventDate = $("input[id='evDate11"+i+"']").val();
+ 	var EventStartTime = $("input[id='evSTime"+i+"']").val(); 	
+ 	var EventEndTime = $("input[id='evETime"+i+"']").val();
+ 	
+ 	
+ 	var EventStartDateTime = moment(EventDate+ ' ' +EventStartTime).format('YYYY/MM/DD HH:mm');
+    var EventEndDateTime = moment(EventDate+ ' ' +EventEndTime).format('YYYY/MM/DD HH:mm');    
+    //console.log("Start :"+EventStartDateTime +" End :"+EventEndDateTime);
+
+	data.push({ 
+	"EventType":$("#evType"+i).val(),
+	"Title": $("#evTitle"+i).val(),
+	"Pillar": $("#evPillar"+i).val(),
+	"EventDescription": $("textarea#evDesc"+i).val(),
+	"EventDate": EventDate,
+	"EventStartTime":EventStartDateTime,
+	"EventEndTime": EventEndDateTime,
+	"EventSpeakerName": $("input[id='evSpeaker"+i+"']").val(),
+	"EventOrganizerName": $("input[id='evOrg"+i+"']").val(),
+	"EventKeywords": $("input[id='evKey"+i+"']").val(),
+	"EventLink": $("input[id='evLink"+i+"']").val(),	 
+	"Status": "Published",	 
+	"Files": SeriesfileArray
+	}); 
+	
+    
+   createNewItemWithAttachments("EPEvent", data).then( 
+		function() { 
+		//if (oLoader.close) setTimeout(function () { oLoader.close(); }, 3000); 
+		//window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");   
+		}, 
+		function(sender, args) { 
+		console.log('Error occured' + args.get_message()); 
+		})
+	}
+} 
+  
+  
+ var createNewItemWithAttachments = function(listName, listValues) { 
+	 var fileCountCheck = 0; 
+	 var fileNames; 
+	 var context = new SP.ClientContext.get_current(); 
+	 var dfd = $.Deferred(); 
+	 var targetList = context.get_web().get_lists().getByTitle(listName); 
+	 context.load(targetList); 
+	 var itemCreateInfo = new SP.ListItemCreationInformation(); 
+	 var listItem = targetList.addItem(itemCreateInfo);
+	  
+	 listItem.set_item("Title","Title123"); 
+	 listItem.set_item("EventType", listValues[0].EventType);
+	 listItem.set_item("Title", listValues[0].Title); 
+	 listItem.set_item("Pillar", listValues[0].Pillar);
+	 listItem.set_item("EventDescription", listValues[0].EventDescription); 
+	 listItem.set_item("EventDate", listValues[0].EventDate); 
+	 listItem.set_item("EventStartTime", listValues[0].EventStartTime);  
+	 listItem.set_item("EventEndTime", listValues[0].EventEndTime); 
+	 listItem.set_item("EventSpeakerName", listValues[0].EventSpeakerName); 
+	 listItem.set_item("EventOrganizerName", listValues[0].EventOrganizerName);  
+	 listItem.set_item("EventKeywords", listValues[0].EventKeywords); 
+	 listItem.set_item("EventLink", listValues[0].EventLink); 
+	 listItem.set_item("Status", listValues[0].Status); 	 
+	 listItem.update(); 
+	 context.executeQueryAsync(function() { 
+		 var id = listItem.get_id(); 
+		 if (listValues[0].Files.length != 0) { 
+			 if (fileCountCheck <= listValues[0].Files.length - 1) { 
+				 loopFileUpload(listName, id, listValues, fileCountCheck).then(function() {}, 
+		 			 function(sender, args) { 
+						 console.log("Error uploading"); 
+						 dfd.reject(sender, args); 
+			 		} 
+	 			); 
+ 			} 
+ 		} 
+		else { 
+			dfd.resolve(fileCountCheck); 
+		} 
+ 	}, 
+	function(sender, args) { 
+		console.log('Error occured' + args.get_message()); 
+	} 
+	); 
+ 	return dfd.promise(); 
+ } 
+  
+
+  
+  
+  
+ function loopFileUpload(listName, id, listValues, fileCountCheck) { 
+ var dfd = $.Deferred(); 
+ SeriesuploadFileHolder(listName, id, listValues[0].Files[fileCountCheck].Attachments).then( 
+ function (data) { 
+ var objcontext = new SP.ClientContext(); 
+ var targetList = objcontext.get_web().get_lists().getByTitle(listName); 
+ var listItem = targetList.getItemById(id); 
+ objcontext.load(listItem); 
+ objcontext.executeQueryAsync(function () { 
+ console.log("Reload List Item- Success"); 
+ fileCountCheck++; 
+ if (fileCountCheck <= listValues[0].Files.length - 1) { 
+ loopFileUpload(listName, id, listValues, fileCountCheck); 
+ } else { 
+ console.log(fileCountCheck + ": Files uploaded"); 
+ attcount += fileCountCheck; 
+ if (arraycount == attcount) { 
+// if (oLoader.close) setTimeout(function () { oLoader.close();  }, 3000); 
+ 	window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
+ } 
+  
+ } 
+ }, 
+ function (sender, args) { 
+ 	console.log("Reload List Item- Fail" + args.get_message()); 
+ }); 
+  
+ }, 
+ function(sender, args) { 
+	console.log("Not uploaded"); 
+ 	dfd.reject(sender, args); 
+ }); 
+ return dfd.promise(); 
+ } 
+  
+  //File Upload code
+  
+ function SeriesuploadFileHolder(listName, id, file) { 
+	 //file = $(this)[0].files[0];
+
+ 	var getFileBuffer = function(file){
+
+		var deferred = $.Deferred();
+
+ 		var reader = new FileReader();
+
+ 		reader.onload = function(e) {
+ 			deferred.resolve(e.target.result);
+ 		}
+
+ 		reader.onerror = function(e) {
+ 			deferred.reject(e.target.error);
+ 			 		}
+
+ reader.readAsArrayBuffer(file);
+
+ return deferred.promise();
+
+ };
+
+ getFileBuffer(file).then(function(buffer) {
+
+ $.ajax({
+
+
+ url: _spPageContextInfo.webAbsoluteUrl +
+ "/_api/web/lists/getbytitle('" + listName + "')/items(" + id + ")/AttachmentFiles/add(FileName='" + file.name + "')",
+
+ method: 'POST',
+
+ data: buffer,
+
+ processData: false,
+
+
+ headers: {
+
+
+ "Accept": "application/json; odata=verbose",
+
+ "content-type": "application/json; odata=verbose",
+
+
+ "X-RequestDigest": document.getElementById("__REQUESTDIGEST").value,
+
+
+ "content-length": buffer.byteLength
+ },
+ success: function(response) {
+ 
+ //alert("Uploaded");
+ //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
+
+ 
+ },
+ error: function(error){
+ //alert("error :"+error);
+ }
+
+ });
+
+ });
+ }
+ 
+ function getFileBuffer(file) { 
+ var deferred = $.Deferred(); 
+ var reader = new FileReader(); 
+ reader.onload = function(e) { 
+ deferred.resolve(e.target.result); 
+ } 
+ reader.onerror = function(e) { 
+ deferred.reject(e.target.error); 
+ } 
+ reader.readAsArrayBuffer(file); 
+ return deferred.promise(); 
+ } 
+ 
+  $("#s4-workspace").on("scroll", function(){
+	$("#ui-datepicker-div, .ui-timepicker-container").hide();
+});

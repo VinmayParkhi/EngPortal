@@ -59,6 +59,9 @@ header {
     align-items: center;
 }
 
+
+
+
 .contentWr {
     width: 92%;
     /* min-height: 80vh; */
@@ -1246,9 +1249,9 @@ input::placeholder {
 }
 
 .submit-button {
-    width: 26%;
+    width: 30%;
     background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
-    border-radius: 0.313rem;
+    border-radius:6px !important;
     color: #E5E8E9;
     margin-top: -0.8rem;
     margin-bottom: 0.4rem;

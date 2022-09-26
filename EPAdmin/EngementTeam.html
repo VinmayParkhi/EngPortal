@@ -9,7 +9,9 @@
     overflow-y: scroll;
     height: 83vh;
 }
-
+.search-button{
+	 color: grey;
+}
 .emp-card{
 	background-color: black !important;
 	width: 30%;
@@ -23,12 +25,16 @@
     margin-top: 20px;
     border-radius: 5px;
 }
-
-.lefticon {
-    right: 8px !important;
-    left: auto;
+.breadcrumb-item+.breadcrumb-item {
+    padding-left: 0;
 }
-
+.breadcrumb-item+.breadcrumb-item::before{
+	    color: #E5E5E5;
+}
+.lefticon{
+	right:8px !important;
+	    color: #fff;
+}
 @media (min-width: 992px) and (max-width: 1200px){
        #groupid {
         width: 100%;
@@ -48,7 +54,7 @@
    
    .lefticon {
     position: absolute;
-    left: 3px;
+    /*left: 3px;*/
     top: 12px;
     
     }
@@ -60,15 +66,34 @@
     padding: 45px 70px;
    }
    #groupid {
-        width: 100%;
+        width: 98%;
         height: 96vh;
    }
    .lefticon {
     font-size: 11px;
     padding: 5px 10px;   
     }
+.sidebar{
+    height: 109vh;
+}
 
+.hr1{
+	height: 1px;
+	    width: 91.5% !important;
+    margin-left: 3.5% !important;
+ }
+.lefticon{
+	/*left:2%;*/
+	right:none !important;
+
+}
+.FA-1{
+	   width: 93% !important;
+    margin-left: 3.5% !important;
     }
+
+
+}
 
  @media (min-width: 1366px){
     .card-image {
@@ -76,7 +101,7 @@
    }
    
    .lefticon {
-        left: 10px;
+        /*left: 10px;*/
     top: 10px;
     
     }
@@ -85,13 +110,52 @@
     
     @media (min-width: 1400px)and (max-width: 1600px){
      #groupid {
-                height: 93vh;
+                height: 91vh;
 	}
-
-.card-image {
-    padding: 83px 105px;
+.emp-card{
+	width:27%;
 }
+.card{
+	margin: 10px 12px;
+    margin-right: 3.5%;
+    height:47%;
+}
+#s4-bodyContainer > div > div{
+	min-height:102vh !important;
+}
+lefticon{
+	right:none;
+}
+.card {
+	margin: 18px 30px;
+}
+.head-right{
+	margin-right:7%;
+}
+.head-right{
+	    margin-right: 3%;
+    width: 28.5%;
+}
+#WebPartWPQ5 > div.ms-rtestate-field > div.event-head.d-flex.justify-content-between.align-items-center > div:nth-child(2) > div > button
+{
+	text-align:end;
+}
+.head-right{
+	display:inline;
+}
+.event-head {
+    padding: 0px 34px;
+    margin-left: 2%;
+}
+.home-section hr{
+	width: 89%!important;
+    margin-left: 4.5% !important;
+}
+
+
     }
+    
+    
     @media (min-width: 1600px)and (max-width: 1900px){
      #groupid {
                 height: 93vh;
@@ -178,16 +242,17 @@ $.ajax({
 					dept = "O365"
 				}
 			}         
-			$("#groupid").append("<div class='card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard();'><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p><input type='radio' id='Admin' name='Priority"+i+"' value='Admin' style='margin-right:5px;'><span for='Admin'>Admin</span><input type='radio' class='ms-4' id='Nonadmin' name='Priority"+i+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin'>Non-Admin</span></div></div>");                                                    
+			$("#groupid").append("<div class='card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard(this.id);' id="+data.d.AccountName+"><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div></div>");                                                    
 		},
 		error: function (error){
 			console.log(error);
 		}
 	});
 }
-function DeleteCard(){
-   var accName = $(".lefticon").children('#AccName').val();
-   removeUserFromGroup(accName,3);
+function DeleteCard(id){
+//alert(id);
+   //var accName = $(".lefticon").children('#AccName').val();
+   removeUserFromGroup(id,3);
 };
 
 
@@ -214,19 +279,42 @@ function removeUserFromGroup(userLoginName,groupid)
 }
 
 
+function adduserE(){  
+	var GroupName = 'RNTENG%20Owners';			
+   	var CurrGroupId = '3';  
+	var currsite = _spPageContextInfo.siteAbsoluteUrl;
+	openDialog(currsite+'/_layouts/15/aclinv.aspx?GroupId='+CurrGroupId);	
+    //window.location.reload();		
+}
+
+function openDialog(pageUrl) {
+	var options = {
+		url: pageUrl,
+		title: 'Add User',
+		allowMaximize: false,
+		showClose: true,
+		width: 850,
+		height: 372
+	};
+	SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
+}
+
+
 
 </script>
 </head>
 <body>
 <div class="event-head d-flex justify-content-between align-items-center">
                         <div class="head-left">
-                            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx"><span class="arrow"><i class="fa-solid fa-angle-left"></i></span><h4>Engagement Team</h4></a>
+                        <span class="arrow"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a> 
+                           
+                            </span><h4>Experience+ Team</h4>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                  <li class="breadcrumb-item"><a href="https://infornt.sharepoint.com/SitePages/ENG_Admin/Admin_Home.aspx">Home</a></li>
-                                  <li class="breadcrumb-item active" aria-current="page">Engagement Team</li>
+                                  <li class="breadcrumb-item"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Experience+ Team</li>
                                 </ol>
-                                <span style="font-size: 10px; font-style: italic; color: #FCF9EE; opacity: 0.7;">Note: Non-Admin has all the rights except adding and removing a new Admin</span>
+                                <span style="font-size: 10px; font-style: italic; color: #FCF9EE; opacity: 0.7;"></span>
                               </nav>
                         </div>
                         <div class="head-right">
@@ -237,7 +325,7 @@ function removeUserFromGroup(userLoginName,groupid)
                                 <span class="divider1" style="width: 23px;">
                                     <img src="../../../_catalogs/masterpage/AdminMaster/New_Admin/All_Images/divider1.png" alt="" data-themekey="#">
                                 </span>
-                                <button class="search-button">
+                                <button type="button" class="search-button" onclick="adduserE()">
                                  Add
                                 </button>
                              </div>

@@ -33,8 +33,8 @@ function CardsImage() {
                //var ArrowURL = data.d.results[i].ArrowImg;			
 			  //var b =   _spPageContextInfo.webAbsoluteUrl + data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl; 
                       
-                 $(".cardBottomWr").append('<div class="mainTiles" style="text-decoration:none;"><div class="cardimg'+Module+'"" style="padding: 5rem 5rem; position:relative;border-radius:1.5rem;background:linear-gradient(90deg, #00000000 0%, #121112 40%, #000000 92%),url('+Image+');background-position:0%; background-repeat: no-repeat; background-size: contain; height:20rem; margin:2% 0%;" class="cardHeadWr"> <div class="textCard" style="position: absolute;top: 22%; left: 40%;"><h4>'+Module+'</h4>'+
-                                '<p>'+Desc+'</p><a style="color:#FF3D97; text-decoration:none;" href="'+TargetURL+'">See More Details</a></div> </div></div>');
+                 $(".cardBottomWr").append('<div class="mainTiles" style="text-decoration:none;"><div class="cardimg'+Module+'"" style="padding: 5rem 5rem; position:relative;border-radius:1.5rem;background:linear-gradient(90deg, #00000000 0%, #121112 40%, #000000 92%),url('+Image+');background-position:0%; background-repeat: no-repeat; background-size: contain; height:20rem; margin:2% 0%;" class="cardHeadWr"> <div class="textCard" style="position: absolute;top: 26%; left: 40%;"><h4>'+Module+'</h4>'+
+                                '<p>'+Desc+'</p><a style="color:#FF3D97; text-decoration:none;" href="'+TargetURL+'">See More Details <i class="fa-solid fa-arrow-right"></i></a></div> </div></div>');
                 
                
                             

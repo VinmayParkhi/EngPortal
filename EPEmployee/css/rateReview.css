@@ -14,15 +14,19 @@
     align-items: center;
 }
 .ratereview .rr_heading{
-    width: 103.3%;
+   /* width: 103.3%;*/
     display: flex;
-    margin-left: -0.6rem;
+    /*margin-left: -0.6rem;*/
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    margin-top: -0.6rem;
+    /*margin-top: -0.6rem;*/
     background-color: #000;
     border-radius: 1.3rem 1.3rem 0rem 0rem;
+    
+    margin-left: -1.6rem;
+    margin-top: -1.6rem;
+    margin-right: -1.7rem;
 }
 .ratereview .rr_heading div:nth-child(1){
     display: flex;
@@ -85,6 +89,7 @@
     border: none;
     background-color: transparent;
     color: #0A0909;
+    font-size:1rem;
 }
 .ratereviewbody .ratereviewbodyWr .reviewBtns .submitBtn{
     background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%);
@@ -93,14 +98,17 @@
     border-radius: 0.4rem;
     color: #fff;
     margin-left: 1rem;
+    font-size:1rem;
+
 }
 .loadmore{
     text-align: center;
 }
 .loadmore a{
-    font-weight: 500;
+	font-weight: 500;
     color: #242424;
     text-decoration: underline;
+    font-size:1rem;
 }
 .box1Heading{
     display: flex;
@@ -131,7 +139,7 @@
 .review1Box,
 .review2Box{
     border-top: 0.1rem solid rgb(232 232 232);
-    padding: 1rem 0;
+    padding: 1rem 1rem;
 }
 #ratereviewModal .modal-content{
     height: auto; 
@@ -264,4 +272,7 @@
     font-size: 1.5rem;
     color: #DD8B1F;
   }
+  
+  
+  
   

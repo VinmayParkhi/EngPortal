@@ -25,11 +25,15 @@ function eventDetails(id){
   	if(eventData!=undefined){
   		eventData=JSON.parse(eventData);
   		if(eventData.d.results.length > 0){
-  			
+  			var Startdate = moment(eventData.d.results[0].SurveyStartDate).format('DD MMM,YYYY');
+  			var Endtdate = moment(eventData.d.results[0].SurveyEndDate).format('DD MMM,YYYY');
+
+
+
   			$("#sTitle").val(eventData.d.results[0].Title);
    			$("#sDesc").val(eventData.d.results[0].SurveyDescreption);
-  			$("#sDate").val(eventData.d.results[0].SurveyStartDate);
-  			$("#eDate").val(eventData.d.results[0].SurveyEndDate);
+  			$("#sDate").val(Startdate );
+  			$("#eDate").val(Endtdate );
   			$("#sLink").val(eventData.d.results[0].SurveyLink);
   			ImageUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$"+ id +"&$select=Attachments&$expand=AttachmentFiles";
 
@@ -93,7 +97,8 @@ function UpdateSurveydata(){
   	 	"SurveyStartDate":evsdate,
   	 	"SurveyEndDate":evedate,
   	 	"SurveyLink":evlink,
-  	 	"SurveyDescreption":evdesc
+  	 	"SurveyDescreption":evdesc,
+  	 	"Status": "Published"
   	 	/*"EventType":evtype,
   	 	
 		"EventDate":evdate,
@@ -223,6 +228,7 @@ function AddAttachments(id)
 
     });                                          
 }
+ 
  
  
  

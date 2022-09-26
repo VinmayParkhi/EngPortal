@@ -29,9 +29,13 @@ var EventDesc;
 var EventDt;
 var EmpId;
 
- $(document).ready(function() { 
+ $(document).ready(function() {
  var getBell = document.querySelector('.bell');
   	log(getBell);
+  	$('#Goback').click(function() {
+  	
+   	      history.go(-1);        
+	});
 
   var getBellParent = getBell.parentElement;
   getBell.style.position = 'relative';
@@ -60,7 +64,17 @@ var EmpId;
   var url=window.location.href;
    uniquID= Number(url.split('=')[1]);
    console.log(uniquID);
-    showEventDetails(uniquID);
+    //showEventDetails(uniquID);
+  
+  //var url=window.location.href;
+   //uniquID = Number(url.split('=')[1]);
+   //uniquID = (uniquID.split('&')[0]);
+   //var uniquID1 = (uniquID0.split('&')[1])? parseInt(uniquID0) :  '0';
+   //if(uniquID1 != '0'){
+       //console.log(uniquID1.length);
+    //   window.location.assign('https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpEventDetails.aspx?EventID='+uniquID);
+   //}    
+   showEventDetails(uniquID);
     $("#UpdateEvent").click(function(){
   	UpdateEventdata();
   	
@@ -69,7 +83,47 @@ var EmpId;
   	
   });
   
-  $("#reminderBtn").on("click", function() { 
+  $("#reminderBtn").on("click", function() {
+  var reminderTitle = document.getElementById('eventTitle').value = EventTitle;
+  //var remindeDesc = document.getElementById('eventTitle').value = EventTitle;
+  var remindCheck = document.getElementById('remindChecked');
+  
+  log(EventTitle);
+  log(reminderTitle.innerText)
+  
+  remindCheck.onclick = function(){
+  var remind = document.querySelector('.remind');	
+  var dontRemind = document.querySelector('.dontRemind');
+  
+  $('#minutes').change(function(){
+  remindBefore = document.getElementById('minutes').value;
+       reminderStartTime = startTime;
+       reminderDate = new Date(reminderStartTime);
+       
+       log(reminderDate.getHours()+':'+reminderDate.getMinutes());
+       subtractMinutes(remindBefore, reminderDate);
+       });
+       
+     if(remindCheck.checked === true){ 
+          
+       dontRemind.style.display = 'none';
+       remind.style.display = 'block';
+       log(remindBefore)
+       
+     }else if(remindCheck.checked !== true){
+     var selectDateValue= document.getElementById('selectDate').value;
+     var selectTimeValue= document.getElementById('selectTime').value; 
+
+        dontRemind.style.display = 'flex';
+       remind.style.display = 'none';   
+     }  
+     
+    }
+       
+  });
+  
+  $("#HubWbReminder").on("click", function() {
+ 
   var reminderTitle = document.getElementById('eventTitle').value = EventTitle;
   //var remindeDesc = document.getElementById('eventTitle').value = EventTitle;
   var remindCheck = document.getElementById('remindChecked');
@@ -166,6 +220,7 @@ function setReminderData(){
 		var reminderMessage = document.getElementById('reminderMessage').value; 
 		var selectDateValue= document.getElementById('selectDate').value;
 		var selectTimeValue= document.getElementById('selectTime').value; 
+		
 		remindBefore = document.getElementById('minutes').value;
 			
 		var siteUrl = _spPageContextInfo.webAbsoluteUrl;
@@ -186,6 +241,7 @@ function setReminderData(){
         }else if(remindCheck.checked !== true){
         
         var selectTimeValueNew = selectDateValue + " " + selectTimeValue;
+        
         log(selectTimeValueNew);
         //oListItem.set_item('Date', selectDateValue); 
         oListItem.set_item('ReminderDate',selectTimeValueNew);
@@ -198,7 +254,7 @@ function setReminderData(){
   
   function showEventDetails(id){
   $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,Attachments,Pillar,Title,EventDescription,AverageRating,EventDate,EventStartTime,EventEndTime&$expand=AttachmentFiles",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,Attachments,Pillar,Title,EventDescription,EventLink,EventDate,EventStartTime,EventEndTime&$expand=AttachmentFiles",
         method: "GET",
         headers:
            {
@@ -221,11 +277,13 @@ function setReminderData(){
           log(EventDt);
           log(EventDt2);
           
+          var EventID = results[i].ID
          var EventWork= results[i].Pillar;
          var EventPillar = results[i].Pillar;
 	     EventTitle= results[i].Title;
 	     EventDesc= results[i].EventDescription;
 	     var EventBannerImg= results[i].AttachmentFiles.results[0].ServerRelativeUrl;
+	     var EventLink = results[i].EventLink;
 	     startTime = results[i].EventStartTime;
          endTime = results[i].EventEndTime;
           excitedMood = Number(results[i].Response1);
@@ -252,13 +310,13 @@ function setReminderData(){
                    var utcDateStart = new Date(startTime);
 				   var hr = addZero(utcDateStart.getHours());
 				   var min = addZero(utcDateStart.getMinutes());				   		
-				   getStartTime = hr +':'+ min ;
+				   getStartTime = moment.utc(startTime).format('hh:mm a') ;
 				   
 	
 	               var utcDateEnd = new Date(endTime);
 				   var hrs = addZero(utcDateEnd.getHours());
 				   var mins = addZero(utcDateEnd.getMinutes());				
-				   getEndTime = hrs +':'+ mins ;	
+				   getEndTime = moment.utc(endTime).format('hh:mm a') ;	
 				   
 				   
 				  var difference = utcDateEnd.getTime() - utcDateStart.getTime(); 
@@ -268,21 +326,8 @@ function setReminderData(){
                   difference -= minuteDifference * 60;
                   
                   console.log(minuteDifference);
-                  
-    
-    
-          console.log(getStartTime);
-	     console.log(getEndTime);
-
-
-
-
-         console.log(EventWork);
-	     console.log(EventTitle);
-	     console.log(EventDesc);
-	     console.log(EventBannerImg);
-	     
-	     
+                  	     
+	     var getEventID = document.querySelector('#WebPartWPQ7 > div.eventDetailsWrapper > div.eventdetailsWr > div > div.eventdtlsText > div.eventdtlsTitle > div.eventdtlsTitleRight > a');
 	     var getEventPillar = document.querySelector('div.eventdtlsTitleLeft > h6 > i > label');
 	    var getEventTitle = document.querySelector('div.eventdtlsTitleLeft > h5 > label');
 	    var getEventDescription = document.querySelector('.eventdtlspara > h6 > label');
@@ -293,32 +338,23 @@ function setReminderData(){
 	   var getDuration = document.querySelector('label > span.duration');
 	   var getHeadEvent = document.querySelector('div.breadcrumbWr > ul > li > label#eventName');
 	   var getHeadPillar = document.querySelector('div.breadcrumbWr > ul > li > a > label#Pillar');
-	   var MainHead = document.querySelector('div.eventDetailsWrapper > div.evntdtlsHeading > a > div > h3');
-	   	   
+	   //var MainHead = document.querySelector('div.eventDetailsWrapper > div.evntdtlsHeading > a > div > h3');
+	   var getEventLink = document.querySelector('#WebPartWPQ7 > div.eventDetailsWrapper > div.eventdetailsWr > div > div.eventdtlsText > div.eventdtlsBtn > div.eventdtlsJoin > a');
+	   log(getEventLink)   
 	   getEventPillar.innerText = EventWork;
 	   getHeadPillar.innerText = EventPillar+"+";
-	   MainHead.innerText = EventPillar+"+";
+	   //MainHead.innerText = EventPillar+"+";
 	   getEventTitle.innerText = EventTitle;
 	   getEventDescription.innerText = EventDesc;
 	   GetEventImg.setAttribute('src',"https://infornt.sharepoint.com/" + EventBannerImg)
+	   getEventLink.setAttribute('href',EventLink)
+	   getEventID.setAttribute('id',EventID)
 	   getStartTm.innerText = getStartTime;
 	   getEndTm.innerText = getEndTime;
 	   getEventDate.innerText = EventDt;
 	   getDuration.innerText = minuteDifference + " " +'Minutes';
 	   getHeadEvent.innerText = EventTitle;
-
-
-
-
-
-         console.log(getHeadEvent);
-	     console.log(getEventTitle);
-	     console.log(getEventDescription);
-	    console.log(getStartTime);
-	     console.log(getEndTime);
-
-
-
+	
         }
         
         }
@@ -363,20 +399,20 @@ function setReminderData(){
  };
    
    function onQuerySucceeded() {
-    alert('Item updated Successfully!');
+    //alert('Item updated Successfully!');
     buttonClicked = true;
     updatedMoodCount();
    }
 
    function onQueryFailed(sender, args) {
-    alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
+    //alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
    }
    
 
   function updatedMoodCount(){
    if(buttonClicked === true){
    $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,Attachments,Pillar,Title,EventDescription,AverageRating,EventDate,EventStartTime,EventEndTime,Response1,Response2,Response3&$expand=AttachmentFiles",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,Response1,Response2,Response3&$expand=AttachmentFiles",
         method: "GET",
         headers:
            {
@@ -552,11 +588,11 @@ function UpdateEventdata(){
 		if(fileArray.length > 0){
 			AddAttachments(uniquID);
 		}
-		alert("Sucessfully updated");
+		//alert("Sucessfully updated");
 	}
 
     function OnError(data){
-		alert("Update error");
+		//alert("Update error");
 	}
   };
   
@@ -622,7 +658,7 @@ function AddAttachments(id)
     }).done(function() {
         var fileInput = $('#file_upload');
         var fileName = fileInput[0].files[0].name;
-        alert(fileName)
+        //alert(fileName)
         var reader = new FileReader();
         reader.onload = function (e) {
         var fileData = e.target.result;
@@ -650,6 +686,24 @@ function AddAttachments(id)
 
     });                                          
 }
- 
+ /******************************************************Share popup***************************************************/
+function adduser(id){
+	//openDialog(currsite+'/_layouts/15/aclinv.aspx?GroupId='+CurrGroupId);
+	openDialog("https://infornt.sharepoint.com/sites/RNTENG/Lists/TeamsNotificationList/NewForm.aspx?EventID="+id);	
+    //window.location.reload();		
+}
+
+function openDialog(pageUrl) {
+	var options = {
+		url: pageUrl,
+		iconImageUrl: "icons/request.png",
+		title: 'Share event with people you want',
+		allowMaximize: false,
+		showClose: true,
+		width: 450,
+		height: 200
+	};
+	SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
+}
  
  

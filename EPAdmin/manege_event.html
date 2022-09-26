@@ -8,21 +8,58 @@
         <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/css/create_event_2.css">
         <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">   
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+       
+         <!--<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>    
-    <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>    
+    <script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>    
     <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/test.js"></script>
     <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/ManegeEvent.js"></script>
  
 
     <title>Hello, world!</title>
-    <style>
+    <style type="text/css">
     
-    
-  
+     #myImg,#myImg2{
+	display:none;
+}
+    #from-date,#to-date{
+	/*border: 1px solid #4E4E4E;*/
+	border-radius:5px;
+}
+    	.ms-webpartzone-cell{
+	margin:0px !important;
+}
+
+    #datatable11 > tbody > tr > td:nth-child(1){
+	opacity:0.6;
+}
+#datatable11 > tbody > tr > td:nth-child(3){
+	/*opacity:0.6;*/
+}
+#datatable11_wrapper > div.dataTables_scroll > div.dataTables_scrollHead{
+	    overflow: hidden !important;
+}
+.dataTables_length{
+	    margin-top: -1.6rem;
+}
+
+      #ui-datepicker-div{
+    width:auto ;
+    height:
+    }
+    #ui-datepicker-div{
+	left:1000px !important;
+}
+    #ui-datepicker-div > table{
+	line-height:110% !important;
+}
+  #editbox{
+	width:86% !important;
+}
     .cm_calendar{
 	position:static !important;
 }
@@ -80,115 +117,256 @@ table.dataTable thead .sorting {
 .Life{
 	color:#EFBB6D !important;
 }
+
+
+
+.Published{
+	color:#AFAFAF!important;
+
+}
+.Autopublish{
+	color:#FF706B!important;
+
+}
+.Draft{
+	color:#EC9A2E!important;
+
+}
+.Completed{
+	color:#71BC4C!important;
+}
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width:5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px !important;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
-  border-radius: 10px;
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #747474; 
-  border-radius: 10px;
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #747474; 
-} 
-/*::-webkit-scrollbar:horizontal{
-  height: 8px;
-  background-color: black;
-  border-radius: 10px;
-
+  background: #555;
 }
-::-webkit-scrollbar-thumb:horizontal{
-        background: gray;
-        border-radius: 10px;
-        
-    } */
-
    #s4-workspace {
     overflow-x: hidden;
     }
-  
-    @media(min-width:992px)and (max-width: 1200px){
+  .breadcrumb-item + .breadcrumb-item {
+     padding-left: 0; 
+}
+table.dataTable thead th {
+    padding: 10px 10px 10px 0px;
+
+}
+ table.dataTable tbody td {
+    padding: 0px 10px 0px 0px;
+}
+.profile h4{
+	margin-left:0px;
+}
+#threedot {
+    margin-left: 27% !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #FF3D97;
+}
+#datatable11_info{
+	position: absolute;
+    bottom: 2rem;
+}
+.dataTables_wrapper .dataTables_paginate{
+	position: absolute;
+    right: 4rem;
+    bottom: 2rem;
+}
+.dataTables_wrapper .dataTables_scroll{
+	    margin-bottom: 3rem;
+	        margin-top: 2.5rem;
+}
+
+
+/*by shubham*/
+
+table.dataTable {
+    width: 100%;
+     margin: 0 0; /*new change */
+    clear: both;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+
+
+h6{
+margin:0;
+}
+
+table tbody tr td{
+	font-size:11px !important;
+}
+
+table.dataTable {
+    width: 100%;
+     margin: 0;   /*new change*/
+    }
+    /*shubham code end*/
+   #event-pillar{
+	font-style: italic;
+}
+.calenderView input {
+border: solid 1px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px black inset;
+    border-radius: 5px;
+}
+.calenderView input:hover{
+	border:1px solid transparent;
+}
+#datatable11_wrapper{
+	height:auto;
+	min-height:450px;
+}
+#arrimg img,
+#arrimg2{
+  transition: transform .5s ease-in-out;
+}
+#arrimg img:hover, #arrimg2:hover {
+  transform: rotate(180deg);
+}
+table thead tr th{
+	    border-bottom-width: 0.5px !important;
+	    
+}
+ @media(min-width:992px)and (max-width: 1200px){
     .sidebar{
 	    margin-left: 22px;
 }
+.action .men{
+	width:22rem;
+}
+
 .#datatable_wrapper{
 	    width: 75%;
 }
-..calenderView{
+.calenderView{
 	    right: 29rem;
 }
 	.right-left{
-	    margin-left: 44.5rem;
+    margin-right: 1.7rem;
+        margin-left: 0;
 }
-#dataTable2_wrapper{
-	height:97vh;
+#datatable11_wrapper{
+	    width: 97.5%;
 }
 }
-@media (min-width:1200px){
+@media (min-width:1200px) {
     .sidebar{
    	  margin-left: 39px;
-	    min-height: 130vh;
-}
-#dataTable2_wrapper {
-	width:86%;
+	  height: auto !important;
 }
 .right-left {
-    margin-left: 64rem;
-    margin-right:7%;
+    margin-right: 4.2%;
+    margin-left:0;
     }
-#datatable_wrapper{
- width:92% !important;
+.hr1{
+	height: 1px;
+	width: 93% !important;
+	margin-left: 3% !important;
 }
 
 .head-left{
-	    margin-left: 33px !important;
+    margin-left: 3rem !important;
+}
+.FA-1{
+    width: 92.5% !important;
+    margin-left: 3.5% !important;
+    }
+    .action .menu.active {
+    margin-right: 0rem; 
+    width:22.5rem;
+}
+#datatable11_wrapper{
+    width: 95.5%;
+	margin-left:0px;
+}
+.action .men{
+	width:22rem;
+}
+#datatable11{
+	width:99% !important;
+}
+#threedot {
+    margin-left: 54% !important;
 }
 }
-@media (min-width:1280px) and @media (max-width:1400px){
+
+@media(min-width:1400px) {
  
 #datatable_wrapper{
  width:92% !important;
 }
 
 .right-left {
-    margin-right: 9% !important;
+    margin-right: 4.5%;
 }
-
-
-.right-left {
-    margin-left: 71rem;
+.hr1{
+	height: 1px;
+	width: 92% !important;
+	margin-left: 3% !important;
 }
-
-
 .sidebar{
-   	  margin-left: 45px;
-	    height: 88vh !important;
+   	  margin-left: 39px;
+	    height: auto !important;
 }
 table.dataTable tbody td {
-    padding: 17px 5px;
+   /* padding: 0px 5px;*/
+   padding: 0px 0px;			/*by shubham*/
+
+}
+
+#datatable11_wrapper{
+    width: 95.2% !important;
+    height: auto;
+}
+.FA-1{
+    width: 93% !important;
+    margin-left: 3.5% !important;
+    }
+.hr1{
+	width:92% !important;
+	margin-left:3% !important;
+}
+.head-left{
+    margin-left: 3.5rem !important;
+}
+}
+@media (min-width:1600px){
+	#datatable11_wrapper {
+    width: 95.9% !important;
+}
+.head-left {
+    margin-left: 4.4rem !important;
 }
 .right-left {
-    margin-left: 85.5rem;
+    margin-right: 4%;
 }
-#dataTable2_wrapper{
-	width:92%;
-	 height:92vh;
+#threedot {
+    margin-left: 69% !important;
 }
-
 }
-
-
-
-
 
 
 .breadcrumb-item + .breadcrumb-item::before {
@@ -199,6 +377,12 @@ table.dataTable tbody td {
 }
 .right-left{
 	margin-top:7px;
+	    width: 50%;
+	        text-align: right;
+}
+.right-left a{
+	    width: 25%;
+	        padding: 6px 29px;
 }
 table.dataTable tbody th, table.dataTable tbody td {
     color: #fff;
@@ -221,7 +405,7 @@ table.dataTable tbody th, table.dataTable tbody td {
 	height: 30px;
 	position: relative;
     top: -13px;
-    left: -28px;
+    left: auto !important;
 	background-image: url('https://infornt.sharepoint.com/SiteAssets/Images/Image Icon/Image Icon/groupimg.png');
 	background-size:100% 100%;
 }
@@ -301,7 +485,11 @@ table.dataTable thead .sorting {
   width: 20px;
 }
 
-#editbox {
+#datatable11_length > label{
+	text-transform: capitalize;
+}
+
+/*#editbox {
     display: none;
     justify-content: center;
     align-items: end;
@@ -313,9 +501,7 @@ table.dataTable thead .sorting {
     background-image: url(https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/groupimg.png);
     background-size: 100% 100%;
 }
-
-
-/* Track */
+ Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
@@ -331,6 +517,45 @@ table.dataTable thead .sorting {
 ::-webkit-scrollbar-thumb:hover {
   background: #747474; 
 }  
+
+#myImg{
+	background: url("https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/Group 11049.png") no-repeat;
+    position: fixed;
+    z-index: 1;
+    /*right: 66.4rem;*/
+    top: 10rem;
+    height: 23rem;
+    width: 24rem;
+    background-size: contain;   
+        left: 4.5%;  
+    }
+#myImg2{
+	background: url("https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/Group 11049.png") no-repeat;
+    position: fixed;
+    z-index: 2;
+    /*right: 66.4rem;*/
+    height: 20rem;
+    width: 22rem;
+    background-size: contain;   
+       right: 15%;  
+    }
+
+#ulimg{
+  	list-style-type: none;
+    color: black;
+    position: relative;
+    top: 40px;
+}
+#ulimg li{
+	margin-bottom:4px;
+	margin-left: -7px;
+}
+#btn1{
+	cursor:context-menu;
+}
+#arrimg1111{
+	width:13px;
+}
     </style>
 
 </head>
@@ -354,7 +579,7 @@ table.dataTable thead .sorting {
 		<a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/create_event.aspx" type="button" 
 				class="btn p-button border-transparent" id="createEvent" style="background: linear-gradient(90deg
            , #DE8601 0%, #FF3D97 100%);
-		    font-size: 9px;
+		    font-size: 12px;
 		    border: 1px solid;
 		    border-radius: 6px;
 		    padding: 5px 10px;
@@ -365,30 +590,74 @@ table.dataTable thead .sorting {
 </div>
 
 
-    <div class="container mt-1 main-style">
+    <div class="mt-1 main-style">
     
     <span class="calenderView">
+<img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/data_range_calendar.png" style="position: absolute;left: -35px;width: 18px;">
 
-            <input type="text"  id="from-date" style="margin-left: -8px;">
+            <input type="text"  id="from-date" style="margin-left: -8px;" placeholder="Start Date">
 
             to
 
-            <input type="text"  id="to-date" style="margin-left: 12px;">
+            <input type="text"  id="to-date" style="margin-left: 5px;" placeholder="End Date">
 
         </span>
-        <table class="table" id="datatable" data-ordering="false">
+        <table class="table" id="datatable11" data-ordering="false">
             <thead>
                 <tr>
-                    <th scope="col" class="T-color1" style="width: 0.8646px !important;">ID</th>
-                    <th>Event Details</th>
+                    <th scope="col" class="T-color1" style="width: 0.8646px !important;opacity: 0.6;">ID</th>
+                    <th id="arrimg">Event Details <img  src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/Icon feather-chevron-down.svg"><div id="myImg" class="d-none">
+                    <ul id="ulimg">
+                    	<li>
+                    		All( <span Id="AllCounts"> </span> )
+                   		</li>
+                   		<li>
+                   			Work( <span Id="workid"> </span> )
+                   		</li>
+                   		<li>
+                   			Life( <span Id="lifeid"> </span> )
+                   		</li>
+                   		<li>
+                   			Wellbeing( <span Id="wellbeingid"> </span> )
+                   		</li>
+                   		<li>
+                   			Wow and Pride( <span Id="wowid"> </span> )
+                   		</li>
+                   		<li>
+                   			Connect and Community( <span Id="connectid"> </span> )
+                   		</li>
+                   		
+                    </ul>
+                    </div>
+					</th>
                     <th scope="col">Schedule Time</th>
                     <th scope="col">Responses</th>
-                    <th scope="col">Status</th>
-                  	<th>Action</th>
+                    <!--<th scope="col">Status</th>-->
+                    <th scope="col" style="width: 120px;">Status <img id="arrimg2" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/Icon feather-chevron-down.svg"><div id="myImg2">
+                    <ul id="ulimg">
+                    	<li>
+                    		All Events( <span id="AllCount"> </span> )
+                   		</li>
+                   		<li>
+                   			Scheduled( <span id="scheduled"> </span> )
+                   		</li>
+                   		<li>
+                   			Auto-published( <span id="autopublished"> </span> )
+                   		</li>
+                   		<li>
+                   			Draft( <span id="Draft"> </span> )
+                   		</li>
+                   		<li>
+                   			Completed( <span id="Completed"> </span> )
+                   		</li>
+                    </ul>
+                    </div>
+			</th>
+                  	<th style="    text-align: right;">Action</th>
                    
                 </tr>
             </thead>
-            <tbody>
+            <tbody style="color:black">
             </tbody>
         </table>
     </div>

@@ -40,10 +40,10 @@ function addZero(i) {
 }
 
 function GetOngoingSurvey() {
- 	var today= new Date();
- 	today = moment(today).toISOString();
+ 	//var today= new Date();
+ 	var today= moment().format('YYYY-MM-DDTHH:mm:SS');
     $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescreption,SurveyEndDate,SurveyLink&$expand=AttachmentFiles&$filter= SurveyEndDate le '"+today+"'&$orderby=Created desc",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescreption,SurveyEndDate,SurveyLink&$expand=AttachmentFiles&$filter= SurveyEndDate ge '"+today+"'&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -52,7 +52,7 @@ function GetOngoingSurvey() {
            
         success: function (data, status, xhr) {
             var dataresults = data.d.results;
-            console.log(dataresults)
+            console.log(dataresults)            
             for (var i = 0; i <3; i++) {
                EventDates = moment(data.d.results[i].SurveyEndDate).format('DD MMM, YYYY');               
                //EventFullDates = moment(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');
@@ -61,19 +61,33 @@ function GetOngoingSurvey() {
                var SurveyDescreption = data.d.results[i].SurveyDescreption;
                var SurveyLink = data.d.results[i].SurveyLink;
                AverageRating  = data.d.results[i].AverageRating;  
-			
+				var j = i+1;
 			   var totalSurvey = dataresults.length; 
 			   
                  var a =  "https://infornt.sharepoint.com/"+ data.d.results[i].AttachmentFiles.results[0].ServerRelativeUrl; 
                       
-                 $("#carousel-inner").append('<div class="carousel-item" id="carausel-item'+i+'"> <div class="surveyHeading"> <h6>Surveys</h6> <label>'+i+' of '+totalSurvey+'</label> </div> <div class="mainSurvey">'+
+                 $("#carousel-inner").append('<div class="carousel-item" id="carausel-item'+i+'"> <div class="surveyHeading"> <h6>Surveys</h6> <label>'+j+' of '+totalSurvey+'</label> </div> <div class="mainSurvey">'+
 											'<div class="surveySlider"> <div class="amdocsLogo"> <div class="amdocsImgs"> <div class="d-flex align-items-center"> <img src="'+a+'" alt="">'+
 											'</div></div> <div class="annualEvent">'+
 											'<label>Annual Event 2022</label> </div> </div> <div class="surveyText"> <div class="share">'+SurveyTitle+'</div> <div class="feedback">'+SurveyDescreption+'</div> </div>'+
 											'<a href="'+SurveyLink+'" class="click"> <i class="fa-solid fa-arrow-pointer"></i> <h6>Click here to take the survey</h6> </a> </div> </div> </div></div>');
-												                 
+				
+								                 
                  
                  $("#carausel-item0").addClass("active");
+                 
+                 
+                 
+                                  $("#carousel-innerclone").append('<div class="carousel-item" id="carausel-itemclone'+i+'"> <div class="surveyHeading"> <h6>Surveys</h6> <label>'+j+' of '+totalSurvey+'</label> </div> <div class="mainSurvey">'+
+											'<div class="surveySlider"> <div class="amdocsLogo"> <div class="amdocsImgs"> <div class="d-flex align-items-center"> <img src="'+a+'" alt="">'+
+											'</div></div> <div class="annualEvent">'+
+											'<label>Annual Event 2022</label> </div> </div> <div class="surveyText"> <div class="share">'+SurveyTitle+'</div> <div class="feedback">'+SurveyDescreption+'</div> </div>'+
+											'<a href="'+SurveyLink+'" class="click"> <i class="fa-solid fa-arrow-pointer"></i> <h6>Click here to take the survey</h6> </a> </div> </div> </div></div>');
+				
+								                 
+                 
+                 $("#carausel-itemclone0").addClass("active");
+
                                   
             } // for loop End					                 
         },

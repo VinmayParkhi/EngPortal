@@ -4,8 +4,12 @@
 body > div.ms-dlgContent > div > div.ms-dlgTitle{
 background-color: #191718;
 }
-
-#dialogTitleSpan{
-color:White
+.dialogTitleSpan{
+background-color: gray;
 }
+#s4-bodyContainer{
+background-color: gray;
+}
+
+.ms-dlgTitle{background-color: Black;}
 </style>

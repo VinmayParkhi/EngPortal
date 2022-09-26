@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	//alert("test");
     GetWorkBanner();
 });
 var pillar;
@@ -27,7 +26,7 @@ function GetWorkBanner() {
             //if(pillar == "Work"){
                 var a =  "https://infornt.sharepoint.com/" + data.d.results[0].AttachmentFiles.results[0].ServerRelativeUrl;
                 //$(".workBannerTop").append('<img src="'+ a +'" width="100" style="border-radius: 50%;"/>');
- 				$(".workBannerTop").attr('style','padding:8rem 9rem;border-radius:1.5rem;background:linear-gradient(-90deg, #00000000 0%, #121112 33%, #000000 90%),url('+ a +');background-position:100%; background-repeat: no-repeat; background-size: contain;');
+ 				$(".workBannerTop").attr('style','margin-bottom: 1rem;border-radius:1.5rem;background:linear-gradient(-90deg, #00000000 0%, #121112 36%, #000000 90%),url('+ a +');background-position:100%; background-repeat: no-repeat; background-size: contain !important;');
  				
 
                 $('#WorkTitle').html(data.d.results[0].Title);

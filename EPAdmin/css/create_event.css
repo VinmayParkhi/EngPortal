@@ -42,7 +42,7 @@
     padding: 30px 40px;
   }
   .head-left h4{
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
     color: #FFFFFF;
     display: inline-block;
@@ -80,6 +80,7 @@
     position: relative;
     padding: 0 6px;
     margin: 10px 0 0;
+        left: -1rem;
   }
   
   .sdayEv input[type='radio'] {
@@ -96,9 +97,9 @@
     content: " ";
     display: inline-block;
     position: relative;
-    top: 5px;
+    top: 4px;
     margin: 0 5px 0 0;
-    width: 15px;
+    width: 16px;
     height: 15px;
     border-radius: 11px;
     border: 1px solid #F27949;
@@ -110,10 +111,10 @@
   
   .sdayEv input[type=radio]:checked + label:after {
      border-radius: 11px;
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
     position: absolute;
-    top: 7px;
+    top: 6.2px;
     left: 8px;
     content: " ";
     display: block;
@@ -143,9 +144,17 @@
     border: 1px dashed #4E4E4E;
     border-radius: 10px;
     height: 60px !important;
+   
   }
+  
+  
+  #imageID {
+  
+  height:60px;
+}
+  
   .imageData input{
-    visibility: hidden;
+    /*visibility: hidden;*/
   }
   .imageData label{
     position: absolute;
@@ -153,12 +162,13 @@
     left: 42%;
   }
   .event-data .a-button{
-    width: 40%;
-  }
-  .event-data .a-button .p-button{
+   width: 100%;
+    text-align: right;
+      }
+  /*.event-data .a-button .p-button{
     color: #fff !important;
     background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;
-  }
+  }*/
   .event-data .a-button span, .event-data .a-button button{
     color: #AFAFAF;
     font-size: 11px;
@@ -178,7 +188,7 @@
     width: 15px;
     height: 15px;
     border-radius: 11px;
-    border: 1px solid #F27949;
+    border: 1px solid #C2C1C2;
     background-color: transparent;
   }
   
@@ -196,7 +206,7 @@
   }
   .form-data input,.form-data select,.form-data textarea{
     width: 100%;
-    border-radius: 15px;
+    border-radius: 18px;
     outline: none;
     border: 1px solid #4E4E4E;
     background: #232323;
@@ -207,6 +217,7 @@
   }
   .form-data input[type="file"]{
     height: 60px;
+    visibility:hidden;
   }
   .form-data textarea{
     height: 60px;
@@ -221,7 +232,7 @@
 
   }
   .form-data p{
-    margin-left: -1.1rem;
+    margin-left: orem;
     margin-bottom: -1.1rem !important;
   }
   .event-data hr{
@@ -258,7 +269,7 @@
   .accordion-body{
     width: 100%;
     margin: 10px 0px;
-    background: #11101d;
+   /* background: #11101d;*/
     border-radius: 15px;
     height: auto;
     padding: 0px;

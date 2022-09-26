@@ -13,15 +13,15 @@ var AverageRating;
 var VideoURLs;
 
 $(document).ready(function() {  
- GetPastEvents()
+ GetPastEvents();
+ GetPastEventsclone()
 });
 
 
 function GetPastEvents() {
-    var today= new Date();
-    today = moment(today).toISOString();
+	var today= moment().format('YYYY-MM-DDTHH:mm:SS'); 
    $.ajax({
-       url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Attachments,Pillar,Title,EventDescription,AverageRating,EventDate,EventStartTime,VideoURL&$expand=AttachmentFiles&$filter= EventDate le '"+today+"'&$orderby=Created desc",
+       url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=*&$filter= EventEndTime le '"+today+"'&$orderby=Created desc",
        method: "GET",
        headers:
           {
@@ -34,6 +34,7 @@ function GetPastEvents() {
            for(var m=0; m<=dataresults.length; m++){
                 var totalEvetnts = dataresults.length;
              $("#PastEventCount").text(totalEvetnts);
+             
 
 }
        },
@@ -42,3 +43,32 @@ function GetPastEvents() {
        }
    });
 }
+
+
+
+function GetPastEventsclone() {
+	var today= moment().format('YYYY-MM-DDTHH:mm:SS'); 
+   $.ajax({
+       url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=*&$filter= EventEndTime le '"+today+"'&$orderby=Created desc",
+       method: "GET",
+       headers:
+          {
+              "Accept": "application/json;odata=verbose"
+          },
+          
+       success: function (data, status, xhr) {
+           var dataresults = data.d.results;
+                        
+           for(var m=0; m<=dataresults.length; m++){
+                var totalEvetnts = dataresults.length;
+             $("#PastEventCountclone").text(totalEvetnts);
+             
+
+}
+       },
+       error: function (xhr, status, error) {
+           console.log("Failed");
+       }
+   });
+}
+

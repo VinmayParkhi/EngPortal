@@ -21,6 +21,37 @@
     <!-- self css -->
     <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/smiley.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<style>
+
+.modal-header {
+
+border-top-left-radius: 1rem !important;
+    border-top-right-radius:1rem !important;
+    margin-left: -0.1rem;
+   }
+.modal-content {
+border-radius: 1rem !important;
+}
+.message{
+	font-size: 1.5rem;
+    font-weight: 600;
+}
+#exampleModal > div > div > div.modal-header > button {
+    background: transparent;
+}
+.modal-header .close {
+     padding: 0; 
+    margin: 0;
+}
+.close {
+    float: right;
+    font-size: 2rem;
+    text-shadow: none;
+    }
+</style>
+
+
 </head>
 
 <body>
@@ -32,7 +63,7 @@
                     <input type="radio" id="mood-1" name="mood" value='Worried' class="radio" >
                     <label class="emoji emoji-1" for='mood-1'>
                     <input type="hidden" value='Excited'>
-                        <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/icons8-emoji-50 (4).png" alt="Excited">
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/exited.svg" alt="Excited">
                         
                         <h6 id="Excited">Excited</h6>
                     </label>
@@ -40,49 +71,49 @@
                     <input type="radio" id="mood-2" name="mood" value='Sad' class="radio">
                     <label class="emoji emoji-2" for='mood-2'>
                     <input type="hidden" value='Happy'>
-                        <img src="https://infornt.sharepoint.com/_catalogs/masterpage/FinalMasteEmp/icons8-emoji-50 (1)@2x.png" alt="Happy">
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/happy.svg" alt="Happy">
                         <h6>Happy</h6>
                     </label>
 
                     <input type="radio" id="mood-3" name="mood" value='Confused' class="radio">
                     <label class="emoji emoji-3" for='mood-3'>
                     <input type="hidden" value='Cool'>
-                        <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/icons8-emoji-50@2x.png" alt="Cool">
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/cool.svg" alt="Cool">
                      	<h6>Cool</h6>
                     </label>
 
                     <input type="radio" id="mood-4" name="mood" value='Happy' class="radio">
                     <label class="emoji emoji-4" for='mood-4'>
                     <input type="hidden" value='Boring'>
-                        <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/icons8-emoji-50 (3).png" alt="Boring">
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/boring.svg" alt="Boring">
                         <h6>Boring</h6>
                     </label>
 
                     <input type="radio" id="mood-5" name="mood" value='Joyful' class="radio">
                     <label class="emoji emoji-5" for='mood-5'>
                     <input type="hidden" value='Frustrated'>
-                        <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/icons8-emoji-50 (2).png" alt="Frustrated">
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/frustrated.svg" alt="Frustrated">
                         <h6>Frustrated</h6>
                     </label>
 
                     <input type="radio" id="mood-6" name="mood" value='Joyful' class="radio">
                     <label class="emoji emoji-6" for='mood-6'>
                     <input type="hidden" value='Angry'>
-                        <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/icons8-emoji-50 (5).png" alt="Angry">
+                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/angry.svg" alt="Angry">
                         <h6>Angry</h6>
                     </label>
                 </div>
              </div>
         </div>
         <div class="submitWr">
-            <button type="button" class="btnSubmit disabled" data-toggle="modal" data-target="#exampleModal">Submit</button>
+            <button type="button" class="btnSubmit disabled" id="BtnSubmitCount" data-toggle="modal" data-target="#exampleModal">Submit</button>
         </div>
         <!-- Modal -->
 				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-					<div class="modal-dialog" role="document">
+					<div class="modal-dialog modal-sm " role="document">
 						<div class="modal-content">
 						<div class="modal-header">
-							<img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/image_2022_08_24T13_36_19_248Z.png">
+							<img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/image_2022_08_24T13_36_19_248Z.png" style="width:25px;">
 							<h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; font-size:1rem; margin-left:7px;" >Successful</h5>
 							<button style="color:#E5E5E5;" type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
@@ -90,19 +121,20 @@
 						</div>
 						<div class="modal-body">
                        <div style=" display:flex;">
-							<img style="margin:1rem auto;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-check-circle.png">
+							<img style="margin:1rem auto; width: 15%;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-check-circle.png">
 					   </div>
-                        <div>
+                        <div style="text-align:center;">
 						<span class="message">Your emotions submitted successfully</span>
 						</div>
                         </div>
 						<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="window.location.reload()">Okay</button>
 						<!--<button type="button" class="btn btn-primary">Save changes</button>-->
 						</div>
 					</div>
 				</div>
 			</div>
+			<!--End Modal-->
     </div>
 </body>
 

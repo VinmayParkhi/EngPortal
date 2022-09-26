@@ -440,7 +440,7 @@ function onQuerySucceeded(data) {
 $("#textfield").removeClass("editon");
 $("#NewSaveItem1").css("background", "rgba(255, 255, 255, 0.2)");
 $("#NewSaveItem1").css("color", "#747474 !important");
-$(".editstart img").attr("src","https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon feather-edit-2.svg")
+$(".editstart .img").attr("src","https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon feather-edit-2.svg")
 location.reload();
 
 

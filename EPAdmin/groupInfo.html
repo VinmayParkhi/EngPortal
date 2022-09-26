@@ -10,18 +10,15 @@
     height: 100vh;
 }
 
-.emp-card{
-	background-color: black !important;
-	width: 30%;
-	border-radius:10px;
-	/*height:60%;*/
-	/*margin-right:5rem;*/
-}
 
 .card-image {
     padding: 45px 65px; 
     margin-top: 20px;
     border-radius: 5px;
+}
+.lefticon{
+	    left: 8px !important;
+	        color: #fff;
 }
 
 @media (min-width: 992px) and (max-width: 1200px){
@@ -43,7 +40,7 @@
    
    .lefticon {
     position: absolute;
-    left: 3px;
+    /*left: 3px;*/
     top: 12px;
     
     }
@@ -62,6 +59,21 @@
   #groupid{
 	height:100vh;
 } 
+.sidebar{
+height: 119vh;	
+}
+.emp-card{
+	background-color: black !important;
+	width: 30%;
+	border-radius:10px;
+	/*height:60%;*/
+	/*margin-right:5rem;*/
+}
+.home-section hr{
+	width: 92%!important;
+    margin-left: 3% !important;
+}
+
     }
 
  @media (min-width: 1366px){
@@ -70,24 +82,52 @@
    }
    
    .lefticon {
-        left: 10px;
-    top: 10px;
-    
-    }
-
+       top: 10px;
+}
     }
     
     @media (min-width: 1400px)and (max-width: 1600px){
      #groupid {
-                height: 93vh;
+                height: 90vh;
 	}
 	.sidebar{
 		height: 104vh !important;
             }
-
+.lefticon {
+    top: 10px;
+        right: 28px !important;
+}
 .card-image {
-    padding: 83px 105px;
+   /*padding: 83px 105px;*/
       }
+      .emp-card{
+          background-color: black !important;
+    width: 28%;
+    border-radius: 10px;
+	
+}
+.card{
+	margin: 10px 12px;
+    margin-right: 3.5%;
+    height:47%;
+}
+.head-right{
+     display: block;
+    align-items: center;
+    margin-right: 2.5% !important;
+    width: 29.5% !important;;
+}
+.ms-5{
+	margin-left: 4rem !important;
+}
+.event-head {
+    padding: 0px 34px;
+    margin-left: 1%;
+}
+.home-section hr{
+	width: 91%!important;
+    margin-left: 3.5% !important;
+}
    }
     @media (min-width: 1600px)and (max-width: 1900px){
      #groupid {
@@ -129,8 +169,8 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
-<script type="text/javascript">
-
+<script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/AccessGroupData.js">
+/*
 $(document).ready(function () {
 
 	//var siteurl = "https://infornt.sharepoint.com";       
@@ -187,20 +227,20 @@ $.ajax({
 			}	
 			for(i = 0; i < results.length; i++){
 				if(results[i].Key == "Department"){
-					//dept = results[i].Value;
-					dept = "O365"
+					dept = results[i].Value;
+					//dept = "O365"
 				}
 			}         
-			$("#groupid").append("<div class='card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard();'><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p><input type='radio' id='Admin' name='Priority"+i+"' value='Admin' style='margin-right:5px;'><span for='Admin'>Admin</span><input type='radio' class='ms-4' id='Nonadmin' name='Priority"+i+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin'>Non-Admin</span></div></div>");                                                    
+			$("#groupid").append("<div class='card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard(this.id);' id="+data.d.AccountName+"><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p><input type='radio' id='Admin' name='Priority"+i+"' value='Admin' style='margin-right:5px;'><span for='Admin'>Admin</span><input type='radio' class='ms-4' id='Nonadmin' name='Priority"+i+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin'>Non-Admin</span></div></div>");                                                    
 		},
 		error: function (error){
 			console.log(error);
 		}
 	});
 }
-function DeleteCard(){
-   var accName = $(".lefticon").children('#AccName').val();
-   removeUserFromGroup(accName,3);
+function DeleteCard(id){
+   //var accName = $(".lefticon").children('#AccName').val();
+   removeUserFromGroup(id,3);
 };
 
 
@@ -228,7 +268,7 @@ function removeUserFromGroup(userLoginName,groupid)
 
 
 /*start display the add user popup when the add user button is clicked*/
-
+/*
 function adduser(){  
 	var GroupName = 'RNTENG%20Owners';			
    	var CurrGroupId = '3';  
@@ -250,7 +290,7 @@ function openDialog(pageUrl) {
 }
 
 
-
+*/
 </script>
 </head>
 <body>
@@ -285,5 +325,30 @@ function openDialog(pageUrl) {
                     </div>
 <div id="groupid" class="ms-5">
 </div>
+
+
+   <!-- Modal popup for delete button start-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src=" https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Survey Published Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have published a survey successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okay" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+    
+     
+    <!-- Modal popup for delete button End-->
+
 </body>
-</html>
+</html><?xml version="1.0" encoding="utf-8" ?>

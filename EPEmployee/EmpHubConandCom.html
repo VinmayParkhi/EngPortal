@@ -2,6 +2,9 @@
 <html>
 
 <head>
+	<meta http-equiv='cache-control' content='no-cache'>
+	<meta http-equiv='expires' content='0'>
+	<meta http-equiv='pragma' content='no-cache'>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Past Events | Engagement Portal</title>
@@ -10,186 +13,719 @@
        <!-- bootstrap -->
 <link rel="stylesheet" href="https://infornt.sharepoint.com/_catalogs/masterpage/FinalMasteEmp/bootstrap.css" type="text/css">
     <!-- past events -->
-    <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/work.css" type="text/css">
+    <!--<link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/work.css" type="text/css">
     <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/eventdetails.css" type="text/css">
-    <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/pastEvents.css" type="text/css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/pastEvents.css" type="text/css"> -->
+    
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/work.css" type="text/css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/eventdetails.css" type="text/css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/pastEvents.css" type="text/css">
     <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/ratereview.css" type="text/css">
     <link rel="stylesheet" href="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/CSS/ratingstars.css" type="text/css">
+	<link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/rateReview.css" type="text/css">
 
-	<style>
-	.Work{
-	color:#A4C6F9 !important;
+	<style type="text/css">
+	
+	.hub{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+	}
+
+	.hub img{
+	background: #B15610 !important;
+	}
+    
+
+	
+	#starAv1,#starAv2,#starAv3,#starAv4,#starAv5{
+	 font-size:14px;
+    }
+    
+    .ratetext{
+	margin-top:5px;
+    }
+    #starAvHalf1,#starAvHalf2,#starAvHalf3,#starAvHalf4{
+	font-size:14px;
+	color:orange;
+	display:none;
+}
+.ratestar{
+	display:flex;
+}
+
+	
+	  	  	
+  	.heart{
+
+		padding: 1.2rem;
+	
+	}
+ 
+	.bell{
+	padding: 1.2rem !important;
+	}  
+  	
+
+	
+  	.modal-footer {
+	    display: flex;
+	    justify-content: flex-end;
+	    padding: 0.5rem 1.3rem 1rem 0;
+	    border-top: 1px solid #dbdbdb;
+	    margin-top:1.5rem !important;
+	}
+	
+	.modal-footer .btn-secondary {
+	    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+	    width: 30%;
+	    height: 2.5rem;
+	    border: none;
+	    padding:3px;
+	    border-radius: 0.5rem;
+	    color: #fff;
+	    font-weight:600;
+	}
+	.modal-footer .btn-grey {
+	    background: none;
+	    width: 20%;
+	    height: 2.5rem;
+	    border: none;
+	    padding:3px;
+	    border-radius: 0.5rem;
+	    color: #000;
+	    font-weight:600;
+	}
+	.breadcrumb{
+		background:transparent;
+	}
+	.modal-body{
+	margin:0 50px;
+	padding: 2rem 0;
+	}
+	.modal-content{
+	  border-radius: 25px;
+	     
+	}
+	.modal-header{
+	  border-radius: 25px 25px 0px 0px;
+	  margin-top: -0.5rem;
+	  background: #191718;
+	  margin-top: 0;
+	      display: flex;
+	    align-items: center;
+	}
+	.modal-footer{
+	  margin-top:-10rem;
+	}
+	
+	.form-switch .form-check-input{
+		margin-left:0;
+	}
+	
+	.form-check {
+		padding-left:0;
+		margin:1rem;
+		display: flex;
+	    align-items: center;
+	}
+	
+	.form-check-label {    
+	    margin-left: 40px;
+	}
+	
+	#minutes{
+	    width: 100%;
+	    padding: 5px;
+	    border-radius:15px;
+	}
+	input[type=text]{
+	    padding: 5px 15px;
+	    border-radius:15px;
+	}
+	#eventTitle{
+	
+		border-radius:15px;
+		border: 1px solid #a6a6a6;
+	}
+	.modal-content {
+	   
+	    background: #FCF9EE;
+	}
+	.form-switch .form-check-input {
+	    width: 2.9em;
+	    height: 1.7em;
+	}
+	.remind{
+		display:none;
+	}
+	.dontRemind {
+	    display: flex;
+	    justify-content: space-between;
+	    /*margin-top:20px;*/
+	}
+	
+	.dontRemind .date{
+		width:45%;
+	}
+	.dontRemind .time{
+		width:45%;
+	}
+	.dontRemind #selectDate,#selectTime{
+	    padding:5px;
+		width:100%;
+		border-radius:15px;
+		border: 1px solid #a6a6a6;
 	
 	}
 	
-	
-	.upcomingeventsJoin{
-	
-	padding: 0.5rem 3rem !important;
+	#notificationCard:after{
+		content: '';
+		height:15px;
+		width:15px;
+		background:#fff;
+		border-radius:2px;
+		top:-6px;
+		right:17px;
+		position:absolute;
+		transform:rotate(45deg);
+	}
+	a{
+		text-decoration:none;
+		color:#E5E5E5;
+		cursor:pointer;
+	}
+	#notificationDivMain{
+	    padding: 5px;
+	    background: #FFF;
+	    width: 100%;
+	    height: auto;
+	    border-radius:0.3rem;
+	    border:2px solid #FCF9EE;
+	    font-size:9px;
+	    }
+	    .notification{
+		background:#F2ECD5;
+		padding:10px
+	}
+	.notification .eventDescription{
+		color:#000000;
+		font-weight:600
+	}
+
+  	
+  	
+  	.card{
+	background-color: transparent;
+	border:none;
+	}  	
+ 	.Work{
+	color:#A4C6F9 !important;
+	font-size: 0.8rem;	
+	}
+	#EventDesc{
+	    max-width: 300px;
+    -webkit-line-clamp: 2;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size: 1rem;
+    color: #e5e5e5;
+	}
+#ctl00_PlaceHolderMain_tabsTD{
+	display:none !important;
 }
-
-
-.upcomingeventsDetails .upcomingeventsBtn a, .pasteventsDetails .pasteventsBtn a{
-	
-	 padding: 0.59rem 1rem;
-
+.pstvideoImg1 .play{	
+    display: flex !important;
+    justify-content: center !important;
+    padding: 5rem;
 }
+.pstvideoImg1 .play img{
+	width: 55%;
+}
+.pastevntsCard .work{
+	color: #A4C6F9;
+	font-size: 1.1rem;
+}
+.evntTitle h4{
+	color: #fff;
+	font-size: 1.2rem;
+}
+.upcomingEventsCard{
+	margin-bottom: 5rem !Important; 
+}
+.workcardBottomWr .pastEvntsWr1 .pastevntsCard .time {
+    color: #AAAAAA;
+    background-color: #191718BF;
+    padding: 0.2rem 0.7rem;
+    border-radius: 0.8rem;
+    opacity: 0.9;
+    margin-top: 4rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+/*.upcomingeventsDetails .upcomingeventsDate_Time{
+	margin-bottom: 2rem;
+}*/
+.title_review{
+	margin-bottom: 0rem;
+}
+/*.workcardTopWr .upcomingEventsWr{
+	margin-bottom: 2rem;
+}*/
 
 
-.workcardTopWr .upcomingEventsWr .upcomingEventsCard {
+
+
+/*css for rate and review popup*/
+.modal-body {
+     margin: 0;
+    }
+    .modal-dialog .btn-close-white {
+    position: static;
+    }
+     .ratereview .rr_heading {
+    width: 108.3%;
+    }
     
-    height: 34vh;
-   
+    /*css for set remainder for upcoming event popup start*/
+    .modal-content {
+width: 100%;
+padding: 0;
+font-size: 1rem;
 }
-
-	
-
-	
-	.pstvideoImg1 .play{
-	
-	top: 0 !important;
-	left:0 !important;
-	display: flex !important;
-   	height:100%;
-    width: 100% !important;
-    justify-content: center !important;
+.modal-body {
+ padding: 1rem 2rem;
 }
-
-.pstvideoImg1 .play img{
-
-	width:50px;
-
+.form-check-label {
+    margin-left: 5px;
 }
-
-
-.upcomingeventsDetails {
-    position: relative !important;
-   top:0 !important;
-    padding: 0 0.8rem ;
+.modal-body .form-group{
+	margin: 1rem;
 }
-
-.upcomingeventsJoin{
-	padding: 0.5rem 2.5rem !important;
+#HubWbModal > div > div > div.modal-header > button{
+	min-width: 0; 
+    padding: 0;
+     border: none; 
+         background-color: #000;
 }
+.form-check-input:checked {
+    background-color: #FF51A8;
+    border-color: #FF51A8;
+}
+/*css for set remainder for upcoming event popup end*/
+.cornerBtns .heart {
+display:none;
+}
+.cornerBtns .share {
+    padding:1.2rem;
+    }
 
 
-	
-	
-@media (min-width:375px) and (max-width:768px){
-	
+
+@media (min-width:375px){	
 	.workBannerTop{
-	background-size:100% 100% !important;
-	
+	background-size:100% 100% !important;	
 }
-
-.upcomingEventsCard,.pastevntsCard{
+.upcomingEventsCard, .pastevntsCard{
 	width:100% !important;
-	margin: 0 !Important; 
+	margin-bottom: 5rem !important;
 }
-
-.pstvideoImg1 .play{
-	
-	top: 0 !important;
-	left:0 !important;
-	display: flex !important;
-   	height:100%;
-    width: 100% !important;
-    justify-content: center !important;
-}
-
-.pstvideoImg1 .play img{
-
-	width:50px;
-
-}
-
-.time,.heartImg{
-	
-	top:1rem !important;
-}
-
-
-.pastevntsCard{
-	margin-bottom:0 !important;
-}
-
-
-
 .ms-fullWidth {
     width: 100% !important;
 }
-
 }
 
+@media (min-width: 428px){
+    .upcomingeventsCalendar a label,
+    #EventDesc,
+    .upcomingeventsClock a label,
+    .time {
+    font-size: 1.2rem;
+}
+/*.upcomingeventsDetails {
+    top: 9rem;
+    }*/
+.pstvideoImg1 .play{
+	padding: 7rem;
+}
+/*.pstvideoImg1 .play img {
+    width: 10%;
+}*/
+.workcardBottomWr .pastEventsWr1 {
+    	height: 34vh;
+    }
+}
 
-
-
-@media (min-width:768px) and (max-width:992px){
-	
+@media (min-width:768px){	
 	.contentWr{
 	width: 95% !important;
 	margin:0 auto;
 	}
-	
-	
-	#DeltaPlaceHolderMain {
-    width: 100%;
+	#EventDesc{	
+	height:35px !important;
 	}
-	
-	#MSOZoneCell_WebPartWPQ5{
-	
-	margin-left: 30px;
-	}
-	
-	
-
 	.sidemain{
 	margin-left:0;
 	}
+	.EventTitle{
+	font-size: 2rem;
+	}	
+	.workcardBottomWr .rating img{
+		width: 25%;
+	}
+	.bannerTopHeading p{
+	font-size: 1.2rem;
+	}
+	.workcardTopWr .upcomingEventsWr{
+	margin-bottom: 0rem;
+	}
+	.workcardTopWr .upcomingEventsWr .upcomingEventsCard {
+	width: 48% !important;
+	margin-bottom: 1rem !important;
+	}
+	.upcomingEventsCard{
+		position: relative !important;
+		top:0 !important;
+	}
+		.pastevntsCard {
+    position: relative !important;
+    top: 0 !important;
+    width: 48% !important;
+	margin-bottom: 0 !important;
+   /* margin-bottom: 4rem !important;*/
+    padding: 0;
+	}
+	/*.workcardTopWr .upcomingEventsWr:nth-child(3) .upcomingEventsCard
+	.workcardBottomWr .pastEvntsWr1:nth-child(3) .pastevntsCard*/
+	.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(3),
+	.workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(3){
+		/*margin-bottom: 0 !important;*/
+		margin-top: 3.5rem;
+	}
+	.time{
+		top: 2rem !important;
+	}
+	.workcardBottomWr .pastEvntsWr1{
+		display:flex;
+		align-items: center;
+		/*height: 34vh;*/
+	}
+    .bannerTopHeading {
+   	 display: block !important;
+   	  height: auto !important;
+    }
+    .bannerTopHeading p {
+	    text-align: left !important;
+	}
+	.workBannerTop {
+    padding: 9rem 4rem !important;
+	}
+	#DeltaPlaceHolderMain {
+    width: 90%;
+    margin-left: 20px;
+    }
+	.upcomingeventsBtn .upcomingeventsReminder .setReminder{
+		padding: 0.8rem 3.55rem;
+		font-size: 1rem;	
+	}
+	.upcomingeventsBtn .upcomingeventsJoin a{
+		padding: 0.8rem 5.5rem;
+		font-size: 1rem;
+	}
+	.upcomingeventsDetails{
+		top: 9rem;
+	}
+	.upcomingEventsCard {
+    	margin-bottom: 2rem !Important;
+	}
+	.pstvideoImg1 .play {
+    	padding: 2rem;
+    	margin-top: 3rem;
+	}
+}
 
-.upcomingEventsCard,.pastevntsCard{
-	margin: 20px 10px;
-	width: 31% !important;
-	position: relative !important;
-	top:0 !important;
+@media (min-width: 992px){
+.upcomingeventsBtn .upcomingeventsReminder .setReminder {
+    padding: 0.8rem 1.6rem;
+}
+.upcomingeventsBtn .upcomingeventsJoin a {
+    padding: 0.8rem 3.992rem;
+}
+.upcomingeventsDetails {
+    top: 10rem;
+}
+.PastEventHeading{
+	width: 100%;
+}
+.upcomingEventsHeading label, .PastEventHeading a {
+    font-size: 1rem !important;
+}
+
+.upcomingEventsHeading h4, .PastEventHeading h4 {
+    font-size: 1.5rem !important;
+}
+.upcomingEventsCard .upcomingeventsDetails h5{
+	font-size: 1.2rem;
+}
+ 	/*.Work,*/
+    .upcomingeventsCalendar a label,
+    #EventDesc,
+    .upcomingeventsClock a label,
+    .upcomingeventsBtn a,
+    .upcomingeventsJoin a,
+    .time {
+    font-size: 1rem;
+}
+.pstvideoImg1 .play {
+    padding: 1rem;
+    margin-top: 2rem;
+}
+.pstvideoImg1 .play img {
+    width: 45%;
+}
+#heartImg{
+	width: 56% !important;
+    margin-top: 0.8rem !important;
+    margin-left: 1rem;
+}
+.upHeart{
+	width: 85% !important;
+}
+workcardTopWr .upcomingEventsWr{
+	margin-bottom: 0rem;
+}
+ .workcardTopWr .upcomingEventsWr .upcomingEventsCard {
+ width: 32% !important;
+ /*margin-bottom: 1rem !important;*/
+ }
+ .workcardTopWr .upcomingEventsWr,
+	.workcardBottomWr .pastEvntsWr1{
+	justify-content: normal !important;
+}
+ /*.workcardTopWr:nth-child(2) .upcomingEventsWr .upcomingEventsCard,
+ .workcardBottomWr:nth-child(2) .pastEvntsWr1 .pastevntsCard{
+	margin: 0 1.8rem;
+} */
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(3),
+	.workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(3){
+		margin-top: 0rem;
+	}
+
+ .workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2),
+ .workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2){
+	margin-left: 1.6rem !important;
+	margin-right: 1.6rem !important;
+} 
+.bannerTopHeading {
+   	 display: block !important;
+   	  height: auto !important;
+    }
+    .bannerTopHeading p {
+	    text-align: left !important;
+	}
+	.workBannerTop {
+    padding: 9rem 4rem !important;
+}
+.upcomingeventsDetails .upcomingeventsDate_Time .upcomingeventsCalendar a img,
+.upcomingeventsDetails .upcomingeventsDate_Time .upcomingeventsClock a img {
+    width: 1.2rem !important;
+}
+.pastevntsCard {
+    width: 32% !important;
+    margin-bottom: 0 !important;
+    padding: 0;
+}
+.sidebar{
+	height:auto;
+}
+footer {
+	width: 95%;
+    margin-left: 3rem;
+}
+}
+@media (min-width: 999px){
+	.upcomingeventsBtn .upcomingeventsReminder .setReminder {
+    	padding: 0.8rem 0.8rem;
+	}
+	.upcomingeventsBtn .upcomingeventsJoin a {
+    	padding: 0.8rem 3.23rem;
+	}
+	.upcomingeventsDetails {
+	    top: 8.5rem;
+	}
+		.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2),
+ .workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2){
+	margin-left: 1.4rem !important;
+	margin-right: 1.4rem !important;
+} 
 
 }
 
+@media (min-width: 1024px){
+.workcardBottomWr .pastEventsWr1 {
+    height: 40vh;
+}
+.upcomingeventsDetails {
+    top: 8rem;
+}
+.pstvideoImg1 .play img {
+    width: 70%;
+}
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2),
+.workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2) {
+    margin-left: 1.45rem !important;
+    margin-right: 1.45rem !important;
+}
 
+}
+
+@media (min-width: 1200px){
+.heart_time{
+	    width: 93%;
+    margin-top: -2rem;
+    margin: 0 auto;
+    margin-top: -1.5rem;
+    }
+.workcardBottomWr .pastEvntsWr1 .pastevntsCard .time{
+	margin-left: 0;
+}
+#heartImg{
+	/*width: 56% !important;*/
+    margin-top: 0.5rem !important;
+    margin-left: 1rem;
+}
 .pstvideoImg1 .play{
-	
-	top: 0 !important;
-	left:0 !important;
-	display: flex !important;
-   	height:100%;
-    width: 100% !important;
-    justify-content: center !important;
+	margin-top: 2rem;
 }
-
-
-.pstvideoImg1 .play img{
-
-	width:50px;
-
+/*.pstvideoImg1 .play img {
+    width: 10%;
+}*/
+.upcomingeventsBtn .upcomingeventsReminder .setReminder {
+    padding: 0.8rem 2rem;
 }
-
-.time,.heartImg{
-	
-	top:1rem !important;
+.upcomingeventsBtn .upcomingeventsJoin a {
+    padding: 0.8rem 4.42rem;
 }
-
-
-.footer {
-    width: 100%;
-    margin: 0;
-    margin-left: 25px;
+.upcomingEventsCard .upcomingeventsImg {
+    height: 182px;
+}
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2),
+.workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2) {
+    margin-left: 1.69rem !important;
+    margin-right: 1.69rem !important;
 }
 
 }
+@media (min-width: 1280px){
+	.workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2){
+    margin: 0rem 1.9rem !important;
+}
+.upcomingeventsBtn .upcomingeventsReminder .setReminder {
+    padding: 0.8rem 2.4rem;
+}
+.upcomingeventsBtn .upcomingeventsJoin a {
+    padding: 0.8rem 4.82rem;
+}
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2),
+.workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2) {
+    margin-left: 1.85rem !important;
+    margin-right: 1.85rem !important;
+}
 
+}
+@media (min-width: 1366px){
+	.upcomingEventsCard .upcomingeventsImg {
+    	height: 195px;
+	}
+	.upcomingEventsHeading label, .PastEventHeading a {
+    font-size: 1.5rem !important;
+	}
 
+	.upcomingEventsHeading h4, .PastEventHeading h4{
+    font-size: 2rem !important;
+	}
+	#heartImg {
+    width: 68% !important;
+    margin-right: 1.5rem;
+	}
+	.pstvideoImg1 .play {
+    padding: 3rem;
+    margin-top: 2rem;
+	}
+	.pstvideoImg1 .play img {
+    width: 55%;
+}
+.upcomingEventsCard .upcomingeventsImg .userImg1{
+		height: 212px;
+	}
+	.upcomingeventsBtn .upcomingeventsReminder .setReminder {
+    padding: 0.8rem 2.9rem;
+	}
+	.upcomingeventsBtn .upcomingeventsJoin a {
+    padding: 0.8rem 5.3rem;
+	}
 
-	</style>
+}
+@media (min-width: 1400px){
+	.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2),
+	.workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2) {
+    margin-left: 1.98rem !important;
+    margin-right: 1.98rem !important;
+}
+}
+@media (min-width: 1536px){
+.upcomingeventsBtn .upcomingeventsReminder .setReminder {
+    padding: 0.8rem 3.5rem;
+}
+.upcomingeventsBtn .upcomingeventsJoin a {
+    padding: 0.8rem 5.915rem;
+}
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard,
+.workcardBottomWr .pastEvntsWr1 .pastevntsCard {
+    width: 31% !important;
+    /* margin-bottom: 1rem !important; */
+}
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2),
+.workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2) {
+    margin-left: 3.9rem !important;
+    margin-right: 3.9rem !important;
+}
+}
+@media (min-width: 1600px){
+.upcomingeventsBtn .upcomingeventsReminder .setReminder {
+    padding: 0.8rem 4rem;
+}
+	.upcomingeventsBtn .upcomingeventsJoin a {
+    padding: 0.8rem 6.4rem;
+}
+.upcomingEventsCard .upcomingeventsImg .userImg1 {
+    height: 214px;
+}
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2), .workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2) {
+    margin-left: 4rem !important;
+    margin-right: 4rem !important;
+}
+}
+
+@media (min-width: 1900px){
+	.upcomingeventsDetails {
+    	top: 5rem;
+    }
+    .upcomingeventsBtn .upcomingeventsReminder .setReminder {
+    padding: 0.8rem 6rem;
+}
+.upcomingeventsBtn .upcomingeventsJoin a {
+    padding: 0.8rem 8.4rem;
+}
+.workcardTopWr .upcomingEventsWr .upcomingEventsCard:nth-child(2), .workcardBottomWr .pastEvntsWr1 .pastevntsCard:nth-child(2) {
+    margin-left: 4.85rem !important;
+    margin-right: 4.85rem !important;
+}
+}
+</style>
+
     </head>
 
 <body>
@@ -223,17 +759,27 @@
                            
             <div class="workcardTopWr">
             <div class="upcomingEventsHeading">
-                <h4>Upcoming Events</h4>
-            </div>
-            <div class="upcomingEventsWr">                
+                <div>
+                    <h4>Upcoming Events</h4>
+                </div>
+                <div>
+                    <label style="color: #fff;">01 Aug to 07 Aug</label>
+                </div>
+            </div>              
+            <div class="row g-0 d-md-flex justify-content-md-between upcomingEventsWr">                
             </div>
         </div>
-        <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/PastEvents.aspx" id="right" type="button" class="btn" style="float:right; color:#FF3D97;"> View All</a>
+        
             	<div class="workcardBottomWr">
             <div class="PastEventHeading">
-                <h4>Past Event Video</h4>
-            </div>
-                <div class="pastEvntsWr1">
+                <div>
+                    <h4>Past Event Video</h4>
+                </div>
+                <div>
+                    <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/PastEvents.aspx" id="right" type="button" class="btn" style="float:right; color:#FF3D97;text-decoration: underline !important; padding: 0;"> View All</a>             
+                </div>                            
+            </div>   
+            <div class="row g-0 d-md-flex justify-content-md-between pastEvntsWr1">
              </div>
             </div>
         </div>
@@ -264,7 +810,165 @@
   </div>
 </div>
 </div>
+
+
+
+
+<div class="wrapper">
+        <!-- starts video modal -->
+           <div class="modal fade" id="ratereviewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            style="display: none;">
+            <div class="modal-dialog modal-dialog-centered">
+              <!--  <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="modal"></button>-->
+                <div class="modal-content">
+                    <div class="modal-body">
+                    	 <div class="ratereview">
+        <div class="rr_heading">
+            <div>
+                <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-star (1).svg" alt="Star">
+                <h5>Rate and Review</h5>
+            </div>
+            <div class="closeBtn">
+                <button type="button" class="btn-close btn-close-white" aria-label="Close" data-bs-dismiss="modal"></button>
+            </div>
+        </div>
+        <div class="ratereviewbody">
+            <div class="ratereviewbodyWr">
+                <div class="ratingEvent">
+                    <div id="pillarsID" class="pillars">
+
+                    </div>
+                    <div class="stars">
+                        <h5>Rate Event</h5>
+                        <span class="fa-regular fa-star" id="star1"></span>
+						<span class="fa-regular fa-star" id="star2"></span>
+						<span class="fa-regular fa-star" id="star3"></span>
+						<span class="fa-regular fa-star" id="star4"></span>
+						<span class="fa-regular fa-star" id="star5"></span>
+                        <!--<div class="stars-outer">
+                            <div class="stars-inner"></div>
+                          </div>
+                          <span class="number-rating"></span>-->
+                     </div> 
+                    <div class="ratingBox">
+                        <div class="rateno">
+                            <label id="rateno-label"></label>
+                        </div>
+                        <div class="ratestar">
+                        <span class="fa-regular fa-star" id="starAv1"></span>
+                        <span class="fa-solid fa-star-half-stroke" id="starAvHalf1"></span>
+						<span class="fa-regular fa-star" id="starAv2"></span>
+						<span class="fa-solid fa-star-half-stroke" id="starAvHalf2"></span>
+						<span class="fa-regular fa-star" id="starAv3"></span>
+						<span class="fa-solid fa-star-half-stroke" id="starAvHalf3"></span>
+						<span class="fa-regular fa-star" id="starAv4"></span>
+						<span class="fa-solid fa-star-half-stroke" id="starAvHalf4"></span>
+						<span class="fa-regular fa-star" id="starAv5"></span>
+
+                            <!--<div class="stars-outer">
+                                <div class="stars-inner"></div>
+                              </div>
+                              <span class="number-rating"></span>-->
+                         </div>
+                        <div class="ratetext">
+                            <label id="baseon-label"></label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reviewBox">
+                    <div class="reviewTextarea">
+                        <h6>Write Your Review</h6>
+                        <textarea class="form-control reviewText" placeholder="Review"></textarea>
+                    </div>
+                    <div class="reviewBtns">
+                        <button type="button" class="cancelBtn" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="submitBtn" data-bs-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+                <div class="commentBox">
+                                 
+                </div>
+                
+                
+                <div class="loadmore">
+                    <a href="#">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!--  SetReminder Modal -->
     
+      <div class="modal fade" id="HubWbModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content ">
+                        <div class="modal-header" style="padding: 1rem 2rem;">
+                            <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/set_reminder_popup.svg">
+                            <h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; font-size:1.5rem; margin-left:7px;" >Set reminder for upcoming event</h5>
+                            <button style="color:#E5E5E5;" type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                           <!-- <span aria-hidden="true">&times;</span>-->
+                           <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-ios-close.svg">
+
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                      
+						  <div class="form-group">
+						    <label for="eventTitle">Event Title</label>
+						    <input type="text" class="form-control" id="eventTitle" aria-describedby="emailHelp">
+						    
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="reminderMessage">Reminder Message (Optional)</label>
+						    <input type="text" class="form-control" id="reminderMessage" >
+						  </div>
+						  
+						  <div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" role="switch" id="remindChecked" >
+						  <label class="form-check-label" for="remindChecked">Remind me on same day</label>
+						  </div>	
+						  
+                          <div class="form-group">
+	                          <div class="remind">
+	                          <label for="minutes">Remind Before</label><br>
+							    <select name="minutes" id="minutes">
+							    <option value=""></option>
+							    <option value="15">15 Mintues</option>
+							    <option value="30">30 Minutes</option>
+							    <option value="45">45 Minutes</option>						    
+	                           </select>
+	                          </div>
+						    	
+							       <div class="dontRemind">
+								       <div class="date">
+								       <label for="selectDate">Select Date</label><br>
+								       <input type="date" id="selectDate" name="selectDate">
+								       </div>
+								       
+								       <div class="time">
+								       <label for="selectTime">Select Time</label><br>
+								       <input type="time" id="selectTime" name="selectTime">
+		
+								   </div>
+					         
+					       </div>
+                           </div>
+				 
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-grey" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary" id="setReminderBtn" data-bs-dismiss="#exampleModal" >Set Reminder</button>
+                        
+                        </div>
+                    </div>
+       </div> 
+       </div> <!--  SetReminder Modal end--> 
+	</div>
     <script>
    function dismissvid(){
         	$(".modalapp iframe").attr('src', "");
@@ -280,58 +984,13 @@
     <script type="text/javascript" src="https://infornt.sharepoint.com/_catalogs/masterpage/FinalMasteEmp/bootstrap.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/js/ConandCom.js"></script>   
+    <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/js/ConandCom.js"></script>
+    <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/js/NewSetReminder.js"></script>      
  <!-- Self script 
     <script src="https://infornt.sharepoint.com/_catalogs/masterpage/FinalMasteEmp/Employee.css"></script>-->
-    
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".reviewPopup").on('click',function () {                 
-                var rateA = $("#" + $(this).attr("lblId")).text().split(' ');
-                $("#rateno-label").text(rateA[0]);
-                $("#baseon-label").text('Based on ' + rateA[1].match(/\d+/) + ' review');
-                ratings.ratestar = rateA[0];
-                getRatings();
-            });
-        });
-        
-
-    // Initial Ratings
-    var ratings = {
-        ratestar: 1
-    }
-
-    // Total Stars
-    const starsTotal = 5;
-
-    // Run getRatings when DOM loads
-    document.addEventListener('DOMContentLoaded', getRatings);
-
-    // Get ratings
-    function getRatings() {
-        for (let rating in ratings) {
-            // Get percentage
-            const starPercentage = (ratings[rating] / starsTotal) * 100;
-
-            // Round to nearest 10
-            const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
-
-            // Set width of stars-inner to percentage
-            document.querySelector(`.${rating} .stars-inner`).style.width = starPercentageRounded;
-        }
-    }
-    // $(document).ready(function () {
-    //     //alert(localStorage["currentReviews"]);
-    //     var rateA = localStorage["currentReviews"].split(' ');
-    //     $("#rateno-label").text(rateA[0]);
-    //     $("#baseon-label").text('Based on ' + rateA[1].match(/\d+/) + ' review');
-    //     ratings.ratestar = rateA[0];
-    //     getRatings();
-    // });
-</script>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 </body>
 
 </html>

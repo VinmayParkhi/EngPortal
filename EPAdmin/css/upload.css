@@ -176,12 +176,12 @@ input[type=password]:focus, input[type=text]:focus, input:not([type]):focus, sel
 }
 .mainInformationContrainer ul li .oneInfo img {
     width: 185px;
-    height: 121px;
+    height: 110px;
 }
 .mainInformationContrainer ul li .oneInfo .spanForFileInput{
       overflow: hidden;
     position: absolute;
-    bottom: 0px;
+    bottom: 15px !important;
     width: 91%;
     vertical-align: middle;
     color: #333;

@@ -1,1 +1,154 @@
-﻿
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.dataTableEvents.net/1.12.1/css/jquery.dataTableEvents.min.css">
+    <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/css/eventReport.css">    
+    <title>Event Report</title>
+
+</head>
+<style>
+#datatable_wrapper{
+	color:black;
+}
+.cm_calendar{
+	position:static !important;
+}
+#EventReportTable{
+	width:95% !important;	
+}
+
+.Work{
+	color:#E8B0FC!important;
+}
+.Connect{
+	color:#C8DB88!important;
+
+}
+.Wow{
+	color:#FF8A72!important;
+
+}
+.WellBeing{
+	color:#A4C6F9 !important;
+
+}
+.Life{
+	color:#EFBB6D !important;
+}
+   
+.dropdown-div {
+    float: right;
+}
+
+</style>
+
+<body>
+
+<div class="head-left">
+               <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/Reports.aspx"> <span class="arrow"><i class="fa-solid fa-angle-left"></i></span>
+                <h4>Event Report</h4></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/Reports.aspx">Reports</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Event Reports</li>
+                    </ol>
+                </nav>
+            </div>
+
+    <div class="container m-5">
+        <div class="dropdown-div">
+        <div class="dropdown">
+            <button class="dropbtn">All Hub <img src="images/downarrow.png" alt=""></button>
+            <div class="dropdown-content">
+             <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel"> Work</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for=""class="ckeckboxLabel" > Life+</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel"> Wellbeing</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel"> Wow & Pride</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for=""class="ckeckboxLabel"> Connect & Community</label><br>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">All Location <img src="images/downarrow.png" alt=""></button>
+            <div class="dropdown-content">
+                <input type="checkbox" id="" name="" value="">
+                <label for="" class="ckeckboxLabel">All Location</label><br>
+             <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel">Location 01</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel">Location 03</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel">Location 04</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel">Location 05</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel"> Location 06</label><br>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">All Department <img src="images/downarrow.png" alt=""></button>
+            <div class="dropdown-content">
+             <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel">All Department</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel">Department 03</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel"> Department 04</label><br>
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel"> Department 05</label><br>
+            
+            <input type="checkbox" id="" name="" value="">
+            <label for="" class="ckeckboxLabel"> Department 06</label><br>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="heading">
+        <h5 class="tableheading">Event Report</h5>
+
+       </div> 
+        <table class="table" id="EventReportTable" data-ordering="false">
+            <thead>
+                <tr>
+                    <th scope="col" class="T-color1">ID</th>
+                    <th scope="col">Event Details</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Responses</th>
+                    <th scope="col">Reviews</th>
+                    <th scope="col">Date & Time</th>
+
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js" ></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" ></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" ></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js" ></script>
+    <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/AdReportsTable.js"></script>
+    </body>
+
+</html>

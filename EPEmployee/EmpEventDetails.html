@@ -24,12 +24,29 @@
     
     
     <style>
+    
+    
+    
+    .home{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+}
+
+.home img{
+	background: #B15610 !important;
+}
+
+
+
+    
     .modal-footer {
     display: flex;
     justify-content: flex-end;
-    padding: 0.5rem 1.3rem 1rem 0;
+   /* padding:15px 0;*/
     border-top: 1px solid #dbdbdb;
-    margin-top:1.5rem !important;
+    /*margin-top:1.5rem !important;*/
+    width:89%;
+    margin:0 auto;
 }
 
 .modal-footer .btn-secondary {
@@ -56,8 +73,8 @@
 	background:transparent;
 }
 .modal-body{
-margin:0 50px;
-padding: 2rem 0;
+margin:0 30px;
+/*padding: 2rem 0;*/
 }
 .modal-content{
   border-radius: 25px;
@@ -70,10 +87,11 @@ padding: 2rem 0;
   margin-top: 0;
       display: flex;
     align-items: center;
-}
-.modal-footer{
+    padding: 0.5rem 2rem;
+    }
+/*.modal-footer{
   margin-top:-10rem;
-}
+}*/
 
 .form-switch .form-check-input{
 	margin-left:0;
@@ -152,21 +170,216 @@ a{
 	cursor:pointer;
 }
 #notificationDivMain{
-    padding: 10px;
     background: #FFF;
-    width: 24rem;
-    height: 27rem;
     border-radius:0.3rem;
     border:2px solid #FCF9EE;
     }
-    .notification{
-	background:#F2ECD5;
-	padding:10px
-}
-.notification .eventDescription{
+   .notification .eventDescription{
 	color:#000000;
 	font-weight:600
 }
+
+
+
+/*set reminder popup css*/
+
+.modal-header .close{
+	       margin: -1rem -8rem -1rem auto;
+}
+
+.close {
+    float: right;
+    font-size: 3rem !important;
+    font-weight: 100 !important;
+    text-shadow: none;
+    }
+
+
+@media only screen and (min-width: 375px) {
+.eventdetailsWr{
+	min-height: 75vh;
+	}
+ 
+ .evntdtlsHeading{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.eventdetailsWrcontent {
+  width: 94%;
+  padding-top: 1.5rem;
+}
+
+.eventdtlsDateTime {
+  display: block !important;
+  }
+  
+  .eventdtlsClockText,.eventdtlsCalendarText > div:nth-child(1){
+	margin-bottom:1rem;
+}
+.eventdtlsFeel {
+  display: block;
+  }
+  .borderLinear1, .borderLinear2{
+	margin-right:3rem;
+}
+.breadcrumb > li:nth-child(2) > a:nth-child(2) > label:nth-child(1),
+.breadcrumb > li:nth-child(3) > a:nth-child(1) > label:nth-child(1),
+#Pillar{
+	color:white;
+}
+.eventdtlsBtn{
+	justify-content: center;
+}
+
+label {
+margin-bottom: 0!important;
+}
+
+.eventdetailsWrcontent .eventdtlsImg img {
+    height: 25rem;
+    }
+
+	
+}
+
+
+@media only screen and (min-width: 768px) {
+.eventdetailsWr {
+	margin-left:3rem;
+}
+.evntdtlsHeading{
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left:3rem;
+}
+.eventdetailsWrcontent {
+  width: 94%;
+  padding-top: 1.5rem;
+}
+ .eventdtlsClockText,.eventdtlsCalendarText > div:nth-child(1){
+	margin-bottom:1rem;
+}
+
+.eventdtlsFeel {
+  display: block;
+  }
+
+
+.borderLinear1, .borderLinear2{
+	margin-right:3rem;
+}
+.breadcrumb > li:nth-child(2) > a:nth-child(2) > label:nth-child(1),
+.breadcrumb > li:nth-child(3) > a:nth-child(1) > label:nth-child(1),
+#Pillar{
+	color:white;
+}
+
+/*.eventdtlsTitleLeft > h5:nth-child(2) > label:nth-child(1){
+	font-size: 2rem;
+}
+.eventwork{
+	font-size: 1.2rem;
+}
+
+.eventdtlspara > h6:nth-child(1) > label:nth-child(1),
+.eventdtlsDateTime, .feelText > h6:nth-child(1) > label:nth-child(1){
+font-size: 1.3rem;
+text-align: justify;
+}
+.emoji i {
+  font-size: 2rem;
+  }
+  .emoji-1 > h6:nth-child(2),.emoji-2 > h6:nth-child(2), .emoji-3 > h6:nth-child(2){
+	font-size: 1.3rem;
+
+}*/
+.emoji {
+  width: auto !important;
+  margin: 0 !important;
+}
+.eventdtlsBtn{
+	justify-content: end;
+}
+.eventdtlsDateTime {
+    display: flex!important;
+    }
+    
+    .eventdetailsWrcontent .eventdtlsImg img {
+    height: 40rem;
+}
+    
+    #DeltaPlaceHolderMain {
+    width: 80%;
+}
+
+
+    .eventdtlsClockText, .eventdtlsCalendarText > div:nth-child(1) {
+     margin-bottom:0; 
+     }
+
+
+}
+
+@media only screen and (min-width: 992px) {
+.sidebar {
+    height:auto ;
+    }
+    .eventdetailsWr {
+     margin-left: 0; 
+     }
+     
+     .evntdtlsHeading {
+       margin-left:0;
+}
+.eventdetailsWrcontent {
+    width: 70%;
+    }
+    .eventdtlsFeel {
+     display: flex; 
+     }
+
+    .eventdtlsClockText, .eventdtlsCalendarText > div:nth-child(1) {
+     margin-bottom:0; 
+     }
+}
+
+@media only screen and (min-width: 1200px) {
+.eventdetailsWrcontent {
+    width: 70%;
+    padding-top: 1.5rem;
+}
+.eventdtlsDateTime {
+    display: flex!important;
+    }
+          
+}
+
+.modal-header {
+
+border-top-left-radius: 1rem !important;
+    border-top-right-radius:1rem !important;
+    margin-left: -0.1rem;
+   }
+.modal-content {
+border-radius: 1rem !important;
+}
+.message{
+	font-size: 1.5rem;
+    font-weight: 600;
+}
+#exampleModal > div > div > div.modal-header > button {
+    background: transparent;
+}
+.modal-header .close {
+     padding: 0; 
+   }
+.close {
+    float: right;
+    font-size: 2rem;
+    text-shadow: none;
+    }
+
+
 </style>
 </head>
 
@@ -175,16 +388,16 @@ a{
 
     <div class="eventDetailsWrapper">
         <div class="evntdtlsHeading">
-            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/Hub.aspx" class="evntdtlsClick">
-                <div class="evntdtlsArrow">
+            <a href="#" class="evntdtlsClick">
+                <div class="evntdtlsArrow" id="Goback">
                     <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon ionic-ios-arrow-back.svg" alt="Back Arrow">
-                    <h3 id="PillarDiv">Work+</h3>
+                    <h3 id="PillarDiv">Event Details</h3>
                 </div>
                 <div class="breadcrumbWr">
                     <ul class="breadcrumb">
                         <li><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpMaster.aspx"><label>Home</label></a></li>
                         <li><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/Hub.aspx"><label>Hub</label></a></li>
-                        <li><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/Work.aspx"><label id="Pillar"></label></a></li>
+                        <li><a href="#"><label id="Pillar"></label></a></li>
                         <li><label id="eventName"></label></li>
                     </ul>
                 </div>
@@ -202,7 +415,7 @@ a{
                             <h5><label></label></h5>
                         </div>
                         <div class="eventdtlsTitleRight">
-                            <a href="#">
+                            <a href="#" onclick="adduser(this.id)">
                                 <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon open-share-boxed.png" alt="Share">
                             </a>
                         </div>
@@ -226,7 +439,7 @@ a{
                                 <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-calendar.png" alt="Calendar">
                             </div>
                             <div>
-                                <label class="eventDt"></label>
+                                <label class="eventDt" id="EvDate"></label>
                             </div>
                         </div>
                         <div class="eventdtlsMapText">
@@ -246,8 +459,8 @@ a{
                         <div class="feelText">
                             <h6><label>How do you feel about this event?</label></h6>
                         </div>
-                        <div class="feelBtns">                                <input type="radio" id="excited-1" name="excited" value='excited' class="radiofeel"
-                                    checked>
+                        <div class="feelBtns">                                
+                        		<input type="radio" id="excited-1" name="excited" value='excited' class="radiofeel" data-toggle="modal" data-target="#EVMoodModal">
                                 <div class="borderLinear1" style="display:inline-block;">
                                     <label class="emoji emoji-1" for='excited-1'>
                                         <i class="fa-solid fa-face-grin-wink"></i>
@@ -255,7 +468,7 @@ a{
                                     </label>
                                 </div>
 
-                                <input type="radio" id="excited-2" name="excited" value='notexcited' class="radiofeel">
+                                <input type="radio" id="excited-2" name="excited" value='notexcited' class="radiofeel" data-toggle="modal" data-target="#EVMoodModal">
                                 <div class="borderLinear2" style="display:inline-block;">
                                     <label class="emoji emoji-2" for='excited-2'>
                                         <i class="fa-solid fa-face-frown-open"></i>
@@ -263,7 +476,7 @@ a{
                                     </label>
                                 </div>
 
-                                <input type="radio" id="excited-3" name="excited" value='Notsure' class="radiofeel">
+                                <input type="radio" id="excited-3" name="excited" value='Notsure' class="radiofeel" data-toggle="modal" data-target="#EVMoodModal">
                                 <div class="borderLinear3" style="display:inline-block;">
                                     <label class="emoji emoji-3" for='excited-3'>
                                         <i class="fa-solid fa-face-grin-beam-sweat"></i>
@@ -274,7 +487,7 @@ a{
                     </div>
                     <div class="eventdtlsBtn">
                         <div class="eventdtlsReminder">
-                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter" id="reminderBtn">
+                            <a href="https://outlook.office.com/calendar/0/deeplink/compose?subject=My Event&body=Event description text&startdt=2022-03-05T10:30:00+00:00&enddt=2022-03-05T18:45:00+00:00&location=New York City&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent"  id="reminderBtn">
                                 Set Reminder
                             </a>
                         </div>
@@ -296,8 +509,8 @@ a{
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content ">
                         <div class="modal-header">
-                            <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/image_2022_08_24T13_36_19_248Z.png">
-                            <h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; font-size:1.7rem; margin-left:7px;" >Set reminder for upcoming event</h5>
+                            <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon material-access-alarm.svg" style="width: 20px;">
+                            <h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; margin-left:7px;" >Set reminder for upcoming event</h5>
                             <button style="color:#E5E5E5;" type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                             </button>
@@ -349,11 +562,66 @@ a{
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-grey" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-secondary" id="setReminderBtn" data-target="#exampleModal" >Set Reminder</button>
+                        <button type="button" class="btn btn-secondary" id="setReminderBtn" data-dismiss="modal" data-toggle="modal" data-target="#RemSuccModal" >Set Reminder</button>
                         
                         </div>
                     </div>
-       </div>  <!--  SetReminder Modal end-->      
+       </div> 
+       </div> <!--  SetReminder Modal end--> 
+        <!--Mood Modal -->
+				<div class="modal fade" id="EVMoodModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+							<img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/image_2022_08_24T13_36_19_248Z.png" style="width:25px;">
+							<h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; font-size:1rem; margin-left:7px;" >Successful</h5>
+							<button style="color:#E5E5E5;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+                       <div style=" display:flex;">
+							<img style="margin:1rem auto; width: 15%;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-check-circle.png">
+					   </div>
+                        <div style="text-align:center;">
+						<span class="message">Your emotions submitted successfully</span>
+						</div>
+                        </div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="window.location.reload()">Okay</button>
+						<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--End Mood Modal-->
+			<!-- ReminderModal -->
+				<div class="modal fade" id="RemSuccModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+							<img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/image_2022_08_24T13_36_19_248Z.png" style="width:25px;">
+							<h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; font-size:1rem; margin-left:7px;" >Successful</h5>
+							<button style="color:#E5E5E5;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+                       <div style=" display:flex;">
+							<img style="margin:1rem auto; width: 15%;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-check-circle.png">
+					   </div>
+                        <div style="text-align:center;">
+						<span class="message">Reminder saved successfully</span>
+						</div>
+                        </div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="window.location.reload()">Okay</button>
+						<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--End Reminder Modal-->   
             
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

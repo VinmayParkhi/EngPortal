@@ -1,7 +1,10 @@
  var CurrentDate;
  var EventID;
- 
+ var log = console.log;
   $(document).ready(function() {
+  $('#FavBack').click(function() {
+             history.go(-1);        
+    });
 
     //alert( "ready!" );
     GetPastEvents();
@@ -49,7 +52,7 @@ function GetPastEvents() {
     ({
         
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('List Name')/items(" + Itemid + ")/AttachmentFiles",
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=EventId,Attachments,EventTitle,Pillar,AverageRating,EventDescription&$expand=AttachmentFiles&$filter=AuthorId eq "+userId+"&$orderby=Created desc",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EventId,ImageURL,EventTitle,Pillar,AverageRating,EventDescription&$expand=AttachmentFiles&$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -59,22 +62,24 @@ function GetPastEvents() {
            
         success: function (data, status, xhr) {
             var dataresults = data.d.results;
+            console.log(dataresults);
             console.log("before for databefore for data",data.d.results);
             for (var i = 0; i <= dataresults.length; i++) {                
-                 var pillar= data.d.results[i].Pillar;
+                 var pillar = data.d.results[i].Pillar;
+                 console.log(pillar);
                  var EventTitle= data.d.results[i].EventTitle;
+                 var favID = data.d.results[i].ID
                  var EventDescription= data.d.results[i].EventDescription;  
-                 var AverageRating  = data.d.results[i].AverageRating;   	 
+                 var AverageRating  = data.d.results[i].AverageRating;
+                 var eventID = data.d.results[i].EventId;   	 
                	 //var VideoURLs = data.d.results[i].VideoURL;                
-               	// var a =  "https://infornt.sharepoint.com/" + data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl;
-                 $(".FavEvntsWr").append('<div class="pastevntsCard '+pillar+'" style="width:30%; margin:10px 10px 2rem 10px"><div class="pstvideoImg1"  style="background:linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%);background-repeat: no-repeat;background-size: contain;"> <label class="time">15:03</label>'+
+               	 var a = data.d.results[i].ImageURL;
+                 $(".FavEvntsWr").append('<div class="pastevntsCard '+pillar+'" style="width:30%; margin:10px 10px 2rem 10px"><div class="pstvideoImg1"  style="background:linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%),url('+a+');background-repeat: no-repeat;background-size: cover;"> <label class="time">15:03</label>'+
                             '<a href="iframeData" id="iframeData" class="play">'+
                                 '<img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Group 2834.svg" alt="Play"> </a>'+
-                            '<a href="#" onclick="heartImage(this.id,pillar['+i+']);" id="" class="heartImg"> <img id="heartImg" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-heart.svg" alt="Heart"></a>'+  
-                            '<div class="pastevntsDetails"> <div class="radios_Rating"> <div class="radios"><small><label id="pillar" class="'+pillar+'">'+pillar+'</label></small> </div><div class="rating">'+
-                            '<img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon ionic-ios-star.svg" alt="Star"> <label id="popuprate"> <h5 id="popuprate-h5">'+AverageRating+'</h5></label>'+
-                            '</div> </div> <div class="title_review"> <div class="evntTitle"> <h4> <label id="EventTitle">'+EventTitle+'</label> </h4> </div><div class="review"> <h6>'+
-                            '<a id="1" lblId ="popuprate-h5" class="reviewPopup" href="#" class="reviewPopup" lblId = "popuprate-h5" data-bs-toggle="modal" data-bs-target="#ratereviewModal">Write Review</a></h6>'+
+                            '<a href="#" onclick="heartImage('+eventID+','+favID+',event);" id="" class="heartImg"> <img id="heartImg" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-heart.svg" alt="Heart"></a>'+  
+                            '<div class="pastevntsDetails"> <div class="radios_Rating"> <div class="radios"><small><label id="pillar" class="'+pillar+'">'+pillar+'</label></small> </div></div> <div class="title_review"> <div class="evntTitle"> <h4> <label id="EventTitle">'+EventTitle+'</label> </h4> </div><div class="review"> <h6>'+
+                            '</h6>'+
                             '</div> </div> <p class="row"><span id="EventDesc" style="padding:0px !important;">'+EventDescription+'</span></p> </div> </div> </div>');
                  
                  
@@ -96,79 +101,26 @@ function GetPastEvents() {
 }
 
 
-
-/*
-function test() {
-
- 	var iframe = $('<iframe frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>');
-
- 	var dialog = $("#iframeHolder").append(iframe).appendTo("body").dialog({
-
- 		autoOpen: false,
-
- 		modal: true,
-
- 		resizable: false,
-
- 		width: "auto",
-
- 		height: "auto",
-
- 		close: function () {
-
- 			iframe.attr("src", "");
-
- 		}
-
- 	});
- 	}
- $("#iframeData").on("click", function (e) {
-
- 	e.preventDefault();
-
- 	var src = $(this).attr("href");
-
- 	var title = $(this).attr("data-title");
-
- 	var width = $(this).attr("data-width");
-
- 	var height = $(this).attr("data-height");
-
- 	iframe.attr({
-
- 		width: +width,
-
- 		height: +height,
-
-  		src: src
-
- 	});
-
- 	dialog.dialog("option", "title", title).dialog("open");
-
-  });*/
-
-
-
-function heartImage(clicked_id,pillar){
+function heartImage(clicked_id,id,event){
 	
 	//EventID = $(this).document.getElementById("EventId");
 	//console.log("EventID:"+EventID);	
 	//$("#eID").val();
 		
-	alert(clicked_id);	
+	console.log(clicked_id);	
+	//console.log(pillar);
 	//alert("Test",EventID);
-	FavEvents(clicked_id,pillar);
+	FavEvents(clicked_id,id,event);
 }
 
 
-function FavEvents(clicked_id,pillar){
+function FavEvents(clicked_id,favDelID,event){
   		var username = $("#username").text();
  		var EmpId = $("#EMpID").text();
  		//var EventID = $("#eID").val();
   	
 	
-  	var item={
+  	/*var item={
   	 	"__metadata":{'type': 'SP.Data.FavoriteEventsListItem'},
   	 	"Title": "FavoriteEvents",
    		"EventID":clicked_id,
@@ -191,10 +143,32 @@ function FavEvents(clicked_id,pillar){
 		error:OnError
 	});
 	function OnSuccess(data){
-		alert("Sucessfully updated");
+		//alert("Sucessfully updated");
 	}
 
     function OnError(data){
 		alert("Update error");
-	}
+	}*/
+	
+	
+	$.ajax({  
+            url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPFavouriteEvent')/items(" + favDelID + ")",  
+            type: "POST",  
+            contentType: "application/json;odata=verbose",  
+            headers: {  
+                "Accept": "application/json;odata=verbose",  
+                "X-RequestDigest": $("#__REQUESTDIGEST").val(),  
+                "IF-MATCH": "*",  
+                "X-HTTP-Method": "DELETE",  
+            },  
+            success: function(data) {  
+                //alert("Item Deleted " + favDelID);  
+                log(event.target.parentElement.parentElement.parentElement);
+                var y = event.target.parentElement.parentElement.parentElement;
+                y.remove();
+            },  
+            error: function(data) {  
+                //alert("failed");  
+            }  
+        }); 
   };

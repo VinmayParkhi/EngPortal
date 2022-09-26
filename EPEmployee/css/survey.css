@@ -52,19 +52,19 @@ a {
     font-family: 'Montserrat';
     font-weight: bold;
     margin-top: 1.1rem;
-    margin-bottom: 2.7rem;
+   /* margin-bottom: 2.7rem;*/
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .survHeading {
-    width: 85%;
+    width: 78%;
     /* border: 1px solid red; */
 }
 
 .ongoing_past {
-    width: 15%;
+    width: 22%;
     display: flex;
     justify-content: space-between;
     /* border: 1px solid red; */
@@ -166,9 +166,9 @@ a {
 }
 .leftBtn{
 	    display: flex;
-    align-items: center;
+    /*align-items: center;*/
     width: 25%;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
     font-size:10px;
 }
 
@@ -209,7 +209,7 @@ a {
 }
 
 .funanza label {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .funanza label span {
@@ -270,7 +270,7 @@ a {
 }
 .surveyPast .surveyPstLbl {
 	width: 98%;
-    display: flex;
+   /* display: flex;*/
     justify-content: end;
     } 
 /* ends survey page heading */
@@ -394,11 +394,249 @@ ul.breadcrumb li {
 }
 /* ends breadcrumb */
 
+#s4-workspace{
+	overflow-x: hidden !important;
+}
+.please small{
+	color:#C1C1C1;
+}
+@media(min-width:375px){
+/* Past survey*/
+.surveyPast {
+    width: 88% !important;
+    margin: 3rem auto !important;
+    border-radius: 3rem !important;
+        padding: 1.5rem 1rem !important; 
+}
+	.surveyPast .surveyPstImg{
+	width:88%;
+	margin:2rem auto;
+}
+.surveyPast .end_submit{
+	    margin-left: 3rem;
+}
+.surveyPast .surveyPstDesc{
+	    margin-left: 2rem;
+}
+.surveyPast .endedDate label, .surveyPast .surveyPstLbl label{
+	    width: 18rem;	
+}
+.surveyPast .end_submit{
+	    margin-left: 2.5rem;
+}
+.please small{
+	font-size:1.8rem !important;
+}
+.survHeading {
+       margin-left: 3rem;
+}
+
+/* Ongoing survey*/
+
+.surveyOngoing{
+    width: 95%;
+    margin: 3rem auto !important;
+    border-radius: 3rem !important;
+    padding: 1.5rem 1rem 2.5rem 1rem !important;
+}
+	.surveyOngoing .surveyImg{
+	width:88%;
+	margin:2rem auto;
+	border:1px solid white;
+	border-radius: 1rem;
+}
+.leftBtn{
+    width: 95%;
+        margin-top: 2rem;
+    margin-left: 1.5rem;
+
+
+    }
+.surveyOngoing .surveyBtn .btnSurvey{
+	    padding: 1rem 3rem;
+}
+.surveyOngoing .surveyDesc{
+	    margin-left: 1rem;
+	    width:99%;
+}
+.please small{
+        /*max-width: 300px;*/
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    font-size:1rem !important;
+        /*padding-right: 2rem;*/
+}
+.surveyBtn{
+	    margin-left: 2rem;
+}
+}
+
+@media(min-width:550px){
+	.surveyOngoing{
+	width:78% ;
+}
+.surveyPast {
+    width: 78% !important;
+}
+.surveyOngoing .surveyBtn .btnSurvey{
+	    padding: 1rem 4rem;
+}
+
+}
+@media(min-width:650px){
+	.surveyOngoing{
+	width:60% ;
+}
+.surveyPast {
+    width: 60% !important;
+}
+}
+
+@media(min-width: 768px){
+/* Past survey*/
+	.surveyPast{
+	display:flex;
+	padding: 0rem 1rem 0rem 1.5rem !important;
+    width: 94% !important;
+    margin: 0rem auto !important;
+    border-radius: 2rem !important;
+        margin-top: 2rem !important;
+
+}
+.surveyPast .surveyPstImg {
+    width: 11%;
+}
+.surveyPast .end_submit{
+	        width: 31%;
+	        margin-right: 2rem;
+	        text-align: right;
+}
+.survHeading {
+    margin-left: 3rem;
+}
+.ongoing_past{
+	    margin-right: 3rem;
+}
+/* Ongoing survey*/
+
+.surveyOngoing{
+	display:flex;
+    width: 94% !important;
+    margin: 0rem auto !important;
+        margin-top: 2rem !important;
+    border-radius: 2rem !important;
+}
+.surveyOngoing .surveyImg {
+margin: 2rem 0rem 2rem 0rem;
+    width: 20%;
+}
+.leftBtn{
+    width: 64%;
+    margin-left: 5%;
+
+}
+.surveyOngoing .surveyBtn .btnSurvey {
+    padding: 1rem 5rem;
+}
+.s-btn{
+	width:100% !important;
+}
+.please small{
+    -webkit-line-clamp: 1;
+}
+}
+@media(min-width: 992px){
+.surveyPast{
+	margin-left: 1rem !important;
+	    width: 100% !important;
+}
+.surveyOngoing{
+	    width: 100% !important;
+}
+
+.surveyPast .surveyPstImg {
+    width: 8%;
+}
+   .surveyPast .end_submit {
+    width: 24%;
+    }
+.surveyOngoing .surveyImg {
+    width: 10%;
+}
+.please small {
+    font-size: 1rem !important;
+    padding:0px;
+}.ongoing_past{
+	    margin-right: 0rem;
+}
+
+
+/* Ongoling survey*/
+.leftBtn{
+    width: 95%;
+        justify-content: space-around;
+
+}
+.surveyOngoing .surveyBtn .btnSurvey {
+    padding: 1rem 3rem;
+}
+.surveyBtn{
+	    margin-left: 1rem;
+}
+.please small{
+    -webkit-line-clamp: 1;
+   }
+.wrapper {
+    margin-left: 0rem !important;
+}
+.s-btn {
+    width: 81%;
+    display:flex;
+}
+.surveyOngoing{
+    padding: 0rem 1rem 0rem 1.5rem !important;
+}
+.survHeading {
+    margin-left: 1rem;
+}
+.surveyOngoingWr {
+        margin-left: 1rem;
+}
+@media(min-width: 1200px){
+.leftBtn{
+    width: 70%;
+}
+}
+@media(min-width: 1500px){
+.leftBtn{
+    width: 49%;
+}
+}
+@media(min-width: 1700px){
+.leftBtn{
+    width: 40%;
+}
+.surveyPast .end_submit {
+    width: 13%;
+}
+}
+@media(min-width: 1800px){
+.leftBtn{
+    width: 35%;
+}
+/*.surveyPast .end_submit {
+    width: 11%;
+}*/
+}
+
 @media(max-width: 998px){
     html{
         font-size: 55%;
     }
-}
+  }
 
 @media(max-width: 768px){
     html{

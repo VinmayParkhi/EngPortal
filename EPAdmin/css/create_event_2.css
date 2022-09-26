@@ -4,7 +4,7 @@
   }
   .event-data{
     width: 92%;
-    background: #11101d;
+    background: #000000;
     border-radius: 15px;
     height: auto;
 padding: 15px 40px 25px 40px !important;
@@ -110,10 +110,10 @@ padding: 15px 40px 25px 40px !important;
     position: relative;
     border: 1px dashed #4E4E4E;
     border-radius: 10px;
-    height: 45%;
+    height: 65%;
   }
   .imageData input{
-    visibility: hidden;
+    /*visibility: hidden!important;*/ 
   }
   .imageData label{
     position: absolute;
@@ -121,11 +121,11 @@ padding: 15px 40px 25px 40px !important;
     left: 42%;
   }
   .event-data .a-button{
-    width: 34%;
+    width: 100%;
   }
   .event-data .a-button .p-button{
     color: #fff !important;
-    background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;
+   /* background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;*/
   }
   .event-data .a-button span, .event-data .a-button button{
     color: #AFAFAF;
@@ -191,13 +191,14 @@ padding: 15px 40px 25px 40px !important;
     margin-bottom: -1.1rem !important;
   }
   .event-data hr{
-    margin: 17px 0px 23px 0px;
-    width: 107%;
+      margin: 18px 0px 23px 0px;
+    width: 109% !important;
     color: #fff;
-    margin-left: -40px;
+    margin-left: -37px;
+    
   }
   .custom-file-input::-webkit-file-upload-button {
-    visibility: hidden;
+    /*visibility: hidden;*/
   }
   
   .custom-file-input:hover::before {

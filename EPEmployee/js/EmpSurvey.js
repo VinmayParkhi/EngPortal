@@ -55,10 +55,10 @@ function GetOngoingSurvey() {
             var dataresults = data.d.results;
             console.log(dataresults)
             for (var i = 0; i <=dataresults.length; i++) {
-               EventDates = moment(data.d.results[0].SurveyEndDate).format('DD MMM, YYYY');               
+               EventDates = moment.utc(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');               
                //EventFullDates = moment(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');
          	   var SurveyId = data.d.results[i].ID;
-               var SurveyTitle= data.d.results[0].Title;
+               var SurveyTitle= data.d.results[i].Title;
                var SurveyDescreption = data.d.results[i].SurveyDescreption;
                var SurveyLink = data.d.results[i].SurveyLink;
                AverageRating  = data.d.results[i].AverageRating;  
@@ -95,7 +95,7 @@ function GetPastSurvey() {
             var dataresults = data.d.results;
             console.log(dataresults)
             for (var i = 0; i <=dataresults.length; i++) {
-               EventDates = moment(data.d.results[i].SurveyEndDate).format('DD MMM, YYYY');               
+               EventDates = moment.utc(data.d.results[i].SurveyEndDate).format('DD MMM, YYYY');               
                //EventFullDates = moment(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');
          	   var SurveyId = data.d.results[i].ID;
                var SurveyTitle= data.d.results[i].Title;
@@ -109,7 +109,7 @@ function GetPastSurvey() {
                  $("#surveyPastWrID").append('<div class="surveyPast" style="align-items:center;margin: 17px 0px;background: #000000;padding:1.5rem 1rem;border-radius: 1rem;"> <div class="surveyPstImg"> <img src="'+a+'" alt=""> </div> <div class="surveyPstDesc"> <div class="surveyPstDescWr"> <div class="surveyPstannualEvnt">'+
 												'<label><small>Survey Subtitle</small></label> </div> <div class="funanza"> <label>'+SurveyTitle+'</label> </div> <div class="please">'+ 
 												'<small>'+SurveyDescreption+'</small> </div> </div> </div> <div class="end_submit"> <div class="endedDate">'+
-												'<label>Ended on: '+EventDates+'</label></div> <div class="surveyPstLbl"> <label><i>Submitted</i></label> </div> </div> </div>');
+												'<label>Ended on: '+EventDates+'</label></div> <div class="surveyPstLbl">  </div> </div> </div>');
                  
             } // for loop End					                 
         },

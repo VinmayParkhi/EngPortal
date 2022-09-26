@@ -41,17 +41,22 @@ a {
     font-weight: bold;
     margin-top: 1.1rem;
     margin-bottom: 2.7rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+#s4-workspace{
+	overflow-x: hidden !important;
 }
 
 .empzonecardBottomWr {
     width: 100%;
     /*height: 100vh;*/
-    display: flex;
+    /* display: flex; */
     /* border: 1px solid red; */
 }
 
 .empzonecardBottomWr .cardsRight {
-    width: 50%;
+    width: 100%;
     /* border: 1px solid red; */
 }
 .empzonecardBottomWr .cardsRight .cardsRight .cardWr {
@@ -66,37 +71,45 @@ a {
     background-image: url(../Images/RtCard1.PNG);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100%;
+    width: 54%;
     background-color: var(--black-color);
     border-radius: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.empzonecardBottomWr .cardsRight .cardWr:nth-child(1) .card .textCard {
-    margin-left: 10rem;
-}
 .empzonecardBottomWr .cardsRight .cardWr .card .textCard h4,
 .empzonecardBottomWr .cardsLeft .cardWr .card .textCard h4 {
     font-weight: bold;
     margin-bottom: 0.9rem;
     color:#fff;
+    font-family: 'Montserrat';
+    font-weight: 700;
+
 }
 .empzonecardBottomWr .cardsRight .cardWr .card .textCard p,
 .empzonecardBottomWr .cardsLeft .cardWr .card .textCard p {
     font-size: 1.1rem;    
-    color:#F94D78;
+    font-family: 'Montserrat';
+
 }
-.empzonecardBottomWr .cardsLeft .cardWr .card .textCard p label{
-    font-size: 1.1rem;
-    color:#fff;
+.empzonecardBottomWr .cardsRight .cardWr .card .textCard .details, 
+.empzonecardBottomWr .cardsLeft .cardWr .card .textCard .details 
+{
+	color: #F94D78 !important;
+}
+.empzonecardBottomWr .cardsLeft .cardWr .card .textCard p label,
+.empzonecardBottomWr .cardsRight .cardWr .card .textCard p label{
+    font-size: 0.8rem;
+    color:var(--gray-shade);
+    opacity: 0.5;
 }
 
 .empzonecardBottomWr .cardsRight .cardWr {
-    width: 96%;
+    width: 94%;
     height: 24vh;
-    border-radius: 1.5rem;
     margin-bottom: 3rem;
+    border-radius: 1.5rem;
     background-color: var(--black-color);
     display: flex;
 }
@@ -104,7 +117,7 @@ a {
     background-image: url(https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Rtcard2.PNG);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100%;
+    width: 54%;
     background-color: var(--black-color);
     border-radius: 1.5rem;
     display: flex;
@@ -117,14 +130,14 @@ a {
     
 }
 .empzonecardBottomWr .cardsLeft {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: end;
     /* border: 1px solid red; */
 }
 .empzonecardBottomWr .cardsLeft .cardWr {
-    width: 96%;
+    width: 94%;
     height: 24vh;
     border-radius: 1.5rem;
     margin-bottom: 3rem;
@@ -135,7 +148,7 @@ a {
     background-image: url(../Images/Lftcard1.PNG);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100%;
+    width: 54%;
     background-color: var(--black-color);
     border-radius: 1.5rem;
     display: flex;
@@ -149,8 +162,19 @@ a {
     background-image: url(../Images/Lftcard2.PNG);
     background-repeat: no-repeat;
     background-size: contain;
-    width: 100%;
-    background-color: var(--black-color);
+    width: 54%;
+    background-color: #000;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.empzonecardBottomWr .cardsRight .cardWr:nth-child(2) .card{
+	background-image: url(../Images/RtCard2.PNG);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 54%;
+    background-color: #000;
     border-radius: 1.5rem;
     display: flex;
     align-items: center;
@@ -158,6 +182,87 @@ a {
 }
 .empzonecardBottomWr .cardsLeft .cardWr:nth-child(2) .card .textCard {
     margin-left: 5rem;
+}
+.mainContent{
+    margin-left: 0.5rem !important;
+}
+/* .empzonecardBottomWr .cardsRight .cardWr, .empzonecardBottomWr .cardsLeft .cardWr{
+    margin: 2rem auto;
+} */
+@media (min-width:375px){
+    .textCard{
+        margin-left: 20rem !important;
+    }
+    .empzonecardBottomWr .cardsRight .cardWr,  .empzonecardBottomWr .cardsLeft .cardWr{
+        height: 24vh;
+    }
+    .empzonecardBottomWr .cardsRight .cardWr:nth-child(1) .card{
+   /* background-size: cover;*/
+    width: 54%;
+        /*background-position: 7% 100%;*/
+}
+.textCard {
+    /* margin-left: 20rem !important; */
+    width: 100%;
+    position: absolute;
+    left: -3rem;
+}
+.empzoneheading{
+	    margin-left: 1.5rem !important;
+}
+}
+
+
+@media (min-width: 768px){
+   
+#DeltaPlaceHolderMain{
+	width:100%;
+}
+.empzonecardBottomWr .cardsRight .cardWr,
+.empzonecardBottomWr .cardsLeft .cardWr,
+.empzoneheading{
+	margin-left: 2rem !important;
+}
+}
+
+@media(min-width: 992px){
+	 .empzonecardBottomWr{
+        display: flex !important;
+            margin-left: -1.5rem;
+
+    }
+    .empzonecardBottomWr .cardsRight{
+        width: 50%;
+    }
+    .empzonecardBottomWr .cardsLeft {
+        width: 50%;
+    }
+    /*.textCard {
+        left: 0rem;
+}*/
+.empzonecardBottomWr .cardsRight .cardWr{
+	width:96%;
+	margin-left: 2rem !important;
+}
+.empzonecardBottomWr .cardsLeft .cardWr{
+	width: 96%;
+    margin-left: 3.5rem !important;}
+.empzoneheading {
+    margin-left: 0.8rem !important;
+}
+}
+@media (min-width: 1280px){
+	.empzonecardBottomWr .cardsRight .cardWr .card .textCard ,
+	.empzonecardBottomWr .cardsLeft .cardWr .card .textCard  {
+	margin-left: 24rem !important;
+}	
+}
+
+@media (min-width: 1920px){
+	.textCard {
+        left: 10rem;
+}
+
 }
 
 /* ends Employee Program Zone css */

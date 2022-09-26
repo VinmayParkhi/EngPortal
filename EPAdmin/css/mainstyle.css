@@ -161,7 +161,9 @@ color: #E5E5E5;
     background: rgba(255, 255, 255, 0.2);
     /* background-size: 800px 100%; */ 
     border-radius: 4px;
-    padding: 5px 25px;
+    /*padding: 5px 18px;*/
+    padding: 5px 5px;
+    width: 7%;
     font-size: 12px;
     color: #747474;
     background-position: 50% 100%;
@@ -170,7 +172,9 @@ color: #E5E5E5;
 .publishbtn:hover{
     border-radius: 4px;
     font-size: 12px;
-    padding: 5px 25px;
+    /*padding: 5px 18px;*/
+    padding: 5px 5px;
+    width: 7%;
     box-shadow: 0 0 6px 0 rgb(157 96 212 / 50%);
     border: solid 1.5px transparent;
     background: #fff;
@@ -233,23 +237,23 @@ color: #E5E5E5;
 }
 
 .sidebar{
-    height: 94rem !important;
+    height: 94rem ;
 }
 .mainInformationContrainer ul li .oneInfo img {
     width: 185px;
-    height: 121px;
+    height: 110px;
 }
 .mainInformationContrainer ul li .oneInfo .spanForFileInput{
     overflow: hidden;
     position: absolute;
-    bottom: 0px;
+    bottom: 10px !important;
     width: 100%;     
     vertical-align: middle;
     color: #333;
     background-color: #000000bf !important;
     display: inline-block;
     padding: 6px 12px;
-    left: 2px;
+    left: -2px;
     margin-bottom: 0;
     font-size: 14px;
     font-weight: normal;

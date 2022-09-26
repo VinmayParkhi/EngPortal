@@ -1,0 +1,11 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/replaceVideo.js"></script>
+<style >
+body > div.ms-dlgContent > div > div.ms-dlgTitle{
+background-color: #191718;
+}
+
+#dialogTitleSpan{
+color:White
+}
+</style>

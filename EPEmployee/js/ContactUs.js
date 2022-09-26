@@ -22,7 +22,7 @@ function contactList(SPListName) {
 		EmpName: $("input[id='MemberName']").val(),
 		Category: Category,
 		Message: $("textarea#comments").val(),
-		EmpEmailID : "r.sayyed@rnt.ai",
+		EmpEmailID : $("#userEmail").html(),
 		Status :"Unread",
 		Title: SPListName
 	}
@@ -43,11 +43,11 @@ function contactList(SPListName) {
 }
 
 function SuccessFunction(data) {
-alert("test done");
+//alert("test done");
 
 //$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
 }
 
 function ErrorFunction(error) {
-alert('Error!' +error.responseText);
+//alert('Error!' +error.responseText);
 }

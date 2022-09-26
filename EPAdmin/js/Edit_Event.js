@@ -6,6 +6,11 @@
  var Etype;
  var ImageUrl;
  $(document).ready(function() { 
+ 
+ 
+ $('#evback').click(function() {
+             history.go(-1);        
+    });
  //$('#file_input').multifile();//For facilitate multi file upload 
   var url=window.location.href;
    uniquID= url.split('=')[1];
@@ -30,14 +35,16 @@ function eventDetails(id){
   	if(eventData!=undefined){
   		eventData=JSON.parse(eventData);
   		if(eventData.d.results.length > 0){
-  			
+  			var date = moment(eventData.d.results[0].EventDate).format('DD MMM,YYYY');
+  			var StartTime = moment.utc(eventData.d.results[0].EventStartTime).format('hh:mm A');
+  			var EndTime = moment.utc(eventData.d.results[0].EventEndTime).format('hh:mm A');
   			$("#evTitle").val(eventData.d.results[0].Title);
   			$("#pillar").val(eventData.d.results[0].Pillar);
   			$("#EvType").val(eventData.d.results[0].EventType);
   			$("#evDesc").val(eventData.d.results[0].EventDescription);
-  			$("#sEdate").val(eventData.d.results[0].EventDate);
-  			$("#SSTime1").val(eventData.d.results[0].EventStartTime);
-  			$("#SETime1").val(eventData.d.results[0].EventEndTime);
+  			$("#sEdate").val(date);
+  			$("#SSTime1").val(StartTime);
+  			$("#SETime1").val(EndTime);
   			$("#evLink").val(eventData.d.results[0].EventLink);
   			$("#evSpeaker").val(eventData.d.results[0].EventSpeakerName);
   			$("#evOrg").val(eventData.d.results[0].EventOrganizerName);
@@ -99,14 +106,25 @@ function updateEventSeriesData(ename,pillar){
 }
 
 function UpdateEventPublishdata(){
+
+ 	 	var EventDate = $("input[id='sEdate']").val();
+ 	var EventStartTime = $("input[id='SSTime1']").val(); 	
+ 	var EventEndTime = $("input[id='SETime1']").val();
+ 	
+ 	
+ 	var EventStartDateTime = moment(EventDate+ ' ' +EventStartTime).format('YYYY/MM/DD HH:mm');
+    var EventEndDateTime = moment(EventDate+ ' ' +EventEndTime).format('YYYY/MM/DD HH:mm');    
+    //console.log("Start :"+EventStartDateTime +" End :"+EventEndDateTime);
+
+
   	//var eid=$("#uniquID").val();
   	var ename = $("#evTitle").val();
   	var pillar = $("#pillar").val();
 	var evtype = $("#EvType").val();
 	var evdesc = $("#evDesc").val();
 	var evdate = $("#sEdate").val();
-	var evstime = $("#SSTime1").val();
-	var evetime = $("#SETime1").val();
+	var evstime = EventStartDateTime;
+	var evetime = EventEndDateTime;
 	var evlink = $("#evLink").val();
 	var evspname = $("#evSpeaker").val();
 	var evorg = $("#evOrg").val();
@@ -228,7 +246,7 @@ function UpdateEventSavedata(){
 	}
 
     function OnError(data){
-		alert("Update error");
+		//alert("Update error");
 	}
   };
 
