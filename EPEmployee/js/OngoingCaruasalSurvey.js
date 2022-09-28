@@ -43,11 +43,7 @@ function GetOngoingSurvey() {
  	//var today= new Date();
  	var today= moment().format('YYYY-MM-DDTHH:mm:SS');
     $.ajax({
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescription,SurveyEndDate,SurveyLink&$expand=AttachmentFiles&$filter= SurveyEndDate ge '"+today+"'&$orderby=Created desc",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescreption,SurveyEndDate,SurveyLink&$expand=AttachmentFiles&$filter= SurveyEndDate ge '"+today+"'&$orderby=Created desc",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {

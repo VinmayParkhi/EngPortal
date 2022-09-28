@@ -25,13 +25,8 @@ function MoodCountCheck(){
   	var item={
   	 	"__metadata":{'type': 'SP.Data.EPMoodMeterListItem'},
    		"Mood":text,
-<<<<<<< HEAD
 		//"EmpID":EmpId,		
 		"Title":username,
-=======
-		"EmpID":EmpId,		
-		"EmpName":username,
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 		"EmpLocation":Loc,
 		"EmpDepartment":Dept
   	};

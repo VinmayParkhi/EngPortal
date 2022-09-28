@@ -50,11 +50,7 @@ a {
 
 .empzonecardBottomWr {
     width: 100%;
-<<<<<<< HEAD
     min-height: 100vh;
-=======
-    /*height: 100vh;*/
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     /* display: flex; */
     /* border: 1px solid red; */
 }
@@ -192,7 +188,6 @@ a {
 .mainContent{
     margin-left: 0.5rem !important;
 }
-<<<<<<< HEAD
 .empzonecardBottomWr .cardsRight .cardWr .card .textCard h4, .empzonecardBottomWr .cardsLeft .cardWr .card .textCard h4 {
     font-size: 19px !Important;
 }
@@ -202,21 +197,13 @@ a {
 .empzonecardBottomWr .cardsRight .cardWr .card .textCard p, .empzonecardBottomWr .cardsLeft .cardWr .card .textCard p {
     font-size: 11px !important;
 }
-=======
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 /* .empzonecardBottomWr .cardsRight .cardWr, .empzonecardBottomWr .cardsLeft .cardWr{
     margin: 2rem auto;
 } */
 @media (min-width:375px){
-<<<<<<< HEAD
     /*.textCard{
         margin-left: 20rem !important;
     }*/
-=======
-    .textCard{
-        margin-left: 20rem !important;
-    }
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     .empzonecardBottomWr .cardsRight .cardWr,  .empzonecardBottomWr .cardsLeft .cardWr{
         height: 24vh;
     }
@@ -237,7 +224,6 @@ a {
 }
 
 
-<<<<<<< HEAD
 @media (min-width: 359px) and (max-width: 767px){
 	
 	
@@ -248,8 +234,6 @@ a {
 }
 
 
-=======
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 @media (min-width: 768px){
    
 #DeltaPlaceHolderMain{
@@ -289,7 +273,6 @@ a {
 }
 }
 @media (min-width: 1280px){
-<<<<<<< HEAD
 .empzonecardBottomWr .cardsRight .cardWr .card .textCard h4, .empzonecardBottomWr .cardsLeft .cardWr .card .textCard h4 {
     font-size: 17px !Important;
 }
@@ -305,19 +288,6 @@ a {
 	.textCard {
     left: 28rem !important;
 }
-=======
-	.empzonecardBottomWr .cardsRight .cardWr .card .textCard ,
-	.empzonecardBottomWr .cardsLeft .cardWr .card .textCard  {
-	margin-left: 24rem !important;
-}	
-}
-
-@media (min-width: 1920px){
-	.textCard {
-        left: 10rem;
-}
-
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 }
 
 /* ends Employee Program Zone css */

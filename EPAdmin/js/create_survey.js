@@ -30,37 +30,9 @@
             $('#saveNowsurvey').removeClass("EnableBtn")  
         }
      
-<<<<<<< HEAD
     }
 });
     
-=======
-     
-   
- $("select.pillar").change(function(){
-        Pillar = $(this).children("option:selected").val();
-
-    });
-    $("select.evType").change(function(){
-        Etype= $(this).children("option:selected").val();
-
-    });
-
-  $("#PublishEventBtn1 > div > div > div.modal-footer > button").click(function(){
-    //alert("The paragraph was clicked.");
-    
-    
-    $(".single-day input").val("");
-    $(".single-day textarea").val("");
-    $(".single-day select").val("");
-  });
-
-
-     
-     
-  });
-  
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  function formSave() { 
  	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
 	 var data = []; 
@@ -72,43 +44,17 @@
  	}); 
  	var SurveyDate = $("input[id='sDate']").val();
  	var SurveyEndDate = $("input[id='eDate']").val();
-<<<<<<< HEAD
  //var EventStartDateTime = moment(EventDate+ ' ' +EventStartTime).format('YYYY/MM/DD HH:mm');
-=======
- 	//var EventStartTime = $("input[id='SSTime1']").val(); 	
- 	//var EventEndTime = $("input[id='SETime1']").val();
- 	
- //var EventStartDateTime = moment(EventDate+ ' ' +EventStartTime).format('YYYY/MM/DD HH:mm');
-    //var EventEndDateTime = moment(EventDate+ ' ' +EventEndTime).format('YYYY/MM/DD HH:mm');    
-    //console.log("Start :"+EventStartDateTime +" End :"+EventEndDateTime);
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     SurveyDate = moment(SurveyDate).format("YYYY/MM/DD");    
     SurveyEndDate = moment(SurveyEndDate).format("YYYY/MM/DD");
 	arraycount += fileArray.length;
 	data.push({ 
-<<<<<<< HEAD
 	"Title": $("#sTitle").val(),
 	"SurveyDescription": $("textarea#sDesc").val(),
 	"SurveyStartDate": SurveyDate,
 	"SurveyEndDate": SurveyEndDate,
 	"SurveyLink": $("input[id='sLink']").val(),
 	"SurveyStatus": "Published",
-=======
-	//"EventType":Etype,
-	"Title": $("#sTitle").val(),
-	//"Pillar":Pillar,
-	"SurveyDescreption": $("textarea#sDesc").val(),
-	"SurveyStartDate": SurveyDate,
-	
-	"SurveyEndDate": SurveyEndDate,
-	//"EventStartTime":EventStartDateTime,
-	//"EventEndTime": EventEndDateTime,
-	//"EventSpeakerName": $("input[id='evSpeaker']").val(),
-	//"EventOrganizerName": $("input[id='evOrg']").val(),
-	//"EventKeywords": $("input[id='evKey']").val(),
-	"SurveyLink": $("input[id='sLink']").val(),
-	"Status": "Published",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	"Files": fileArray 
 	}); 
 	
@@ -135,29 +81,12 @@
  var itemCreateInfo = new SP.ListItemCreationInformation(); 
  var listItem = targetList.addItem(itemCreateInfo);
   
-<<<<<<< HEAD
  listItem.set_item("Title", listValues[0].Title); 
  listItem.set_item("SurveyDescription", listValues[0].SurveyDescription); 
  listItem.set_item("SurveyStartDate", listValues[0].SurveyStartDate);
  listItem.set_item("SurveyEndDate", listValues[0].SurveyEndDate);
  listItem.set_item("SurveyLink", listValues[0].SurveyLink);
  listItem.set_item("SurveyStatus", listValues[0].SurveyStatus);
-=======
- //listItem.set_item("Title","Title123"); 
- //listItem.set_item("EventType", listValues[0].EventType);
- listItem.set_item("Title", listValues[0].Title); 
- //listItem.set_item("Pillar", listValues[0].Pillar);
- listItem.set_item("SurveyDescreption", listValues[0].SurveyDescreption); 
- listItem.set_item("SurveyStartDate", listValues[0].SurveyStartDate);
- listItem.set_item("SurveyEndDate", listValues[0].SurveyEndDate);
- //listItem.set_item("EventStartTime", listValues[0].EventStartTime);  
- //listItem.set_item("EventEndTime", listValues[0].EventEndTime); 
- //listItem.set_item("EventSpeakerName", listValues[0].EventSpeakerName); 
- //listItem.set_item("EventOrganizerName", listValues[0].EventOrganizerName);  
- //listItem.set_item("EventKeywords", listValues[0].EventKeywords); 
- listItem.set_item("SurveyLink", listValues[0].SurveyLink);
- listItem.set_item("Status", listValues[0].Status);
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  listItem.update(); 
  context.executeQueryAsync( 
  function() { 

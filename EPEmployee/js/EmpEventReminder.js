@@ -41,11 +41,7 @@ function ReminderMessage() {
            // //console.log(dataresults);
             
             for (var i = 0; i <dataresults.length; i++) {
-<<<<<<< HEAD
                ReminderDate = moment.utc(data.d.results[i].ReminderDateTime).format('YYYY-MM-DD HH:mm');            
-=======
-               ReminderDate = moment.utc(data.d.results[i].ReminderDate).format('YYYY-MM-DD HH:mm');            
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                console.log(ReminderDate); 
                var EventDate = moment(data.d.results[i].EventDate).format('YYYY-MM-DD'); 
                var EventDate1 = moment(data.d.results[i].EventDate).format('YYYY-MM-DD HH:mm'); 
@@ -55,11 +51,7 @@ function ReminderMessage() {
                EventEndTime = data.d.results[i].EventEndTime;         
                EventID = data.d.results[i].ID;
                var EventTitle = data.d.results[i].EventTitle; 
-<<<<<<< HEAD
             if(today >= ReminderDate && data.d.results[i].ReminderStatus == "Unread"){
-=======
-            if(today >= ReminderDate && data.d.results[i].Status == "Unread"){
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             	$(".redDot").removeClass("d-none");
             	//$("#notificationCard").addClass("d-none");
             	$(".MainTool").removeClass("d-none");
@@ -70,11 +62,7 @@ function ReminderMessage() {
 											   '<a href="#" style="    color: #FF3D97;text-decoration: underline;font-size: 10px;font-wight:600;background:none;width: 40px;text-align: center;padding: 3px;">Join</a> <div> </div> </div>');
 	        }
             else {
-<<<<<<< HEAD
             	if(data.d.results[i].ReminderStatus == "Unread" && ReminderDate <= today){
-=======
-            	if(data.d.results[i].Status == "Unread" && ReminderDate <= today){
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             		$(".redDot").removeClass("d-none");
            		}
            		else{
@@ -112,11 +100,7 @@ function PastReminder() {
             //console.log(dataresults);
             
             for (var i = 0; i <dataresults.length; i++) {
-<<<<<<< HEAD
                ReminderDate = moment.utc(data.d.results[i].ReminderDateTime).format('YYYY-MM-DD HH:mm');           
-=======
-               ReminderDate = moment.utc(data.d.results[i].ReminderDate).format('YYYY-MM-DD HH:mm');           
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                //console.log(ReminderDate); 
                var EventDate = moment(data.d.results[i].EventDate).format('YYYY-MM-DD'); 
                //ReminderTime = moment(data.d.results[i].ReminderDate).format('HH:mm');           
@@ -126,22 +110,14 @@ function PastReminder() {
                EventID = data.d.results[i].ID;
                
                var EventTitle = data.d.results[i].EventTitle; 
-<<<<<<< HEAD
                if(ReminderDate < today && data.d.results[i].ReminderStatus == "Unread"){
-=======
-               if(ReminderDate < today && data.d.results[i].Status == "Unread"){
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                    $(".redDot").removeClass("d-none");
                   $(".notificationCard").append('<div id="notificationDivMain" onclick="UpdateNotification(this.className);" class="'+EventID+'"> <div class="notification" style="padding: 10px; background: #F2ECD5; margin: 5px; border-radius: 10px;"> <div class="titleDiv d-flex"> <div class="subdiv"><div class="d-flex align-items-center"> <img style="margin-right:2px;width:15px" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon material-access-alarm.svg">'+
 											   '<span style="color:#FA4683; font-size:11px;height:auto;">Event Reminder</span></div><span class="ReminderTime" style="height:auto;">'+ReminderDate+'</span></div></div><p class="eventDescription" style="margin-top:1rem; max-width: 300px;  -webkit-line-clamp: 2; padding: 0px; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; display: -webkit-box;">'+ReminderMessage+'</p> <div style="display:flex;justify-content:space-between"> <span style="display:flex; align-items:center;height:auto;">'+
 											   '<img style="width:15px;margin-right:2px" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-md-calendar.svg">'+EventDate+'</span><span style="display:flex; align-items:center;height:auto;"><img style="height:auto;width:15px;margin-right:2px" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon ionic-md-time.svg">04:30 PM</span></div> </div> </div>');
             			                                  
             
-<<<<<<< HEAD
             	}else if(ReminderDate <= today && data.d.results[i].ReminderStatus == "Read"){
-=======
-            	}else if(ReminderDate <= today && data.d.results[i].Status == "Read"){
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             	
                   $(".notificationCard").append('<div id="notificationDivMain" style="border-bottom: 1px solid #e4e4e4;" onclick="UpdateNotification(this.className);" class="'+EventID+'"> <div class="notification" style="padding: 10px; margin: 5px; border-radius: 10px;"> <div class="titleDiv d-flex"> <div class="subdiv"><div class="d-flex align-items-center">  <img style="margin-right:2px;width:15px" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon material-access-alarm.svg">'+
 											   '<span style="color:#FA4683; font-size:11px;height:auto;">Event Reminder</span></div><span class="ReminderTime"  style="height:auto;">'+ReminderDate+'</span></div></div><p class="eventDescription" style="margin-top:1rem; max-width: 300px;  -webkit-line-clamp: 2; padding: 0px; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; display: -webkit-box;">'+ReminderMessage+'</p> <div style="display:flex;justify-content:space-between"> <span style="display:flex; align-items:center;height:auto;">'+
@@ -167,11 +143,7 @@ function UpdateNotification(id){
   	var Status = "Read";  	
   	var item={
   	 	"__metadata":{'type': 'SP.Data.EPReminderListItem'},
-<<<<<<< HEAD
   	 	"ReminderStatus":Status		
-=======
-  	 	"Status":Status		
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
   	};
   	$.ajax({
 		url:_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPReminder')/items("+id+")",

@@ -2,24 +2,11 @@
  var attcount = 0; 
  var arraycount = 0; 
  var Pillar;
-<<<<<<< HEAD
  var Etype;  
  $(document).ready(function() { 
  //$('#file_input').multifile();//For facilitate multi file upload 
   
  $("#PublishEvent").click(function() {formCreateNowSingle()}); 
-=======
- var Etype; 
- $(document).ready(function() { 
- //$('#file_input').multifile();//For facilitate multi file upload 
-  
- $("#PublishEvent").click(function() {
- formCreateNowSingle()
- checkvalidation()
- 
- }); 
-         
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
      
      
      
@@ -67,11 +54,7 @@
      
      
   
-<<<<<<< HEAD
  function formCreateNowSingle() { 
-=======
- //function formCreateNowSingle() { 
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
 	 var data = []; 
 	 var fileArray = []; 
@@ -100,97 +83,10 @@
 	"EventOrganizerName": $("input[id='evOrg']").val(),
 	"EventKeywords": $("input[id='evKey']").val(),
 	"EventLink": $("input[id='evLink']").val(),
-<<<<<<< HEAD
 	"EventStatus": "Published",
-=======
-	"Status": "Published",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	"Files": fileArray 
 	}); 
 	
-	function checkvalidation(){
-	 
-  //$('#PublishEvent').on("click", function (e) {  
-  alert("test");
-            e.preventDefault();  
-            var SelectType = $('#eventtype').val();  
-             var EventTitle = $('#evTitle').val();  
-			 var EventPillar= $('#Pillar').val();  
-			 var Description = $('#evDesc').val(); 
-			  var SatartDate = $('#sEdate').val(); 
-			   var SatarTime= $('#SSTime1').val(); 
-			    var EndTime= $('#SSTime1').val();
-			    var EventLink = $('#evLink').val();  
-			    var Speaker  = $('#evSpeaker').val(); 
-			   var Organizer = $('#evOrg').val(); 
-			    var Keywords = $('#evKey').val();                
-             var File = $("#file_upload").val();
-             
-            $(".error").remove();  
-            if (SelectType.length < 1) {  
-              $('#eventtype').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Banner Title</span>');  
-            }
-            if (EventTitle.length < 1) {  
-              $('#evTitle').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Description</span>');  
-            }
-            if (EventPillar.length < 1) {
-             $('#Pillar').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;position: absolute;top: 13.5rem;">Please Upload Banner Image</span>');
-            }
-             if (Description.length < 1) {  
-              $('#evDesc').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Banner Title</span>');  
-            }
-            if (SatartDate.length < 1) {  
-              $('#sEdate').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Description</span>');  
-            }
-            if (SatarTime.length < 1) {
-             $('#SSTime1').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;position: absolute;top: 13.5rem;">Please Upload Banner Image</span>');
-            }
-             if (EndTime.length < 1) {
-             $('#SSTime1').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;position: absolute;top: 13.5rem;">Please Upload Banner Image</span>');
-            }
-
-             if (EventLink.length < 1) {  
-              $('#evLink').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Banner Title</span>');  
-            }
-            if (Speaker.length < 1) {  
-              $('#evSpeaker').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Description</span>');  
-            }
-            if (Organizer.length < 1) {  
-              $('#evOrg').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Banner Title</span>');  
-            }
-            if (Keywords.length < 1) {  
-              $('#evKey').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Description</span>');  
-            }
-             if (Keywords.length < 1) {  
-              $('#file_upload').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Description</span>');  
-            }
-
-
-     //});
-	
-	
-	}
-	  $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evSpeaker,#evOrg,#evKey,#file_input").on("input", function () {    	
-          canChangeColor();
-        });
-        
-         function canChangeColor(){  
-          
-      var can = true;  
-    
-      $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evSpeaker,#evOrg,#evKey,#file_input").each(function(){
-         if($(this).val()==''){
-            can = false;
-         }
-      });
-      
-      if(can){
-        $('#PublishEvent').addClass("EnableBtn");  
-       }else{
-        $('#PublishEvent').removeClass("EnableBtn")  
-       }
-    
-    }
     
     
 	createNewItemWithAttachmentsEvent("EPEvent", data).then( 
@@ -226,11 +122,7 @@
  listItem.set_item("EventOrganizerName", listValues[0].EventOrganizerName);  
  listItem.set_item("EventKeywords", listValues[0].EventKeywords); 
  listItem.set_item("EventLink", listValues[0].EventLink);
-<<<<<<< HEAD
  listItem.set_item("EventStatus", listValues[0].EventStatus);
-=======
- listItem.set_item("Status", listValues[0].Status);
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  listItem.update(); 
  context.executeQueryAsync( 
  function() { 

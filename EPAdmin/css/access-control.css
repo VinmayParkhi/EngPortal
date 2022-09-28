@@ -134,26 +134,6 @@ span a{
     display: flex;
     align-items: center;
 }
-<<<<<<< HEAD
-=======
-.leftspan1 .divider1 img{
-    transform: rotate(90deg);
-    width: 69%;
-    height: auto;
-    margin-top: 12px;
-    margin-left: 15px;
-}
-.headinput .divider1 img{
-    transform: rotate(90deg);
-    width: 69%;
-   /* height: auto;
-    /*margin-top: -3px;*/
-    margin-left: 5px;
-}
-#WebPartWPQ6 > div.ms-rtestate-field > div > section.headinput.my-3.d-flex > div.leftspan1 > div.d-block > div.divider1.divider2 > img{
-	    margin-left: 43px !important;
-}
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
 .head-right{
     display: flex;

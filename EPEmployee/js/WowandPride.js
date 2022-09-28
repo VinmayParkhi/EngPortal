@@ -81,11 +81,7 @@
     
     var userId = _spPageContextInfo.userId;
        $.ajax({
-<<<<<<< HEAD
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
-=======
- 		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar&$filter=AuthorId eq "+userId+"",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
@@ -129,11 +125,7 @@
               log(x);
               for(var j=0;j<results.length;j++){
               
-<<<<<<< HEAD
               var id = results[j].EventID;
-=======
-              var id = results[j].EventId;
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
               
                for(var i=0;i<x.length;i++){
                log(x[i].querySelector('.heart > a').getAttribute('hreflang'))
@@ -312,11 +304,7 @@ function GetUpcomingEvents() {
  	var today= moment().format('YYYY-MM-DDTHH:mm:SS');
  	//today = moment(today).toISOString();
     $.ajax({
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,EventLink,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,VideoURL&$expand=AttachmentFiles&$filter=(Pillar eq 'Wow and pride') and (EventStatus eq 'Published') and (EventEndTime ge '"+today+"')&$orderby=EventDate asc",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,EventLink,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,VideoURL&$expand=AttachmentFiles&$filter=(Pillar eq 'Wow and pride') and (Status eq 'Published') and (EventEndTime ge '"+today+"')&$orderby=EventDate asc",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -403,11 +391,7 @@ function GetPastEvents() {
  	var today= moment().format('YYYY-MM-DDTHH:mm:SS');    
  	$.ajax({
        // url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,VideoURL&$expand=AttachmentFiles&$filter=(Pillar eq 'Wow and pride') and (EventEndTime le '"+today+"')&$orderby=Created desc",
-<<<<<<< HEAD
                url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,EventLink,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,VideoURL&$expand=AttachmentFiles&$&$filter=(Pillar eq 'Wow and pride') and (EventStatus eq 'Completed') and (EventEndTime le '"+today+"')&$orderby=EventDate desc",
-=======
-               url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,EventLink,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,VideoURL&$expand=AttachmentFiles&$&$filter=(Pillar eq 'Wow and pride') and (Status eq 'Completed') and (EventEndTime le '"+today+"')&$orderby=EventDate desc",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
         method: "GET",
         headers:
@@ -490,11 +474,7 @@ log(IDs);
    $.ajax({
         
         
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventID,Review,RatingAverage,Title,Created,EmpEmailID&$orderby=Created desc",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventId,Review,RatingAverage,EmpName,Created,EmpEmailID&$orderby=Created desc",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -512,11 +492,7 @@ log(IDs);
 		        var rt5=0;
 		        var num =0;
            for(var c=0;c<res.length;c++){
-<<<<<<< HEAD
               if(Number(res[c].EventID) === IDs[0]){
-=======
-              if(Number(res[c].EventId) === IDs[0]){
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
               
                  num = num + 1;
                  
@@ -541,11 +517,7 @@ log(IDs);
          
          var averageRtRound = Math.round(avrTotalRt * 10) / 10;
          
-<<<<<<< HEAD
          //log(cards[0].querySelector("#popuprateh5"))
-=======
-         log(cards[0].querySelector("#popuprateh5"))
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
           cards[0].querySelector("#popuprate-h5").innerText = averageRtRound + '('+num+')';
           
 
@@ -649,20 +621,12 @@ function FavEvents(EventTitle,pillar,EventDesc,imageURL,id,event){
  		log(username)
  		var userId = _spPageContextInfo.userId;
 
-<<<<<<< HEAD
 log(userId)
 
  		/* sb */
 
  		$.ajax({
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
-=======
-         log(userId)
- 		/* sb */
- 		
- 		$.ajax({
- 		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar&$filter=AuthorId eq "+userId+"",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
@@ -681,19 +645,11 @@ log(userId)
             var empId;
             for(var i=0;i<results.length;i++){
               
-<<<<<<< HEAD
               var eventId = results[i].EventID;
               
             if(numID === eventId){
             
                  idArray.push(results[i].EventID);
-=======
-              var eventId = results[i].EventId;
-              
-            if(numID === eventId){
-            
-                 idArray.push(results[i].EventId);
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                  idMatchedArray.push(results[i]);
                  itemID = results[i].ID;
                  empName = results[i].EmpName;
@@ -712,21 +668,12 @@ log(userId)
              if(idArray.length === 0 ){
                  var item={
   	 	"__metadata":{'type': 'SP.Data.EPFavouriteEventListItem'},
-<<<<<<< HEAD
   	 	"Title": "EventTitle",
    		"EventID":id,
 		"EmpID":EmpId,
 		"EmpName":username,
 		"Pillar":pillar,
 		//"EventTitle":EventTitle,
-=======
-  	 	"Title": "EPFavouriteEvent",
-   		"EventId":id,
-		"EmpID":EmpId,
-		"EmpName":username,
-		"Pillar":pillar,
-		"EventTitle":EventTitle,
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 		"EventDescription":EventDesc,
 		"ImageURL" : imageURL
   	};
@@ -751,11 +698,7 @@ log(userId)
            }
         });
         
-<<<<<<< HEAD
   	
-=======
-          	
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	//alert(EventTitle+"-"+pillar+"-"+EventDesc+"-"+imageURL+"-"+id);  	
   	  	
 	function OnSuccess(data){
@@ -764,11 +707,7 @@ log(userId)
 	   
 	   var userId = _spPageContextInfo.userId;
  $.ajax({
-<<<<<<< HEAD
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
-=======
- 		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar&$filter=AuthorId eq "+userId+"",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
@@ -789,11 +728,7 @@ log(userId)
               log(a);
                 for(var j=0;j<results.length;j++){
               
-<<<<<<< HEAD
               var id = results[j].EventID;
-=======
-              var id = results[j].EventId;
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             
                for(var i=0;i<a.length;i++){
                   var b = a[i].querySelector('.heartDiv > a').getAttribute('hreflang');
@@ -813,11 +748,7 @@ log(userId)
               log(x);
                 for(var j=0;j<results.length;j++){
               
-<<<<<<< HEAD
               var id = results[j].EventID;
-=======
-              var id = results[j].EventId;
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             
                for(var i=0;i<x.length;i++){
                   var b = x[i].querySelector('.heart > a').getAttribute('hreflang');
@@ -974,17 +905,10 @@ var userId = _spPageContextInfo.userId;
         
     oListItem.set_item('Review', getReviewText);
     oListItem.set_item('RatingAverage', starRating);
-<<<<<<< HEAD
     oListItem.set_item('EventID', reviewID);
     oListItem.set_item('Title',userName);
     oListItem.set_item('EmpEmailID',userEmail);
     oListItem.set_item('EmpID',userId);
-=======
-    oListItem.set_item('EventId', reviewID);
-    oListItem.set_item('EmpName',userName);
-    oListItem.set_item('EmpEmailID',userEmail);
-    oListItem.set_item('EmpId',userId);
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     oListItem.set_item('Location',Loc);
     oListItem.set_item('Department',Dept);
 
@@ -1002,11 +926,7 @@ function onQuerySucceeded() {
     //alert('Item created: ' + oListItem.get_id());
     
     showReviewList();
-<<<<<<< HEAD
     updateAvgRating();
-=======
-    
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     
 }
 
@@ -1022,11 +942,7 @@ function showReviewList(){
     $.ajax
     ({   
        
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventID,Review,RatingAverage,Title,Created,EmpEmailID&$orderby=Created desc",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventId,Review,RatingAverage,RatingCount,EmpName,Created,EmpEmailID&$orderby=Created desc",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EpRating')/items",
        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Attachments,Pillar,Title,EventDescription,AverageRating,RatingCount,EventDate,ReviewPost,VideoURL&$expand=AttachmentFiles&$orderby=Created desc",
         method: "GET",
@@ -1053,21 +969,13 @@ function showReviewList(){
           var createdTime =  moment(created).fromNow();
           
         
-<<<<<<< HEAD
          if(Number(results[i].EventID) === reviewID){
-=======
-         if(Number(results[i].EventId) === reviewID){
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
          
          
          
          log(ratingCount);
          if(ratingCount === 1){               
-<<<<<<< HEAD
          $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-2"></span></li><li><span class="fa-regular fa-star" id="star-3"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
-=======
-         $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].EmpName+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-2"></span></li><li><span class="fa-regular fa-star" id="star-3"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
              
              rate1 = rate1 + 1;
             //$("#star-1").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
@@ -1076,42 +984,26 @@ function showReviewList(){
          }else if(ratingCount === 2){
            //$("#star-1, #star-2").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
            
-<<<<<<< HEAD
            $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-3"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
-=======
-           $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].EmpName+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-3"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
              rate2 = rate2 + 1;
 
          }else if(ratingCount === 3){
            //$("#star-1, #star-2, #star-3").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
            
-<<<<<<< HEAD
            $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
-=======
-           $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].EmpName+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
              rate3 = rate3 + 1;
          }else if(ratingCount === 4){
           // $("#star-1, #star-2, #star-3, #star-4").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
           
-<<<<<<< HEAD
            $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-4" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
-=======
-           $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].EmpName+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-4" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
              rate4 = rate4 + 1;
          }else if(ratingCount === 5){
            //$("#star-1, #star-2, #star-3, #star-4, #star-5").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
            
-<<<<<<< HEAD
           $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-4" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-5" style="font-size:18px;color:orange;"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
-=======
-          $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].EmpName+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-4" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-5" style="font-size:18px;color:orange;"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
              rate5 = rate5 + 1;          
            
@@ -1232,7 +1124,6 @@ function showReviewList(){
 }
 
 
-<<<<<<< HEAD
 function updateAvgRating(){
     $.ajax({
         
@@ -1286,8 +1177,6 @@ function updateAvgRating(){
 };
 
 
-=======
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
 /* sb  End*/
 

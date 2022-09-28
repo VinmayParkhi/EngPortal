@@ -21,7 +21,6 @@
 .footerleft{
 	
 	border:none !Important;
-<<<<<<<< HEAD:EPEmployee/master/maincss.css
 	display:flex;
 	margin-left:2rem;
 	
@@ -40,18 +39,12 @@
 #s4-bodyContainer > div > div > footer > div.footer.d-flex.align-items-center.justify-content-between > div.footerright > div > img{
 	
 	width:150px !important;
-========
->>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPEmployee/Masterpage/maincss.css
 }
 
 
 .footerleft img{
 	
-<<<<<<<< HEAD:EPEmployee/master/maincss.css
 	 width: 150px;
-========
-	width: 100%;
->>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPEmployee/Masterpage/maincss.css
 }
 
 #SearchBox{
@@ -1446,7 +1439,6 @@ header{
    @media (min-width:359px) and (max-width:767px){
    
    
-<<<<<<<< HEAD:EPEmployee/master/maincss.css
    .workcardBottomWr{
 	
 	margin-top:5rem;
@@ -1498,8 +1490,6 @@ header{
 }
 
  
-========
->>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPEmployee/Masterpage/maincss.css
    
    .eventsInn{
 	padding:10px  !Important;
@@ -1762,7 +1752,6 @@ footer{
 	
 	border: 1px solid #c9c9c9b0;
 	border-radius: 7px;
-<<<<<<<< HEAD:EPEmployee/master/maincss.css
 	margin-left:0 !Important;
 } 
 
@@ -1789,11 +1778,6 @@ footer{
    
 
 
-========
-} 
-
-
->>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPEmployee/Masterpage/maincss.css
 .innerfoot img{
 	width:60% !important;
 	margin-left:0 !important;
@@ -1812,7 +1796,6 @@ footer{
 .footerright  img{
 	width: 85% !important;
 	float: right;
-<<<<<<<< HEAD:EPEmployee/master/maincss.css
 }   
 
 
@@ -1856,20 +1839,6 @@ footer {
 }
 
 
-========
-}    
-}
-
-
-@media (min-width:768px) and (max-width:991px){
-
-footer {
-	
-	padding-top: 15px !important;
-}
-
-
->>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPEmployee/Masterpage/maincss.css
 .expleft {
 	
 	width:25% !important;
@@ -1882,25 +1851,6 @@ footer {
 
 
 
-<<<<<<<< HEAD:EPEmployee/master/maincss.css
-========
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: none; 
-  box-shadow:none !Important;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: none; 
-  box-shadow:none !Important;
-}
-
->>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPEmployee/Masterpage/maincss.css
 
 
 .navWr .rightNav .notifications {
@@ -2443,7 +2393,6 @@ footer {
 }
 
 
-<<<<<<<< HEAD:EPEmployee/master/maincss.css
 
 @media(min-width:1400px){
 	
@@ -2464,11 +2413,6 @@ footer {
 
 
 
-========
-@media(min-width:1800px) and (max-width:1921px){
-
-
->>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPEmployee/Masterpage/maincss.css
 #calendar{
 	
 	height:52vh !Important;

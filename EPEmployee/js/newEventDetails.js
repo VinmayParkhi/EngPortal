@@ -412,11 +412,7 @@ function setReminderData(){
   function updatedMoodCount(){
    if(buttonClicked === true){
    $.ajax({
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,Excited,NotExcited,NotSure&$expand=AttachmentFiles",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,Response1,Response2,Response3&$expand=AttachmentFiles",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {

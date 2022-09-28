@@ -52,11 +52,7 @@ function EventMoodCount(moodValue){
 	var userId = _spPageContextInfo.userId;
 
   $.ajax({
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEventMood')/items?$select=ID,Title&$filter=AuthorId eq "+userId+" and EventID eq "+uniquID+"",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEventMood')/items?$select=ID,Title,Excited,NotExcited,NotSure&$filter=AuthorId eq "+userId+" and Excited eq "+uniquID+"",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -90,11 +86,7 @@ function EventMoodonLoad(uniquID){
 	var userId = _spPageContextInfo.userId;
 
   $.ajax({
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEventMood')/items?$select=ID,Title&$filter=AuthorId eq "+userId+" and EventID eq "+uniquID+"",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEventMood')/items?$select=ID,Title,Excited,NotExcited,NotSure&$filter=AuthorId eq "+userId+" and Excited eq "+uniquID+"",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -200,21 +192,12 @@ function CreateMoodItem(userId,uniquID,moodValue) {
 		 
  	var	Dept = $("#dept").html();
  	var	Loc = $("#loc").html();
-<<<<<<< HEAD
-=======
-
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPEventMood')/items"
 	var data = {
 		__metadata: { 'type': 'SP.Data.EPEventMoodListItem' },
   		"MoodStatus":moodValue,
-<<<<<<< HEAD
   		"EventID":uniquID,
 		"EmpID":userId,
-=======
-  		"Excited":uniquID,
-		"NotSure":userId,
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  		"Location":Loc,
 		"Department":Dept
 
@@ -253,20 +236,12 @@ function ErrorFunction(error) {
 
 
 function GetEventMoodCount(){
-<<<<<<< HEAD
-=======
-		
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 		var ExcitedMood = 0;
 		var NotExcited = 0;
 		var NotSure = 0;
 		
 		$.ajax({
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEventMood')/items?$select=ID,EventID,Title,MoodStatus&$filter=EventID eq "+uniquID+" &$order By = Created desc",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEventMood')/items?$select=ID,Title,Excited,MoodStatus,NotExcited,NotSure&$filter=Excited eq "+uniquID+" &$order By = Created desc",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -326,22 +301,13 @@ function GetEventMoodCount(){
 				"IF-MATCH":"*",
 				"X-HTTP-Method":"MERGE"
 		},
-<<<<<<< HEAD
 		success: SuccessFunctionUpdate,
-=======
-		success: SuccessFunction,
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 		error: ErrorFunction
 	});
 }
 
-<<<<<<< HEAD
 function SuccessFunctionUpdate(data) {
 alert("Done Succefully")
-=======
-function SuccessFunction(data) {
-
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 }
 
 function ErrorFunction(error) {

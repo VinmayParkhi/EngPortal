@@ -6,30 +6,18 @@ var EmployeeId;
 var loginUserName = _spPageContextInfo.userDisplayName;
 var RolePosition = _spPageContextInfo.isSiteAdmin;
 $(document).ready(function () {
-<<<<<<< HEAD
 	GetUserRoleList();    
 	LoadUserItems3();
   
-=======
-	LoadUserItems3();
-	GetRoleList();      
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
 	//CheckUserRole(loginUserName);
 	//getListItems();
 });
 
 
-<<<<<<< HEAD
 function GetUserRoleList() {
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPAccessControl')/items?$select=*&$filter=(Title eq '"+loginUserName+"')",
-=======
-
-function GetRoleList() {
-    $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPAccessControl')/items?$select=*&$filter=(EmpName eq '"+loginUserName+"')",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -40,10 +28,7 @@ function GetRoleList() {
             dataresults = data.d.results;
             console.log(dataresults);
             for (var i = 0; i < dataresults.length; i++) {
-<<<<<<< HEAD
            
-=======
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                Designation = data.d.results[i].Designation;
                
                //EventDates = moment(data.d.results[i].EventDate).format('YYYY-MM-DD');              
@@ -57,10 +42,7 @@ function GetRoleList() {
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 function LoadUserItems3(){
 	$.ajax({
 		url: _spPageContextInfo.siteAbsoluteUrl+ "/_api/Web/SiteGroups/GetByName('RNTENG%20Owners')/users",
@@ -105,15 +87,9 @@ $.ajax({
 			if(data.d.results.length > 0 )
 			{
 				for(i=0;i<data.d.results.length;i++){
-<<<<<<< HEAD
 					accntname = data.d.results[i].Title;					
 					admin = data.d.results[i].Designation;
 					cardID = data.d.results[i].EmpEmailID;
-=======
-					accntname = data.d.results[i].EmpName;					
-					admin = data.d.results[i].Designation;
-					cardID = data.d.results[i].EmpMail;
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 					//getuserProperties(accntname.replace("#","%23"),admin,cardID);
 					console.log(accntname,admin,cardID)
 				}	                                                 
@@ -159,11 +135,7 @@ $.ajax({
 			//alert(displayname +": ADmin Designation :"+AdminDesignation);
 			
 			
-<<<<<<< HEAD
 			userExistData= getListItem('EPAccessControl','Title',displayname);
-=======
-			userExistData= getListItem('EPAccessControl','EmpName',displayname);
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 			 if(userExistData!= undefined) {
 			 userExistData=JSON.parse(userExistData);
 			 if(userExistData.d.results.length > 0){
@@ -172,11 +144,7 @@ $.ajax({
 					
 				}else{
 					//alert("User Created");
-<<<<<<< HEAD
 					PostGroupDataList(displayname,picurl,user,AdminDesignation,cardID);
-=======
-					PostGroupDataList(displayname,picurl,accntname.replace("#","%23"),AdminDesignation,cardID);
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 				}
 				
 				
@@ -228,10 +196,7 @@ $.ajax({
 
 
 function getListItem(listName,columnname,colValue) {
-<<<<<<< HEAD
 
-=======
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  	var url= _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('" + listName + "')/items?$select=*&$filter=" + columnname + " eq '" + colValue +"'" ; 
  	var listitemData = '';
  	listitemData = $.ajax({
@@ -337,26 +302,15 @@ function openDialog(pageUrl) {
 }
 
 
-<<<<<<< HEAD
 function PostGroupDataList(Title,Image,actname,admin,cardID){
-=======
-function PostGroupDataList(EmpName,Image,actname,admin,cardID){
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
 	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPAccessControl')/items";
 	var data = {
 		__metadata: { 'type': 'SP.Data.EPAccessControlListItem' },  		
-<<<<<<< HEAD
 		"EmpEmailID":actname,
 		"Designation":admin,
 		"Title" : Title,
 		"EmpID": cardID		
-=======
-		"EmpMail":actname,
-		"Designation":admin,
-		"EmpName" : EmpName
-		//"": cardID		
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 		//"EventEndDate":Edt
 	}
 	console.log(data);
@@ -386,7 +340,6 @@ alert('Error!' +error.responseText);
 console.log('Error!' +error.responseText);
 }
 
-<<<<<<< HEAD
 function UpdateGroupDataList(Title,Image,actname,admin,cardID){
 
 	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPAccessControl')/items("+Title+")";
@@ -396,16 +349,6 @@ function UpdateGroupDataList(Title,Image,actname,admin,cardID){
 		"Designation":admin,
 		"Title" : Title,
 		"EmpID": cardID	
-=======
-function UpdateGroupDataList(EmpName,Image,actname,admin,cardID){
-
-	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPAccessControl')/items("+EmpName+")";
-	var data = {
-		__metadata: { 'type': 'SP.Data.EPAccessControlListItem' },  		
-		//"EmpMail":actname,
-		"Designation":admin,
-		"EmpName" : EmpName
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 		//"": cardID		
 		//"EventEndDate":Edt
 	}
@@ -480,13 +423,8 @@ console.log('Error!' +error.responseText);
 
 
 
-<<<<<<< HEAD
 function UpdateRole(Title,RoleValue){
 	 userRoleData = getListItem('EPAccessControl','Title',Title);
-=======
-function UpdateRole(EmpName,RoleValue){
-	 userRoleData = getListItem('EPAccessControl','EmpName',EmpName);
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	 if(userRoleData != undefined) {
 	 userRoleData =JSON.parse(userRoleData);
 	 if(userRoleData .d.results.length > 0){

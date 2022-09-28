@@ -14,7 +14,7 @@ $(document).ready(function () {
 
 function GetRoleList() {
     $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPAccessControl')/items?$select=*&$filter=(EmpName eq '"+loginUserName+"')",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPAccessControl')/items?$select=*&$filter=(Title eq '"+loginUserName+"')",
         method: "GET",
         headers:
            {

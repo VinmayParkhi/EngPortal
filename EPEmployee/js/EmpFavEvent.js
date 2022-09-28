@@ -52,11 +52,7 @@ function GetPastEvents() {
     ({
         
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('List Name')/items(" + Itemid + ")/AttachmentFiles",
-<<<<<<< HEAD
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EventID,ImageURL,Title,Pillar,EventDescription&$expand=AttachmentFiles&$filter=AuthorId eq "+userId+"&$orderby=Created desc",
-=======
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EventId,ImageURL,EventTitle,Pillar,AverageRating,EventDescription&$expand=AttachmentFiles&$filter=AuthorId eq "+userId+"&$orderby=Created desc",
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -71,19 +67,11 @@ function GetPastEvents() {
             for (var i = 0; i <= dataresults.length; i++) {                
                  var pillar = data.d.results[i].Pillar;
                  console.log(pillar);
-<<<<<<< HEAD
                  var EventTitle= data.d.results[i].Title;
                  var favID = data.d.results[i].ID
                  var EventDescription= data.d.results[i].EventDescription;  
                  var AverageRating  = data.d.results[i].AverageRating;
                  var eventID = data.d.results[i].EventID;   	 
-=======
-                 var EventTitle= data.d.results[i].EventTitle;
-                 var favID = data.d.results[i].ID
-                 var EventDescription= data.d.results[i].EventDescription;  
-                 var AverageRating  = data.d.results[i].AverageRating;
-                 var eventID = data.d.results[i].EventId;   	 
->>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                	 //var VideoURLs = data.d.results[i].VideoURL;                
                	 var a = data.d.results[i].ImageURL;
                  $(".FavEvntsWr").append('<div class="pastevntsCard '+pillar+'" style="width:30%; margin:10px 10px 2rem 10px"><div class="pstvideoImg1"  style="background:linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%),url('+a+');background-repeat: no-repeat;background-size: cover;"> <label class="time">15:03</label>'+
