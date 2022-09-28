@@ -25,8 +25,9 @@
 	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.init.js"></script>
 	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.js"></script>
 	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.core.js"></script>	
-	 <script type="text/javascript" src="https://infornt.sharepoint.com/SiteAssets/Admin/Image_Calender/jquery.multifile.js"></script> 
-	 <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/js/ContactUs.js"></script>
+	 <!--<script type="text/javascript" src="https://infornt.sharepoint.com/SiteAssets/Admin/Image_Calender/jquery.multifile.js"></script> -->
+
+	 <script type="text/javascript" src= "../../SiteAssets/EngEmployee/js/ContactUs.js"></script>
 
         <style>
         
@@ -537,7 +538,7 @@ footer {
         height: 15rem;
     }
     .submit-button {
-        height: 5vh;
+       /* height: 5vh;*/
         font-size: 1.3rem;
     }
     .content .contactWr .mainContact .connectOptions .connectEmail .reachText small {
@@ -602,7 +603,32 @@ footer {
     width: 19.5rem;
     height: 19.5rem;
 }
+
+
+ #s4-bodyContainer > div > div > div > div:nth-child(3) {
+    
+    min-height: 0vh !important;
 }
+
+
+
+}
+
+
+
+
+@media (min-width: 359px) and (max-width: 767px){
+	
+	.contentWr {
+    width: 92% !important;
+}
+
+	
+}
+
+
+
+
         
         /* ends Contact css */
     </style>
@@ -666,7 +692,7 @@ footer {
                     <div class="connectTeams">
                         <a href="https://teams.microsoft.com/_?lm=deeplink&lmsrc=NeutralHomePageWeb&cmpid=WebSignIn&culture=en-in&country=in#/conversations/19:meeting_NzgyM2U1MDUtZGFkMy00ZTI2LWJhOWYtYjY2NjY5MDQxNjhl@thread.v2?ctx=chat" class="connectLink">
                         	<div class="bg_circle">
-                            	<img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/microsoft-teams-1.svg" alt="Teams">
+                            	<img src="../../SiteAssets/EngEmployee/images/microsoft-teams.svg" alt="Teams">
                             </div>
                         </a>
                         <div class="teamsText">
@@ -674,12 +700,12 @@ footer {
                         </div>
                     </div>
                     <div class="or">
-                    	<img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/OR_img.png" alt="Or image">
+                    	<img src= "../../SiteAssets/EngEmployee/images/OR_img.png" alt="Or image">
                     </div>
                     <div class="connectEmail">
                         <a href="mailto:Sarath.Gumma@amdocs.com?subject=Testing To reached out us!" class="connectLink">
                         <div class="bg_circle">
-                            <img src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon material-email.svg" alt="Email">
+                            <img src="../../SiteAssets/EngEmployee/images/Icon feather-mail.svg" alt="Email">
                         </div>
                         </a>
                         <div class="reachText">
@@ -693,6 +719,22 @@ footer {
 
     <!-- bootstrap script -->
     <script src="js/bootstrap.js"></script>
+    
+        <script>
+        
+        $(document).ready(function(){
+        	
+        	$(".home img").attr("src", "../../SiteAssets/EngEmployee/images/boldhome.svg");
+    		$(".hub img").attr("src", "../../SiteAssets/EngEmployee/images/Icon simple-hubspot.svg");
+    		$(".empz img").attr("src", "../../SiteAssets/EngEmployee/images/Group 497.svg");
+    		$(".engteam img").attr("src", "../../SiteAssets/EngEmployee/images/Group 498.svg");
+    		$(".contact img").attr("src", "../../SiteAssets/EngEmployee/images/contactbold.svg");
+    				
+		});
+        
+        
+        </script>
+
 </body>
 
 </html>

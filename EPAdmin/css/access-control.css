@@ -4,7 +4,32 @@
   #DeltaPlaceHolderMain > table > tbody > tr{
 		border-bottom:none !important;
 }
-        
+
+
+#MSOZoneCell_WebPartWPQ5{
+	
+	
+	width:98%;
+}
+
+
+.emp-card {
+       border-radius: 10px;
+    /* height: 60%; */
+    /* margin-right: 5rem; */
+}
+     
+
+.home{
+	background: transparent linear-gradient(89deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat padding-box;
+}
+
+.homeimg{
+	background: #B15610 !Important;
+}
+	
+	
+   
 
 .event-data{
   width: 94%;
@@ -109,6 +134,8 @@ span a{
     display: flex;
     align-items: center;
 }
+<<<<<<< HEAD
+=======
 .leftspan1 .divider1 img{
     transform: rotate(90deg);
     width: 69%;
@@ -126,6 +153,7 @@ span a{
 #WebPartWPQ6 > div.ms-rtestate-field > div > section.headinput.my-3.d-flex > div.leftspan1 > div.d-block > div.divider1.divider2 > img{
 	    margin-left: 43px !important;
 }
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
 .head-right{
     display: flex;
@@ -150,7 +178,9 @@ top: 9px;
     flex-wrap: wrap;
 }
 .card{
-    margin:10px 12px;
+    margin:20px 12px;
+    margin-bottom:0;
+    background-color: #000 !important;
 }
 .card-image{
     padding: 45px 85px;

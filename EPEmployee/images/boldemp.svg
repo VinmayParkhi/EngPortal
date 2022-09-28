@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21.488" height="15.049" viewBox="0 0 21.488 15.049">
+  <g id="Group_498" data-name="Group 498" transform="translate(0.5 0.5)">
+    <path id="Icon_material-person" data-name="Icon material-person" d="M13.024,13.024A3.512,3.512,0,1,0,9.512,9.512,3.511,3.511,0,0,0,13.024,13.024Zm0,1.756C10.68,14.78,6,15.957,6,18.292v1.756H20.049V18.292C20.049,15.957,15.369,14.78,13.024,14.78Z" transform="translate(0.439 -6)" fill="#fcf9ee" stroke="#fcf9ee" stroke-width="1"/>
+    <ellipse id="Ellipse_190" data-name="Ellipse 190" cx="3" cy="2" rx="3" ry="2" transform="translate(4.995 8)" fill="#b15610"/>
+    <path id="Icon_material-person-2" data-name="Icon material-person" d="M11.854,11.854A2.927,2.927,0,1,0,8.927,8.927,2.926,2.926,0,0,0,11.854,11.854Zm0,1.463C9.9,13.317,6,14.3,6,16.244v1.463H17.707V16.244C17.707,14.3,13.807,13.317,11.854,13.317Z" transform="translate(-6 -6)" fill="#fcf9ee" stroke="#fcf9ee" stroke-width="1"/>
+  </g>
+</svg>

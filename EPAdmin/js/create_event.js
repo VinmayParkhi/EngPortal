@@ -2,6 +2,13 @@
  var attcount = 0; 
  var arraycount = 0; 
  var Pillar;
+<<<<<<< HEAD
+ var Etype;  
+ $(document).ready(function() { 
+ //$('#file_input').multifile();//For facilitate multi file upload 
+  
+ $("#PublishEvent").click(function() {formCreateNowSingle()}); 
+=======
  var Etype; 
  $(document).ready(function() { 
  //$('#file_input').multifile();//For facilitate multi file upload 
@@ -12,6 +19,7 @@
  
  }); 
          
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
      
      
      
@@ -26,7 +34,7 @@
     });
 
   $("#PublishEventBtn1 > div > div > div.modal-footer > button").click(function(){
-    alert("The paragraph was clicked.");
+    //alert("The paragraph was clicked.");
     
     
     $(".single-day input").val("");
@@ -34,12 +42,36 @@
     $(".single-day select").val("");
   });
 
-
+    $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evSpeaker,#evOrg,#evKey,.SingleDayEventUpload").on("input", function () {    	
+        canChangeColorCreateEvent();
+    });
+    function canChangeColorCreateEvent(){  
+        var EventChange = true;  
+        $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evSpeaker,#evOrg,#evKey,.SingleDayEventUpload").each(function(){
+            if($(this).val()==''){
+                EventChange = false;
+            }
+        });
+        if(EventChange){
+            $('.publishSingleDay').addClass("EnableBtn");  
+            $('#AutopublishEvent').addClass("EnableBtn");   
+            $('#saveNow').addClass("EnableBtn"); 
+        }else{
+            $('.publishSingleDay').removeClass("EnableBtn")             
+            $('#AutopublishEvent').removeClass("EnableBtn") 
+            $('#saveNow').removeClass("EnableBtn")  
+        }
+     
+    }
+});
      
      
-  });
   
+<<<<<<< HEAD
+ function formCreateNowSingle() { 
+=======
  //function formCreateNowSingle() { 
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
 	 var data = []; 
 	 var fileArray = []; 
@@ -68,7 +100,11 @@
 	"EventOrganizerName": $("input[id='evOrg']").val(),
 	"EventKeywords": $("input[id='evKey']").val(),
 	"EventLink": $("input[id='evLink']").val(),
+<<<<<<< HEAD
+	"EventStatus": "Published",
+=======
 	"Status": "Published",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	"Files": fileArray 
 	}); 
 	
@@ -190,7 +226,11 @@
  listItem.set_item("EventOrganizerName", listValues[0].EventOrganizerName);  
  listItem.set_item("EventKeywords", listValues[0].EventKeywords); 
  listItem.set_item("EventLink", listValues[0].EventLink);
+<<<<<<< HEAD
+ listItem.set_item("EventStatus", listValues[0].EventStatus);
+=======
  listItem.set_item("Status", listValues[0].Status);
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  listItem.update(); 
  context.executeQueryAsync( 
  function() { 

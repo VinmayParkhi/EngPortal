@@ -6,7 +6,11 @@
  $(document).ready(function() { 
  //$('#file_input').multifile();//For facilitate multi file upload 
   
+<<<<<<<< HEAD:EPAdmin/js/Edit _Event_save_now.js
  $(".Save").click(function() {formSaveEditEvent()}); 
+========
+ $("#saveNow").click(function() {formSaveNowSingle()}); 
+>>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPAdmin/js/save_now.js
      
      
      
@@ -34,7 +38,11 @@
      
   });
   
+<<<<<<<< HEAD:EPAdmin/js/Edit _Event_save_now.js
  function formSaveEditEvent() { 
+========
+ function formSaveNowSingle() { 
+>>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8:EPAdmin/js/save_now.js
  	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
 	 var data = []; 
 	 var fileArray = []; 
@@ -69,7 +77,7 @@
 	
     
     
-	createNewItemWithAttachments("EPEvent", data).then( 
+	createNewItemWithAttachmentsSaveNow("EPEvent", data).then( 
 	function() { 
 	//if (oLoader.close) setTimeout(function () { oLoader.close(); }, 3000); 
 	//window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");   
@@ -80,7 +88,7 @@
 } 
   
   
- var createNewItemWithAttachments = function(listName, listValues) { 
+ var createNewItemWithAttachmentsSaveNow = function(listName, listValues) { 
  var fileCountCheck = 0; 
  var fileNames; 
  var context = new SP.ClientContext.get_current(); 
@@ -109,7 +117,7 @@
  var id = listItem.get_id(); 
  if (listValues[0].Files.length != 0) { 
  if (fileCountCheck <= listValues[0].Files.length - 1) { 
- loopFileUpload(listName, id, listValues, fileCountCheck).then( 
+ loopFileUploadSaveNow(listName, id, listValues, fileCountCheck).then( 
  function() { 
  }, 
  function(sender, args) { 
@@ -130,9 +138,9 @@
  return dfd.promise(); 
  } 
   
- function loopFileUpload(listName, id, listValues, fileCountCheck) { 
+ function loopFileUploadSaveNow(listName, id, listValues, fileCountCheck) { 
  var dfd = $.Deferred(); 
- uploadFileHolder(listName, id, listValues[0].Files[fileCountCheck].Attachment).then( 
+ uploadFileHolderSaveNow(listName, id, listValues[0].Files[fileCountCheck].Attachment).then( 
  function (data) { 
  var objcontext = new SP.ClientContext(); 
  var targetList = objcontext.get_web().get_lists().getByTitle(listName); 
@@ -142,7 +150,7 @@
  console.log("Reload List Item- Success"); 
  fileCountCheck++; 
  if (fileCountCheck <= listValues[0].Files.length - 1) { 
- loopFileUpload(listName, id, listValues, fileCountCheck); 
+ loopFileUploadSaveNow(listName, id, listValues, fileCountCheck); 
  } else { 
  console.log(fileCountCheck + ": Files uploaded"); 
  attcount += fileCountCheck; 
@@ -167,7 +175,7 @@
   
   //File Upload code
   
- function uploadFileHolder(listName, id, file) { 
+ function uploadFileHolderSaveNow(listName, id, file) { 
 	 //file = $(this)[0].files[0];
 
  	var getFileBuffer = function(file) {
@@ -190,7 +198,7 @@
 
  };
 
- getFileBuffer(file).then(function(buffer) {
+ getFileBufferSaveNow(file).then(function(buffer) {
 
  $.ajax({
 
@@ -237,7 +245,7 @@
 
 
  
- function getFileBuffer(file) { 
+ function getFileBufferSaveNow(file) { 
  var deferred = $.Deferred(); 
  var reader = new FileReader(); 
  reader.onload = function(e) { 

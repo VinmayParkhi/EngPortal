@@ -401,6 +401,14 @@ ul.breadcrumb li {
 	color:#C1C1C1;
 }
 @media(min-width:375px){
+<<<<<<< HEAD
+
+
+
+
+
+=======
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 /* Past survey*/
 .surveyPast {
     width: 88% !important;
@@ -538,9 +546,12 @@ margin: 2rem 0rem 2rem 0rem;
     margin-left: 5%;
 
 }
+<<<<<<< HEAD
+=======
 .surveyOngoing .surveyBtn .btnSurvey {
     padding: 1rem 5rem;
 }
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 .s-btn{
 	width:100% !important;
 }

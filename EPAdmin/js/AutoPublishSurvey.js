@@ -59,7 +59,11 @@
 	arraycount += fileArray.length;
 	data.push({ 
 	"Title": $("#sTitle").val(),
+<<<<<<< HEAD
+	"SurveyDescription": $("textarea#sDesc").val(),
+=======
 	"SurveyDescreption": $("textarea#sDesc").val(),
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	"SurveyStartDate": $("input[id='sDate']").val(),
 	"SurveyEndDate": $("input[id='eDate']").val(),
 	"SurveyLink": $("input[id='sLink']").val(),
@@ -92,6 +96,12 @@
  var itemCreateInfo = new SP.ListItemCreationInformation(); 
  var listItem = targetList.addItem(itemCreateInfo);
   
+<<<<<<< HEAD
+  listItem.set_item("Title", listValues[0].Title); 
+  listItem.set_item("SurveyDescription", listValues[0].SurveyDescription); 
+ listItem.set_item("SurveyStartDate", listValues[0].SurveyStartDate); 
+ listItem.set_item("SurveyEndDate", listValues[0].SurveyEndDate);  
+=======
  //listItem.set_item("Title","Title123"); 
  //listItem.set_item("EventType", listValues[0].EventType);
  listItem.set_item("Title", listValues[0].Title); 
@@ -103,6 +113,7 @@
  //listItem.set_item("EventSpeakerName", listValues[0].EventSpeakerName); 
  //listItem.set_item("EventOrganizerName", listValues[0].EventOrganizerName);  
  //listItem.set_item("EventKeywords", listValues[0].EventKeywords); 
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  listItem.set_item("SurveyLink", listValues[0].SurveyLink);
  listItem.set_item("Status", listValues[0].Status);
  listItem.set_item("AutopublishDate", listValues[0].AutopublishDate);

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25.35" height="20.6" viewBox="0 0 25.35 20.6">
+  <g id="Icon_ionic-md-person-add" data-name="Icon ionic-md-person-add" transform="translate(-0.325 -3.7)">
+    <path id="Path_1864" data-name="Path 1864" d="M17.375,14a4.75,4.75,0,1,0-4.75-4.75A4.764,4.764,0,0,0,17.375,14Zm0,2.375c-3.147,0-9.5,1.6-9.5,4.75V23.5h19V21.125C26.875,17.978,20.522,16.375,17.375,16.375Z" transform="translate(-2)" fill="none" stroke="#fcf9ee" stroke-width="1.6"/>
+    <path id="Path_1865" data-name="Path 1865" d="M5.875,14.417V11.25H4.292v3.167H1.125V16H4.292v3.167H5.875V16H9.042V14.417Z" transform="translate(0 -2)" fill="none" stroke="#fcf9ee" stroke-linecap="square" stroke-linejoin="round" stroke-width="1.6"/>
+    <circle id="Ellipse_201" data-name="Ellipse 201" cx="1" cy="1" r="1" transform="translate(4 12.5)" fill="#fcf9ee"/>
+  </g>
+</svg>

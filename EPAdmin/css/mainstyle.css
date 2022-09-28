@@ -93,7 +93,7 @@ display:none !important;
 }
 .headinput{
     background: #000000;
-    padding: 5px 10px;
+    padding: 3px 10px;
     margin-left: 10px;
     border-radius: 10px;
     display: flex;
@@ -163,7 +163,11 @@ color: #E5E5E5;
     border-radius: 4px;
     /*padding: 5px 18px;*/
     padding: 5px 5px;
+<<<<<<< HEAD
+    width: 75px;
+=======
     width: 7%;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     font-size: 12px;
     color: #747474;
     background-position: 50% 100%;

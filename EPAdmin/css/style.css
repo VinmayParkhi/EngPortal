@@ -299,19 +299,6 @@ width: 90px !important;
       top: 40%;
       transform: translate(-50% , -50%);
     } */
-    .divider1 img{
-    transform: rotate(90deg);
-    width: 84%;
-    height: 1px;
-  }
-  footer .divider1 img{
-   
-    width: 15%;
-    height: 79%;
-    transform: rotate(0deg);
-    margin-top: 26px;
-}
- 
  
   .right-nav{
     display: flex;

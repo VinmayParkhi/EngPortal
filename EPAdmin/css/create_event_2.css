@@ -20,6 +20,9 @@ padding: 15px 40px 25px 40px !important;
   .breadcrumb{
     margin-bottom: 0px;
   }
+  .breadcrumb-item + .breadcrumb-item{
+	padding-left: 0rem !important;	
+	}
   .head-left li{
     font-size: 10px;
     font-weight: 500;
@@ -39,6 +42,9 @@ padding: 15px 40px 25px 40px !important;
     display: inline-block;
     margin-right: 10px;
   }
+  .arrow i{
+	color: #fff;
+}
   span a{
     color: #E5E5E5;
     font-size: 14px;
@@ -187,8 +193,8 @@ padding: 15px 40px 25px 40px !important;
     opacity: 50%;
   }
   .form-data p{
-    margin-left: -1.1rem;
-    margin-bottom: -1.1rem !important;
+    margin-left: -0.1rem;
+    margin-bottom: -2.1rem !important;
   }
   .event-data hr{
       margin: 18px 0px 23px 0px;
@@ -210,14 +216,16 @@ padding: 15px 40px 25px 40px !important;
   .calender{
     position: absolute;
     right: 24px;
-    top: 36px;
+    top: 38px;
     color: #fff;
+    font-size: 1.5rem;
   }
   .time{
     position: absolute;
-    top: 36px;
+    top: 38px;
     right: 22px;
     color: #fff;
+    font-size: 1.3rem;
   }
 
   /* Accordion CSS */

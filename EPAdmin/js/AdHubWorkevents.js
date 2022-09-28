@@ -128,7 +128,11 @@ function addZero(i) {
 function GetUpcomingEvents(today) {
     var today= moment().format('YYYY-MM-DDTHH:mm:SS');
    $.ajax({
+<<<<<<< HEAD
+       url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=*,Attachments&$expand=AttachmentFiles&$filter=(Pillar eq 'Work') and (EventStatus eq 'Published') and (EventEndTime ge '"+today+"')&$orderby=Created desc",
+=======
        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=*,Attachments&$expand=AttachmentFiles&$filter=(Pillar eq 'Work') and (EventEndTime ge '"+today+"')&$orderby=Created desc",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
        method: "GET",
        headers:
           {
@@ -462,7 +466,7 @@ function FavEvents(){
      var item={
           "__metadata":{'type': 'SP.Data.FavoriteEventsListItem'},
           "Title": "FavoriteEvents",
-          "EventID":EventID,
+          "EventId":EventID,
        "EmpID":EmpId,
        "UserName":username 
      };

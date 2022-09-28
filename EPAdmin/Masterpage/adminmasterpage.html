@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?><!--SPG:
+
+This HTML file has been associated with a SharePoint Master Page (.master file) carrying the same name.  While the files remain associated, you will not be allowed to edit the .master file, and any rename, move, or deletion operations will be reciprocated.
+
+To build the master page directly from this HTML file, simply edit the page as you normally would.  Use the Snippet Generator at https://infornt.sharepoint.com/sites/RNTENG/_layouts/15/ComponentHome.aspx?Url=https%3A%2F%2Finfornt%2Esharepoint%2Ecom%2Fsites%2FRNTENG%2F%5Fcatalogs%2Fmasterpage%2FENG%5FMasterPage%2FENGAdmin%2Fadminmasterpage%2Emaster to create and customize useful SharePoint entities, then copy and paste them as HTML snippets into your HTML code.   All updates to this file will automatically sync to the associated Master Page.
+
+-->
+<!DOCTYPE html[]>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="X-UA-Compatible" content="IE=10" />
+        <!--CS: Start Page Head Contents Snippet-->
+        <!--SPM:<%@Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+        <!--SPM:<%@Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+        <!--SID:00 -->
+        <meta name="GENERATOR" content="Microsoft SharePoint" />
+        <meta name="description" content="This is admin page of Expriance +" />
+        <meta name="keywords" content="rnt,RNT,rabbit,tortoise,ai,AI,artificial,intelligence,speed,computer vision,NLP,RPA" />
+        <meta http-equiv="Expires" content="0" />
+        <!--MS:<SharePoint:RobotsMetaTag runat="server">-->
+        <!--ME:</SharePoint:RobotsMetaTag>-->
+        <!--MS:<SharePoint:PageTitle runat="server">-->
+            <!--MS:<asp:ContentPlaceHolder id="PlaceHolderPageTitle" runat="server">-->
+                <!--MS:<SharePoint:ProjectProperty Property="Title" runat="server">-->
+                <!--ME:</SharePoint:ProjectProperty>-->
+            <!--ME:</asp:ContentPlaceHolder>-->
+        <!--ME:</SharePoint:PageTitle>-->
+        <!--MS:<SharePoint:StartScript runat="server">-->
+        <!--ME:</SharePoint:StartScript>-->
+        <!--MS:<SharePoint:CssLink runat="server" Version="15">-->
+        <!--ME:</SharePoint:CssLink>-->
+        <!--MS:<SharePoint:CacheManifestLink runat="server">-->
+        <!--ME:</SharePoint:CacheManifestLink>-->
+        <!--MS:<SharePoint:PageRenderMode runat="server" RenderModeType="Standard">-->
+        <!--ME:</SharePoint:PageRenderMode>-->
+        <!--MS:<SharePoint:ScriptLink language="javascript" name="core.js" OnDemand="true" runat="server" Localizable="false">-->
+        <!--ME:</SharePoint:ScriptLink>-->
+        <!--MS:<SharePoint:ScriptLink language="javascript" name="menu.js" OnDemand="true" runat="server" Localizable="false">-->
+        <!--ME:</SharePoint:ScriptLink>-->
+        <!--MS:<SharePoint:ScriptLink language="javascript" name="callout.js" OnDemand="true" runat="server" Localizable="false">-->
+        <!--ME:</SharePoint:ScriptLink>-->
+        <!--MS:<SharePoint:ScriptLink language="javascript" name="sharing.js" OnDemand="true" runat="server" Localizable="false">-->
+        <!--ME:</SharePoint:ScriptLink>-->
+        <!--MS:<SharePoint:ScriptLink language="javascript" name="suitelinks.js" OnDemand="true" runat="server" Localizable="false">-->
+        <!--ME:</SharePoint:ScriptLink>-->
+        <!--MS:<SharePoint:CustomJSUrl runat="server">-->
+        <!--ME:</SharePoint:CustomJSUrl>-->
+        <!--MS:<SharePoint:SoapDiscoveryLink runat="server">-->
+        <!--ME:</SharePoint:SoapDiscoveryLink>-->
+        <!--MS:<SharePoint:AjaxDelta id="DeltaPlaceHolderAdditionalPageHead" Container="false" runat="server">-->
+            <!--MS:<asp:ContentPlaceHolder id="PlaceHolderAdditionalPageHead" runat="server">-->
+            <!--ME:</asp:ContentPlaceHolder>-->
+            <!--MS:<SharePoint:DelegateControl runat="server" ControlId="AdditionalPageHead" AllowMultipleControls="true">-->
+            <!--ME:</SharePoint:DelegateControl>-->
+            <!--MS:<asp:ContentPlaceHolder id="PlaceHolderBodyAreaClass" runat="server">-->
+            <!--ME:</asp:ContentPlaceHolder>-->
+        <!--ME:</SharePoint:AjaxDelta>-->
+        <!--MS:<SharePoint:CssRegistration Name="Themable/corev15.css" runat="server">-->
+        <!--ME:</SharePoint:CssRegistration>-->
+        <!--MS:<SharePoint:AjaxDelta id="DeltaSPWebPartManager" runat="server">-->
+            <!--MS:<WebPartPages:SPWebPartManager runat="server">-->
+            <!--ME:</WebPartPages:SPWebPartManager>-->
+        <!--ME:</SharePoint:AjaxDelta>-->
+        <!--CE: End Page Head Contents Snippet-->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--DC:Sidebar-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet" />
+        <link href="All_CSS/botstrap.css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+        <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/mastercss.css" />
+        <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css" />
+        <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/style.css" />
+        <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/css/access-control.css" />
+        <link rel="stylesheet" href="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/css/togglebutton.css" />
+        <!--<link rel="stylesheet" href="All_CSS/style.css"/>
+	     <link rel="stylesheet" href="All_CSS/mainstyle.css"/> -->
+        <!--<link rel="stylesheet" href="../../../../SitePages/ENG_Admin/All_CSS/work.css"/>-->
+        <!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:ContentTypeId msdt:dt="string">0x0101000F1C8B9E0EB4BE489F09807B2C53288F0054AD6EF48B9F7B45A142F8173F171BD10003D357F861E29844953D5CAA1D4D8A3A</mso:ContentTypeId>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:HtmlDesignFromMaster msdt:dt="string">https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/adminmasterpage.html, https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/adminmasterpage.html</mso:HtmlDesignFromMaster>
+<mso:HtmlDesignStatusAndPreview msdt:dt="string">https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/adminmasterpage.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+        <style>//<![CDATA[
+
+   .EnableBtn{
+	background: linear-gradient(90deg , #DE8601 0%, #FF3D97 100%) !important;
+	color:#fff !important;
+}
+.profile h4 {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 13px;
+    margin-left: 0px;
+}
+
+
+        
+        //]]>
+        </style>
+    </head>
+    <body class="backImage">
+        <!--CS: Start Ribbon Snippet-->
+        <!--SPM:<%@Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+        <!--SPM:<%@Register Tagprefix="wssucw" TagName="Welcome" Src="~/_controltemplates/15/Welcome.ascx"%>-->
+        <!--MS:<SharePoint:SPSecurityTrimmedControl runat="server" HideFromSearchCrawler="true" EmitDiv="true">-->
+            <div id="TurnOnAccessibility" style="display:none" class="s4-notdlg noindex">
+                <a id="linkTurnOnAcc" href="#" class="ms-accessible ms-acc-button" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
+                    <!--MS:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,master_turnonaccessibility%&#62;" EncodeMethod="HtmlEncode">-->
+                    <!--ME:</SharePoint:EncodedLiteral>-->
+                </a>
+            </div>
+            <div id="TurnOffAccessibility" style="display:none" class="s4-notdlg noindex">
+                <a id="linkTurnOffAcc" href="#" class="ms-accessible ms-acc-button" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
+                    <!--MS:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,master_turnoffaccessibility%&#62;" EncodeMethod="HtmlEncode">-->
+                    <!--ME:</SharePoint:EncodedLiteral>-->
+                </a>
+            </div>
+        <!--ME:</SharePoint:SPSecurityTrimmedControl>-->
+        <div id="ms-designer-ribbon">
+            <!--SID:02 {Ribbon}-->
+            <!--PS: Start of READ-ONLY PREVIEW (do not modify) --><div class="DefaultContentBlock" style="background:rgb(0, 114, 198); color:white; width:100%; padding:8px; height:64px; overflow:hidden;">The SharePoint ribbon will be here when your file is either previewed on or applied to your site.</div><!--PE: End of READ-ONLY PREVIEW -->
+        </div>
+        <!--MS:<SharePoint:SPSecurityTrimmedControl runat="server" AuthenticationRestrictions="AnonymousUsersOnly">-->
+            <!--MS:<wssucw:Welcome runat="server" EnableViewState="false">-->
+            <!--ME:</wssucw:Welcome>-->
+        <!--ME:</SharePoint:SPSecurityTrimmedControl>-->
+        <!--CE: End Ribbon Snippet-->
+        <div id="s4-workspace">
+            <div id="s4-bodyContainer">
+                <div class="wrapper">
+                    <!-- Sidebar Start -->
+                    <div class="sidebar" style="margin-left:3.5%;margin-top:1.5%;">
+                        <div class="logo-details">
+                            <span class="logo_name">
+                            </span>
+                        </div>
+                        <div class="imagenone mx-auto">
+                            <div class="card">
+                                <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx">
+                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/logo_experience_plus.png" class="" alt="..." />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lineRow" style="margin-bottom: 30px;">
+                            <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/divider1.png" alt="" style="width: 100%;" />
+                        </div>
+                        <ul class="nav-links mydiv">
+                            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx">
+                                <li class="mx-auto home">
+                                    <img class="homeimg" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/home.png" alt="" />
+                                    <span class="link_name" style="top:12px;">Home
+                                    
+                                    </span>
+                                </li>
+                            </a>
+                            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/inbox.aspx">
+                                <li class="mx-auto inbox" style="position:relative;">
+                                    <img class="notification" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/dot.png" style="position: absolute; width: 10%; background: transparent; top: 4%; left: 5%;" alt="" />
+                                    <img class="inboximg" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/inbox.png" alt="" />
+                                    <span class="link_name tab" style="top:12px;">Inbox                                        
+                                    
+                                    
+                                    
+                                    </span>
+                                </li>
+                            </a>
+                            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/manage_past_event.aspx">
+                                <li class="mx-auto manage">
+                                    <div class="icon-link">
+                                        <img class="manageimg" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/mng_past_event.png" alt="" />
+                                        <span class="link_name tab" style="top:11px;">Manage Past Events
+                                        
+                                        
+                                        
+                                        
+                                        </span>
+                                    </div>
+                                </li>
+                            </a>
+                        </ul>
+                        <div class="lineRow" style="margin-bottom: 15px;margin-top: 6%;">
+                            <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/divider1.png" alt="" style="width: 100%;" />
+                        </div>
+                        <div class="calRight">
+                            <div class="smileyWr">
+                                <div class="smiley">
+                                    <div class="smileyText">
+                                        <span class="d-flex justify-content-between">
+                                            <p>Mood Met
+                                            
+                                            
+                                            
+                                            
+                                            </p>
+                                            <p style="font-size:color:#bebebe; font-size:9px;">
+                                                <i class="fa-solid fa-calendar-days" style="margin-right:5px;">
+                                                </i>
+                                                <span id="today">
+                                                </span>
+                                            </p>
+                                        </span>
+                                        <ul>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/excited.png" alt="Excited" />
+
+
+
+
+Excited                                                                                                                                                                                                                                                                    <small id="Excited">
+                                                    </small>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/happy.png" alt="Happy" />
+
+
+
+
+Happy                                                                                                                                                                                                                                                                     <small id="Happy">
+                                                    </small>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/cool.png" alt="Cool" />
+
+
+
+
+Cool                                                                                                                                                                                                                                                                     <small id="Cool">
+                                                    </small>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/boring.png" alt="Boring" />
+
+
+
+
+Boring                                                                                                                                                                                                                                                                    <small id="Boring">
+                                                    </small>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/frustrated.png" alt="Frustrated" />
+
+
+
+
+Frustrated                                                                                                                                                                                                                                                                    <small id="Frustrated">
+                                                    </small>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/angry.png" alt="Angry" />
+
+
+
+
+Angry                                                                                                                                                                                                                                                                    <small id="Angry">
+                                                    </small>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="submitWr">
+                                    <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/MoodReport.aspx">
+                                        <small>More details
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        </small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar End -->
+                    <section class="home-section">
+                        <div class="home-content">
+                            <!-- Header Start -->
+                            <nav class="navigation d-flex align-items-center justify-content-end" style="width:95%;">
+                                <div class="leftnav d-none">
+                                    <div class=" search-box">
+                                        <input type="text" class="search-input" placeholder="Type here" />
+                                        <i class="fa fa-search" aria-hidden="true">
+                                        </i>
+                                        <span class="divider1" style="width: 34px;">
+                                            <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/divider1.png" alt="" />
+                                        </span>
+                                        <button class="search-button">
+                         Search
+                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        
+                                        </button>
+                                    </div>
+                                    <!-- <button class="btn">Create Event</button> -->
+                                </div>
+                                <div class="right-nav">
+                                    <span class="divider1 d-none" style="width: 34px;margin-right: 10px;">
+                                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/logo_experience_update_logo.svg" alt="" />
+                                    </span>
+                                    <div class="icons d-none">
+                                        <span id="iconbell">
+                                            <i class="fa-solid fa-bell">
+                                            </i>
+                                        </span>
+                                        <!-- <span id="setting">
+                            <i class="fa-solid fa-gear"></i>
+                        </span> -->
+                                    </div>
+                                    <span class="divider1" style="width: 1px;">
+                                        <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/divider2.svg" alt="" style="height:33px;" />
+                                    </span>
+                                    <div class="action"  onmouseover="menuToggle();" onmouseout="menuToggle1();">
+                                        <!-- starts profile -->
+                                        <div class="text-white d-flex align-items-center profile" style="">
+                                            <div class="">
+                                                <!--<h4>Namita Thapa
+                                                    <span class="d-block">Admin|MIS
+                                                    </span>
+                                                </h4>-->
+                                                <h4 id="username" class="username" style="color:white;">
+                                                </h4>
+                                            </div>
+                                            <div class=" d-flex justify-content-center align-items-center p_photo" style="; z-index: 111;">
+                                                <!--<img src="" alt="profile Photo"/>-->
+                                                <div id="profileimg" style="border-radius:10%;width: 50px;margin-top: 4px;">
+                                                </div>
+                                            </div>
+                                            <div class="" style="margin-left: 0px;margin-top: 12px;">
+                                                <i class="fa-solid fa-angle-down" style="font-size: 2.3rem;">
+                                                </i>
+                                            </div>
+                                        </div>
+                                        <div class="menu" style="margin-right: 2rem;width: 30rem;">
+                                            <h4 id="username1" style="color:black !important;text-align:initial;width: 100%;margin-left: 10px;margin-bottom: 25px;">
+                                            </h4>
+                                            <a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpMaster.aspx" class="btn AccessEMP">
+                                                <i class="fa-solid fa-user" style="margin-right: 10px;">
+                                                </i>
+                                                <span>Access employee portal
+                                                                  
+                                                
+                                                
+                                                
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </nav>
+                            <hr class="hr1" />
+                            <div data-name="ContentPlaceHolderMain" class="position-absolute cm_calendar">
+                                <!--CS: Start PlaceHolderMain Snippet-->
+                                <!--SPM:<%@Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
+                                <!--MS:<SharePoint:AjaxDelta ID="DeltaPlaceHolderMain" IsMainContent="true" runat="server">-->
+                                    <!--MS:<asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server">-->
+                                        <div class="DefaultContentBlock" style="border:medium black solid; background:yellow; color:white; margin:20px; padding:10px;">
+            This div, which you should delete, represents the content area that your Page Layouts and pages will fill. Design your Master Page around this content placeholder.
+                                        
+                                        
+                                        
+                                        
+                                        </div>
+                                    <!--ME:</asp:ContentPlaceHolder>-->
+                                <!--ME:</SharePoint:AjaxDelta>-->
+                                <!--CE: End PlaceHolderMain Snippet-->
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <footer class="pb-3 FA-1" style="padding: 15px 5px 10px 45px;margin-right:1%">
+                    <div class="footer row">
+                        <div class="footerleft col-sm-12 col-md-5 col-lg-1" style="display:none;">
+                            <!-- <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/logo_experience.svg"/> -->
+                        </div>
+                        <div class="footermiddle col-sm-12 col-md-6 col-lg-5 col-xl-6" style="margin-left: 3%;margin-top: 1%;">
+                            <div class="innerfoot" style="padding-left:2%">
+                                <span class="footerimg" style="width: 100%;display: flex;margin-left: -47px">
+                                    <img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/logo_experience_plus.png" style="width:30% !important; display:block;" />
+                                    <img style="width: 22%;position: relative;top: 5px;" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Powered by footer white (002)@2x.png" alt="" />
+                                </span>
+                            </div>
+                        </div>
+                        <div class="footerright col-sm-12 col-md-6 col-lg-5 col-xl-5">
+                            <div>
+                                <img style="width: 32%;float: right;position: relative;left: 34px;" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/main-logo.png" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer2 row d-flex align-items-center text-center" style="">
+                                <span style="color: #C9C9C9;font-size: 11px;;position:absolute;width: 91%;margin-bottom:20px"><i class="fa fa-copyright" style="font-weight: lighter;"></i> 2022 Amdocs
+                                </span>
+                            </div>
+                </footer>
+                <script src="https://code.jquery.com/jquery-3.6.0.js">//<![CDATA[/ 
+                
+                //]]>
+                </script>
+                <script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/js/empMoodMeter.js">//<![CDATA[
+                
+                
+                
+                //]]>
+                </script>
+                <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js">//<![CDATA[
+                
+                
+                
+                //]]>
+                </script>
+                <script src="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/active_class.js">//<![CDATA[/ 
+                
+                //]]>
+                </script>
+                <script src="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/masterPage.js">//<![CDATA[
+                
+                //]]>
+                </script>
+                <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js">//<![CDATA[
+                //]]>
+                </script>
+                <script src="https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGAdmin/AccessAdminPage.js">//<![CDATA[
+                //]]>
+                </script>
+                <script>//<![CDATA[
+			
+			    $(document).ready(function(){
+	             // alert("Page Load Successfully");
+	              //userdetails();
+                });	
+                function userdetails(){
+                	var requesturl = "https://infornt.sharepoint.com/sites/RNTENG/_api/SP.UserProfiles.PeopleManager/GetMyProperties";
+                	$.ajax({      
+                       url: requesturl,      
+                       type: "GET",      
+                      headers: {      
+                       "Accept": "application/json; odata=verbose"      
+                     },      
+                      async: false,      
+                      success: function(data) { 
+	                      console.log(data);
+	                      var results = data.d.UserProfileProperties.results; 
+	                                          
+						  $("#username").html(data.d.DisplayName);
+						  $("#username1").html(data.d.DisplayName);
+ 						  if(data.d.PictureUrl == null){
+							  $("#profileIMG,#profileIMG2,#profileIMG3").append('<img src="https://infornt-my.sharepoint.com:443/User%20Photos/Profile%20Pictures/0698e71a-47d2-495d-bc15-b9576bdf4611_MThumb.jpg" width="100" style="border-radius: 50%;display:none"/>');
+							  $("#profileimg").append('<img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/user-png-icon.png" width="100" style="border-radius: 10%;"/>');
+							  $("#profileImg").append('<img src="https://infornt-my.sharepoint.com:443/User%20Photos/Profile%20Pictures/0698e71a-47d2-495d-bc15-b9576bdf4611_MThumb.jpg" width="100" style="border-radius: 50%;"/>');
+						  }
+						  else{
+							  $("#profileIMG").append('<img src="'+data.d.PictureUrl+'" width="100" style="border-radius: 50%;"/>');
+							  $("#profileimg").append('<img src="'+data.d.PictureUrl+'" width="100" style="border-radius: 10%;"/>');
+							  $("#profileImg").append('<img src="'+data.d.PictureUrl+'" width="100" style="border-radius: 50%;"/>');
+							  $("#toggleMenuUser").html(data.d.DisplayName);
+						  }
+						  for (i = 0; i < results.length; i++) {						 
+	                    	if (results[i].Key == "Department") {
+	                        	console.log(results[i].Value);
+						    	$("#Dept").html("HO");
+						    	$("#dept").html("Consultant");
+						    	$("#toggleMenuDept").html("Developer");
+
+						        // $('input[title="Requestor Email"]').val(results[i].Value);						 
+						 	}							 
+						  }  
+                     },      
+                     error: function(error) {      
+                     console.log("fnGetUserProps:: " + error);      
+                     }      
+                 });                
+                 }		   
+				$(".arrow").on("click", function(){
+					$("#WebPartWPQ5").toggleClass("calendarWidth");
+				});
+			
+                
+                function menuToggle() {
+                //alert("test");
+            	const toggleMenu = document.querySelector('.menu');
+            	toggleMenu.classList.toggle('active');
+            		$("#username1, .angleDown #ArrowDown1").css("color","black");
+            	$(".angleDown #ArrowDown1").removeClass("fa-angle-down");
+            	$(".angleDown #ArrowDown1").addClass("fa-angle-up");
+
+        		}
+
+        		function menuToggle1() {
+            	const toggleMenu = document.querySelector('.menu');
+            	toggleMenu.classList.toggle('active');
+            	$("#username1, .angleDown #ArrowDown1").css("color","white");
+            	$(".angleDown #ArrowDown1").removeClass("fa-angle-up");
+            	$(".angleDown #ArrowDown1").addClass("fa-angle-down");
+
+
+            	}
+                
+                         
+				
+      
+                
+                
+                //]]>
+                </script>
+            </div>
+        </div>
+    </body>
+</html>

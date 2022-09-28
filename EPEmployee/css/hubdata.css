@@ -453,7 +453,11 @@ a{
   }
   .footer {
   margin: 0;
+<<<<<<< HEAD
+   width: 100% !important;
+=======
    width: 92% !important;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
    margin-left: -5px;
 }
 .footer .footerWr .footerEngPortal .square {
@@ -594,14 +598,26 @@ a{
 	width: 80%;
     margin-left: 5%;
 }
+<<<<<<< HEAD
+.textCard{
+	    left: 18rem !important;
+}
+=======
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 }
 
 @media (min-width: 1200px){
 	.mainTiles .card .textCard {
     top: 25%;
     height: 10vh;
+<<<<<<< HEAD
+        left: 21rem !important;
+    }
+    }
+=======
     }
 }
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
 @media (min-width: 1536px){
 	.mainTiles .card .textCard {

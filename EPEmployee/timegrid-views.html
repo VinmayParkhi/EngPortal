@@ -5,7 +5,7 @@
 <link href='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/css/main.css' rel='stylesheet' />  
  
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-<script type="text/javascript" src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/js/fullCalender.js"></script>
+<script type="text/javascript" src="../../SiteAssets/EngEmployee/js/fullCalender.js"></script>
 <script type="text/javascript">
 $(document).ready(function () {
 
@@ -82,7 +82,11 @@ $(document).ready(function () {
 			    	eventColor = "#C8DB88";
 			    }
 			    var EventLink = value.EventLink;
+<<<<<<< HEAD
+	       		var EventDom = "<div style='margin-bottom:1rem; display:flex; justify-content: space-between;'><span>Event Calendar</span><span><a href='https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpEventDetails.aspx?EventID="+EventId+"' style='color:#FF1762;font-weight: 600;'> More Details <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/icons8-right-arrow-24.png' alt='' class='' style='width:1.5rem;'> </a></span></div><div><div style='font-weight:600; margin-bottom:0.5rem;'>"+Title+"</div>\n<div style='margin-bottom:0.5rem;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-clock.svg' alt='' class='PopupImg' width='15' height='15'>"+StartTime+"-"+EndTime+"</div><div style='margin-bottom:0.5rem;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-calendar.svg' alt='' class='PopupImg' width='15' height='15'>"+EventDate+"</div><div style='display:flex;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-map-pin.svg' alt='' class='PopupImg' width='15' height='15'><a class='EventLink1' style='color:#6B6B6B;' href='"+EventLink+"'>"+EventLink+"</a></div></div>";
+=======
 	       		var EventDom = "<div style='margin-bottom:1rem; display:flex; justify-content: space-between;'><span>Event Calendar</span><span><a href='https://infornt.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpEventDetails.aspx?EventID="+EventId+"' style='color:#FF1762;'> More Details <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/icons8-right-arrow-24.png' alt='' class='' style='width:1.5rem;'> </a></span></div><div><div style='font-weight:600; margin-bottom:0.5rem;'>"+Title+"</div>\n<div style='margin-bottom:0.5rem;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-calendar.svg' alt='' class='PopupImg' width='15' height='15'>"+EventDate+"</div><div style='margin-bottom:0.5rem;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-clock.svg' alt='' class='PopupImg' width='15' height='15'>"+StartTime+"-"+EndTime+"</div><div style='display:flex;'> <img src='https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Icon feather-map-pin.svg' alt='' class='PopupImg' width='15' height='15'><a class='EventLink1' href='"+EventLink+"'>"+EventLink+"</a></div></div>";
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	       		//$(".fc-event-title fc-sticky").html(EventDom);	          	 
 	       		events.push({  
 	          	   title: EventDom, 	               
@@ -270,9 +274,21 @@ background: #FCF9EE 0% 0% no-repeat padding-box !important;
 	
 	width:100% !important;
 }
+
+
+#calendarModal > div {
+    width: 80%;
+    margin: auto !important;
+    margin-top: 20rem!important;
 }
 
 
+<<<<<<< HEAD
+}
+
+
+=======
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 @media (min-width:991px) and (max-width:1199px){
 	
 	
@@ -317,14 +333,18 @@ background: #FCF9EE 0% 0% no-repeat padding-box !important;
   <div id="calendarModal" class="modal fade">
 <div class="modal-dialog">
     <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style="border-bottom:none !important; margin-left: 0;">
             <button type="button" class="close" data-bs-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
             <h4 id="modalTitle" class="modal-title"></h4>
         </div>
         <div id="modalBody" class="modal-body">
         
         </div>
+<<<<<<< HEAD
+        <div class="modal-footer" style="padding: 0.5rem;margin-top: 0 !important;">
+=======
         <div class="modal-footer">
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             <a href="#" type="button" class="EventLink1" id="CalPopJoin" class="btn btn-default" >Join</a>
         </div>
     </div>

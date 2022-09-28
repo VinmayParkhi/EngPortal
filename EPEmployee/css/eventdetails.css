@@ -123,7 +123,7 @@ a {
 .eventdtlsText .eventdtlsDateTime{
     display: flex;
     align-items: center;
-    color: #6B6B6B;
+    color: #ababab;
     margin-bottom: 1.5rem;
 }
 .eventdtlsText .eventdtlsDateTime .eventdtlsClockText,
@@ -140,7 +140,7 @@ a {
     width: 1.4rem;
 }
 .eventdtlsText .eventdtlsDateTime .eventdtlsMapText div a{
-    color: #6B6B6B;
+    color: #ababab;
     text-decoration: underline;
 }
 

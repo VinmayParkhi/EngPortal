@@ -145,7 +145,11 @@ function setReminderData(){
         var oList = clientContext.get_web().get_lists().getByTitle('EPReminder');  
         var itemCreateInfo = new SP.ListItemCreationInformation();  
         this.oListItem = oList.addItem(itemCreateInfo);  
+<<<<<<< HEAD
+        oListItem.set_item('Title', reminderTitle);
+=======
         oListItem.set_item('EventTitle', reminderTitle);
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         oListItem.set_item('EventDescription', EventDesc);
         oListItem.set_item('EventDate', EventDt2);
         oListItem.set_item('ReminderMessage', reminderMessage);

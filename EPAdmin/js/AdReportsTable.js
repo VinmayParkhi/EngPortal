@@ -165,7 +165,11 @@ var siteurl ="https://infornt.sharepoint.com/sites/RNTENG";
 												
 						 {
 							"render": function(data, type, row, meta ) {      
+<<<<<<< HEAD
+						   	return '<span><img src= "../../SiteAssets/ENG-Admin/images/Group 3265.svg" alt="not available" style="margin:0px 5px; width:10%;">'+row.split("\n")[4]+'<span> - <span><img src= "../../SiteAssets/ENG-Admin/images/Icon ionic-md-sad.svg" alt="not available" style="margin:0px 5px; width:10%;">'+row.split("\n")[5]+'<span> - <span><img src= "../../SiteAssets/ENG-Admin/images/Group 3266.svg" alt="not available" style="margin:0px 5px; width:10%;">'+row.split("\n")[6]+'<span>';      
+=======
 						   	return '<span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Group 3265.svg" alt="not available" style="margin:0px 5px; width:10%;">'+row.split("\n")[4]+'<span> - <span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon ionic-md-sad.svg" alt="not available" style="margin:0px 5px; width:10%;">'+row.split("\n")[5]+'<span> - <span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Group 3266.svg" alt="not available" style="margin:0px 5px; width:10%;">'+row.split("\n")[6]+'<span>';      
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 						  }   
 						},  
 						
@@ -173,7 +177,11 @@ var siteurl ="https://infornt.sharepoint.com/sites/RNTENG";
 							"render": function(data, type, row, meta ) {    
 							var averageRating = row.split("\n")[7];
 							//alert(Number(averageRating).toFixed(1));
+<<<<<<< HEAD
+						   	return '<span><img src= "../../SiteAssets/ENG-Admin/images/Group 3265.svg" alt="not available" style="margin:0px 5px; width:10%;">'+Number(averageRating).toFixed(1)+'<span> - <span><img src= "../../SiteAssets/ENG-Admin/images/Icon ionic-md-sad.svg" alt="not available" style="margin:0px 5px; width:10%;">'+row.split("\n")[8]+'<span>';      
+=======
 						   	return '<span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Group 3265.svg" alt="not available" style="margin:0px 5px; width:10%;">'+Number(averageRating).toFixed(1)+'<span> - <span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon ionic-md-sad.svg" alt="not available" style="margin:0px 5px; width:10%;">'+row.split("\n")[8]+'<span>';      
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 						  }   
 						},  
 						//{"mData": "Reviews"},

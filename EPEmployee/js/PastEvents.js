@@ -22,7 +22,11 @@ var imageURL;
   
 
        $.ajax({
+<<<<<<< HEAD
+ 		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
+=======
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar&$filter=AuthorId eq "+userId+"",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
@@ -44,7 +48,11 @@ var imageURL;
               log(a);
               for(var j=0;j<results.length;j++){
               
+<<<<<<< HEAD
+              var id = results[j].EventID;
+=======
               var id = results[j].EventId;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
               
               log(typeof id);
               for(var i=0;i<a.length;i++){
@@ -313,7 +321,11 @@ log(IDs);
    $.ajax({
         
         
+<<<<<<< HEAD
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventID,Review,RatingAverage,Title,Created,EmpEmailID&$orderby=Created desc",
+=======
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventId,Review,RatingAverage,EmpName,Created,EmpEmailID&$orderby=Created desc",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -331,7 +343,11 @@ log(IDs);
 		        var rt5=0;
 		        var num =0;
            for(var c=0;c<res.length;c++){
+<<<<<<< HEAD
+              if(Number(res[c].EventID) === IDs[0]){
+=======
               if(Number(res[c].EventId) === IDs[0]){
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
               
                  num = num + 1;
                  
@@ -487,10 +503,17 @@ var userId = _spPageContextInfo.userId;
         
     oListItem.set_item('Review', getReviewText);
     oListItem.set_item('RatingAverage', starRating);
+<<<<<<< HEAD
+    oListItem.set_item('EventID', reviewID);
+    oListItem.set_item('Title',userName);
+    oListItem.set_item('EmpEmailID',userEmail);
+    oListItem.set_item('EmpID',userId);
+=======
     oListItem.set_item('EventId', reviewID);
     oListItem.set_item('EmpName',userName);
     oListItem.set_item('EmpEmailID',userEmail);
     oListItem.set_item('EmpId',userId);
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     oListItem.set_item('Location',Loc);
     oListItem.set_item('Department',Dept);
 
@@ -524,7 +547,11 @@ function showReviewList(){
     $.ajax
     ({   
        
+<<<<<<< HEAD
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventID,Review,RatingAverage,Title,Created,EmpEmailID&$orderby=Created desc",
+=======
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventId,Review,RatingAverage,RatingCount,EmpName,Created,EmpEmailID&$orderby=Created desc",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EpRating')/items",
        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Attachments,Pillar,Title,EventDescription,AverageRating,RatingCount,EventDate,ReviewPost,VideoURL&$expand=AttachmentFiles&$orderby=Created desc",
         method: "GET",
@@ -551,7 +578,11 @@ function showReviewList(){
           var createdTime =  moment(created).fromNow();
           
         
+<<<<<<< HEAD
+         if(Number(results[i].EventID) === reviewID){
+=======
          if(Number(results[i].EventId) === reviewID){
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
          
          
          
@@ -732,7 +763,11 @@ function AddClass(elem) {
  		/* sb */
  		//alert(test);
  		$.ajax({
+<<<<<<< HEAD
+ 		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
+=======
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar&$filter=AuthorId eq "+userId+"",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
@@ -751,11 +786,19 @@ function AddClass(elem) {
             var empId;
             for(var i=0;i<results.length;i++){
               
+<<<<<<< HEAD
+              var eventId = results[i].EventID;
+              
+            if(numID === eventId){
+            
+                 idArray.push(results[i].EventID);
+=======
               var eventId = results[i].EventId;
               
             if(numID === eventId){
             
                  idArray.push(results[i].EventId);
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                  idMatchedArray.push(results[i]);
                  itemID = results[i].ID;
                  empName = results[i].EmpName;
@@ -775,7 +818,11 @@ function AddClass(elem) {
                  var item={
   	 	"__metadata":{'type': 'SP.Data.EPFavouriteEventListItem'},
   	 	"Title": "EPFavouriteEvent",
+<<<<<<< HEAD
+   		"EventID":id,
+=======
    		"EventId":id,
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 		"EmpID":EmpId,
 		"EmpName":username,
 		"Pillar":pillar,
@@ -817,7 +864,11 @@ function AddClass(elem) {
 	   
 	   var userId = _spPageContextInfo.userId;
  $.ajax({
+<<<<<<< HEAD
+ 		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
+=======
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar&$filter=AuthorId eq "+userId+"",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 
         //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
@@ -838,7 +889,11 @@ function AddClass(elem) {
               
                 for(var j=0;j<results.length;j++){
               
+<<<<<<< HEAD
+              var id = results[j].EventID;
+=======
               var id = results[j].EventId;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             
                for(var i=0;i<a.length;i++){
                

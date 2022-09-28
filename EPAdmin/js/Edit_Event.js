@@ -55,8 +55,24 @@ function eventDetails(id){
   			//get current attachment url and pass it to global variable
   		}
   	}
+  	
+  	var EventStartTime = $("input[id='SSTime1']").val(); 	
+	var EventEndTime = $("input[id='SETime1']").val();
+	console.log(EventStartTime,EventEndTime,"times");
+	
+	function getTimeDiff(EventStartTime, EventEndTime) {
+
+  return moment.duration(moment(EventEndTime, "HH:mm:ss a").diff(moment(EventStartTime, "HH:mm:ss a")));
+}
+
+diff = getTimeDiff(EventStartTime, EventEndTime)
+var gap = (`${diff.hours()} hr: ${diff.minutes()} min`);
+console.log(gap);
+$("#duration").text(gap);
+
+
   }
-  
+
 
 function getListItem(listname,columnname,colvalue){
 	var url=_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('"+ listname +"')/items?$select=*&$filter="+ columnname +" eq '"+ colvalue +"'";
@@ -153,7 +169,7 @@ function UpdateEventPublishdata(){
 		"EventSpeakerName":evspname,
 		"EventOrganizerName":evorg,
 		"EventKeywords":evkey,
-		"Status": published
+		"EventStatus": published
 		
   	};
   	$.ajax({
@@ -220,7 +236,7 @@ function UpdateEventSavedata(){
 		"EventSpeakerName":evspname,
 		"EventOrganizerName":evorg,
 		"EventKeywords":evkey,
-		"Status": save
+		"EventStatus": save
 		
   	};
   	$.ajax({

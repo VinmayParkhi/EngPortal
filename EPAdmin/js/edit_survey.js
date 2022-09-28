@@ -20,6 +20,31 @@
      
   });
   
+    $("#sTitle,#sDesc,#sDate,#eDate,#sLink,.publishsingleSurvey").on("input", function () {    	
+        canChangeColorCreateEvent();
+    });
+    function canChangeColorCreateEvent(){  
+        var EventChange = true;  
+        $("#sTitle,#sDesc,#sDate,#eDate,#sLink,.publishsingleSurvey").each(function(){
+            if($(this).val()==''){
+                EventChange = false;
+            }
+        });
+        if(EventChange){
+            $('#UpdateSurvey').addClass("EnableBtn");  
+           // $('#AutopublishEventMain').addClass("EnableBtn");   
+            //$('#saveNowsurvey').addClass("EnableBtn"); 
+        }else{
+            $('#UpdateSurvey').removeClass("EnableBtn")             
+            //$('#AutopublishEventMain').removeClass("EnableBtn") 
+            //$('#saveNowsurvey').removeClass("EnableBtn")  
+        }
+     
+    }
+
+
+  
+  
 function eventDetails(id){
 	eventData=getListItem('EPSurvey','ID',id);
   	if(eventData!=undefined){
@@ -31,9 +56,15 @@ function eventDetails(id){
 
 
   			$("#sTitle").val(eventData.d.results[0].Title);
+<<<<<<< HEAD
+   			$("#sDesc").val(eventData.d.results[0].SurveyDescription);
+  			$("#sDate").val(Startdate);
+  			$("#eDate").val(Endtdate);
+=======
    			$("#sDesc").val(eventData.d.results[0].SurveyDescreption);
   			$("#sDate").val(Startdate );
   			$("#eDate").val(Endtdate );
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
   			$("#sLink").val(eventData.d.results[0].SurveyLink);
   			ImageUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$"+ id +"&$select=Attachments&$expand=AttachmentFiles";
 
@@ -97,6 +128,11 @@ function UpdateSurveydata(){
   	 	"SurveyStartDate":evsdate,
   	 	"SurveyEndDate":evedate,
   	 	"SurveyLink":evlink,
+<<<<<<< HEAD
+  	 	"SurveyDescription":evdesc,
+  	 	"Status": "Published"
+  	 			
+=======
   	 	"SurveyDescreption":evdesc,
   	 	"Status": "Published"
   	 	/*"EventType":evtype,
@@ -109,6 +145,7 @@ function UpdateSurveydata(){
 		"EventOrganizerName":evorg,*/
 		//"
 		
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
   	};
   	$.ajax({
 		url:_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPSurvey')/items("+ uniquID +")",

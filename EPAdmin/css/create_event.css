@@ -256,14 +256,14 @@
     right: 24px;
     top: 38px;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
   }
   .time{
-    position: absolute;
-    top: 36px;
+  position: absolute;
+    top: 39px;
     right: 22px;
     color: #fff;
-  }
+    font-size: 1.5rem;  }
 
   /* Accordion CSS */
   .accordion-body{
@@ -320,9 +320,10 @@
 
   .accordion-button::after{
     position: absolute;
-    right: 31px;
-    background: black;
+        right: 26px;
+            background: black;
     padding: 12px;
+    top: 16px;
 
   }
   .accordion-button span{

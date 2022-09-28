@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35.572" height="33.158" viewBox="0 0 35.572 33.158">
+  <g id="microsoft-teams-1" transform="translate(0.5 0.5)">
+    <circle id="Ellipse_209" data-name="Ellipse 209" cx="5.042" cy="5.042" r="5.042" transform="translate(13.324)" fill="none" stroke="#fff" stroke-width="1"/>
+    <ellipse id="Ellipse_210" data-name="Ellipse 210" cx="3.5" cy="4" rx="3.5" ry="4" transform="translate(26.286 2.859)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Path_1851" data-name="Path 1851" d="M31.183,12H22.691a.691.691,0,0,0-.691.691v8.762a5.533,5.533,0,0,0,4.286,5.493,5.408,5.408,0,0,0,6.519-5.29V13.621A1.621,1.621,0,0,0,31.183,12Z" transform="translate(1.768 -0.476)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Path_1852" data-name="Path 1852" d="M26.286,13.621V23.884a8.638,8.638,0,0,1-16.119,4.322,7.75,7.75,0,0,1-.54-1.08,9.04,9.04,0,0,1-.357-1.08A8.9,8.9,0,0,1,9,23.884V13.621A1.618,1.618,0,0,1,10.621,12H24.666a1.618,1.618,0,0,1,1.621,1.621Z" transform="translate(0.723 -0.476)" fill="none" stroke="#fff" stroke-width="1"/>
+    <path id="Path_1858" data-name="Path 1858" d="M1.44,8H15.846a1.44,1.44,0,0,1,1.44,1.44V23.846a1.44,1.44,0,0,1-1.44,1.44H1.44A1.44,1.44,0,0,1,0,23.846V9.44A1.44,1.44,0,0,1,1.44,8Z" transform="translate(0 -0.797)" fill="#fff" stroke="#fff" stroke-width="1"/>
+    <path id="Path_1859" data-name="Path 1859" d="M12.62,13.133H9.39V21.8H7.27V13.133H4.02V11.005h8.6Z" transform="translate(0.323 -0.556)" fill="none" stroke="#ff3d97" stroke-width="1"/>
+  </g>
+</svg>

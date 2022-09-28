@@ -230,21 +230,21 @@ function setReminderData(){
         var oList = clientContext.get_web().get_lists().getByTitle('EPReminder');  
         var itemCreateInfo = new SP.ListItemCreationInformation();  
         this.oListItem = oList.addItem(itemCreateInfo);  
-        oListItem.set_item('EventTitle', reminderTitle);
+        oListItem.set_item('Title', reminderTitle);
         oListItem.set_item('EventDescription', EventDesc);
         oListItem.set_item('EventDate', EventDt2);
         oListItem.set_item('ReminderMessage', reminderMessage);
         //oListItem.set_item('RemindBefore', reminderTime); 
         if(remindCheck.checked === true){
         //oListItem.set_item('Date', EventDt2); 
-        oListItem.set_item('ReminderDate', reminderDate); 
+        oListItem.set_item('ReminderDateTime', reminderDate); 
         }else if(remindCheck.checked !== true){
         
         var selectTimeValueNew = selectDateValue + " " + selectTimeValue;
         
         log(selectTimeValueNew);
         //oListItem.set_item('Date', selectDateValue); 
-        oListItem.set_item('ReminderDate',selectTimeValueNew);
+        oListItem.set_item('ReminderDateTime',selectTimeValueNew);
         } 
         
         oListItem.update();
@@ -286,9 +286,9 @@ function setReminderData(){
 	     var EventLink = results[i].EventLink;
 	     startTime = results[i].EventStartTime;
          endTime = results[i].EventEndTime;
-          excitedMood = Number(results[i].Response1);
-		  boringMood = Number(results[i].Response2);
-		 frustetedMood = Number(results[i].Response3);
+          excitedMood = Number(results[i].Excited);
+		  boringMood = Number(results[i].NotExcited);
+		 frustetedMood = Number(results[i].NotSure);
 
          moodArray.push(excitedMood);
          moodArray.push(boringMood);
@@ -412,7 +412,11 @@ function setReminderData(){
   function updatedMoodCount(){
    if(buttonClicked === true){
    $.ajax({
+<<<<<<< HEAD
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,Excited,NotExcited,NotSure&$expand=AttachmentFiles",
+=======
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,Response1,Response2,Response3&$expand=AttachmentFiles",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {

@@ -14,7 +14,10 @@ html {
     padding: 0;
     overflow-x: hidden;
     box-sizing: border-box;
+<<<<<<< HEAD
+=======
     font-size: 62.5%;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     font-family: 'Montserrat', sans-serif;
     /*background:url('https://infornt.sharepoint.com/sites/RNTENG/_catalogs/masterpage/ENG_MasterPage/ENGUser/images/page_background.png');*/
 }
@@ -278,7 +281,11 @@ ul.breadcrumb li {
 .workcardBottomWr .pasteventsCard .pasteventsDetails p {
     color: #e5e5e5;
     margin-bottom:2px !important;
+<<<<<<< HEAD
+    height:auto;
+=======
     height:6vh;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 }
 
 .upcomingeventsDetails .upcomingeventsDate_Time,
@@ -366,10 +373,18 @@ ul.breadcrumb li {
     border-radius: 0.5rem;
 }*/
 .upcomingeventsBtn .upcomingeventsReminder .setReminder{
+<<<<<<< HEAD
+	/*background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%);*/
+    padding: 0.8rem 7rem;
+    border-radius: 0.5rem;
+    /*margin-right: 3rem;*/
+        background-color: #232323;
+=======
 	background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%);
     padding: 0.8rem 7rem;
     border-radius: 0.5rem;
     /*margin-right: 3rem;*/
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 }
 .upcomingeventsBtn .upcomingeventsJoin a {
     background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%);

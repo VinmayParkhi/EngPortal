@@ -128,7 +128,11 @@ function addZero(i) {
 function GetUpcomingEvents(today) {
     var today= moment().format('YYYY-MM-DDTHH:mm:SS');
    $.ajax({
+<<<<<<< HEAD
+       url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=*,Attachments&$expand=AttachmentFiles&$filter=(Pillar eq 'Life') and (EventStatus eq 'Published') and (EventEndTime ge '"+today+"')&$orderby=Created desc",
+=======
        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=*,Attachments&$expand=AttachmentFiles&$filter=(Pillar eq 'Life') and (EventEndTime ge '"+today+"')&$orderby=Created desc",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
        method: "GET",
        headers:
           {
@@ -186,10 +190,17 @@ function GetUpcomingEvents(today) {
 	                $(".eventlist").append('<div id="upcomEvent" class="col-4 card uce"> <span class="img"> <img src="'+a+'" alt=""></span> <div class="card-data"> <small><label id="pillar" class="'+pillar+'">'+pillar+'</label></small><span>'+EventTitle+'</span>'+
 	                                       '<p id="EventDesc">'+EventDescription+'</p> <span style="display:flex;"> <span class="date" style="display:flex; align-items:baseline;"><img style="width:10%; margin-right:6px;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-calendar.svg" alt="Mail">'+
 	                                       '<label>'+EventFullDates+'</label> </span> <span class="timedata" style="display:flex; align-items:baseline;"><img style="width:14%; margin-right:6px;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-clock.svg" alt="Message">'+EventStartTime+'</span> </span> <span class="card-bottom">'+
+<<<<<<< HEAD
+	                                       '<span class="card-left"> <a href="#"><img src= "../../SiteAssets/ENG-Admin/images/excited.png" alt=""><small>'+ExcitedMoodData+'</small></a>'+
+	                                       '<a href="#"><img src= "../../SiteAssets/ENG-Admin/images/boring.png" alt=""><small>'+BoringMoodData+'</small></a>'+
+	                                       '<a href="#"><img src= "../../SiteAssets/ENG-Admin/images/frustrated.png" alt=""><small>'+FrustetedMoodData+'</small></a></span>'+
+	                                       '<span class="card-right"> <button class="btn btn-edit"><a href= "../../SitePages/Admin/edit_event.aspx?EventID='+EventId+'"">Edit</a></button></span> </span> </div> </div>'); 
+=======
 	                                       '<span class="card-left"> <a href="#"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/excited.png" alt=""><small>'+ExcitedMoodData+'</small></a>'+
 	                                       '<a href="#"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/boring.png" alt=""><small>'+BoringMoodData+'</small></a>'+
 	                                       '<a href="#"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/frustrated.png" alt=""><small>'+FrustetedMoodData+'</small></a></span>'+
 	                                       '<span class="card-right"> <button class="btn btn-edit"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/edit_event.aspx?EventID='+EventId+'"">Edit</a></button></span> </span> </div> </div>'); 
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	                                                       
 	           } // for loop End
            }else{
@@ -292,10 +303,17 @@ function SelectedDateUpcomingEvents(sd,ed) {
                 $(".eventlist").append('<div class="card me-3 my-2 monthlyEvent"> <span class="img"> <img src="'+a+'" alt=""></span> <div class="card-data"> <small><label id="pillar" class="'+pillar+'">'+pillar+'</label></small><span>'+EventTitle+'</span>'+
                                        '<p id="EventDesc">'+EventDescription+'</p> <span style="display:flex;"> <span class="date" style="display:flex; align-items:baseline;"><img style="width:10%; margin-right:6px;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-calendar.svg" alt="Mail">'+
                                        '<label>'+EventFullDates+'</label> </span> <span class="timedata" style="display:flex; align-items:baseline;"><img style="width:14%; margin-right:6px;" src="https://infornt.sharepoint.com/SiteAssets/ENGEmployee/IMAGES/Icon feather-clock.svg" alt="Message">'+localDate+'</span> </span> <span class="card-bottom">'+
+<<<<<<< HEAD
+                                       '<span class="card-left"> <a href="#"><img src= "../../SiteAssets/ENG-Admin/images/excited.png" alt=""><small>'+ExcitedMoodData+'</small></a>'+
+                                       '<a href="#"><img src= "../../SiteAssets/ENG-Admin/images/boring.png" alt=""><small>'+BoringMoodData+'</small></a>'+
+                                       '<a href="#"><img src= "../../SiteAssets/ENG-Admin/images/frustrated.png" alt=""><small>'+FrustetedMoodData+'</small></a></span>'+
+                                       '<span class="card-right"> <button class="btn btn-edit"><a href= "../../SitePages/Admin/edit_event.aspx?EventID='+EventId+'">Edit</a></button></span> </span> </div> </div>'); 
+=======
                                        '<span class="card-left"> <a href="#"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/excited.png" alt=""><small>'+ExcitedMoodData+'</small></a>'+
                                        '<a href="#"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/boring.png" alt=""><small>'+BoringMoodData+'</small></a>'+
                                        '<a href="#"><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/frustrated.png" alt=""><small>'+FrustetedMoodData+'</small></a></span>'+
                                        '<span class="card-right"> <button class="btn btn-edit"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/edit_event.aspx?EventID='+EventId+'">Edit</a></button></span> </span> </div> </div>'); 
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                                                        
            } // for loop End	
            }else{

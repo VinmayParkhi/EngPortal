@@ -1,7 +1,14 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<style>
+<style type="text/css">
+
+.delBtn{
+    margin-top: -45px;
+    width: 13.5rem;
+    /*border: 1px solid red;*/
+    margin-right: -22px;
+	}
 
 #groupid{
 	display: flex;
@@ -16,8 +23,6 @@
 	background-color: black !important;
 	width: 30%;
 	border-radius:10px;
-	/*height:60%;*/
-	/*margin-right:5rem;*/
 }
 
 .card-image {
@@ -29,11 +34,25 @@
     padding-left: 0;
 }
 .breadcrumb-item+.breadcrumb-item::before{
+<<<<<<< HEAD
+	color: #E5E5E5;
+}
+.ETlefticon{
+    color: #fff;
+    /*position: absolute;*/
+    background: #000;
+    border-radius: 25px;
+    border: 1.5px solid #ff3d97;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 9px;
+=======
 	    color: #E5E5E5;
 }
 .lefticon{
 	right:8px !important;
 	    color: #fff;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 }
 @media (min-width: 992px) and (max-width: 1200px){
        #groupid {
@@ -49,6 +68,10 @@
 }
 
 .card-image {
+<<<<<<< HEAD
+    padding: 30px 35px;
+   }   
+=======
     padding: 40px 30px;
    }
    
@@ -59,17 +82,22 @@
     
     }
    
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
    }
    
    @media (min-width: 1200px) and (max-width: 1400px){
-    .card-image {
-    padding: 45px 70px;
-   }
+    /*.card-image {
+    padding: 45px 58px;
+   }*/
    #groupid {
         width: 98%;
         height: 96vh;
    }
-   .lefticon {
+   .delBtn {
+    margin-top: -61px;
+    margin-right: -77px;
+}
+   .ETlefticon{
     font-size: 11px;
     padding: 5px 10px;   
     }
@@ -82,23 +110,33 @@
 	    width: 91.5% !important;
     margin-left: 3.5% !important;
  }
+<<<<<<< HEAD
+=======
 .lefticon{
 	/*left:2%;*/
 	right:none !important;
 
 }
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 .FA-1{
 	   width: 93% !important;
     margin-left: 3.5% !important;
     }
+}
 
 
 }
 
  @media (min-width: 1366px){
     .card-image {
-    padding: 45px 80px;
+    padding: 65px 80px;
    }
+<<<<<<< HEAD
+   .delBtn {
+    margin-top: -80px;
+    margin-right: -115px;
+}
+=======
    
    .lefticon {
         /*left: 10px;*/
@@ -106,6 +144,7 @@
     
     }
 
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     }
     
     @media (min-width: 1400px)and (max-width: 1600px){
@@ -114,6 +153,56 @@
 	}
 .emp-card{
 	width:27%;
+<<<<<<< HEAD
+}
+.card{
+	margin: 10px 12px;
+    margin-right: 3.5%;
+    /*height:47%;*/
+}
+#s4-bodyContainer > div > div{
+	min-height:102vh !important;
+}
+.card {
+	margin: 18px 30px;
+}
+.head-right{
+	margin-right:7%;
+}
+.head-right{
+	    margin-right: 3%;
+    width: 28.5%;
+}
+#WebPartWPQ5 > div.ms-rtestate-field > div.event-head.d-flex.justify-content-between.align-items-center > div:nth-child(2) > div > button
+{
+	text-align:end;
+}
+.head-right{
+	display:inline;
+}
+.event-head {
+    padding: 0px 34px;
+    margin-left: 2%;
+}
+.home-section hr{
+	width: 89%!important;
+    margin-left: 4.5% !important;
+}
+}
+    
+    
+@media (min-width: 1600px)and (max-width: 1900px){
+#groupid {
+    height: 93vh;
+}
+.card-image {
+    padding: 75px 92px;
+}
+.delBtn {
+    margin-top: -88px;
+    margin-right: -140px;
+}
+=======
 }
 .card{
 	margin: 10px 12px;
@@ -163,19 +252,24 @@ lefticon{
 
 .card-image {
     padding: 95px 115px;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 }
-    }
     
     @media (min-width: 1900px){
      .card-image {
     padding: 125px 157px;
 }
-
-
-.lefticon {
+.delBtn {
+    margin-top: -149px;
+    margin-right: -267px;
+}
+.ETlefticon{
      font-size: 25px;
     padding: 5px 15px;
     }
+    .card-image{
+	margin-top: 34px;
+}
 }
 </style>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -192,7 +286,7 @@ $(document).ready(function () {
 		headers: {
 			"accept": "application/json;odata=verbose"
 		},
-		success: function (data) { debugger;
+		success: function (data) {
 			if(data.d.results.length > 0 )
 			{
 				for(i=0;i<data.d.results.length;i++){
@@ -242,7 +336,11 @@ $.ajax({
 					dept = "O365"
 				}
 			}         
+<<<<<<< HEAD
+			$("#groupid").append("<div class='card emp-card' style=''><div class='d-flex flex-column align-items-center card-image mx-auto'><div class='d-flex justify-content-end align-items-center delBtn'><p class='ETlefticon' onclick='DeleteCard(this.id);' id="+data.d.AccountName+"><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p></div><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div></div>");                                                    
+=======
 			$("#groupid").append("<div class='card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard(this.id);' id="+data.d.AccountName+"><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div></div>");                                                    
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 		},
 		error: function (error){
 			console.log(error);
@@ -306,12 +404,20 @@ function openDialog(pageUrl) {
 <body>
 <div class="event-head d-flex justify-content-between align-items-center">
                         <div class="head-left">
+<<<<<<< HEAD
+                        <span class="arrow"><a href="../../SitePages/Admin/home.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a> 
+=======
                         <span class="arrow"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a> 
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                            
                             </span><h4>Experience+ Team</h4>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
+<<<<<<< HEAD
+                                  <li class="breadcrumb-item"><a href="../../SitePages/Admin/home.aspx">Home</a></li>
+=======
                                   <li class="breadcrumb-item"><a href="https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx">Home</a></li>
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
                                   <li class="breadcrumb-item active" aria-current="page">Experience+ Team</li>
                                 </ol>
                                 <span style="font-size: 10px; font-style: italic; color: #FCF9EE; opacity: 0.7;"></span>

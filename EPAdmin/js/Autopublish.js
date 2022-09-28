@@ -72,8 +72,13 @@
 	"EventOrganizerName": $("input[id='evOrg']").val(),
 	"EventKeywords": $("input[id='evKey']").val(),
 	"EventLink": $("input[id='evLink']").val(),
+<<<<<<< HEAD
+	"EventStatus": "Autopublish",
+	"AutoPublishDateTime": publisheventstatus,	
+=======
 	"Status": "Autopublish",
 	"AutoPublishDateTime": $("#Date").val() +" "+ $("#Time").val(),	
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 	"Files": fileArray 
 	}); 
 	
@@ -100,7 +105,10 @@
  var itemCreateInfo = new SP.ListItemCreationInformation(); 
  var listItem = targetList.addItem(itemCreateInfo);
   
+<<<<<<< HEAD
+=======
  listItem.set_item("Title","Title123"); 
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  listItem.set_item("EventType", listValues[0].EventType);
  listItem.set_item("Title", listValues[0].Title); 
  listItem.set_item("Pillar", listValues[0].Pillar);
@@ -112,7 +120,11 @@
  listItem.set_item("EventOrganizerName", listValues[0].EventOrganizerName);  
  listItem.set_item("EventKeywords", listValues[0].EventKeywords); 
  listItem.set_item("EventLink", listValues[0].EventLink);
+<<<<<<< HEAD
+ listItem.set_item("EventStatus", listValues[0].EventStatus);
+=======
  listItem.set_item("Status", listValues[0].Status);
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
  listItem.set_item("AutoPublishDateTime", listValues[0].AutoPublishDateTime);
  listItem.update(); 
  context.executeQueryAsync( 

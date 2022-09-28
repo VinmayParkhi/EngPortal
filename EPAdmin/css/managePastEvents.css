@@ -52,7 +52,11 @@
         }
 
         #dataTable6_filter>label>input[type=search] {
+<<<<<<< HEAD
+            width: 192px;
+=======
             width: 230px;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             height: 21px;
             background: #232323 0% 0% no-repeat padding-box;
             border: 1px solid #4E4E4E;
@@ -64,10 +68,17 @@
         }
         .calenderView{
             position: absolute;
+<<<<<<< HEAD
+            right: 23px;
+            color: #fff;
+            z-index: 111;
+            width: 28%;
+=======
             right: 11px;
             color: #fff;
             z-index: 111;
             width: 30%;
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             top: 25px;
             font-size: 11px;
             color: #AFAFAF;

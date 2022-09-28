@@ -43,7 +43,11 @@ function GetOngoingSurvey() {
  	//var today= new Date();
  	var today= moment().format('YYYY-MM-DDTHH:mm:SS');
     $.ajax({
+<<<<<<< HEAD
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescription,SurveyEndDate,SurveyLink&$expand=AttachmentFiles&$filter= SurveyEndDate ge '"+today+"'&$orderby=Created desc",
+=======
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescreption,SurveyEndDate,SurveyLink&$expand=AttachmentFiles&$filter= SurveyEndDate ge '"+today+"'&$orderby=Created desc",
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
         method: "GET",
         headers:
            {
@@ -58,7 +62,7 @@ function GetOngoingSurvey() {
                //EventFullDates = moment(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');
          	   var SurveyId = data.d.results[i].ID;
                var SurveyTitle= data.d.results[i].Title;
-               var SurveyDescreption = data.d.results[i].SurveyDescreption;
+               var SurveyDescreption = data.d.results[i].SurveyDescription;
                var SurveyLink = data.d.results[i].SurveyLink;
                AverageRating  = data.d.results[i].AverageRating;  
 				var j = i+1;

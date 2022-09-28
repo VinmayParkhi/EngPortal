@@ -19,12 +19,12 @@ function contactList(SPListName) {
 	var siteUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/GetByTitle('EPContactUs')/Items"
 	var data = {
 		__metadata: { 'type': 'SP.Data.EPContactUsListItem' },
-		EmpName: $("input[id='MemberName']").val(),
+		Title: $("input[id='MemberName']").val(),
 		Category: Category,
 		Message: $("textarea#comments").val(),
 		EmpEmailID : $("#userEmail").html(),
 		Status :"Unread",
-		Title: SPListName
+		//Title: SPListName
 	}
 	console.log(data);
 	$.ajax({

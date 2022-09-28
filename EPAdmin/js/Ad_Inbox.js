@@ -51,6 +51,11 @@ $(document).ready(function() {
 /*sb start*/
 
    var fromDateCh;
+<<<<<<< HEAD
+   var toDateCh;
+   
+=======
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
     $("#from-date").datepicker({
       dateFormat: "dd M, yy",
       changeMonth: true,
@@ -62,19 +67,8 @@ $(document).ready(function() {
                 
                 log(fromDateCh);
                 
-            }
-    });
-    
-   
-    $("#to-date").datepicker({
-      dateFormat: "dd M, yy",
-      changeMonth: true,
-      changeYear: true,
-
-      onSelect: function (dateText) {
-                var date2 = $(this).val();
-                var toDateCh = moment.utc(date2).format('DD/MM/YYYY')
-                //log(fromDate)
+<<<<<<< HEAD
+                if(toDateCh !== undefined){
                 var siteurl = "https://infornt.sharepoint.com/sites/RNTENG";
 
                   var url = siteurl+ "/_api/web/lists/getbytitle('EPContactUs')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby = Created desc";
@@ -123,6 +117,82 @@ $(document).ready(function() {
             }/*success end*/
             
             });
+
+                };
+                
+=======
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
+            }
+    });
+    
+   
+    $("#to-date").datepicker({
+      dateFormat: "dd M, yy",
+      changeMonth: true,
+      changeYear: true,
+
+      onSelect: function (dateText) {
+                var date2 = $(this).val();
+<<<<<<< HEAD
+                toDateCh = moment.utc(date2).format('DD/MM/YYYY')
+                //log(fromDate
+                if(fromDateCh !== undefined){
+=======
+                var toDateCh = moment.utc(date2).format('DD/MM/YYYY')
+                //log(fromDate)
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
+                var siteurl = "https://infornt.sharepoint.com/sites/RNTENG";
+
+                  var url = siteurl+ "/_api/web/lists/getbytitle('EPContactUs')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby = Created desc";
+                  //var url = siteurl+ "/_api/web/lists/getbytitle('TestList')/items?&$select=*";
+               console.log(url);        
+
+     $.ajax({
+
+            url: url,
+
+            type: "GET",
+
+            dataType: "json",
+
+            headers: {
+                    "accept": "application/json;odata=verbose"
+            },
+
+            success: function (data) {
+            var res = data.d.results;
+              log(data)
+              //log(fromDate)
+              //log(date2)
+              
+              
+              //var frmdt = new Date(fromDate);
+              var filterData = [];
+              
+              for(var k=0;k<res.length;k++){
+                  var eventDt = res[k].Created;
+                   var Edate = moment.utc(eventDt).format('DD/MM/YYYY')
+                   //var newEdate = new Date(Edate);
+                   log(Edate)
+                    //log(newEdate)
+                   //log(fromDate == Edate)
+                  if(Edate >= fromDateCh && Edate <= toDateCh){
+                      //alert('date matched');
+                      filterData.push(res[k]);
+                      log(res[k]);
+                      
+                      
+                   }/* if end*/
+                   
+              }/*for end*/
+              successFuncFltr(filterData);
+            }/*success end*/
+            
+            });
+<<<<<<< HEAD
+            }
+=======
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
          }
     });
   /*sb end*/  
@@ -319,6 +389,10 @@ function loadListItems() {
             },
 
             success: function (data) {
+<<<<<<< HEAD
+            
+=======
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
             		dataresults = data.d.results.length;
 
                 if(data.d.results.length > 0 )
@@ -431,7 +505,11 @@ var siteurl ="https://infornt.sharepoint.com/sites/RNTENG";
 
                          {
 			                  "render": function(data, type, row, meta ) {              
+<<<<<<< HEAD
+			                  return '<h7 id="event-pillar" class="'+row.Title+'">'+row.Title+'</h7></br><h6 class="event-desc" style="font-size:11px !important;font-weight: 300 !important;">'+row.EmpEmailID+'</h6>'; }
+=======
 			                  return '<h7 id="event-pillar" class="'+row.EmpName+'">'+row.EmpName+'</h7></br><h6 class="event-desc" style="font-size:11px !important;font-weight: 300 !important;">'+row.EmpEmailID+'</h6>'; }
+>>>>>>> bdf0b129be5c2250ab0e559a940604f01c6b56b8
 			              },
                         
                         {"mData": "Category"},

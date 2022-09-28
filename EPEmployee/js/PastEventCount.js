@@ -1,7 +1,5 @@
 var CurrentDate;
 var EventID;
-
-
 var EventDates ;               
 var EventFullDates ;
 var EventTime ;

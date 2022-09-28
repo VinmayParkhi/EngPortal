@@ -227,8 +227,8 @@ function createList(listName2) {
 var siteUrl = _spPageContextInfo.webAbsoluteUrl+ "/_api/web/lists/GetByTitle('EPThought')/Items";
 var data = {
 __metadata: { 'type': 'SP.Data.EPThoughtListItem' },
-Thought: $("#textfield").val(),
-Title: listName2
+Title: $("#textfield").val(),
+//Title: listName2
 }
 $.ajax({
 url: siteUrl,
@@ -417,8 +417,8 @@ function ThoughtList(listName1) {
 var siteUrl = _spPageContextInfo.webAbsoluteUrl+ "/_api/web/lists/GetByTitle('EPThought')/Items";
 var data = {
 __metadata: { 'type': 'SP.Data.EPThoughtListItem' },
-Thought: $("#textfield").val(),
-Title: listName1
+Title: $("#textfield").val(),
+//Title: listName1
 }
 $.ajax({
 url: siteUrl,
