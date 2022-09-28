@@ -297,7 +297,7 @@ setInterval(GetAutoPublish, 10000);
 function GetAutoPublish() {
  	var today = moment().format('YYYY-MM-DDTHH:mm:00'); 	
  	$.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Status,AutoPublishDateTime&$filter=(Status eq 'Autopublish') and ( AutoPublishDateTime le '"+today+"')&$orderby=Created desc",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,EventStatus,AutoPublishDateTime&$filter=(EventStatus eq 'Autopublish') and ( AutoPublishDateTime le '"+today+"')&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -309,7 +309,7 @@ function GetAutoPublish() {
             console.log(dataresults);
 				if(dataresults.length > 0){
                var AutoPublishDate =data.d.results[0].AutoPublishDateTime;               
-               var Status = data.d.results[0].Status;
+               var Status = data.d.results[0].EventStatus;
                		var ID = data.d.results[0].ID;
                		console.log(AutoPublishDate +" "+ Status +" "+ ID);
                UpdatePublish(ID);
@@ -325,7 +325,7 @@ function UpdatePublish(id) {
 	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items("+id+")"
 	var item = {
 		__metadata: { 'type': 'SP.Data.EPEventListItem' },
-  		"Status":"Published"
+  		"EventStatus":"Published"
   		//"AutoPublishDate" : ""
   	}
 	//console.log(data);
@@ -363,7 +363,7 @@ setInterval(UpDateComplete, 10000);
 function UpDateComplete() {
  	var today = moment().format('YYYY-MM-DDTHH:mm:00'); 	
  	$.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Status,EventEndTime&$filter=(Status eq 'Published') and ( EventEndTime le '"+today+"')&$orderby=Created desc",   
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,EventStatus,EventEndTime&$filter=(EventStatus eq 'Published') and ( EventEndTime le '"+today+"')&$orderby=Created desc",   
         method: "GET",
         headers:
            {
@@ -372,10 +372,9 @@ function UpDateComplete() {
            
         success: function (data, status, xhr) {
            var dataresults = data.d.results;
-            console.log(dataresults);
 				if(dataresults.length > 0){
                var AutoPublishDate =data.d.results[0].EventEndTime;               
-               var Status = data.d.results[0].Status;
+               var Status = data.d.results[0].EventStatus;
                		var ID = data.d.results[0].ID;
                		console.log(AutoPublishDate +" "+ Status +" "+ ID);
                UpdateCompleted(ID);
@@ -391,7 +390,7 @@ function UpdateCompleted(id) {
 	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items("+id+")"
 	var item = {
 		__metadata: { 'type': 'SP.Data.EPEventListItem' },
-  		"Status":"Completed",
+  		"EventStatus":"Completed",
   		//"AutoPublishDate" : ""
   	}
 	//console.log(data);

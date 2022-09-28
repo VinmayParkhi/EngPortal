@@ -2,71 +2,16 @@
  var attcount = 0; 
  var arraycount = 0; 
  var Pillar;
- var Etype;  
+ var Etype;
  $(document).ready(function() { 
-  const tod = new Date();
-const yyyy = tod.getFullYear();
-let mm = tod.getMonth() + 1; 
-let dd = tod.getDate();
-var hour = tod.getHours();
-var minute = tod.getMinutes();
-
-if (dd < 10) dd = '0' + dd;
-if (mm < 10) mm = '0' + mm;
-
-const formattedToday = yyyy + '-' + mm + '-' + dd;
-console.log(formattedToday,"today's Date");
-$('document').ready(function(){
-    
-    $('#SSTime1').timepicker({
-        interval:30,
-    });
-    var pickedDate;
-    $("#sEdate").datepicker({
-	        dateFormat: 'yy-mm-dd',
-	        changeMonth: true,
-	        changeYear: true,
-	        minDate: "-0Y",
-	        maxDate: "+10Y",
-	        yearRange: "1900:2100"  
-	    });
-        
-        $("#sEdate").on("change",function(){
-        var selected = $(this).val();
-        pickedDate = selected;
-        console.log(pickedDate,"selected Date");
-    });
-
-    $('#sEdate').on("change", function() {
-        if(pickedDate == formattedToday){
-            console.log("inside if");
-            $('#SSTime1').timepicker('option', 'minTime', "" + hour + ":" + minute + "");
-            $('#SSTime1').timepicker('option', 'interval', '30');
-            
-            $('#SETime1').timepicker('option', 'minTime', "" + hour + ":" + minute + "");
-            $('#SETime1').timepicker('option', 'interval', '30');
-
-        }else{
-            console.log("inside else");
-            $('#SSTime1').timepicker('option', 'minTime', '00:00am');
-            $('#SSTime1').timepicker('option', 'maxTime', '12:00pm');
-            
-            $('#SETime1').timepicker('option', 'minTime', '00:00am');
-            $('#SETime1').timepicker('option', 'maxTime', '12:00pm');
-
-       
-        }
-    });
-});
  //$('#file_input').multifile();//For facilitate multi file upload 
   
- $("#PublishEvent").click(function() {formCreateNowSingle()}); 
+ $("#saveNow").click(function() {formSaveNowSingle()}); 
      
-      
+     
      
    
  $("select.pillar").change(function(){
- debugger;
         Pillar = $(this).children("option:selected").val();
 
     });
@@ -76,7 +21,7 @@ $('document').ready(function(){
     });
 
   $("#PublishEventBtn1 > div > div > div.modal-footer > button").click(function(){
-    //alert("The paragraph was clicked.");
+    alert("The paragraph was clicked.");
     
     
     $(".single-day input").val("");
@@ -84,32 +29,12 @@ $('document').ready(function(){
     $(".single-day select").val("");
   });
 
-    $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evSpeaker,#evOrg,#evKey,.SingleDayEventUpload").on("input", function () {    	
-        canChangeColorCreateEvent();
-    });
-    function canChangeColorCreateEvent(){  
-        var EventChange = true;  
-        $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evSpeaker,#evOrg,#evKey,.SingleDayEventUpload").each(function(){
-            if($(this).val()==''){
-                EventChange = false;
-            }
-        });
-        if(EventChange){
-            $('.publishSingleDay').addClass("EnableBtn");  
-            $('#AutopublishEvent').addClass("EnableBtn");   
-            $('#saveNow').addClass("EnableBtn"); 
-        }else{
-            $('.publishSingleDay').removeClass("EnableBtn")             
-            $('#AutopublishEvent').removeClass("EnableBtn") 
-            $('#saveNow').removeClass("EnableBtn")  
-        }
-     
-    }
-});
+
      
      
+  });
   
- function formCreateNowSingle() { 
+ function formSaveNowSingle() { 
  	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
 	 var data = []; 
 	 var fileArray = []; 
@@ -138,13 +63,13 @@ $('document').ready(function(){
 	"EventOrganizerName": $("input[id='evOrg']").val(),
 	"EventKeywords": $("input[id='evKey']").val(),
 	"EventLink": $("input[id='evLink']").val(),
-	"EventStatus": "Published",
+	"EventStatus": "Draft",
 	"Files": fileArray 
 	}); 
 	
     
     
-	createNewItemWithAttachmentsEvent("EPEvent", data).then( 
+	createNewItemWithAttachmentsSaveNow("EPEvent", data).then( 
 	function() { 
 	//if (oLoader.close) setTimeout(function () { oLoader.close(); }, 3000); 
 	//window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");   
@@ -155,7 +80,7 @@ $('document').ready(function(){
 } 
   
   
- var createNewItemWithAttachmentsEvent= function(listName, listValues) { 
+ var createNewItemWithAttachmentsSaveNow = function(listName, listValues) { 
  var fileCountCheck = 0; 
  var fileNames; 
  var context = new SP.ClientContext.get_current(); 
@@ -184,7 +109,7 @@ $('document').ready(function(){
  var id = listItem.get_id(); 
  if (listValues[0].Files.length != 0) { 
  if (fileCountCheck <= listValues[0].Files.length - 1) { 
- loopFileUploadEvent(listName, id, listValues, fileCountCheck).then( 
+ loopFileUploadSaveNow(listName, id, listValues, fileCountCheck).then( 
  function() { 
  }, 
  function(sender, args) { 
@@ -205,20 +130,9 @@ $('document').ready(function(){
  return dfd.promise(); 
  } 
   
-  function SetTimeComplete(){
-  
-  var eventdate = new Date(); 
-  	eventdate = moment.utc(eventdate).format("YYYY/MM/DD HH:mm");
-  if(eventdate == EventEndDateTime){
-  		SetCompleteInList();
-  }
-  
-  }
-  
-  
- function loopFileUploadEvent(listName, id, listValues, fileCountCheck) { 
+ function loopFileUploadSaveNow(listName, id, listValues, fileCountCheck) { 
  var dfd = $.Deferred(); 
- uploadFileHolderEvent(listName, id, listValues[0].Files[fileCountCheck].Attachment).then( 
+ uploadFileHolderSaveNow(listName, id, listValues[0].Files[fileCountCheck].Attachment).then( 
  function (data) { 
  var objcontext = new SP.ClientContext(); 
  var targetList = objcontext.get_web().get_lists().getByTitle(listName); 
@@ -228,7 +142,7 @@ $('document').ready(function(){
  console.log("Reload List Item- Success"); 
  fileCountCheck++; 
  if (fileCountCheck <= listValues[0].Files.length - 1) { 
- loopFileUploadEvent(listName, id, listValues, fileCountCheck); 
+ loopFileUploadSaveNow(listName, id, listValues, fileCountCheck); 
  } else { 
  console.log(fileCountCheck + ": Files uploaded"); 
  attcount += fileCountCheck; 
@@ -253,7 +167,7 @@ $('document').ready(function(){
   
   //File Upload code
   
- function uploadFileHolderEvent(listName, id, file) { 
+ function uploadFileHolderSaveNow(listName, id, file) { 
 	 //file = $(this)[0].files[0];
 
  	var getFileBuffer = function(file) {
@@ -276,7 +190,7 @@ $('document').ready(function(){
 
  };
 
- getFileBufferEvent(file).then(function(buffer) {
+ getFileBufferSaveNow(file).then(function(buffer) {
 
  $.ajax({
 
@@ -323,7 +237,7 @@ $('document').ready(function(){
 
 
  
- function getFileBufferEvent(file) { 
+ function getFileBufferSaveNow(file) { 
  var deferred = $.Deferred(); 
  var reader = new FileReader(); 
  reader.onload = function(e) { 
@@ -335,39 +249,5 @@ $('document').ready(function(){
  reader.readAsArrayBuffer(file); 
  return deferred.promise(); 
  } 
- 
- 
-/*function SetCompleteInList(){
- 	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items("+userId+")";
-	var data = {
-		__metadata: { 'type': 'SP.Data.EPEventListItem' },  		
-		"Status": Completed		
-	}
-	console.log(data);
-	$.ajax({
-		url: siteUrl,
-		method: "POST",
-		async:false,
-		data: JSON.stringify(data),
-		headers: {
-				"accept": "application/json;odata=verbose",
-				"content-type": "application/json;odata=verbose",
-				"X-RequestDigest": $("#__REQUESTDIGEST").val(),
-				"IF-MATCH":"*",
-				"X-HTTP-Method":"MERGE"
-		},
-		success: SuccessFunction,
-		error: ErrorFunction
-	});
-}
-
-function SuccessFunction(data) {
-alert("test Success");
-}
-
-function ErrorFunction(error) {
-alert('Error!' +error.responseText);
-}*/
-
   
  

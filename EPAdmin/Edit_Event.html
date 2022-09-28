@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engagement Portal</title>
-    <meta charset="UTF-8">
-     <link href="../../../_catalogs/masterpage/AdminMaster/New_Admin/All_CSS/botstrap.css" rel="stylesheet">
+     <link type="text/css" href="../../../_catalogs/masterpage/AdminMaster/New_Admin/All_CSS/botstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -29,6 +28,20 @@
 	 <script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/jquery.multifile.js"></script> 
 
 	<style type="text/css">
+	/* starts enabling-disabling button for validation */
+	
+	#UpdateEvent, #AutopublishEvent, #SaveForNow{
+		pointer-events:none;
+	}
+	.EnableBtn{
+	 background: linear-gradient(180deg , #DE8601 0%, #FF3D97 100%) !important;
+    font-size: 11px;
+    color:#fff !important;
+    pointer-events:auto !important;
+	}
+
+	/* ends enabling-disabling button for validation */
+
 	.nocolor{
 	background-color: transparent;
 	}
@@ -148,7 +161,6 @@ float:right;
     visibility: visible;
     opacity: 0;
 }
-
 	</style>
 
 
@@ -189,8 +201,8 @@ float:right;
                 </div>-->
                 <div class="a-button ms-auto">
                     <button type="button" class="btn border Save" data-bs-toggle="modal" data-bs-target="#saveEventBtn" id="SaveForNow" value="Draft" style="border: none;background: transparent;">Save for now</button>
-                    <button data-bs-toggle="modal" data-bs-target="#AutopublishModal" class="w3-button bg-transparent" id="AutopublishEvent" type="button" class="btn border" value="Autopublish">Edit Autopublish</button>
-                    <button  type="button" class="btn p-button border-transparent publishSingleDay" data-bs-toggle="modal" data-bs-target="#publishModal" id="UpdateEvent" value="Published">Publish</button>
+                    <button data-bs-toggle="modal" class="btn border" data-bs-target="#AutopublishModal" class="w3-button bg-transparent" id="AutopublishEvent" type="button" value="Autopublish">Edit Autopublish</button>
+                    <button  type="button" class="btn p-button border-transparent" data-bs-toggle="modal" data-bs-target="#publishModal" id="UpdateEvent" value="Published">Publish</button>
                     <!--<button type="button" class="btn p-button border-transparent publishSeriesEvent d-none" id="PublishEvent" data-bs-toggle="modal" data-bs-target="#PublishEventBtn1">Publish1</button>-->
 
                 </div>
@@ -214,12 +226,12 @@ float:right;
                 <div class="form-data col-lg-4">
                     <label for="evTitle" class="d-block">Select Pillar</label>
                     <select id="pillar" class="">
-                        <option value="1" class="nocolor" selected="true">Select</option>
-                        <option value="WellBeing" class="blue">Wellbeing</option>
-                        <option value="Wow and pride" class="orange">Wow and Pride</option>
-						<option value="Work" class="lavendar">Work</option>
-						<option value="Life" class="cream">Life</option>
-						<option value="Connect and community" class="green">Connect and Community</option>
+                        <option value="1" id="nocolor" selected="true">Select</option>
+                        <option value="WellBeing" id="blue">Wellbeing</option>
+                        <option value="Wow and pride" id="orange">Wow and Pride</option>
+						<option value="Work" id="lavendar">Work</option>
+						<option value="Life" id="cream">Life</option>
+						<option value="Connect and community" id="green">Connect and Community</option>
 
                     </select>
                 </div>
@@ -231,8 +243,8 @@ float:right;
                 <div class="form-data col-lg-4">
                     <label for="evTitle" class="d-block">Event Image</label>
                     <div class="imageData" id="attachFilesHolder">
-                    	<img src="../../SiteAssets/ENG-Admin/images/MicrosoftTeams-image (5) (2).png" id="imageID">
-                        <input type="file" name="" class="custom-file-input" id="file_upload">
+                    	<img src="../../SiteAssets/ENG-Admin/images/MicrosoftTeams-image (5) (2).png" alt="" id="imageID">
+                        <input type="file" name="" class="custom-file-input SingleDayEventUpload" id="file_upload">
                         <label for="file_upload"><i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Upload File</label>
                     </div>
                 </div>
@@ -816,7 +828,7 @@ float:right;
             }
             
             $("#pillar").change(function(){
-        	var color = $("option:selected", this).attr("class");
+        	var color = $("option:selected", this).attr("id");
         	$("#pillar").attr("class", color);
     		});
 

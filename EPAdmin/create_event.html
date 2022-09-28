@@ -1,33 +1,31 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
  
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engagement Portal</title>
-    <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.6/jquery.timepicker.css"> 
-  	     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">  
+  	     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    
-    <link rel="stylesheet" href="../../SiteAssets/ENG-Admin/css/create_event.css">
-         
-   <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.runtime.js"></script>
 	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.init.js"></script>
 	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.js"></script>
-	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.core.js"></script>	
+	<script type="text/javascript" src="https://infornt.sharepoint.com/_layouts/15/sp.core.js"></script>		
 	 <!--<script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/jquery.multifile.js"></script> -->
-	
+	    <link rel="stylesheet" href="../../SiteAssets/ENG-Admin/css/create_event.css">
+    <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css"> 
+
 	<script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/series_Autopublish.js"></script>
 	<script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/series_save_now.js"></script>
 	<script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/create_event.js"></script>
@@ -35,6 +33,32 @@
 	<script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/Autopublish.js"></script>
 	
 	 <style type="text/css">
+	 
+	 .nocolor{
+	background-color: transparent;
+	}
+	.lavendar{
+		background-color: #E8B0FC !important;
+		color: #0A0A0A !important;
+	}
+	.cream{
+		background-color: #FFD08A !important;
+		color: #0A0A0A !important;
+	}
+	.blue{
+		background-color: #A4C6F9 !important;
+		color: #0A0A0A !important;
+	}
+	.orange{
+		background-color: #FF8A72 !important;
+		color: #0A0A0A !important;
+	}
+	.green{
+		background-color: #C8DB88 !important;
+		color: #0A0A0A !important;
+	}
+ 
+	 
 	.ms-webpartzone-cell{
 	margin:0px !important;
 }
@@ -308,7 +332,7 @@ width:83% !important;
             <hr>
             <div class="event-form row single-day">
                 <div class="form-data col-lg-4">
-                    <label for="evTitle" class="d-block">Select Event Type</label>
+                    <label for="eventtype" class="d-block">Select Event Type</label>
                     <select class="evType" id="eventtype">
                         <option selected="true" value="" disabled="disabled">select</option>
                         <option value="Online">Online</option>
@@ -323,12 +347,12 @@ width:83% !important;
                 <div class="form-data col-lg-4">
                     <label for="evTitle" class="d-block">Select Pillar</label>
                     <select id="Pillar" class="pillar">
-                        <option selected="true" value="" disabled="disabled">select</option>
-                        <option value="Wellbeing">Wellbeing</option>
-                        <option value="Wow and pride">Wow and Pride</option>
-						<option value="Work">Work</option>
-						<option value="Life">Life</option>
-						<option value="Connect and community">Connect and Community</option>
+                        <option selected="true" value="" disabled="disabled" id="nocolor">select</option>
+                        <option value="Wellbeing" id="blue">Wellbeing</option>
+                        <option value="Wow and pride" id="orange">Wow and Pride</option>
+						<option value="Work" id="lavendar">Work</option>
+						<option value="Life" id="cream">Life</option>
+						<option value="Connect and community" id="green">Connect and Community</option>
 
                     </select>
                 </div>
@@ -342,7 +366,7 @@ width:83% !important;
                     <div class="imageData" id="attachFilesHolder">
                     	<img src="../../SiteAssets/ENG-Admin/images/MicrosoftTeams-image (5) (2).png"  class="SingleDayEventImage" id="imageID">
                         <input type="file" name="" class="custom-file-input SingleDayEventUpload" id="file_upload">
-                        <label for="file_upload"><i class="fa-solid fa-upload"></i> Upload Image</label>
+                        <label for="file_upload"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Image</label>
                     </div>
                 </div>
                 <div class="form-data col-lg-4" style="position: relative;">
@@ -365,15 +389,19 @@ width:83% !important;
                     <p class="diff">-- : --</p>
 
                 </div>
-                <div class="form-data col-lg-4">
+                <div class="form-data col-lg-3">
+                    <label for="evTitle" class="d-block">Event Location</label>
+                    <input type="text" name="" id="evLocation" autocomplete="off">
+                </div>
+                <div class="form-data col-lg-3">
                     <label for="evTitle" class="d-block">Event Link</label>
                     <input type="text" name="" id="evLink" autocomplete="off">
                 </div>
-                <div class="form-data col-lg-4">
+                <div class="form-data col-lg-3">
                     <label for="evTitle" class="d-block">Speaker Name</label>
                     <input type="text" name="" id="evSpeaker" autocomplete="off">
                 </div>
-                <div class="form-data col-lg-4">
+                <div class="form-data col-lg-3">
                     <label for="evTitle" class="d-block">Organizer Name</label>
                     <input type="text" name="" id="evOrg" autocomplete="off">
                 </div>
@@ -455,7 +483,7 @@ width:83% !important;
            <!-- Modal popup for publish button start-->
     <div class="modal fade" id="PublishSeriesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
    <div class="modal-dialog  modal-dialog-centered justify-content-center" >
-                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE">
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE; border: 0;">
                         <div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
                             <span class="me-2"><img src=" https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="PublishSeriesModal" style="margin:0px;">Event Published Successfully </p>
                           <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
@@ -682,8 +710,8 @@ width:83% !important;
    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.6/jquery.timepicker.js"></script>
-	<script src="../../SiteAssets/ENG-Admin/js/save_now.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>	
+    <script src="../../SiteAssets/ENG-Admin/js/save_now.js"></script>
     <script>
              $(".sidebaropen").on("click", function () {
             $(".card").toggleClass("imagenone1");
@@ -743,11 +771,10 @@ width:83% !important;
 	        minDate: "-0Y",
 	        maxDate: "+10Y",
 	        yearRange: "1900:2100"  
-	    });
-	    
-    $( "#sEdate,#evDate1,#evDate2,#evDate3" ).datepicker( "setDate", new Date());
+	    });	    
     
     
+        $( "#sEdate,#evDate1,#evDate2,#evDate3" ).datepicker( "setDate", new Date());
     var time = new Date($.now());
     $('#SSTime1,#SStime, #SuStime1').timepicker({
       timeFormat: 'h:mm p',
@@ -759,8 +786,7 @@ width:83% !important;
       timeFormat: 'h:mm p',
       //change: totalTime,          
       //minTime: time
-	});
-	
+	});	
 	
 	
 	
@@ -797,8 +823,9 @@ else{
 $(".diff").text('-- : --');
 }
 });
+
     </script>
-    <script>
+      <script>
 
         function menuToggle() {
 
@@ -868,7 +895,7 @@ function seriesHtml(value){
 	                            '<div class="form-data col-lg-3"> <label for="evTitle" class="d-block">Select Pillar '+i+'</label> <select id="evPillar'+i+'"> <option value="NaN" selected="true" value="" disabled="disabled">select</option> <option value="Wellbeing">Wellbeing</option>'+ 
 	                            '<option value="Work">Work</option> <option value="Life">Life</option> <option value="Wow and Pride">Wow and Pride</option> <option value="Connect and Community">Connect and Community</option> </select> </div>'+
 	                            '<div class="form-data col-lg-8"> <label for="evTitle" class="d-block">Event Description '+i+'</label> <textarea name="" id="evDesc'+i+'" cols="30" rows="10" placeholder="Description goes here"></textarea></div>'+
-	                            '<div class="form-data col-lg-4"> <label for="evTitle" class="d-block">Event Image '+i+'</label> <div class="imageData attachFilesHolderData" id="attachFilesHolder'+i+'"><img src="../../SiteAssets/ENG-Admin/images/MicrosoftTeams-image (5) (2).png" id="imageID'+i+'" change="readURL1(input1)" class="ImageClass"> <input type="file" name="" class="custom-file-input FileInputClass" id="file_upload'+i+'"> <label for="file_upload'+i+'"><i class="fa-solid fa-upload"></i>Upload File</label> </div> </div>'+
+	                            '<div class="form-data col-lg-4"> <label for="evTitle" class="d-block">Event Image '+i+'</label> <div class="imageData attachFilesHolderData" id="attachFilesHolder'+i+'"><img src="../../SiteAssets/ENG-Admin/images/MicrosoftTeams-image (5) (2).png" id="imageID'+i+'" change="readURL1(input1)" class="ImageClass"> <input type="file" name="" class="custom-file-input FileInputClass" id="file_upload'+i+'"> <label for="file_upload'+i+'"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Image</label> </div> </div>'+
 	                            '<div class="form-data col-lg-4" style="position: relative;"> <label for="evTitle" class="d-block">Event Date '+i+'</label><input type="text" name="" class="MainDate maindate" id="evDate11'+i+'"> <i class="fa-solid fa-calendar-days calender"></i> </div>'+
 	                            '<div class="form-data col-lg-3 s-time" style="position: relative;"> <label for="evTitle" class="d-block">Start Time '+i+'</label> <input type="text" name="" id="evSTime'+i+'" class="StartTimes"> <i class="fa-solid fa-clock time"></i> </div>'+
 	                            '<div class="form-data col-lg-3 e-time" style="position: relative;"><label for="evTitle" class="d-block">End Time '+i+'</label><input type="text" name="" class="EndTimes" id="evETime'+i+'"><i class="fa-solid fa-clock time"></i></div> <div class="form-data col-lg-3 d-flex align-items-center">'+
@@ -1132,6 +1159,10 @@ $("#evDate111").datepicker({
 //console.log($("#SSTime1").innerText);
 //console.log($("#SETTime1").innerText);
 
+$("#Pillar").change(function(){
+        	var color = $("option:selected", this).attr("id");
+        	$("#Pillar").attr("class", color);
+    		});
 
 
 </script>

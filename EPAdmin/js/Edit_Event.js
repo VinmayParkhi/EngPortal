@@ -26,7 +26,27 @@
   	
   });
 
-     
+     $("#EvType,#evTitle,#evDesc,#pillar,#evLink,#evSpeaker,#evOrg,#evKey,.SingleDayEventUpload").on("input", function () {    	
+        canChangeColorEditEvent();
+        
+    });
+    function canChangeColorEditEvent(){  
+        var EventChangetrue = true;  
+        $("#EvType,#evTitle,#evDesc,#pillar,#evLink,#evSpeaker,#evOrg,#evKey,.SingleDayEventUpload").each(function(){
+            if($(this).val()==''){
+                EventChangetrue = false;
+            }
+        });
+        if(EventChangetrue){
+            $('#UpdateEvent').addClass("EnableBtn");  
+            $('#AutopublishEvent').addClass("EnableBtn");   
+            $('#SaveForNow').addClass("EnableBtn"); 
+        }else{
+            $('#UpdateEvent').removeClass("EnableBtn")             
+            $('#AutopublishEvent').removeClass("EnableBtn") 
+            $('#SaveForNow').removeClass("EnableBtn")  
+        }
+    } 
      
   });
   
@@ -356,6 +376,5 @@ function AddAttachments(id)
 
     });                                          
 }
- 
  
  
