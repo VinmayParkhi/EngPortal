@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Portal</title>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/hubdata.css">
+
+    
+     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    
+    <style>
+    #s4-workspace{
+	overflow-x: hidden;
+}
+    .bell {
+    padding: 1rem 1.2rem;
+	}
+    
+    
+    .hub{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+	}
+
+	.hub img{
+	background: #B15610 !important;
+	}
+	
+	
+	   @media (min-width:359px) and (max-width:767px){
+   
+
+	
+	#WebPartWPQ7 > div.ms-rtestate-field > div.cardBottomWr > div:nth-child(5) > div{
+	
+	padding: 7rem 5rem !important;
+}
+
+}
+
+
+
+ @media (min-width:767px) and (max-width:991px){
+ 
+ .textCard {
+    /* margin-left: 20rem !important; */
+    width: 40% !important;
+   
+}
+
+
+
+
+}
+
+
+
+
+
+ @media (min-width:1800px) and (max-width:1950px){
+ 
+
+
+#s4-bodyContainer > div > div > div > div:nth-child(3) {
+    
+    min-height: 0vh!Important;
+}
+
+}
+
+
+
+
+
+    
+    </style>
+  
+</head>
+
+<body>
+        <div class="Header"><h4 style="color:#fff">The Hub</h4></div>
+        <div class="cardHeadWr">
+        
+        </div>
+        
+		<div class="cardBottomWr">
+        
+    </div>
+    <!--End of the container-->
+    
+    
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="js/Hub.js"> </script>
+
+     <script>
+
+    function menuToggle() {
+
+        const toggleMenu = document.querySelector('.menu');
+
+        toggleMenu.classList.toggle('active')
+
+    }
+    $(".editstart").on("click", function(){
+        $("#textfield").toggleClass("editon");
+    })
+
+</script>
+<script>
+    $(document).ready(function(){
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
+});
+
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#imageID').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+</script>
+
+        <script>
+        
+        $(document).ready(function(){
+        
+        	$(".home img").attr("src","images/boldhome.svg");
+    		$(".hub img").attr("src","images/boldhubspot.svg");
+    		$(".empz img").attr("src","images/Group 497.svg");
+    		$(".engteam img").attr("src","images/Group 498.svg");
+    		$(".contact img").attr("src","images/Icon material-chat_bubble_outline.svg");
+    				
+		});
+        
+        
+        </script>
+
+        
+
+    </body>
+
+    </html>

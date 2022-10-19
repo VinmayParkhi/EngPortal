@@ -1,0 +1,1049 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/Report.css">	  
+        <link rel="stylesheet" href="css/create_event_2.css">
+        <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">   
+       
+         <!--<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>-->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>    
+    <script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script> 
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script> 
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>       
+    <script type="text/javascript" src="js/AdReport.js"></script>
+    <title>Hello, world!</title>
+    
+    <style type="text/css">
+    .head-left li a{
+	font-size: 10px;
+	}
+    #ReportDataTable_length > label,
+    #ReportDataTable_filter > label > input[type=search]{
+	display:none;
+}
+       #datatable3 > tbody > tr> td:nth-child(2){
+	display: none;
+}
+#ReportDataTable_wrapper > div.dt-buttons > a{
+	float: right;
+    padding: 5px 23px;
+	background: linear-gradient(90deg , #DE8601 0%, #FF3D97 100%);    
+	margin-top: -10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #fff;
+}
+#index{
+	width: 35px !important;
+}
+table.dataTable.no-footer{
+border-bottom:none;
+	padding:10px 0px;
+	width:100% !important;
+}
+table.dataTable tbody td{
+	padding:10px 3px !important;
+}
+    
+    #temp{
+	position:relative;
+}
+      .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+      .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+      .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active{
+                  color: #AFAFAF !important;
+      }
+      
+
+     #myImg,#myImg2{
+	display:none;
+}
+    #from-date,#to-date{
+	/*border: 1px solid #4E4E4E;*/
+	border-radius:5px;
+}
+    	.ms-webpartzone-cell{
+	margin:0px !important;
+}
+
+    #ReportDataTable > tbody > tr > td:nth-child(1){
+	opacity:0.6;
+}
+#ReportDataTable > tbody > tr > td:nth-child(3){
+	/*opacity:0.6;*/
+}
+#ReportDataTable_wrapper > div.dataTables_scroll > div.dataTables_scrollHead{
+	    overflow: hidden !important;
+}
+.dataTables_length{
+	    margin-top: -1.6rem;
+}
+
+      #ui-datepicker-div{
+    width:auto ;
+    height:
+    }
+    /*#ui-datepicker-div{
+	left:1000px !important;
+}*/
+    #ui-datepicker-div > table{
+	line-height:110% !important;
+}
+  #editbox{
+	width:86% !important;
+}
+    .cm_calendar{
+	position:static !important;
+}
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0; 
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #afafaf !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+table.dataTable thead .sorting {
+    background-image: none;
+    
+}.actionhover{
+	background-color: #dcb58c;
+    padding: 11px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 7px
+}
+
+.event-desc{
+	   max-width: 300px;
+    -webkit-line-clamp: 2;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+
+.Work{
+	color:#E8B0FC!important;
+}
+.Connect{
+	color:#C8DB88!important;
+
+}
+.Wow{
+	color:#FF8A72!important;
+
+}
+.Enrich{
+	color:#A4C6F9 !important;
+
+}
+.Life{
+	color:#EFBB6D !important;
+}
+.Published{ 
+	color:#AFAFAF!important;
+
+}
+.Autopublish{
+	color:#FF706B!important;
+
+}
+.Draft{
+	color:#EC9A2E!important;
+
+}
+.Completed{
+	color:#71BC4C!important;
+}
+
+::-webkit-scrollbar {
+  width:5px;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+   #s4-workspace {
+    overflow-x: hidden;
+    }
+  .breadcrumb-item + .breadcrumb-item {
+     padding-left: 0; 
+}
+table.dataTable thead th {
+    padding: 10px 10px 10px 0px;
+
+}
+ table.dataTable tbody td {
+    padding: 0px 10px 0px 0px;
+}
+.profile h4{
+	margin-left:0px;
+}
+#threedot {
+    margin-left: 27% !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #FF3D97;
+}
+#ReportDataTable_info{
+	position: absolute;
+    bottom: 2rem;
+}
+.dataTables_wrapper .dataTables_paginate{
+	position: absolute;
+    right: 4rem;
+    bottom: 2rem;
+}
+.dataTables_wrapper .dataTables_scroll{
+	    margin-bottom: 3rem;
+	        margin-top: 2.5rem;
+}
+/*by shubham*/
+table.dataTable {
+    width: 100%;
+     margin: 0 0; /*new change */
+    clear: both;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+h6{
+margin:0;
+}
+table tbody tr td{
+	font-size:11px !important;
+}
+table.dataTable {
+    width: 100%;
+     margin: 0;   /*new change*/
+    }
+    /*shubham code end*/
+   #event-pillar{
+	font-style: italic;
+}
+.calenderView input {
+border: solid 1px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px black inset;
+    border-radius: 5px;
+}
+.calenderView input:hover{
+	border:1px solid transparent;
+}
+#ReportDataTable_wrapper{
+	height:auto;
+	min-height:450px;
+}
+#arrimg img,
+#arrimg2{
+  transition: transform .5s ease-in-out;
+  width:15px;
+}
+#arrimg img:hover, #arrimg2:hover {
+  transform: rotate(180deg);
+}
+table thead tr th{
+	    border-bottom-width: 0.5px !important;
+}
+.FA-1{
+	width: 93%;
+}
+.calenderView {
+    right: 54%;
+    top: -29px;
+}
+ .multiselectLocation{
+	width: 102px;
+  position: absolute;
+  top: -40px;
+  right: 23%;
+  z-index: 1;
+}
+.multiselectHub {
+  width: 80px;
+  position: absolute;
+  top: -40px;
+  right: 40%;
+  z-index: 1;
+}
+.multiselectDepart {
+  width: 125px;
+  position: absolute;
+  top: -40px;
+  right: 2.5%;
+  z-index: 1;
+}
+#ReportDataTable > tbody > tr > td{
+	font-size: 10px !important;
+}
+#ReportDataTable > tbody > tr > td:nth-child(2) > h6{
+	font-size: 10px !important;
+}
+.eventreportHeading{
+	position: absolute;
+    left: 4.3%;
+    top: 4%;
+    z-index: 9;
+    }
+ @media(min-width:992px)and (max-width: 1200px){
+    .sidebar{
+	    margin-left: 22px;
+}
+.action .men{
+	width:22rem;
+}
+
+.#datatable_wrapper{
+	    width: 75%;
+}
+/*.calenderView{
+	    right: 29rem;
+}*/
+	.right-left{
+    margin-right: 1.7rem;
+        margin-left: 0;
+}
+#ReportDataTable_wrapper{
+	    width: 97.5%;
+}
+.calenderView {
+    right: 54%;
+}
+ .multiselectLocation{
+	width: 102px;
+  position: absolute;
+  top: -40px;
+  right: 23%;
+  z-index: 111111;
+}
+.multiselectHub {
+  width: 80px;
+  position: absolute;
+  top: -40px;
+  right: 40%;
+  z-index: 111111;
+}
+.multiselectDepart {
+  width: 125px;
+  position: absolute;
+  top: -40px;
+  right: 2.5%;
+  z-index: 111111;
+}
+.calenderView input { 
+	height: 3.4vh;
+}
+}
+@media (min-width:1200px) {
+    .sidebar{
+   	  margin-left: 39px;
+	  height: auto !important;
+}
+.right-left {
+    margin-right: 4.2%;
+    margin-left:0;
+    }
+.hr1{
+	height: 1px;
+	width: 93% !important;
+	margin-left: 3% !important;
+}
+
+.head-left{
+    margin-left: 3rem !important;
+}
+.FA-1{
+    margin-left: 3.5% !important;
+    }
+    .action .menu.active {
+    margin-right: 0rem; 
+    width:22.5rem;
+}
+#ReportDataTable_wrapper{
+    width: 96.5%;
+	margin-left:0px;
+}
+.action .men{
+	width:22rem;
+}
+#ReportDataTable{
+	width:99% !important;
+}
+#threedot {
+    margin-left: 54% !important;
+}
+.multiselectDepart{
+	right: 3.6%;
+}
+.multiselectLocation{
+	right: 19%;
+}
+.multiselectHub{
+	right: 31.7%;
+}
+.calenderView {
+    right: 42%;
+    width: 24%;
+}
+.eventreportHeading {
+    left: 3.3%;
+    }
+    .calenderView input { 
+	height: 3.8vh;
+}
+
+/*.calenderView{
+	    right: 6%;
+}*/
+}
+
+@media (min-width: 1366px){
+.multiselectLocation {
+	width: 130px;
+    right: 18%;
+}
+.multiselectHub {
+	width: 118px;
+    right: 32.7%;
+}
+.calenderView {
+    right: 46%;
+}
+	.FA-1 {
+	    width: 93.5%;
+	}
+}
+
+
+@media(min-width:1400px) {
+ 
+#datatable_wrapper{
+ width:92% !important;
+}
+
+.right-left {
+    margin-right: 4.5%;
+}
+.hr1{
+	height: 1px;
+	width: 92% !important;
+	margin-left: 3% !important;
+}
+.sidebar{
+   	  margin-left: 39px;
+	    height: auto !important;
+}
+table.dataTable tbody td {
+   /* padding: 0px 5px;*/
+   padding: 0px 0px;			/*by shubham*/
+}
+#ReportDataTable_wrapper{
+    width: 95.2% !important;
+    height: auto;
+}
+/*.FA-1{
+    width: 91.3% !important;
+    margin-left: 3.5% !important;
+    }*/
+    .FA-1 {
+    width: 92.5%;
+}
+.hr1{
+	width:92% !important;
+	margin-left:3% !important;
+}
+.head-left{
+    margin-left: 3.5rem !important;
+}
+.multiselectDepart {
+    right: 4.8%;
+}
+.multiselectHub {
+    right: 31.8%;
+}
+.calenderView {
+    right: 44.5%;
+}
+.eventreportHeading {
+    left: 2.8%;
+}
+    #ui-datepicker-div {
+	
+
+    height: 166px !important;
+    }
+}
+
+@media (min-width: 1536px){	
+	#MoodDataTable_wrapper {
+    width: 94.8%;
+}
+.multiselectDepart {
+    right: 5.3%;
+}
+.multiselectLocation {
+    right: 17%;
+}
+.multiselectHub {
+    right: 29.3%;
+}
+.calenderView {
+    right: 40.5%;
+}
+.calenderView input {
+    height: 3.5vh;
+}
+.FA-1 {
+    width: 92.5%;
+}
+}
+
+
+@media (min-width:1600px){
+	#ReportDataTable_wrapper {
+    width: 94.9% !important;
+}
+.head-left {
+    margin-left: 4.4rem !important;
+}
+.right-left {
+    margin-right: 4%;
+}
+#threedot {
+    margin-left: 69% !important;
+}
+.eventreportHeading {
+    left: 2.4%;
+}
+/*.FA-1 {
+    width: 91.7% !important;
+}*/
+}
+
+@media (min-width: 1900px){
+	.multiselectLocation {
+    right: 14%;
+}
+.multiselectHub {
+    right: 23.2%;
+}
+.calenderView {
+    right: 31.5%;
+}
+.calenderView input {
+    height: 2.8vh;
+}
+.eventreportHeading {
+    left: 2%;
+}
+}
+
+
+.breadcrumb-item + .breadcrumb-item::before {
+    float: left;
+    padding-right: 0.5rem;
+    color: white;
+    content: var(--bs-breadcrumb-divider, "/");
+}
+.right-left{
+	margin-top:7px;
+	    width: 50%;
+	        text-align: right;
+}
+.right-left a{
+	    width: 25%;
+	        padding: 6px 29px;
+}
+table.dataTable tbody th, table.dataTable tbody td {
+    color: #fff;
+    font-size: 10px;
+}
+.event-desc {
+    color: #fff;
+    font-size: 10px !important;
+}
+#datatable > tbody > tr > td:nth-child(6){
+	text-align: center;
+    width: 10%;
+}
+
+#editbox{
+	
+	display:none;
+    justify-content: center;
+    align-items: end;
+	height: 30px;
+	position: absolute;
+    top: 13px;
+    left: auto !important;
+	background-image: url('Images/Image Icon/Image Icon/groupimg.png');
+	background-size:100% 100%;
+}
+
+#ui-datepicker-div{
+	
+	width:200px;
+	height:150px;
+}
+#createEvent{	
+	background: transparent linear-gradient(97deg, #FFB813 0%, #FF1363 100%) 0% 0% no-repeat padding-box;
+    padding: 10px 24px;
+    color: #FFFFFF;
+    border-radius: 6px;
+}
+#createEvent:hover{
+	text-decoration:none;
+}
+
+.head-datamain{
+	
+	justify-content:space-between;
+}
+       
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0; 
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #afafaf !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+.cm_calendar{
+position: static !important;
+}
+table.dataTable thead .sorting {
+    background-image: none;
+    
+}.actionhover{
+	background-color: #dcb58c;
+    padding: 11px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 7px
+}
+.Work{
+	color:#E8B0FC!important;
+}
+.Connect{
+	color:#C8DB88!important;
+
+}
+.Wow{
+	color:#FF8A72!important;
+
+}
+.WellBeing{
+	color:#A4C6F9 !important;
+
+}
+.Life{
+	color:#EFBB6D !important;
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+#ReportDataTable_length > label{
+	text-transform: capitalize;
+}
+
+/*#editbox {
+    display: none;
+    justify-content: center;
+    align-items: end;
+    height: 30px;
+    width: 67px;
+    position: relative;
+    top: -29px;
+    left: -28px;
+    background-image: url(https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/groupimg.png);
+    background-size: 100% 100%;
+}
+ Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #747474; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #747474; 
+}  
+
+#myImg{
+	background: url("../Group%2011049.png") no-repeat;
+    position: fixed;
+    z-index: 1;
+    /*right: 66.4rem;*/
+    top: 10rem;
+    height: 23rem;
+    width: 24rem;
+    background-size: contain;   
+        left: 7.5%;  
+    }
+#myImg2{
+	background: url("../Group%2011049.png") no-repeat;
+    position: fixed;
+    z-index: 2;
+    /*right: 66.4rem;*/
+    height: 20rem;
+    width: 22rem;
+    background-size: contain;   
+       right: 17%;  
+    }
+
+#ulimg{
+  	list-style-type: none;
+    color: black;
+    position: relative;
+    top: 40px;
+}
+#ulimg li{
+	margin-bottom:4px;
+	margin-left: -7px;
+}
+#btn1{
+	cursor:context-menu;
+}
+#arrimg1111{
+	width:13px;
+}
+.divider1{
+	
+	    width: 67px !important;
+}
+.right-nav{
+    display: flex;
+    align-items: center;
+    /*margin-right: -60px;*/
+}
+.action .menu{
+	
+	    margin-right: 3rem !important;
+    width: 28rem;
+}
+
+/*.multiselectLocation{
+	width: 150px;
+  position: absolute;
+  top: -40px;
+  right: 19%;
+  z-index: 111111;
+}
+.multiselectHub {
+  width: 150px;
+  position: absolute;
+  top: -40px;
+  right: 6%;
+  z-index: 111111;
+}
+
+.multiselectDepart {
+  width: 150px;
+  position: absolute;
+  top: -40px;
+  right: 32%;
+  z-index: 111111;
+}*/
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    font-weight: bold;
+    background: transparent;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxesHub,#checkboxesLocation,#checkboxesDepart {
+  display: none;
+  border: 1px #dadada solid;
+	background: #FCF9EE;
+    padding: 6px;
+    border-radius: 5px;
+}
+
+#checkboxesHub label,#checkboxesLocation label,#checkboxesDepart label{
+  display: block;
+}
+
+#checkboxesHub label:hover,#checkboxesLocation label:hover,#checkboxesDepart label:hover{
+  background-color: #1e90ff;
+}
+#checkboxesDepart label input,#checkboxesLocation label input,#checkboxesHub label input{
+	margin-right:5px;
+} 
+
+/*.calenderView{
+	right: 6%;
+	margin-right: 51rem;
+	margin-top: -62px;
+}*/
+/*.publishBtnDiv{
+	position: absolute;
+    z-index: 9;
+    right: 8%;
+    top: 2%;
+}*/
+    </style>
+
+</head>
+
+<body>
+<div class="head-datamain" style="display:flex;">
+
+
+ <div class="head-left" style="margin-left: 3.5%;">
+  <span class="arrow"><a href="https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/Report.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a></span>  
+                         <h4>Event Reports</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item">
+									<a href="https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/AdminHome.aspx">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Event Reports</li>
+                                </ol>
+                              </nav>
+                        </div>
+		
+</div>
+
+
+    <div class="mt-1 main-style">
+    	 <div class="multiselectHub">
+    <div class="selectBox" onclick="showCheckboxesHub()">
+      <select>
+        <option>All Hub</option>
+      </select>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxesHub">
+      <label for="Work">
+        <input type="checkbox" name="Hub" id="Work" value="Work"/>Work</label>
+      <label for="Life">
+        <input type="checkbox" name="Hub" id="Life" value="Life"/>Life</label>
+      <label for="Wellbeing">
+        <input type="checkbox" name="Hub" id="Wellbeing" value="Wellbeing"/>Wellbeing</label>
+	  <label for="Wow and pride">
+        <input type="checkbox" name="Hub" id="Wow and pride" value="Wow and pride"/>Wow and pride</label>
+	  <label for="Connect and community">
+        <input type="checkbox" name="Hub" id="Connect and community" value="Connect and community"/>Connect and community</label>
+
+    </div>
+  </div>
+  <div class="multiselectDepart">
+    <div class="selectBox" onclick="showCheckboxesDepart()">
+      <select>
+        <option>All Department</option>
+      </select>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxesDepart">
+      <label for="COHR">
+        <input type="checkbox" name="Department" id="COHR" value="COHR">COHR</label>
+      <label for="IT">
+        <input type="checkbox" name="Department" id="IT" value="IT">IT</label>	
+      <label for="CDVC">
+        <input type="checkbox" name="Department" id="CDVC" value="CDVC">CDVC</label>
+      <label for="N/A">
+        <input type="checkbox" name="Department" id="N/A" value="N/A">N/A</label>
+         <label for="3750">
+        <input type="checkbox" name="Department" id="3750" value="3750">3750</label>
+        <label for="3190">
+        <input type="checkbox" name="Department" id="3190" value="3190">3190</label>
+        <label for="CRM">
+        <input type="checkbox" name="Department" id="CRM" value="CRM">CRM</label>
+        <label for="OPS">
+        <input type="checkbox" name="Department" id="OPS" value="OPS">OPS</label>
+        <label for="3950">
+        <input type="checkbox" name="Department" id="3950" value="3950">3950</label>
+        <label for="DLRP">
+        <input type="checkbox" name="Department" id="DLRP" value="DLRP">DLRP</label>
+        <label for="3079">
+        <input type="checkbox" name="Department" id="3079" value="3079">3079</label>
+        <label for="3850">
+        <input type="checkbox" name="Department" id="3850" value="3850">3850</label>
+    </div>
+  </div>    
+  <div class="multiselectLocation">
+    <div class="selectBox" onclick="showCheckboxesLocation()">
+      <select>
+        <option>All Location</option>
+      </select>
+      <div class="overSelect"></div>
+    </div>
+    <div id="checkboxesLocation">
+       <label for="WFH (INDIA) N/A Ground Flo">
+        <input type="checkbox" name="Location" id="WFH (INDIA) N/A Ground Flo" value="WFH (INDIA) N/A Ground Flo"/>WFH (INDIA) N/A Ground Flo</label>
+      <label for="Tower 2">
+        <input type="checkbox" name="Location" id="Tower 2" value="Tower 2"/>Tower 2</label>
+      <label for="Tower B-2">
+        <input type="checkbox" name="Location" id="Tower B-2" value="Tower B-2"/>Tower B-2</label>
+    </div>
+  </div>
+    <span class="calenderView">
+<img src="images/data_range_calendar.png" style="position: absolute;left: -35px;width: 18px;">
+
+            <input type="text"  id="from-date" style="margin-left: -8px;" placeholder="Start Date">
+
+                 <span style="margin-left:4px;">to</span>
+
+            <input type="text"  id="to-date" style="margin-left: 5px;" placeholder="End Date">
+
+        </span>
+        <!-- <div class="publishBtnDiv">
+            <button name="Publish" target="_self" type="button" class="btn publishbtn publishbtn1" data-bs-toggle="modal" data-bs-target="#HomeBannerUp" id="NewSaveItem" value="">Publish</button> 
+        </div>-->
+        <div class="eventreportHeading">
+        	<h2 style="color: #fff; font-size: 20px;">Event Report</h2>
+        </div>
+        <table class="table" id="ReportDataTable" data-ordering="false" data-order='[[ 0, "asc" ]]'>
+            <thead>
+                <tr>
+                  <th scope="col" class="T-color1" style="width: 0.8646px !important;opacity: 0.6;" id="index">Sr.No</th>
+                    <th id="arrimg" style="width:280px; !important">Event Details </th>
+                    <th scope="col" style="width: 395px;">Location</th>                    
+                    <th scope="col" style="width: 200px;">Department</th>
+                    <th scope="col" style="width: 200px;">Responses</th>
+                    <!--<th scope="col">Status</th>-->
+                    <th id="arrimg3" scope="col" style="width: 197px;">Reviews </th>
+                  	<th style="width: 286px;">Date and Time</th> <!-- style="text-align: right;" -->
+                   
+                </tr>
+            </thead>
+            <tbody style="color:black">
+            </tbody>
+        </table>
+    </div>
+    
+    
+    
+    <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+  </div>
+</div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    	<script>
+    	function showCheckboxesHub() {
+  var checkboxes = document.getElementById("checkboxesHub");
+  if (!expanded) {
+    checkboxes.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxes.style.display = "none";
+    expanded = false;
+  }
+}
+
+
+function showCheckboxesLocation() {
+  var checkboxesLoc = document.getElementById("checkboxesLocation");
+  if (!expanded) {
+    checkboxesLoc.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxesLoc.style.display = "none";
+    expanded = false;
+  }
+}
+
+
+function showCheckboxesDepart() {
+  var checkboxesLoc = document.getElementById("checkboxesDepart");
+  if (!expanded) {
+    checkboxesLoc.style.display = "block";
+    expanded = true;
+  } else {
+    checkboxesLoc.style.display = "none";
+    expanded = false;
+  }
+}
+
+
+$(document).mouseup(function(e) 
+{
+    var container = $("#checkboxesDepart");
+    var location = $("#checkboxesLocation");
+    var hub = $("#checkboxesHub");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.css("display","none");
+        location .css("display","none");
+        hub .css("display","none");
+    }
+});
+
+
+
+
+
+    	</script>
+	</body>
+
+</html>
+

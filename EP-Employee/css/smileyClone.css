@@ -1,0 +1,235 @@
+﻿	.smileyText .form{
+    display: flex;
+}
+.radio{
+    display: none;
+}
+.emojiCloneClone{
+    /* font-size: 40px; */
+    padding: 0.4rem 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+#mood-11:checked ~ .emojiClone-1clone,
+#mood-22:checked ~ .emojiClone-2clone,
+#mood-33:checked ~ .emojiClone-3clone,
+#mood-44:checked ~ .emojiClone-4clone,
+#mood-55:checked ~ .emojiClone-5clone,
+#mood-66:checked ~ .emojiClone-6clone{
+    background-color: #F5D9AD;
+    border: 0.1rem solid #A78D47;
+    border-radius: 0.5rem;
+}
+.disabled{
+	pointer-events: none;
+    background: #2323237a !important;
+    padding: 3px;
+    font-weight: 600;
+    color: #ffffff61 !important;
+}
+.modal.show .modal-dialog{
+	margin-top: 20rem;
+}
+.modal-content{
+	border-radius: 2rem;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1.3rem 1rem 0;
+    border-top: 1px solid #dbdbdb;
+    margin-top:1.5rem !important;
+}
+
+.modal-footer .btn-secondary {
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    width: 20%;
+    height: 2.5rem;
+    margin-right: 2rem;    
+    border: none;
+    padding:3px;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight:600;
+}
+.modal-body{
+  margin:0 auto;
+}
+.modal-header{
+	background: #191718;
+	border-radius: 2rem 2rem 0rem 0rem;
+	margin-top: -0.2rem;
+}
+#exampleModal > div > div > div.modal-header > button{
+	background: #191718;
+}
+.img, svg{
+	width:2rem;
+}
+
+.emojiCloneClone img{
+    width: 2vw;
+}
+
+
+.emojiCloneClone h6{
+    font-size: 0.9rem;
+}
+/* starts smiley */
+.smileyWr {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 1vw;
+    border-radius: 1.5rem;
+    background: linear-gradient(87deg, #F8F1D9 0%, #FFFFFF 100%) 0% 0%;
+    /* border: 1px solid red; */
+}
+.smileyWr .smiley {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.8rem 0.8rem 0 0.8rem;
+}
+
+.smileyText p{
+		font-size: 1.2rem;
+	}
+
+.smileyWr .smiley .smileyText ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.smileyWr .smiley .smileyText ul li {
+    width: 2.5rem;
+}
+
+.smileyWr .smiley .smileyText ul li a,
+.smileyWr .smiley .smileyText ul li a img {
+    width: 100%;
+}
+
+.smileyWr .smiley .smileyText ul li a {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #101010;
+    line-height: 2;
+}
+
+.submitWr {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1.3rem 1rem 0;
+    border-top: 1px solid #dbdbdb;
+    margin-top:0.5rem !important;
+}
+
+.submitWr .btnSubmit {
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    width: 30%;
+    height: 2.5rem;
+    border: none;
+    padding:3px;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight:600;
+}
+.emojiCloneCloneImg{
+	width: 84%;
+}
+
+
+#WebPartWPQ3{
+	
+	display:none;
+
+}
+
+/* ends smiley */
+
+
+/* ends smiley 
+@media (min-width: 992px){
+	.emojiCloneClone-3 img {
+	    width: 22px ;
+	}
+	.emojiCloneClone-5 img {
+	    width: 56% ;
+	}
+	.emojiCloneClone-6 img{
+		width: 100% ;
+	}
+	.smileyWr {
+    	height: 23vh ;
+    }
+}
+
+*/
+
+
+.ms-webpart-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+
+
+/*  smiley.css Mobile responsive */
+    
+
+
+ @media (min-width:375px) and (max-width:767px){
+   
+   
+   .smileyWr{
+   
+   	
+   	width: 100%;
+   	height: auto;
+   	margin: 20px 0;
+   	
+   
+   }
+   
+   
+   .emojiCloneClone img,.emojiCloneClone-3 img,.emojiCloneClone-5 img {
+  width: 7vw !important;
+}
+
+
+
+.btnSubmit {
+	
+	
+	width: 110px !important ;
+	height: 35px !important;
+	
+}
+
+
+.eventsInn .evntsLft {
+  width: 15% !important;
+ 
+}
+
+.eventsInn .evntsLft img{
+	
+	width:10px !Important;
+}
+
+
+
+
+}
+

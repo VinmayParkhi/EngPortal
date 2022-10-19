@@ -1,0 +1,338 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My Favorite Events | Engagement Portal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+       <!-- bootstrap -->
+    <!--<link rel="stylesheet" href="../../_catalogs/masterpage/EP-Master/EPEmployee/bootstrap.css" type="text/css">-->
+    <!-- past events -->
+    <link rel="stylesheet" href= "css/EmpFavEvents.css" type="text/css">
+
+    <style>
+    
+    .Work{
+	color:#E8B0FC!important;
+}
+.Connect{
+	color:#C8DB88!important;
+
+}
+.Wow{
+	color:#FF8A72!important;
+
+}
+.Wellbeing{
+	color:#A4C6F9 !important;
+
+}
+.Life{
+	color:#EFBB6D !important;
+}
+
+    
+   	a:hover {
+    color: none !important;
+    text-decoration:none !important;
+	}
+      
+    
+    .home{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+}
+
+.home img{
+	background: #B15610 !important;
+}
+
+    
+    .heart{
+    
+    background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat padding-box;	
+    padding:0.8rem;
+}
+
+@media only screen and (min-width: 375px) {
+.pastEvntsHeading {
+ display: block;
+ font-weight: 400;
+ }
+ .radioBtns {
+  width: 100%;
+  flex-wrap: wrap;
+  }
+ .FavEvntsWr{
+	display: block !important;
+}
+.pastevntsCard {
+  width:95% !important;
+  margin: 10px 10px 4rem 10px  !important;
+  }
+/*.pastevntsCard .pstvideoImg1 {
+    height: 30vh !important;
+  }*/
+  .pstvideoImg1 .play, .pstvideoImg2 .play, .pstvideoImg3 .play {
+  top: 0 !important;
+left: 0 !important;
+width: 100%;
+display: flex;
+height: 100%;
+justify-content: center;
+}
+
+ .pastevntsCard .play img {
+  width: 40px !important;
+}
+#EventDesc {
+max-width: 100% !important;
+     height: 4rem;
+  }
+  .h-activity ul li a img {
+    width: 2rem;
+}
+    .pstHeading {
+    width: 36%;
+}
+.pastevntsCard .pstvideoImg1 {
+        height: 25vh;
+}
+@media only screen and (min-width: 768px) {
+.pastEvntsHeading {
+ display: flex;
+ font-weight: 400;
+ }
+ .pastEvntsHeading {
+ margin-left: 2rem;
+ }
+.FavEvntsWr{
+	display: flex!important;
+}
+.pastevntsCard {
+  width:44% !important;
+ margin: 15px 19px 1rem 15px !important;
+    }
+   .pastEvntscardBottomWr{
+	/*border: 1px solid red ;*/
+height: 73rem ;
+overflow-y: auto;
+margin-right: -5rem;
+}
+.pastevntsCard .pstvideoImg1 {
+    height: 30vh !important;
+}
+#EventDesc {
+    max-width: 100% !important;
+    height: 2rem;
+}
+
+/*.radioBtns {
+    width: 62%;
+    margin-right: 3rem;
+}*/
+#DeltaPlaceHolderMain {
+    width: 100%;
+}
+.pstvideoImg1 .heartImg, .pstvideoImg2 .heartImg, .pstvideoImg3 .heartImg {
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+}
+
+}
+@media only screen and (min-width: 992px) {
+.pstHeading {
+  width: 45% !important;
+}
+.pastEvntsHeading {
+  margin-left: 2rem;
+}
+.pastevntsCard {
+  width: 31% !important;
+  margin: 25px 0px 0rem 10px !important;
+}
+.FavEvntsWr{
+	margin-left: 1rem;
+	height:auto;
+}
+.pastevntsCard .pstvideoImg1 {
+    height: 25vh !important;
+}
+/*.sidebar {
+    height: 90vh;
+}*/
+.pastEvntscardBottomWr {
+  /*border: 1px solid red;*/
+  height: 141vh;
+  }
+  .pstvideoImg1 .heartImg, .pstvideoImg2 .heartImg, .pstvideoImg3 .heartImg {
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+}
+#EventDesc {
+max-width: 100% !important;
+     height: 2rem;
+  }
+
+
+}
+
+@media only screen and (min-width: 1200px) { 
+.pastevntsCard {
+  width: 30% !important;
+ margin: 25px 15px 0rem 10px !important;
+ }
+#EventDesc {
+  max-width: 100% !important;
+  height:3rem;
+}
+.pastevntsCard .pstvideoImg1 {
+    height: 26vh !important;
+}
+.pstvideoImg1 .heartImg, .pstvideoImg2 .heartImg, .pstvideoImg3 .heartImg {
+    position: absolute;
+    top: -1rem;
+    right: 1rem;
+}
+.pastEvntscardBottomWr{
+	margin-right: -4rem;
+}
+
+}
+@media only screen and (min-width: 1400px) {
+.sidebar {
+
+height: 109vh;
+}
+
+.pastEvntscardBottomWr {
+   /* border: 1px solid red;*/
+    height: 99vh;
+}
+.pastevntsCard .pstvideoImg1 {
+    height: 30vh !important;
+}
+
+.radioBtns {
+	font-size:13px;
+}
+.radios{
+	font-size:13px;
+}
+.evntTitle label{
+	font-size: 14px;
+    font-weight: 700;	
+}
+
+}
+@media only screen and (min-width: 1600px) {
+.pastevntsCard .play img {
+    width: 50px !important;
+}
+.pstvideoImg1 .heartImg img{
+	width: 100%;
+}
+.pstvideoImg1 .heartImg{
+	right: 1.5rem;
+}
+
+ 
+}
+
+@media only screen and (min-width: 1900px) {
+.pastevntsCard .play img {
+    width: 60px !important;
+}
+
+}
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- starts video modal -->
+        <!-- ends video modal -->
+
+        <!-- starts rate-review modal -->
+        <!-- ends rate-review modal -->
+        <div class="">
+            <div class="pastEvntsHeading">
+                <div class="pstHeading">
+                    <a href="#" class="pastEvntsClick" id="FavBack">
+                        <div class="pastEvntsArrow" >
+                            <img src="images/Icon%20ionic-ios-arrow-back.svg" alt="Back Arrow">
+                            <h3>My Favorite Events</h3>
+                        </div>
+                        <div class="breadcrumbWr">
+                            <ul class="breadcrumb">
+                                <li>Home</li>
+                                <li>My Favorite Events</li>
+                            </ul>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="radioBtns">
+                    <div class="all">
+                        <input type="radio" id="all" checked="checked" name="radiobtn" value="All">
+                        <label for="all">All</label>
+                    </div>
+                    <span class="dividerLine">
+                        <img src="images/Divider%20-%20Vert.png" alt="">
+                    </span>
+                    <div class="work">
+                        <input type="radio" id="work" name="radiobtn" value="Work">
+                        <label for="work">Work</label>
+                    </div>
+                    <span class="dividerLine">
+                        <img src="images/Divider%20-%20Vert.png" alt="">
+                    </span>
+                    <div class="life">
+                        <input type="radio" id="life" name="radiobtn" value="Life">
+                        <label for="life">Life</label>
+                    </div>
+                    <span class="dividerLine">
+                        <img src="images/Divider%20-%20Vert.png" alt="">
+                    </span>
+                    <div class="wellbeing">
+                        <input type="radio" id="wellbeing" name="radiobtn" value="Wellbeing">
+                        <label for="wellbeing">Enrich</label>
+                    </div>
+                    <span class="dividerLine">
+                        <img src="images/Divider%20-%20Vert.png" alt="">
+                    </span>
+                    <div class="wowpride">
+                        <input type="radio" id="wowpride" name="radiobtn" value="Wow">
+                        <label for="wowpride">Wow & Pride</label>
+                    </div>
+                    <span class="dividerLine">
+                        <img src="images/Divider%20-%20Vert.png" alt="">
+                    </span>
+                    <div class="connectcommunity">
+                        <input type="radio" id="connectcommunity" name="radiobtn" value="Connect">
+                        <label for="connectcommunity">Connect & Community</label>
+                    </div>
+                </div>
+            </div>
+            <div class="pastEvntscardBottomWr">
+            <div class="FavEvntsWr" style="display:flex;flex-wrap:wrap;">
+                    
+               </div>    
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery script -->
+    <script type="text/javascript" src="../../_catalogs/masterpage/EP-Master/EPEmployee/jquery-3.6.0.min.js"></script>
+    <!-- bootstrap script 
+    <script src="../../_catalogs/masterpage/EP-Master/EPEmployee/bootstrap.css"></script>
+    <!-- Self script--> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" src= "js/EmpFavEvent.js"></script>
+</body>
+
+</html>

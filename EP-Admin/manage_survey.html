@@ -1,0 +1,832 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/manageSurvey.css">
+    <link rel="stylesheet" href="css/access-control.css">
+        <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">
+    
+
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script type="text/javascript" src="js/managesurvey.js"></script>
+     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+ 	<script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+    <title>Manage Event Data</title>
+    
+    <style>
+    
+    .dataTable{
+	width: 60vw !important;
+		
+}
+    .dataTables_scrollHeadInner{
+		width: 100%;
+}
+    .dataTables_scrollBody{
+	overflow-x: hidden !important;
+	width: 62vw;
+}
+.dataTables_empty{
+	width: 60vw;
+}
+.dataTable tr th{
+	width:auto !important;
+}
+#datatable2_wrapper,
+.dataTables_wrapper {
+/*width: 100%;*/
+width: 65vw !important;
+/*border:1px solid red;*/
+}
+.dataTables_scroll,
+.dataTables_scrollHead,
+.dataTables_scrollHeadInner{
+width: 100%;
+/*border:1px solid yellow;*/
+}
+/*.dataTable{
+	width: 62vw !important;
+}*/
+.dataTable>thead {
+    vertical-align: bottom;
+    width: 100%;
+    display: grid;
+}
+.dataTable tr {
+    border-bottom: 1px solid #707070;
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr 3fr 3fr 1fr; /*0.5fr 3fr 2fr 2fr 2fr 2fr;*/
+}
+
+.dataTables_scrollBody{
+width: 100%;
+}
+.dataTable tr {
+    border-bottom: 1px solid #707070;
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr 3fr 3fr 1fr;
+}
+
+/* --------------end grid css--------------------- */
+
+    #dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th.T-color1.sorting.sorting_desc,
+    #dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:nth-child(2),
+    #dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:nth-child(3),
+    #dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:nth-child(4),
+    #dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:nth-child(5),
+    #dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:nth-child(6){
+	background-image:none !important;
+}
+#arrimgs{
+	width:	227px !important;
+}
+      
+      #dlgTitleBtns{
+	margin-right: 3px !important;
+}
+
+  #body > div.ms-dlgContent{
+	width:498px !important;
+}
+    .cm_calendar{
+	position:static !important;
+}
+
+.event-desc{
+	
+}
+
+
+.Published{
+	color:#AFAFAF!important;
+
+}
+.Autopublish{
+	color:#FF706B!important;
+
+}
+.Draft{
+	color:#EC9A2E!important;
+
+}
+.Completed{
+	color:#71BC4C!important;
+}
+   #s4-workspace {
+    overflow-x: hidden;
+    }
+  .fa-xmark{
+	color:#fff !important;
+}#EventDesc{
+        max-width: 300px;
+    -webkit-line-clamp: 2;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+.main-style{
+	width: 100%;
+}
+table.dataTable thead th{
+	padding:10px 0px;
+}
+#temp{
+	text-align:right;
+	    position: relative;
+
+}
+.breadcrumb-item + .breadcrumb-item{
+	padding-left: 0px;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+	    color: #E5E5E5;
+}
+/*::-webkit-scrollbar {
+  width:5px;
+}*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.dataTables_wrapper .dataTables_scroll{
+		margin-bottom: 4rem;
+	    margin-top: 4rem;
+}
+.dataTables_scrollHead{
+    border-bottom: 1px solid #AFAFAF !important;
+}
+#dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th.T-color1.sorting_disabled,
+{
+opacity: 0.4;
+}
+#dataTable2_length > label {
+    text-transform: capitalize;
+        font-size: 11px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #FF3D97;
+}
+.sidebar{
+	height:auto; 
+	 }
+#dataTable2_wrapper {
+    height: auto !important;
+        min-height: 450px;
+    }
+.dataTables_wrapper .dataTables_paginate, #dataTable2_info{
+	position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+#dataTable2_info{
+    left: 3rem;
+}
+#dataTable2 > tbody > tr > td:nth-child(5){
+	    font-style: italic;
+}
+.calenderView input {
+border: solid 1px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px black inset;
+    border-radius: 5px;
+        margin-right: 0.5rem;
+}
+.calenderView input:hover{
+	border:1px solid transparent;
+}
+#arrimg{
+  transition: transform .5s ease-in-out;
+}
+.arrow-img:hover #arrimg{
+  transform: rotate(180deg);
+}
+.ms-webpartzone-cell{
+	    margin-bottom: 0px !important;
+}
+.FA-1{
+	    width: 92.5%;
+	    margin-left: 3.5% !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button, 
+.dataTables_wrapper .dataTables_paginate .paginate_button, 
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+	color:#AFAFAF !important;
+}
+#arrimg{
+	width:225px !important;
+}
+#dataTable2 > tbody > tr > td:nth-child(5){
+	width:212px !important;
+}
+@media (min-width: 992px){
+        .sidebar{
+	    margin-left: 22px;
+}
+	.right-left{
+    text-align: right;
+        width: 50%;
+            margin-right: 1rem;
+}
+
+#dataTable2_wrapper{
+    height: 110vh;
+}
+.right-nav{
+	margin-right:0px;
+}
+#dataTable2 {
+    width: 100% !important;
+}
+.head-left{
+	margin-left: 4%;
+    width: 50%;
+}
+.calenderView{
+    right: 5%;
+}
+.profile h4{
+	margin-left:0px;
+}
+}
+
+.SurveyTitle{
+	 max-width: 300px;
+    -webkit-line-clamp: 1;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;	
+}
+.survey-desc{
+	   max-width: 300px;
+    -webkit-line-clamp: 2;
+    padding: 0px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+}
+
+#editbox {
+    display: none;
+    justify-content: center;
+    align-items: end;
+    height: 30px;
+    width: 67px;
+    position: absolute;
+    top: 23px;
+    right: 13px;
+       background-image: url("Images/groupimg.png");
+    background-size: 100% 100%;
+}
+
+.dataTables_scrollBody{
+	height:auto !important;
+}
+@media (min-width:1130px){
+	FA-1 {
+    width: 93% !important;
+}
+}
+
+@media (min-width: 1024px){
+	#dataTable2_wrapper {
+    width: 66.5vw !important;
+}
+}
+@media (min-width: 1200px){
+.dataTable {
+    width: 65vw !important;
+}
+#dataTable2_wrapper {
+    width: 69.3vw !important;
+}
+     .sidebar{
+    margin-left: 4.5rem;
+}
+
+#dataTable2_wrapper {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 109.6vh;
+   /* width: 95.5%;*/
+    }
+.right-left {
+    margin-right: 2.2rem;
+}
+.head-left{
+    margin-left: 2.5%!important;
+    }
+.right-nav {
+    margin-right: 4rem;
+}
+.calenderView{
+    right: 5%;
+    width:20%;
+}
+.FA-1{
+    width: 93%;
+	        margin-left: 3.5% !important;
+}
+}
+@media (min-width: 1280px) {
+/*.dataTables_scrollBody{
+	    height: 527px !important;
+}*/
+.dataTable {
+    width: 69vw !important;
+}
+#dataTable2_wrapper {
+    width: 71.5vw !important;
+}
+}
+
+@media (min-width: 1366px){
+	#dataTable2_wrapper {
+    width: 72vw !important;
+}
+}
+@media (min-width: 1400px){
+#dataTable2_wrapper {
+    width: 73vw !important;
+}
+.dataTables_empty{
+	width: 70vw;
+}
+.dataTable {
+    width: 71.5vw !important;
+}
+    .head-left{
+        width: 43%;
+    }
+  .right-left {
+   /* margin-right: 5.7rem;*/
+        width: 52.5%;
+}
+.right-nav {
+    margin-right: 4.7rem;
+}
+footer{
+	width:95.5%;
+}
+.FA-1{
+    width: 93.3% !important;
+    margin-left: 3.5% !important;
+    }
+/*.dataTables_scrollBody{
+	    height: 680px !important;
+}*/
+.home-section .hr1{
+	    width: 93.5%;
+	        margin-left: 2.5%;
+}
+#myImg{
+	    right: 8.8%;
+}
+
+}
+
+@media (min-width: 1536px){
+#dataTable2_wrapper {
+    width: 74vw !important;
+}
+.dataTable {
+    width: 72.8vw !important;
+}
+}
+
+@media(min-width:1600px){
+	.calenderView {
+    right: 4%;
+}
+#dataTable2_wrapper {
+    width: 75vw !important;
+}
+}
+@media(min-width: 1900px){
+	#datatable2_wrapper {
+    /* width: 100%; */
+    width: 77.2vw;
+}
+.dataTable {
+    width: 74vw !important;
+}
+
+
+#myImg{
+	    right: 13.8% !important;
+}
+#editbox{
+	top: 33px;
+    right: 18px;
+}
+	}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #747474; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #747474; 
+} 
+::-webkit-scrollbar:horizontal{
+  height: 8px;
+  background-color: black;
+  border-radius: 10px;
+
+}
+::-webkit-scrollbar-thumb:horizontal{
+        background: gray;
+        border-radius: 10px;
+        
+    }
+#myImg{
+	background: url("Images/MicrosoftTeams-image%20(3)%20(1).png") no-repeat;
+	position: fixed;
+    z-index: 1;
+   right: 17.8%;
+    top: 9.5rem;
+    height: 20rem;
+    width: 14rem;
+    background-size: contain;
+    font-size: smaller;
+     }
+#ulimg{
+  	list-style-type: none;
+    color: black;
+    position: relative;
+    text-align:left;
+}
+#ulimg li{
+	margin-bottom:4px;
+	margin-left: -7px;
+}
+#btn1{
+	cursor:context-menu;
+}
+#arrimg{
+	width:13px;
+}
+#ui-datepicker-div{
+    width:auto ;
+    height:
+    }
+    /*#ui-datepicker-div{
+	left:1020px !important;
+}*/
+    #ui-datepicker-div > table{
+	line-height:110% !important;
+}
+
+	.cm_calendar{
+	position:static !important;
+	
+}
+
+
+<!-- POPup -->
+
+.popup, .statuspopup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+.popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  margin-left: -80px;
+}
+
+
+
+
+.popuptext::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  transform: rotateZ(179deg);
+}
+
+
+
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+#dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollBody > .no-footer > thead > tr >  th:nth-child(5) > .dataTables_sizing > .popuptext{ 
+
+display:none !Important;
+	
+}
+
+
+#dataTable2_wrapper > .dataTables_scroll > .dataTables_scrollHead{
+	
+	overflow:inherit !important;
+}
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="head-datamain" style="display:flex;">
+
+
+ <div class="head-left" style="margin-left:3%;">
+  <span class="arrow"><a href="../../SitePages/EPAdmin/AdminHome.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a></span>
+                         <h4>Manage Survey</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item">
+									<a href="../../SitePages/EPAdmin/AdminHome.aspx">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Manage Survey</li>
+                                </ol>
+                              </nav>
+                        </div>
+		<div class="right-left">
+		<a href="../../SitePages/EPAdmin/CreateSurvey.aspx" type="button" class="btn p-button border-transparent" style="text-decoration:none;" id="createSurvey">Create survey</a>
+		</div>
+
+</div>
+           
+
+    <div class="mt-1 main-style">
+           
+<span class="calenderView" style="margin-top: -6px;">
+<img src="Images/data_range_calendar.png" style="position: absolute;left: -27px;width: 18px;top: 2px;">
+
+
+            <input type="text"  id="min" placeholder="Start Date">to
+
+             <input type="text"  id="max" style="margin-left: 6px;" placeholder="End Date">
+
+         </span>
+
+       
+    <table class="table" id="dataTable2" data-ordering="false" data-order='[[ 0, "desc" ]]'>
+            <thead>
+                <tr>
+                    <th scope="col" class="T-color1">ID</th>                    
+                    <th scope="col">SurveyDetails</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col" style="width: 120px;" class="arrow-img" id="arrimgs">Status 
+                    <span class="popup" onclick="myFunction()"><img style="z-index: 99;" src="Images/Icon awesome-chevron-down.png" alt="">
+  						
+					</span>
+
+                    
+                     <span class="popuptext" id="myPopup">
+                     
+                     <ul id="ulimg">
+                    	<li style="cursor:pointer;" id="AllCountLi">
+                    		All Events( <span id="AllCount">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="PublishedLi">
+                   			Published( <span id="Published">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="autopublishedLi">
+                   			Autopublished( <span id="autopublished">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="DraftLi">
+                   			Draft( <span id="Draft">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="CompletedLi">
+                   			Completed( <span id="Completed">0</span> )
+                   		</li>
+
+                      </ul>
+
+
+                    </span>
+                    
+                    <div id="myImg" style="display:none">
+                    <ul id="ulimg">
+                    	<li style="cursor:pointer;" id="AllCountLi">
+                    		All Events( <span id="AllCount">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="PublishedLi">
+                   			Published( <span id="Published">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="autopublishedLi">
+                   			Autopublished( <span id="autopublished">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="DraftLi">
+                   			Draft( <span id="Draft">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="CompletedLi">
+                   			Completed( <span id="Completed">0</span> )
+                   		</li>
+
+                      </ul>
+                    </div>
+</th>
+                    <th scope="col" style="width: 66px;" >Actions</th>
+                 </tr>
+            </thead>
+            
+        </table>
+    </div>
+    
+    
+    <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+  </div>
+</div>
+
+      <div class="modal fade" id="DeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="DeleteModal" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="images/Icon%20metro-bin-small.png" alt="img" style="width:22px;"></span><p class="modal-title" id="DeleteModal" style="margin:0px;">Event Delete Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="images/Icon%20metro-bin-small.png" alt="Image can't found" style="    width: 33px;
+    margin-bottom: 20px;"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have Deleted successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okay" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none;font-size:12px">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+    
+     
+    <!-- Modal popup for delete button End-->
+    
+    
+    
+    
+    
+  <!-- Modal popup for delete button End 1 st pop-up -->
+   
+     <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+  </div>
+</div>
+
+      <div class="modal fade" id="DeleteModal1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="DeleteModal1" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="images/Icon%20metro-bin-small.png" alt="img" style="width:22px;"></span><p class="modal-title" id="DeleteModal1" style="margin:0px;">Survey Delete Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="images/Icon%20metro-bin-small.png" alt="Image can't found" style="    width: 33px;
+    margin-bottom: 20px;"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">Are you sure you want to delete this survey</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="Yes" data-bs-target="#DeleteModal" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none;font-size:12px">Yes</button>
+						 <button type="button" class="btn btn-primary okbtn shadow-none" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none;font-size:12px">No</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+    
+     
+    <!-- Modal popup for delete button End-->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>    
+    <script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>    
+     <script type="text/javascript">
+    function dismissvid(){
+        	$(".modalapp iframe").attr('src', "");
+    		
+    	}
+    	
+    	
+   function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+
+function statusFunction() {
+  var popup = document.getElementById("myPopup2");
+  popup.classList.toggle("show");
+}
+
+
+
+$(document).mouseup(function(e) 
+{
+    var container = $(".popuptext");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.removeClass("show");
+    }
+});
+
+
+    
+    </script>
+    
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/js/replaceVideo.js"></script>
+<style >
+body > div.ms-dlgContent > div > div.ms-dlgTitle{
+background-color: #191718;
+}
+
+#dialogTitleSpan{
+color:White
+}
+
+#s4-ribbonrow,#onetidinfoblockV,#onetidinfoblock1,#onetidinfoblock2{
+	display:none;
+}
+#part1 > table.ms-formtable > tbody > tr:nth-child(16) > td.ms-formlabel,#part1 > table.ms-formtable > tbody > tr:nth-child(16) > td.ms-formbody{
+	display:block !important;
+}
+#s4-workspace{
+	background:White;
+}
+body > div.ms-dlgContent > div{
+background:blue;
+}
+#part1 > table.ms-formtable > tbody > tr > td.ms-formlabel,#part1 > table.ms-formtable > tbody > tr > td.ms-formbody{
+	display:none;
+
+}
+.ms-dlgContent{
+	border-radius:10px !important;
+}
+.ms-webpartzone-cell{
+	margin:0px !important;
+}
+body > div.ms-dlgContent > div > div.ms-dlgTitle{
+	background:blue !important;
+}
+</style>

@@ -1,0 +1,1716 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.6/jquery.timepicker.css">
+       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.runtime.js"></script>
+<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.init.js"></script>
+<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.js"></script>
+<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.core.js"></script>
+<!--<script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/jquery.multifile.js"></script> -->
+    <link rel="stylesheet" href="css/create_event.css">
+    <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">
+
+<script type="text/javascript" src="js/series_Autopublish.js"></script>
+<script type="text/javascript" src="js/series_save_now.js"></script>
+<script type="text/javascript" src="js/create_event.js"></script>
+<script type="text/javascript" src="js/series.js"></script>
+<script type="text/javascript" src="js/Autopublish.js"></script>
+
+<style type="text/css">
+
+.ui-timepicker-wrapper{
+	width: 16rem !important;
+	    font-size: 1.2rem  !important;
+
+}
+#evDesc::-webkit-scrollbar {
+  width: 0.1px !important;
+ 
+}
+
+#evDesc1::-webkit-scrollbar {
+  width: 0.1px !important;
+ 
+}
+.form-data label{
+position:relative;
+}
+sup {
+    color: #FF3D97;
+    font-size: 21px;
+    opacity: 1;
+    position: absolute;
+    top: 16px;
+    margin-left:3px;
+}
+/*.home{
+background: transparent linear-gradient(89deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat padding-box;
+}
+
+.homeimg{
+background: #B15610 !Important;
+}*/
+
+
+
+.nocolor{
+background-color: transparent;
+}
+.lavendar{
+background-color: #E8B0FC !important;
+color: #0A0A0A !important;
+}
+.disabled{
+pointer-events:none;
+display:none;
+}
+.cream{
+background-color: #FFD08A !important;
+color: #0A0A0A !important;
+}
+.blue{
+background-color: #A4C6F9 !important;
+color: #0A0A0A !important;
+}
+.orange{
+background-color: #FF8A72 !important;
+color: #0A0A0A !important;
+}
+.green{
+background-color: #C8DB88 !important;
+color: #0A0A0A !important;
+}
+
+
+.ms-webpartzone-cell{
+margin-bottom:0px !important;
+}
+input[type=text]:focus,
+        input[type=button]:focus,
+         textarea:focus,
+         select:focus {
+  border: 1px solid #FF3D97 !important;
+}
+
+    input[type=text]:hover,
+        input[type=button]:hover,
+         textarea:hover,
+         select:hover {
+  border: 1px solid #FF3D97 !important;
+}
+/*#saveNow{
+background:none !important;
+}*/
+
+
+.publishSingleDay,#AutopublishEvent,#saveNow,{
+pointer-events:none;
+}
+.EnableBtn{
+background: linear-gradient(90deg , #DE8601 0%, #FF3D97 100%) !important;
+    font-size: 11px;
+    color:#fff !important;
+    pointer-events:auto !important;
+}
+
+input[type=button]:focus {
+  border: 1px solid #FF3D97 !important;
+}
+#PublishEvent{
+width:31%;
+}
+
+#AutopublishEvent{
+width:24%;
+}
+.btn{
+border: 0px solid transparent;
+}
+
+.imageData{
+display:flex;
+}
+#imageID{
+    width: 37%;
+    padding: 6px;
+    border-radius: 15px;
+}
+
+.add-accordion{
+color: #fff !important;
+    background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;
+    border-radius:5px;
+
+}
+.ui-datepicker{
+width:auto;
+}
+input[type=text]:hover{
+border-color:#4E4E4E;
+}
+button:hover{
+background-color:transparent !important;
+}
+.p-button{
+    padding: 0.7rem 3rem !important;
+}
+.sidebar {
+    height: auto;
+        margin-bottom: 1rem;
+}
+.event-data{
+min-height:430px;
+height:auto;
+    padding-bottom: 10rem;
+}
+.w3-button, .p-button{
+border: solid 1px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px black inset;
+}
+.w3-button:hover, .p-button:hover{
+border: solid 1px transparent;
+        box-shadow: 0px 0px black inset;
+}
+.savenow:hover{
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+}
+.home-section .hr1{
+    width: 92.5%;
+        margin-left: 2%;
+}
+
+.FA-2{
+
+/*padding: 15px 5px 10px 45px;*/
+}
+.head-left{
+    margin-left: -1rem;
+}
+.event-data .a-button{
+width:95% !important;
+}
+.ImageClass{
+width: 37%;
+    padding: 6px;
+    border-radius: 15px;
+}
+
+@media(min-width:992px)and (max-width: 1200px){
+.p-button {
+    padding: 0.7rem 4rem !important;
+}
+.home-section .hr1 {
+    width: 94%;
+    margin-left: 3%;
+}
+.event-data hr{
+    width: 114.3%;
+}
+.FA-1{
+    width: 92.8%;
+        margin-left: 3.5% !important;
+}
+}
+@media(min-width:1200px)and (max-width: 1400px){
+.FA-1{
+    width: 92% !important;
+    margin-left: 3.5% !important;
+    }
+.event-data{
+margin-left: 3%;
+width: 92%;
+}
+.event-data .a-button {
+    width: 77%;
+}
+.home-section .hr1{
+    width: 92.1%;
+        margin-left: 2.8%;
+}
+.event-data hr{
+    width: 110.1%;
+}
+.event-data .a-button{
+max-width:77% !important;
+}
+.sdayEv label:before{
+height: 15.5px;
+}
+#PublishEvent {
+    width: 25%;
+}
+}
+
+@media(min-width:1400px)and (max-width: 1550px){
+.home-section:{
+min-height:85vh !important;
+}
+.allingment{
+margin-left: 1.5%;
+    margin-right: 3%;
+    width: 96%;
+  
+    }
+    .FA-1{
+    width: 92.5% !important;
+    margin-left: 3.5% !important;
+    }
+    .MainDiv:{
+width: 94% !important;
+margin-left: 2rem !important;
+}
+#PublishEvent,
+#AutopublishEvent{
+width:14%;
+}
+
+.event-data{
+width: 93%;
+    margin-left: 2%;
+}
+.event-data hr{
+    width: 107.6%;
+}
+}
+@media(min-width:1550px){
+.MainDiv:{
+width: 94% !important;
+margin-left: 2rem !important;
+}
+.FA-1{
+    width: 92.5% !important;
+    margin-left: 3.5% !important;
+    }
+.card-design{
+width: 31%;
+    height: 25vh;
+border-radius: 15px;
+    margin: 12px 16px !important;
+}
+.allingment{
+margin-left: 1.5%;
+    margin-right: 3%;
+    width: 96%;
+  }
+#PublishEvent,
+#AutopublishEvent{
+width:20%;
+}
+
+.event-data{
+width: 93%;
+    margin-left: 2%;
+}
+}
+@media(min-width:1900px){
+.head-left {
+    margin-left: 0rem;
+}
+.home-section .hr1 {
+    width: 93%;
+}
+.event-data hr{
+    width: 105.7%;
+}
+ui-timepicker-wrapper ui-timepicker-positioned-top{
+width:5%!important;
+}
+
+
+</style>
+
+
+    <!--<link href="../All_CSS/botstrap.css" rel="stylesheet">-->
+</head>
+
+<body style=" background:black;">
+    <div class="head-section">
+        <div class="event-head d-flex justify-content-between align-items-center">
+            <div class="head-left">
+               <a href="../../SitePages/EPAdmin/ManageEvent.aspx"> <span class="arrow" id="eventback"><i class="fa-solid fa-angle-left"></i></span>
+                <h4>Create Event</h4></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../../SitePages/EPAdmin/AdminHome.aspx">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="../../SitePages/EPAdmin/ManageEvent.aspx">Manage Event</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Create Event</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="head-right d-none">
+                <button class="btn">All Events</button>
+            </div>
+        </div>
+        <div class="event-data">
+            <div class="d-flex">
+               
+                    <span class="radio d-block" style="width:47%;">
+                        <span class="sdayEv">
+                            <input type="radio" name="event" id="sdat" checked>
+                            <label for="sdat">Single Day</label>
+                        </span>
+                        <span class="serEve">
+                            <input type="radio" name="event" id="stad2">
+                            <label for="stad2">Series</label>
+                        </span>
+                    </span>
+              
+              
+                <div class="a-button SingleDiv">
+                  
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#SaveEventBtn" class="w3-button btn border savenow" id="saveNow" value="Draft">Save for now</button>
+                    <button data-bs-toggle="modal" data-bs-target="#AutopublishModal" class="w3-button bg-transparent" id="AutopublishEvent" type="button" class="btn border ">Autopublish</button>
+                   <button  type="button" data-bs-toggle="modal" data-bs-target="#PublishEventBtn1" class="btn p-button bg-transparent publishSingleDay" id="PublishEvent" value="Published">Publish</button>
+                </div>
+                <div class="a-button SeriesDiv d-none">
+                  
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#SaveEventBtn" class="w3-button btn border savenow" id="SeriessaveNow" value="Draft">Save for now</button>
+                    <button data-bs-toggle="modal" data-bs-target="#AutopublishSeriesEvent" class="w3-button bg-transparent" id="SeriesAutopub" type="button" class="btn border ">Autopublish</button>
+                    <button type="button"  data-bs-toggle="modal" data-bs-target="#PublishSeriesModal"  class="btn p-button border-transparent publishSeriesEvent" id="PublishSeries">Publish</button>
+
+                </div>
+
+
+            </div>
+            <hr>
+            <div class="event-form row single-day">
+                <div class="form-data col-lg-4">
+                    <label for="eventtype" class="d-block">Select Event Type <sup>*</sup></label>
+                    <select class="evType" id="eventtype">
+                        <option selected="true" value="" disabled="disabled">select</option>
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                    </select>
+                </div>
+
+                <div class="form-data col-lg-4">
+                    <label for="evTitle" class="d-block">Enter Event Title <sup>*</sup></label>
+                    <input type="text" name="" title='Baner Title' id="evTitle" placeholder="Enter Event Title" autocomplete="off" >
+                </div>
+                <div class="form-data col-lg-4">
+                    <label for="evTitle" class="d-block">Select Hub <sup>*</sup></label>
+                    <select id="Pillar" class="pillar">
+                        <option selected="true" value="" disabled="disabled" id="nocolor">select</option>
+                        <option value="Enrich" id="blue">Enrich</option>
+                        <option value="Wow and pride" id="orange">Wow and Pride</option>
+<option value="Work" id="lavendar">Work</option>
+<option value="Life" id="cream">Life</option>
+<option value="Connect and community" id="green">Connect and Community</option>
+
+                    </select>
+                </div>
+                <div class="form-data col-lg-8">
+                    <label for="evTitle" class="d-block">Event Description <sup>*</sup></label>
+                    <textarea name="" id="evDesc" cols="30" rows="10" placeholder="Description goes here"></textarea>
+
+                </div>
+                <div class="form-data col-lg-4">
+                    <label for="evTitle" class="d-block">Event Image <sup>*</sup></label>
+                    <div class="imageData" id="attachFilesHolder">
+                    <img src="Images/MicrosoftTeams-image%20(5)%20(2).png"  class="SingleDayEventImage" id="imageID">
+                        <input type="file" name="" class="custom-file-input SingleDayEventUpload" id="file_upload" accept="image/*">
+                        <label for="file_upload" style="position:static; text-align:center;" id="ChangeUpload"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Image
+                        <span style="display:block">jpg/png/gif/jpeg/ are allowed</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-data col-lg-4" style="position: relative;">
+                    <label for="evTitle" class="d-block">Event Date <sup>*</sup></label>
+                    <input type="text" name="" id="sEdate" autocomplete="off">
+                    <i class="fa-solid fa-calendar-days calender"></i>
+                </div>
+                <div class="form-data col-lg-3 s-time" style="position: relative;">
+                    <label for="evTitle" class="d-block">Start Time <sup>*</sup></label>
+                    <input type="text" class="set" name="" id="SSTime1">
+                    <img src="Images/Startclock%20(2).svg" style="position: relative; width: 12%;left: 82%;bottom: 33%;" class="setSSTime">
+                  
+                </div>
+                <div class="form-data col-lg-3 e-time" style="position: relative;">
+                    <label for="evTitle" class="d-block sel">End Time <sup>*</sup></label>
+                    <input type="text" class="eet" name="" id="SETime1">
+                     <img id="ch3" src="Images/Startclock%20(2).svg" style="position: relative; width: 12%;left: 82%;bottom: 33%;">                </div>
+                <div class="form-data col-lg-3 d-flex align-items-center">
+                    <!-- <label for="evTitle" class="d-block">50 Mins</label> -->
+                    <p class="diff">-- : --</p>
+
+                </div>
+                <div class="form-data col-lg-3 locationDiv">
+                    <label for="evTitle" class="d-block">Event Location <sup>*</sup></label>
+                    <input type="text" name="" id="evLocation" autocomplete="off">
+                </div>
+                <div class="form-data col-lg-3 LinkDiv">
+                    <label for="evTitle" class="d-block">Event Link <sup>*</sup></label>
+                    <input type="text" name="" id="evLink" autocomplete="off">
+                </div>
+                <div class="form-data col-lg-3 SpeakerDIv">
+                    <label for="evTitle" class="d-block">Speaker Name (optional)</label>
+                    <input type="text" name="" id="evSpeaker" autocomplete="off">
+                </div>
+                <div class="form-data col-lg-3 OrgnizerDiv">
+                    <label for="evTitle" class="d-block">Organizer Name (optional)</label>
+                    <input type="text" name="" id="evOrg" autocomplete="off">
+                </div>
+
+                <div class="form-data col-lg-12">
+                    <label for="evTitle" class="d-block">Keywords (optional) upto 10</label>
+                    <input type="text" name="" id="evKey" placeholder="#hashtag" autocomplete="off" onkeyup="hashfun()">
+                </div>
+
+            </div>
+           
+            <div class="selectOption d-none">
+             <label for="options" style="    color: #fff;font-size: 10px;">Select no. of Events</label>
+                <select name="" id="options" style="background: transparent;color: #fff;font-size: 11px;margin-bottom: 3px;border-radius: 4px;">
+                   <!-- <option value="1">01</option>-->
+                    <option value="2">02</option>
+                    <option value="3">03</option>
+                    <option value="4">04</option>
+                    <option value="5">05</option>
+                </select>
+            </div>
+            <div class="accordion d-none" id="accordionExample">
+           
+           
+           
+               
+               
+                <!-- <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Accordion Item #3
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body mx-auto">
+                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the
+                            collapse plugin adds the appropriate classes that we use to style each element. These classes
+                            control the overall appearance, as well as the showing and hiding via CSS transitions. You can
+                            modify any of this with custom CSS or overriding our default variables. It's also worth noting
+                            that just about any HTML can go within the <code>.accordion-body</code>, though the transition
+                            does limit overflow.
+                        </div>
+                    </div> -->
+                </div>
+                
+        </div>
+
+        <!--Accordion start-->
+       
+        </div>
+        <!--Accordion End-->
+       
+       
+      
+
+   <!-- Modal popup for Saved as draft button start-->
+       <div class="modal fade" id="SaveEventBtn" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="Images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Event Saved as draft  </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="Images/Icon%20feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have saved an Event successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okaysa" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;;border:none">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+         <!-- Modal popup for Saved as draft button End-->
+        
+           <!-- Modal popup for publish button start-->
+    <div class="modal fade" id="PublishSeriesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE; ;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="Images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="PublishSeriesModal" style="margin:0px;">Event Published Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="Images/Icon%20feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have Published an Event successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okay" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+   
+    
+    <!-- Modal popup for Seriespublish button End-->
+
+           <!-- Modal popup for publish button start-->
+    <div class="modal fade" id="PublishEventBtn1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="Images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Event Published Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="Images/Icon%20feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have Published an Event successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okaypu" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+   
+    
+    <!-- Modal popup for publish button End-->
+
+
+        
+        
+        
+        
+
+       <!-- modal popup for publish button start-->
+      
+                 <!-- modal popup for publish button end-->  
+              
+    <!-- modal popup for publish1 button start-->
+  
+   <!--<div class="modal fade" id="PublishEventBtn1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="PublishEventBtn1Label" aria-hidden="true">
+                    <div class="modal-dialog  modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="me-2"><img src=" https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="PublishEventBtn1Label" style="margin:0px;">Event Published Successfully</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="modal-body">
+                        <span class="mx-auto"><img src="../../SiteAssets/ENG-Admin/images/Icon feather-check-circle.svg" alt="img"></span>
+                        <span class="message">You have published an event successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                         <button type="button" class="btn btn-primary okbtn" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                 
+     <!-- modal popup for Publish button end-->
+
+
+<!-- modal popup for AutoPublish button Start-->
+
+                 
+<!--<div class="modal fade" id="AutopublishModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div class="form-data" style="position: relative;">
+                  
+                    <input type="date" name="" id="Date">
+                    <i class="fa-solid fa-calendar-days calender"></i>
+                </div>
+      </div>
+       <div class="form-data" style="position: relative;">
+                    <label for="time" class="d-block">Start Time</label>
+                    <input type="time" name="" id="Time">
+                    <i class="fa-solid fa-clock time"></i>
+                </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary publishevent" id="AutopublishEvent1" value="Autopublish">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+
+
+  <div class="modal fade" id="AutopublishModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered justify-content-center">
+    <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+      <!--<div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+        <h5 class="modal-title" id="exampleModalLabel" style="margin: 0px;">Modal title</h5>
+        <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+      </div>-->
+      <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="Images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Schedule Auto Publish </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+     <!-- <div class="modal-body">
+         <div class="form-data" style="position: relative;">
+                  
+                    <input type="date" name="" id="surveyDate">
+                    <i class="fa-solid fa-calendar-days calender"></i>
+                </div>
+      </div>
+       <div class="form-data" style="position: relative;">
+                    <label for="time" class="d-block">Start Time</label>
+                    <input type="time" name="" id="surveyTime">
+                    <i class="fa-solid fa-clock time"></i>
+                </div>-->
+               
+  <div class="modal-body" style="display: flex;">
+ 
+  <div class="form-data"  style="position: relative;width: 50%;margin-right: 5px;">
+                   <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-weight: 500;font-size: 9px;">Select Date</label>
+                   <input type="date" name="" id="Date" style="color: black;background: #FFFFFF;" autocomplete="off">
+                    <!-- <i class="fa-solid fa-calendar-days calender"></i> -->
+                </div>
+                <div class="form-data" style="position: relative;width: 50%;margin-right: 0px;font-weight: 500">
+                    <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-size: 9px;">Select Time</label>
+                    <input type="time" name="" id="Time" style="color: black;background: #FFFFFF;" autocomplete="off">
+                    <!-- <i class="fa-solid fa-clock time"></i> -->
+                </div>
+              
+
+                                               </div>
+                                                <div style="text-align: center;position: relative;bottom: 50px;left: 0px;font-size: 9px;font-weight: 500;">
+               <!-- <p>NOTE: This event will publish automatically on 06 Aug 2022,11:00PM</p>-->
+                </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn " data-bs-dismiss="modal" style="border-radius: 5px;;border:none">Close</button>
+        <button type="button" class="btn btn-primary publishevent " data-bs-toggle="modal" data-bs-target="#autopublishsave"  data-bs-dismiss="modal" id="AutopublishEvent2" value="Autopublish" style="background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;border-radius: 5px;;border:none">Save changes</button>
+      </div>
+   
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="modal fade" id="AutopublishSeriesEvent" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered justify-content-center">
+    <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+      <!--<div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+        <h5 class="modal-title" id="exampleModalLabel" style="margin: 0px;">Modal title</h5>
+        <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+      </div>-->
+      <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="Images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Schedule Series Auto Publish </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+     <!-- <div class="modal-body">
+         <div class="form-data" style="position: relative;">
+                  
+                    <input type="date" name="" id="surveyDate">
+                    <i class="fa-solid fa-calendar-days calender"></i>
+                </div>
+      </div>
+       <div class="form-data" style="position: relative;">
+                    <label for="time" class="d-block">Start Time</label>
+                    <input type="time" name="" id="surveyTime">
+                    <i class="fa-solid fa-clock time"></i>
+                </div>-->
+               
+  <div class="modal-body" style="display: flex;">
+ 
+  <div class="form-data"  style="position: relative;width: 50%;margin-right: 5px;">
+                   <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-weight: 500;font-size: 9px;">Select Date</label>
+                   <input type="date" name="" id="seriesDate" style="color: black;background: #FFFFFF;">
+                    <!-- <i class="fa-solid fa-calendar-days calender"></i> -->
+                </div>
+                <div class="form-data" style="position: relative;width: 50%;margin-right: 0px;font-weight: 500">
+                    <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-size: 9px;">Select Time</label>
+                    <input type="time" name="" id="seriesTime" style="color: black;background: #FFFFFF;" autocomplete="off">
+                    <!-- <i class="fa-solid fa-clock time"></i> -->
+                </div>
+              
+
+                                               </div>
+                                                <div style="text-align: center;position: relative;bottom: 50px;left: 0px;font-size: 9px;font-weight: 500;">
+               <!-- <p>NOTE: This event will publish automatically on 06 Aug 2022,11:00PM</p>-->
+                </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn" data-bs-dismiss="modal" style="border-radius: 5px;border:none">Close</button>
+        <button type="button" class="btn btn-primary publishevent " data-bs-dismiss="modal" id="AutopublishSeriesEventBTN" value="Autopublish" style="background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;border-radius: 5px;;border:none">Save changes</button>
+      </div>
+   
+  </div>
+</div>
+</div>
+
+
+<!-- modal popup for AutoPublish button End-->
+
+<!-- modal popup for save on autopublish button start-->
+<div class="modal fade" id="autopublishsave" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="autopublishsave" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="Images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="autopublishsave" style="margin:0px;">Event Scheduled Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="Images/Icon%20feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have Scheduled an Event successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okaysa" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;;border:none">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+
+
+
+<!-- modal popup for save on autopublish button end-->
+       
+       
+   <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.6/jquery.timepicker.js"></script>
+    <script src="js/save_now.js"></script>
+    <script>
+             $(".sidebaropen").on("click", function () {
+            $(".card").toggleClass("imagenone1");
+
+        });
+        $(function () {
+            /* console.log("width: "+ document.body.clientWidth); */
+
+            resizeScreen();
+            $(window).resize(function () {
+                resizeScreen();
+            });
+            $('.sidebaropen').click(function () {
+
+                if (document.body.clientWidth > 400) {
+                    $('.sidebar').toggleClass('close');
+                } else {
+                    $('.sidebar').toggleClass('small-screen');
+                }
+            });
+
+            function resizeScreen() {
+                if (document.body.clientWidth < 400) {
+                    $('.sidebar').addClass('close');
+                } else {
+                    $('.sidebar').removeClass('close');
+                }
+            }
+        });
+        $(".sidebaropen").on("click", function () {
+            $(".sidebar .nav-links li").toggleClass("colorClass")
+
+        });
+
+        $("#sdat").on("click",function(){
+            // $(".single-day").addClass("d-flex");
+            $(".selectOption").addClass("d-none");
+            $(".single-day").removeClass("d-none");
+            $(".accordion").addClass("d-none");
+            $(".SingleDiv").removeClass("d-none");
+            $(".SeriesDiv").addClass("d-none");
+        })
+        $("#stad2").on("click",function(){
+            $(".selectOption").removeClass("d-none");
+            $(".accordion").addClass("d-block");
+            $(".accordion").removeClass("d-none");
+            $(".single-day").addClass("d-none");
+$(".SingleDiv").addClass("d-none");
+            $(".SeriesDiv").removeClass("d-none");           
+            $("#addAccordion").removeClass("d-none");
+        })
+        $("#sEdate").datepicker({
+        dateFormat: 'dd M, yy',
+        changeMonth: true,
+        changeYear: true,
+        minDate: "-0Y",
+        maxDate: "+10Y",
+        yearRange: "1900:2100" 
+    });    
+   
+    
+        $( "#sEdate,#evDate1,#evDate2,#evDate3" ).datepicker();
+    var time = new Date($.now());
+    $('#SSTime1,#SStime, #SuStime1').timepicker({
+      timeFormat: 'h:mm p',
+     
+      //change: totalTime,         
+      //minTime: time 
+    });
+   
+    $('#SETime1,#SEtime, #SuEtime2').timepicker({
+      timeFormat: 'h:mm p',
+      //change: totalTime,         
+      //minTime: time
+});
+
+
+
+
+$('#SETime1,#SSTime1').on("change", function() {
+if($("input[id='SSTime1']").val() != '' && $("input[id='SETime1']").val() != '' ){
+var EventStartTime = $("input[id='SSTime1']").val();
+var EventEndTime = $("input[id='SETime1']").val();
+console.log(EventStartTime,EventEndTime,"times");
+
+function get24hTime(str){
+    str = String(str).toLowerCase().replace(/\s/g, '');
+    var has_am = str.indexOf('am') >= 0;
+    var has_pm = str.indexOf('pm') >= 0;
+    // first strip off the am/pm, leave it either hour or hour:minute
+    str = str.replace('am', '').replace('pm', '');
+    // if hour, convert to hour:00
+    if (str.indexOf(':') < 0) str = str + ':00';
+    // now it's hour:minute
+    // we add am/pm back if striped out before 
+    if (has_am) str += ' am';
+    if (has_pm) str += ' pm';
+    // now its either hour:minute, or hour:minute am/pm
+    // put it in a date object, it will convert to 24 hours format for us 
+    var d = new Date("1/1/2011 " + str);
+    // make hours and minutes double digits
+    var doubleDigits = function(n){
+        return (parseInt(n) < 10) ? "0" + n : String(n);
+    };
+    return doubleDigits(d.getHours()) + ':' + doubleDigits(d.getMinutes());
+}
+
+myStart = get24hTime(EventStartTime);
+myEnd = get24hTime(EventEndTime);
+console.log(myStart,myEnd,"24times");
+if (myStart > myEnd) {
+alert("End time is less than Start time");
+$("input[id='SETime1']").val('');
+
+
+}
+
+if(myStart == myEnd){
+alert("Start Time is equal to end time");
+$("input[id='SETime1']").val('');
+}
+
+
+function getTimeDiff(start, end) {
+
+  return moment.duration(moment(end, "HH:mm:ss a").diff(moment(start, "HH:mm:ss a")));
+}
+
+diff = getTimeDiff(myStart, myEnd)
+var gap = (`${diff.hours()} hr: ${diff.minutes()} min`);
+console.log(gap);
+$(".diff").text(gap);
+}
+else{
+$(".diff").text('-- : --');
+}
+
+$('#okaysa').click(function() {
+    location.reload();
+});
+
+$('#okaypu').click(function() {
+    location.reload();
+});
+});
+
+    </script>
+      <script>
+
+        function menuToggle() {
+
+            const toggleMenu = document.querySelector('.menu');
+
+            toggleMenu.classList.toggle('active')
+
+        }
+       
+                $(".SingleDayEventUpload").change(function(){
+                    readURL(this);
+                });
+               
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('.SingleDayEventImage').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+               
+            }
+           
+           
+          
+               
+           
+
+   
+
+
+    </script>
+   
+    <script>
+        let id = 0;
+        $('#addAccordion').click(() => {
+            id++
+            var test = "<div class='card'> <div class='card-header'style='background: #11101d;'> <a class='card-link' data-bs-toggle='collapse' href='#collapse" + id + "'>" +
+                "Collapsible Group Item " + id + "</a> </div> <div id='collapse" + id + "' class = 'collapse' data-parent = '#accordion' ><div class='card-body' style='background: #11101d;'> Lorem ipsum dolor sit amet, </div> </div> </div>";
+            $('.display').append(test);
+        });
+    </script>
+
+
+
+<script type="text/javascript">
+
+
+
+
+$("#options").on("change", function(){
+    var value = $('select#options option:selected').val();
+    alert("value :"+value)
+$(".accordion").empty();
+    seriesHtml(value);
+});
+function seriesHtml(value){
+for(var i=1; i<=value; i++){
+    $("#collapseOne1").addClass("show");
+var appendData = '<div class="accordion-item"> <h2 class="accordion-header" id="headingOne'+i+'"> <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne'+i+'" aria-expanded="true" aria-controls="collapseOne">'+
+                            '<span> Event '+i+'</span> </button> </h2> <div id="collapseOne'+i+'" class="accordion-collapse collapse" aria-labelledby="headingOne'+i+'" data-bs-parent="#accordionExample">'+
+                            '<div class="accordion-body mx-auto"> <div class="event-form row"> <div class="form-data col-lg-3"> <label for="evTitle" class="d-block">Select Event Type '+i+' <sup>*</sup></label>'+
+                            '<select class="evTypes" id="evType'+i+'"> <option value="None" selected="true" value="" disabled="disabled">select</option> <option value="Online">Online</option> <option value="Offline">Offline</option> </select></div>'+
+                            '<div class="form-data col-lg-3"> <label for="evTitle" class="d-block" >Enter Event title '+i+' <sup>*</sup></label> <input type="text" name=" "id="evTitle'+i+'" placeholder="Event title goes here" autocomplete="off""> </div>'+
+                            '<div class="form-data col-lg-3"> <label for="evTitle" class="d-block">Event Subtitle '+i+' <sup>*</sup></label> <input type="text" name="" id="evsubTitle'+i+'" placeholder="Event title goes here" autocomplete="off""></div>'+
+                            '<div class="form-data col-lg-3"> <label for="evTitle" class="d-block">Select Hub '+i+' <sup>*</sup></label> <select id="evPillar'+i+'"> <option value="NaN" selected="true" value="" disabled="disabled">select</option> <option value="Enrich">Enrich</option>'+
+                            '<option value="Work">Work</option> <option value="Life">Life</option> <option value="Wow and Pride">Wow and Pride</option> <option value="Connect and Community">Connect and Community</option> </select> </div>'+
+                            '<div class="form-data col-lg-8"> <label for="evTitle" class="d-block">Event Description '+i+' <sup>*</sup></label> <textarea name="" id="evDesc'+i+'" cols="30" rows="10" placeholder="Description goes here"></textarea></div>'+
+                            '<div class="form-data col-lg-4"> <label for="evTitle" class="d-block">Event Image '+i+' <sup>*</sup></label> <div class="imageData attachFilesHolderData" id="attachFilesHolder'+i+'"><img src="Images/MicrosoftTeams-image (5) (2).png" id="imageID'+i+'" change="readURL1(input1)" class="ImageClass"> <input type="file" name="" class="custom-file-input FileInputClass" id="file_upload'+i+'"> <label style="position: absolute;top: 0;text-align: center;" for="file_upload'+i+'" class="ChangeText"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Image<span style="display:block">jpg/png/gif/jpeg/ are allowed</span></label> </div> </div>'+
+                            '<div class="form-data col-lg-4" style="position: relative;"> <label for="evTitle" class="d-block">Event Date '+i+' <sup>*</sup></label><input type="text" name="" class="MainDate maindate" id="evDate11'+i+'"> <i class="fa-solid fa-calendar-days calender"></i> </div>'+
+                            '<div class="form-data col-lg-3 s-time" style="position: relative;"> <label for="evTitle" class="d-block">Start Time '+i+' <sup>*</sup></label> <input type="text" name="" id="evSTime'+i+'" class="StartTimes"> <i class="fa-solid fa-clock time"></i> </div>'+
+                            '<div class="form-data col-lg-3 e-time" style="position: relative;"><label for="evTitle" class="d-block">End Time '+i+' <sup>*</sup></label><input type="text" name="" class="EndTimes" id="evETime'+i+'"><i class="fa-solid fa-clock time"></i></div> <div class="form-data col-lg-3 d-flex align-items-center">'+
+                            '<p id="duration'+i+'">-- : --</p></div> <div class="form-data evLink col-lg-3">'+
+                            '<label for="evTitle" class="d-block">Event Link '+i+' <sup>*</sup></label><input type="text" name="" id="evLink'+i+'"></div>'+
+                            '<div class="form-data evLocation col-lg-3"> <label for="evTitle" class="d-block">Location '+i+'</label> <input type="text" name="" id="evLocation'+i+'"></div>'+
+                            '<div class="form-data evSpeaker col-lg-3"> <label for="evTitle" class="d-block">Speaker Name '+i+'</label> <input type="text" name="" id="evSpeaker'+i+'"></div>'+
+                            '<div class="form-data evOrganizer col-lg-3"> <label for="evTitle" class="d-block">Organizer Name '+i+'</label> <input type="text" name="" id="evOrg'+i+'"></div>'+
+                            '<div class="form-data evKeywords col-lg-12"> <label for="evTitle" class="d-block">Keywords '+i+' (optional) upto 10</label><input type="text" name="" id="evKey'+i+'" placeholder="#hashtag" onkeyup="hashfun1(this.id)"></div>'+
+                            '</div> </div> </div> </div>';
+     $(".accordion").append(appendData);
+     
+   
+
+     $(".maindate").datepicker({
+        dateFormat: 'dd M, yy',
+       changeMonth: true,
+        changeYear: true,
+        minDate: "-0Y",
+        maxDate: "+10Y",
+        yearRange: "1900:2100" 
+    });
+    
+    
+    
+
+    const todays = new Date();
+const yyyyy = todays.getFullYear();
+let mmm = todays.getMonth() + 1;
+let ddd = todays.getDate();
+var hour = todays.getHours();
+var minute = todays.getMinutes();
+const month = todays.toLocaleString('default', { month: 'short' });
+console.log(month,"weeee");
+
+if (ddd < 10) ddd = '0' + dd;
+if (month < 10) month = '0' + month ;
+const formattedToday = ddd +' '+month+', ' + yyyyy;
+console.log(formattedToday,"today's Date");
+
+  
+       var pickedDate;
+    $("#evDate111").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true,
+            minDate: "-0Y",
+            maxDate: "+10Y",
+            yearRange: "1900:2100" 
+        });
+      
+        $("#evDate111").on("change",function(){
+        var selected = $(this).val();
+        pickedDate = selected;
+        console.log(pickedDate,"selected Date");
+    });
+
+    $('#evDate111').on("change", function() {
+        if(pickedDate == formattedToday){
+            console.log("inside if");
+          var minu = (Math.round(minute/15) * 15)% 60;
+            if(minu == 0){
+            	minu = '00';
+            }
+
+            $('#evSTime1').timepicker('option', 'className', "timepicker-width");
+            $('#evSTime1').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evSTime1').timepicker('option', 'forceRoundTime', 'true');
+            $('#evSTime1').timepicker('option', 'interval', '30');
+
+            $('#evETime1').timepicker('option', 'className', "timepicker-width");
+            $('#evETime1').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evETime1').timepicker('option', 'forceRoundTime', 'true');
+            $('#evETime1').timepicker('option', 'interval', '30');
+        }else{
+            console.log("inside else");
+            $('#evSTime1').timepicker('option', 'minTime', '12:00am');
+            $('#evSTime1').timepicker('option', 'maxTime', '11:30pm');
+
+            $('#evETime1').timepicker('option', 'minTime', '12:00am');
+            $('#evETime1').timepicker('option', 'maxTime', '11:30pm');
+      
+        }
+    });
+     $("#evDate112").on("change",function(){
+        var selected = $(this).val();
+        pickedDate = selected;
+        console.log(pickedDate,"selected Date");
+    });
+
+    $('#evDate112').on("change", function() {
+        if(pickedDate == formattedToday){
+            console.log("inside if");
+          var minu = (Math.round(minute/15) * 15)% 60;
+            if(minu == 0){
+            	minu = '00';
+            }
+
+            $('#evSTime2').timepicker('option', 'className', "timepicker-width");
+            $('#evSTime2').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evSTime2').timepicker('option', 'forceRoundTime', 'true');
+            $('#evSTime2').timepicker('option', 'interval', '30');
+
+            $('#evETime2').timepicker('option', 'className', "timepicker-width");
+            $('#evETime2').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evETime2').timepicker('option', 'forceRoundTime', 'true');
+            $('#evETime2').timepicker('option', 'interval', '30');
+        }else{
+            console.log("inside else");
+            $('#evSTime2').timepicker('option', 'minTime', '12:00am');
+            $('#evSTime2').timepicker('option', 'maxTime', '11:30pm');
+
+            $('#evETime2').timepicker('option', 'minTime', '12:00am');
+            $('#evETime2').timepicker('option', 'maxTime', '11:30pm');
+      
+        }
+    });
+
+ $("#evDate11").on("change",function(){
+        var selected = $(this).val();
+        pickedDate = selected;
+        console.log(pickedDate,"selected Date");
+    });
+
+    $('#evDate113').on("change", function() {
+        if(pickedDate == formattedToday){
+            console.log("inside if");
+          var minu = (Math.round(minute/15) * 15)% 60;
+            if(minu == 0){
+            	minu = '00';
+            }
+
+            $('#evSTime3').timepicker('option', 'className', "timepicker-width");
+            $('#evSTime3').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evSTime3').timepicker('option', 'forceRoundTime', 'true');
+            $('#evSTime3').timepicker('option', 'interval', '30');
+
+            $('#evETime3').timepicker('option', 'className', "timepicker-width");
+            $('#evETime3').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evETime3').timepicker('option', 'forceRoundTime', 'true');
+            $('#evETime3').timepicker('option', 'interval', '30');
+        }else{
+            console.log("inside else");
+            $('#evSTime3').timepicker('option', 'minTime', '12:00am');
+            $('#evSTime3').timepicker('option', 'maxTime', '11:30pm');
+
+            $('#evETime3').timepicker('option', 'minTime', '12:00am');
+            $('#evETime3').timepicker('option', 'maxTime', '11:30pm');
+      
+        }
+    });
+
+    $("#evDate114").on("change",function(){
+        var selected = $(this).val();
+        pickedDate = selected;
+        console.log(pickedDate,"selected Date");
+    });
+
+    $('#evDate114').on("change", function() {
+        if(pickedDate == formattedToday){
+            console.log("inside if");
+          var minu = (Math.round(minute/15) * 15)% 60;
+            if(minu == 0){
+            	minu = '00';
+            }
+
+            $('#evSTime4').timepicker('option', 'className', "timepicker-width");
+            $('#evSTime4').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evSTime4').timepicker('option', 'forceRoundTime', 'true');
+            $('#evSTime4').timepicker('option', 'interval', '30');
+
+            $('#evETime4').timepicker('option', 'className', "timepicker-width");
+            $('#evETime4').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evETime4').timepicker('option', 'forceRoundTime', 'true');
+            $('#evETime4').timepicker('option', 'interval', '30');
+        }else{
+            console.log("inside else");
+            $('#evSTime4').timepicker('option', 'minTime', '12:00am');
+            $('#evSTime4').timepicker('option', 'maxTime', '11:30pm');
+
+            $('#evETime4').timepicker('option', 'minTime', '12:00am');
+            $('#evETime4').timepicker('option', 'maxTime', '11:30pm');
+      
+        }
+    });
+    
+ $("#evDate115").on("change",function(){
+        var selected = $(this).val();
+        pickedDate = selected;
+        console.log(pickedDate,"selected Date");
+    });
+
+    $('#evDate115').on("change", function() {
+        if(pickedDate == formattedToday){
+            console.log("inside if");
+            var minu = (Math.round(minute/15) * 15)% 60;
+            if(minu == 0){
+            	minu = '00';
+            }
+
+          
+            $('#evSTime5').timepicker('option', 'className', "timepicker-width");
+            $('#evSTime5').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evSTime5').timepicker('option', 'forceRoundTime', 'true');
+            $('#evSTime5').timepicker('option', 'interval', '30');
+
+            $('#evETime5').timepicker('option', 'className', "timepicker-width");
+            $('#evETime5').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#evETime5').timepicker('option', 'forceRoundTime', 'true');
+            $('#evETime5').timepicker('option', 'interval', '30');
+        }else{
+            console.log("inside else");
+            $('#evSTime5').timepicker('option', 'minTime', '12:00am');
+            $('#evSTime5').timepicker('option', 'maxTime', '11:30pm');
+
+            $('#evETime5').timepicker('option', 'minTime', '12:00am');
+            $('#evETime5').timepicker('option', 'maxTime', '11:30pm');
+      
+        }
+    });
+
+
+        $("select.evTypes").change(function(){
+        Etype= $(this).children("option:selected").val();
+if (Etype == "Online"){
+//alert("Online");
+$(".evLocation").addClass("d-none");
+$(".evLink").addClass("col-lg-4");
+$(".evSpeaker").addClass("col-lg-4");
+$(".evOrganizer").addClass("col-lg-4");
+}else{
+$(".evLocation").removeClass("d-none");
+$(".evLink").removeClass("col-lg-4");
+$(".evSpeaker").removeClass("col-lg-4");
+$(".evOrganizer").removeClass("col-lg-4");
+
+}
+});
+    //file upload1
+   
+   
+    $("#file_upload1").change(function(){
+                    readURL1(this);
+               
+    function readURL1(input1) {
+            console.log("were in")
+                if (input1.files && input1.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#imageID1').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input1.files[0]);
+                }
+            }
+         
+});
+
+    //file upload2
+   
+   
+   
+   
+   
+ 
+           
+    $('.StartTimes,.EndTimes').timepicker({
+           
+      //minTime: time 
+    });
+
+
+}
+$("#evSTime1,#evETime1").change(function(){
+if($("input[id='evSTime1']").val() != '' && $("input[id='evETime1']").val() != '' ){
+var EventStartTime = $("input[id='evSTime1']").val();
+var EventEndTime = $("input[id='evETime1']").val();
+
+//var dif = moment.duration(EventEndTime.diff(EventStartTime));
+//var gap = EventEndTime.diff(EventStartTime,'hours');  
+//console.log(dif,"time-gap");
+function get24hTime(str){
+    str = String(str).toLowerCase().replace(/\s/g, '');
+    var has_am = str.indexOf('am') >= 0;
+    var has_pm = str.indexOf('pm') >= 0;
+    // first strip off the am/pm, leave it either hour or hour:minute
+    str = str.replace('am', '').replace('pm', '');
+    // if hour, convert to hour:00
+    if (str.indexOf(':') < 0) str = str + ':00';
+    // now it's hour:minute
+    // we add am/pm back if striped out before 
+    if (has_am) str += ' am';
+    if (has_pm) str += ' pm';
+    // now its either hour:minute, or hour:minute am/pm
+    // put it in a date object, it will convert to 24 hours format for us 
+    var d = new Date("1/1/2011 " + str);
+    // make hours and minutes double digits
+    var doubleDigits = function(n){
+        return (parseInt(n) < 10) ? "0" + n : String(n);
+    };
+    return doubleDigits(d.getHours()) + ':' + doubleDigits(d.getMinutes());
+}
+
+myStart =get24hTime(EventStartTime);
+myEnd = get24hTime(EventEndTime);
+if (myStart > myEnd) {
+alert("Start Time is greater than end time");
+$("input[id='evETime1']").val('')
+
+}
+
+if (myStart == myEnd) {
+alert("Start Time equals end time");
+$("input[id='evETime1']").val('')
+}
+function getTimeDiff(start, end) {
+
+  return moment.duration(moment(end, "HH:mm:ss a").diff(moment(start, "HH:mm:ss a")));
+}
+
+diff = getTimeDiff(myStart, myEnd)
+var gap = (`${diff.hours()} hr: ${diff.minutes()} min`);
+console.log(gap);
+$("#duration1").text(gap);
+}
+else{
+$("#duration1").text('-- : --');
+}
+});
+
+$(".FileInputClass").on("change", function(){
+    //alert("test done")
+    $(".ChangeText").html("Update Image");
+    })
+
+
+$("#evSTime2,#evETime2").change(function(){
+if($("input[id='evSTime2']").val() != '' && $("input[id='evETime2']").val() != '' ){
+var EventStartTime = $("input[id='evSTime2']").val();
+var EventEndTime = $("input[id='evETime2']").val();
+console.log(EventStartTime,EventEndTime,"times");
+//var dif = moment.duration(EventEndTime.diff(EventStartTime));
+//var gap = EventEndTime.diff(EventStartTime,'hours');  
+//console.log(dif,"time-gap");
+
+function get24hTime(str){
+    str = String(str).toLowerCase().replace(/\s/g, '');
+    var has_am = str.indexOf('am') >= 0;
+    var has_pm = str.indexOf('pm') >= 0;
+    // first strip off the am/pm, leave it either hour or hour:minute
+    str = str.replace('am', '').replace('pm', '');
+    // if hour, convert to hour:00
+    if (str.indexOf(':') < 0) str = str + ':00';
+    // now it's hour:minute
+    // we add am/pm back if striped out before 
+    if (has_am) str += ' am';
+    if (has_pm) str += ' pm';
+    // now its either hour:minute, or hour:minute am/pm
+    // put it in a date object, it will convert to 24 hours format for us 
+    var d = new Date("1/1/2011 " + str);
+    // make hours and minutes double digits
+    var doubleDigits = function(n){
+        return (parseInt(n) < 10) ? "0" + n : String(n);
+    };
+    return doubleDigits(d.getHours()) + ':' + doubleDigits(d.getMinutes());
+}
+
+myStart =get24hTime(EventStartTime);
+myEnd = get24hTime(EventEndTime);
+if (myStart > myEnd) {
+alert("Start Time is greater than end time");
+$("input[id='evETime2']").val('')
+
+}
+
+if (myStart == myEnd) {
+alert("Start Time equals end time");
+$("input[id='evETime2']").val('')
+}
+function getTimeDiff(start, end) {
+
+  return moment.duration(moment(end, "HH:mm:ss a").diff(moment(start, "HH:mm:ss a")));
+}
+
+
+diff = getTimeDiff(myStart, myEnd)
+var gap = (`${diff.hours()} hr: ${diff.minutes()} min`);
+console.log(gap);
+$("#duration2").text(gap);
+}
+else{
+$("#duration2").text('-- : --');
+}
+});
+$("#evSTime3,#evETime3").change(function(){
+if($("input[id='evSTime3']").val() != '' && $("input[id='evETime3']").val() != '' ){
+var EventStartTime = $("input[id='evSTime3']").val();
+var EventEndTime = $("input[id='evETime3']").val();
+console.log(EventStartTime,EventEndTime,"times");
+//var dif = moment.duration(EventEndTime.diff(EventStartTime));
+//var gap = EventEndTime.diff(EventStartTime,'hours');  
+//console.log(dif,"time-gap");
+
+function get24hTime(str){
+    str = String(str).toLowerCase().replace(/\s/g, '');
+    var has_am = str.indexOf('am') >= 0;
+    var has_pm = str.indexOf('pm') >= 0;
+    // first strip off the am/pm, leave it either hour or hour:minute
+    str = str.replace('am', '').replace('pm', '');
+    // if hour, convert to hour:00
+    if (str.indexOf(':') < 0) str = str + ':00';
+    // now it's hour:minute
+    // we add am/pm back if striped out before 
+    if (has_am) str += ' am';
+    if (has_pm) str += ' pm';
+    // now its either hour:minute, or hour:minute am/pm
+    // put it in a date object, it will convert to 24 hours format for us 
+    var d = new Date("1/1/2011 " + str);
+    // make hours and minutes double digits
+    var doubleDigits = function(n){
+        return (parseInt(n) < 10) ? "0" + n : String(n);
+    };
+    return doubleDigits(d.getHours()) + ':' + doubleDigits(d.getMinutes());
+}
+
+myStart =get24hTime(EventStartTime);
+myEnd = get24hTime(EventEndTime);
+if (myStart > myEnd) {
+alert("Start Time is greater than end time");
+$("input[id='evETime3']").val('')
+
+}
+
+if (myStart == myEnd) {
+alert("Start Time equals end time");
+$("input[id='evETime3']").val('')
+}
+function getTimeDiff(start, end) {
+
+  return moment.duration(moment(end, "HH:mm:ss a").diff(moment(start, "HH:mm:ss a")));
+}
+
+diff = getTimeDiff(myStart, myEnd)
+var gap = (`${diff.hours()} hr: ${diff.minutes()} min`);
+console.log(gap);
+$("#duration3").text(gap);
+}
+else{
+$("#duration3").text('-- : --');
+}
+});
+$("#evSTime4,#evETime4").change(function(){
+if($("input[id='evSTime4']").val() != '' && $("input[id='evETime4']").val() != '' ){
+var EventStartTime = $("input[id='evSTime4']").val();
+var EventEndTime = $("input[id='evETime4']").val();
+console.log(EventStartTime,EventEndTime,"times");
+//var dif = moment.duration(EventEndTime.diff(EventStartTime));
+//var gap = EventEndTime.diff(EventStartTime,'hours');  
+//console.log(dif,"time-gap");
+
+function get24hTime(str){
+    str = String(str).toLowerCase().replace(/\s/g, '');
+    var has_am = str.indexOf('am') >= 0;
+    var has_pm = str.indexOf('pm') >= 0;
+    // first strip off the am/pm, leave it either hour or hour:minute
+    str = str.replace('am', '').replace('pm', '');
+    // if hour, convert to hour:00
+    if (str.indexOf(':') < 0) str = str + ':00';
+    // now it's hour:minute
+    // we add am/pm back if striped out before 
+    if (has_am) str += ' am';
+    if (has_pm) str += ' pm';
+    // now its either hour:minute, or hour:minute am/pm
+    // put it in a date object, it will convert to 24 hours format for us 
+    var d = new Date("1/1/2011 " + str);
+    // make hours and minutes double digits
+    var doubleDigits = function(n){
+        return (parseInt(n) < 10) ? "0" + n : String(n);
+    };
+    return doubleDigits(d.getHours()) + ':' + doubleDigits(d.getMinutes());
+}
+
+myStart =get24hTime(EventStartTime);
+myEnd = get24hTime(EventEndTime);
+if (myStart > myEnd) {
+alert("Start Time is greater than end time");
+$("input[id='evETime4']").val('')
+
+}
+
+if (myStart == myEnd) {
+alert("Start Time equals end time");
+$("input[id='evETime4']").val('')
+}
+
+function getTimeDiff(start, end) {
+
+  return moment.duration(moment(end, "HH:mm:ss a").diff(moment(start, "HH:mm:ss a")));
+}
+
+diff = getTimeDiff(myStart, myEnd)
+var gap = (`${diff.hours()} hr: ${diff.minutes()} min`);
+console.log(gap);
+$("#duration4").text(gap);
+}
+else{
+$("#duration4").text('-- : --');
+}
+});
+$("#evSTime5,#evETime5").change(function(){
+if($("input[id='evSTime5']").val() != '' && $("input[id='evETime5']").val() != '' ){
+var EventStartTime = $("input[id='evSTime5']").val();
+var EventEndTime = $("input[id='evETime5']").val();
+console.log(EventStartTime,EventEndTime,"times");
+//var dif = moment.duration(EventEndTime.diff(EventStartTime));
+//var gap = EventEndTime.diff(EventStartTime,'hours');  
+//console.log(dif,"time-gap");
+
+function get24hTime(str){
+    str = String(str).toLowerCase().replace(/\s/g, '');
+    var has_am = str.indexOf('am') >= 0;
+    var has_pm = str.indexOf('pm') >= 0;
+    // first strip off the am/pm, leave it either hour or hour:minute
+    str = str.replace('am', '').replace('pm', '');
+    // if hour, convert to hour:00
+    if (str.indexOf(':') < 0) str = str + ':00';
+    // now it's hour:minute
+    // we add am/pm back if striped out before 
+    if (has_am) str += ' am';
+    if (has_pm) str += ' pm';
+    // now its either hour:minute, or hour:minute am/pm
+    // put it in a date object, it will convert to 24 hours format for us 
+    var d = new Date("1/1/2011 " + str);
+    // make hours and minutes double digits
+    var doubleDigits = function(n){
+        return (parseInt(n) < 10) ? "0" + n : String(n);
+    };
+    return doubleDigits(d.getHours()) + ':' + doubleDigits(d.getMinutes());
+}
+
+myStart =get24hTime(EventStartTime);
+myEnd = get24hTime(EventEndTime);
+if (myStart > myEnd) {
+alert("Start Time is greater than end time");
+$("input[id='evETime5']").val('')
+
+}
+
+if (myStart == myEnd) {
+alert("Start Time equals end time");
+$("input[id='evETime5']").val('')
+}
+
+function getTimeDiff(start, end) {
+
+  return moment.duration(moment(end, "HH:mm:ss a").diff(moment(start, "HH:mm:ss a")));
+}
+
+diff = getTimeDiff(myStart, myEnd)
+var gap = (`${diff.hours()} hr: ${diff.minutes()} min`);
+console.log(gap);
+$("#duration5").text(gap);
+}
+else{
+$("#duration5").text('-- : --');
+}
+});
+
+
+}
+
+
+$("#evDate111").datepicker({
+        dateFormat: 'dd M, yy',
+        changeMonth: true,
+        changeYear: true,
+        minDate: "-0Y",
+        maxDate: "+10Y",
+        yearRange: "1900:2100" 
+    });
+     
+ 
+
+
+
+ 
+  /* For timepicker
+  $('#SSTime1').timepicker();
+$('i').click(function(){
+    $('#SSTime1').focus();
+});*/
+
+</script>
+<script>
+const todays = new Date();
+const yyyyy = todays.getFullYear();
+let mmm = todays.getMonth() + 1;
+let ddd = todays.getDate();
+var hour = todays.getHours();
+var minute = todays.getMinutes();
+const month = todays.toLocaleString('default', { month: 'short' });
+console.log(month,"weeee");
+
+if (ddd < 10) ddd = '0' + dd;
+if (month < 10) month = '0' + month ;
+const formattedToday = ddd +' '+month+', ' + yyyyy;
+console.log(formattedToday,"today's Date");
+$('document').ready(function(){
+  
+    $('#SSTime1').timepicker({
+        interval:30,
+    });
+    $('#SETime1').timepicker({
+        interval:30,
+    });
+  
+    $('#SETime1').on("change", function() {
+        var starts = $("#SSTime1").val();
+    var ends = $("#SETime1").val();
+    if(starts == ends){
+        alert("start time and end time cannot be same");
+    }
+    });
+    var pickedDate;
+    $("#sEdate").datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true,
+            minDate: "-0Y",
+            maxDate: "+10Y",
+            yearRange: "1900:2100" 
+        });
+      
+        $("#sEdate").on("change",function(){
+        var selected = $(this).val();
+        pickedDate = selected;
+        console.log(pickedDate,"selected Date");
+    });
+
+    $('#sEdate').on("change", function() {
+        if(pickedDate == formattedToday){
+            console.log("inside if");
+            
+            var minu = (Math.round(minute/15) * 15)% 60;
+            if(minu == 0){
+            	minu = '00';
+            }
+          
+            $('#SSTime1').timepicker('option', 'className', "timepicker-width");
+            $('#SSTime1').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#SSTime1').timepicker('option', 'forceRoundTime', 'true');
+            $('#SSTime1').timepicker('option', 'interval', '30');
+
+            $('#SETime1').timepicker('option', 'className', "timepicker-width");
+            $('#SETime1').timepicker('option', 'minTime', "" + hour + ":" + minu + "");
+            $('#SETime1').timepicker('option', 'forceRoundTime', 'true');
+            $('#SETime1').timepicker('option', 'interval', '30');
+        }else{
+            console.log("inside else");
+            $('#SSTime1').timepicker('option', 'minTime', '12:00am');
+            $('#SSTime1').timepicker('option', 'maxTime', '11:30pm');
+
+            $('#SETime1').timepicker('option', 'minTime', '12:00am');
+            $('#SETime1').timepicker('option', 'maxTime', '11:30pm');
+      
+        }
+    });
+   
+   
+  
+});
+
+
+ function hashfun(){
+		var keyword = document.getElementById("evKey").value;
+			var hash = keyword.split('#').length-1;
+			console.log(hash);
+			if ( hash > 10 ) {
+				document.getElementById("evKey").value = null;
+		} else{
+
+	}
+ }
+ 
+ function hashfun1(id){
+		var keyword = document.getElementById(id).value;
+			var hash = keyword.split('#').length-1;
+			console.log(hash);
+			if ( hash > 10 ) {
+				document.getElementById(id).value = null;
+		} else{
+
+	}
+ }
+
+</script>
+</body>
+
+</html>

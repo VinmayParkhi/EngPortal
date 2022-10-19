@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/css/access-control.css">
+<head>
+<style type="text/css">
+
+.is-hidden { display: none; }
+
+
+
+.home{
+	background: transparent linear-gradient(89deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat padding-box;
+}
+
+.homeimg{
+	background: #B15610 !Important;
+}
+
+
+
+::-webkit-scrollbar{
+	width: 0px !important;
+}
+.delBtn{
+    /*margin-top: -45px;*/
+    width: 13.5rem;
+    /*border: 1px solid red;*/
+    margin-right: -22px;
+	}
+/*#groupid-parent{
+	overflow-y: scroll;
+    max-height: 75vh;
+}*/
+#groupid{
+	display: flex;
+    flex-wrap: wrap;
+    height:auto;
+    overflow-y: scroll;
+    max-height: 75vh;
+    
+}
+.search-button{
+	 color: grey;
+}
+.emp-card{
+	background-color: black !important;
+	width: 30%;
+	border-radius:10px;
+}
+
+.card-image {
+    padding: 45px 65px; 
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.breadcrumb-item+.breadcrumb-item {
+    padding-left: 0;
+}
+.breadcrumb-item+.breadcrumb-item::before{
+	color: #E5E5E5;
+}
+.ETlefticon{
+    color: #fff;
+    /*position: absolute;*/
+    background: #000;
+    border-radius: 25px;
+    border: 1.5px solid #ff3d97;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 9px;
+        margin-right: -20px !important;
+            margin-top: -42px !important;
+}
+.ms-webpartzone-cell{
+	    margin-bottom: 0px !important;
+}
+.sidebar{
+	height:auto !important;
+	    margin-bottom: 1rem;
+}
+.home-section .hr1{
+	width: 92%;
+    margin-left: 2.3rem;
+}
+.head-right{
+    margin-right: -1.5rem !important;
+}
+.head-left{
+	    margin-left: 0.5rem;
+}
+.hr1{
+	width: 92% !important;
+    margin-left: 2.3% !important;
+}
+.FA-1{
+	 margin-left: 3.5% !important;
+	            width: 93.5%;
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+       #groupid {
+        width: 100%;
+        /*height: 94vh;*/
+	}
+       
+       .emp-card {
+    width: 28.5%;
+   }    
+   .card-body {
+      margin:0 !important;
+}
+
+.card-image {
+    padding: 30px 35px;
+   }   
+      }
+   
+   @media (min-width: 1200px) and (max-width: 1400px){
+    /*.card-image {
+    padding: 45px 58px;
+   }*/
+   #groupid {
+        width: 98%;
+        /*height: 96vh;*/
+   }
+   .delBtn {
+    /*margin-top: -61px;*/
+    margin-right: -77px;
+}
+   .ETlefticon{
+    font-size: 11px;
+    padding: 5px 10px;   
+    margin-top: -70px !important;
+    }
+/*.sidebar{
+    height: 109vh;
+}*/
+
+.hr1{
+	height: 1px;
+	    width: 91.5% !important;
+    margin-left: 3.5% !important;
+ }
+    .emp-card {
+    width: 29.5%;
+}
+.head-right {
+    margin-right: 0 !important;
+}
+.FA-1{
+	            width: 92.5%;
+}
+
+}
+
+ @media (min-width: 1366px){
+    .card-image {
+    padding: 65px 80px;
+   }
+   .delBtn {
+    /*margin-top: -80px;*/
+    margin-right: -115px;
+}
+   .ETlefticon{
+               margin-top: -106px !important;
+}
+    }
+    
+    @media (min-width: 1400px)and (max-width: 1600px){
+     #groupid {
+                height: 91vh;
+	}
+.emp-card{
+	width:27%;
+}
+.card{
+	margin: 10px 12px;
+    margin-right: 3.5%;
+    /*height:47%;*/
+}
+.card {
+	margin: 18px 30px;
+}
+.head-right{
+    margin-right: 3.5rem !important;
+    width: 28.5%;
+    	display:inline;
+}
+#WebPartWPQ5 > div.ms-rtestate-field > div.event-head.d-flex.justify-content-between.align-items-center > div:nth-child(2) > div > button
+{
+	text-align: center;
+    color: white;	
+}
+.FA-1{
+    width: 91.6%;
+}
+
+.event-head {
+    padding: 0px 34px;
+    margin-left: 2%;
+}
+.home-section .hr1{
+	width: 89%!important;
+    margin-left: 6.3rem !important;
+}
+.search-box{
+	left: 0% !Important;
+}
+
+
+}
+    
+    
+@media (min-width: 1600px)and (max-width: 1900px){
+#groupid {
+    height: 93vh;
+}
+.card-image {
+    padding: 75px 70px;
+}
+.delBtn {
+    /*margin-top: -88px;*/
+    margin-right: -140px;
+}
+.head-right{
+    margin-right: 3rem;
+}
+.ETlefticon{
+	    margin-right: 0px !important;
+	        margin-top: -130px !important;
+}
+.emp-card{
+	    width: 22%;
+}
+
+}
+    
+    @media (min-width: 1900px){
+     .card-image {
+    padding: 125px 100px;
+}
+.delBtn {
+    /*margin-top: -149px;*/
+    margin-right: -171px;
+}
+.ETlefticon{
+     font-size: 15px;
+    padding: 5px 11px;
+        /*margin-top: 1rem !important;*/
+        	        margin-top: -130px !important;
+    }
+    .card-image{
+	margin-top: 34px;
+}
+.head-right {
+    margin-right: 6rem;
+}
+.emp-card{
+	    width: 22%;
+}
+
+}
+.ms-core-form-subsection{
+	display:none !important;
+}
+</style>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
+<script type="text/javascript" src="js/EngagersSearch.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+ 
+	//var siteurl = "https://amdocs.sharepoint.com";       
+	$.ajax({
+		url: _spPageContextInfo.siteAbsoluteUrl+ "/_api/Web/SiteGroups/GetByName('EP%20Users')/users",
+		type: "GET",
+		dataType: "json",
+		headers: {
+			"accept": "application/json;odata=verbose"
+		},
+		success: function (data) {
+			if(data.d.results.length > 0 )
+			{
+				for(i=0;i<data.d.results.length;i++){
+					var accntname = data.d.results[i].LoginName;					
+					var admin = data.d.results[i].IsSiteAdmin;
+					var cardID = data.d.results[i].Id;
+					getuserProperties(accntname.replace("#","%23"),admin,cardID);
+					
+					if(admin == true){
+					//alert("admin is available");
+					$("#child").prop("checked", true);		
+					$("#child").attr('checked', 'checked');
+					
+					}
+				}	                                                 
+			}  
+			else{
+				$("#groupid").append("<div  class='users'>No Members Present</div></br>");
+			}       
+		},
+		error: function (error){
+			console.log(error);
+		}
+	});
+});
+function getuserProperties(user,admin,cardID){
+$.ajax({
+		url: _spPageContextInfo.siteAbsoluteUrl+ "/_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='"+user+"'",
+		type: "GET",
+		dataType: "json",
+		headers: {
+			"accept": "application/json;odata=verbose"
+		},
+		success: function (data) { 
+			var dept;
+			var results = data.d.UserProfileProperties.results;
+			//debugger;
+			var displayname = data.d.DisplayName;
+			var picurl = data.d.PictureUrl;
+			
+			console.log('picurl',picurl);
+			if(picurl == null){
+				//picurl =  _spPageContextInfo.siteAbsoluteUrl+ "/_layouts/15/userphoto.aspx?size=S&accountname="+data.d.Email;
+				picurl = 'images/Icon awesome-user-circle.png';
+			}	
+			for(i = 0; i < data.d.UserProfileProperties.results.length; i++){
+				if(data.d.UserProfileProperties.results[i].Key == "Department"){
+					dept = data.d.UserProfileProperties.results[i].Value;					
+					//dept = "O365"
+				}
+			}
+       
+			$("#groupid").append("<div class='card emp-card cards' style=''><div class='d-flex flex-column align-items-center card-image mx-auto'><div class='d-flex justify-content-end align-items-center delBtn'><p class='ETlefticon' onclick='DeleteCard(this.id);' id="+data.d.AccountName+"><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p></div><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div></div>");                                                    
+		},
+		error: function (error){
+			console.log(error);
+		}
+	});
+}
+function DeleteCard(id){
+//alert(id);
+   //var accName = $(".lefticon").children('#AccName').val();
+   removeUserFromGroup(id,32);
+};
+
+
+function removeUserFromGroup(userLoginName,groupid)
+{
+ var url = _spPageContextInfo.siteAbsoluteUrl +"/_api/web/sitegroups/GetById('" + encodeURIComponent(groupid) +"')/users/removebyloginname(@u)?@u='" + encodeURIComponent(userLoginName) +"'";
+ return $.ajax({
+ url: url,
+ method:"POST",
+ contentType:"application/json;odata=verbose",
+ headers: {
+	 "Accept":"application/json;odata=verbose",
+	 "X-RequestDigest": $("#__REQUESTDIGEST").val()
+ },
+ success: function (data) { 
+ 	alert(userLoginName+" has been removed from group");
+ 	location.reload();
+ },
+ error: function (error){
+	console.log(error);
+ }
+
+ });
+}
+
+
+function adduser(){  
+	var GroupName = 'EP%20Users';			
+   	var CurrGroupId = '32';  
+	var currsite = _spPageContextInfo.siteAbsoluteUrl;
+	openDialog(currsite+'/_layouts/15/aclinv.aspx?GroupId='+CurrGroupId);	
+    //window.location.reload();	
+   //$('.ms-dlgContent').hide();
+   $('.ms-dlgContent #ctl00_PlaceHolderMain_lnkSharedWithDlgItem').hide();	
+}
+
+function openDialog(pageUrl) {
+	var options = {
+		url: pageUrl,
+		title: 'Add User',
+		allowMaximize: false,
+		showClose: true,
+		width: 850,
+		height: 372
+	};
+	SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
+}
+
+
+
+</script>
+</head>
+<body>
+<div class="event-head d-flex justify-content-between align-items-center">
+                        <div class="head-left">
+                        <span class="arrow"><a href="../../SitePages/EPAdmin/AdminHome.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a> 
+                           
+                            </span><h4>Experience+ Team</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="../../SitePages/EPAdmin/AdminHome.aspx">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Experience+ Team</li>
+                                </ol>
+                                <span style="font-size: 10px; font-style: italic; color: #FCF9EE; opacity: 0.7;"></span>
+                              </nav>
+                        </div>
+                        <div class="head-right">
+                            <div class=" search-box">
+                                <input type="text" id="searchTxt" class="search-input" placeholder="Search member">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <span class="divider2">
+                                </span>
+                                <button type="button" class="search-button" onclick="adduser()" style="margin-left:17%">
+                                 Add
+                                </button>
+                             </div>
+                           <!--<div class=" search-box">
+                                                               <button type="button" class="search-button" onclick="adduserE()">
+                                 Add
+                                </button>
+                             </div>-->
+                        </div>
+                        <div class="head-right d-none">
+                            <button class="btn">All Events</button>
+                        </div>
+                    </div>
+                    
+                    <!--<div id="groupid-parent">-->
+<div id="groupid" class="ms-5">
+</div>
+<!--</div>-->
+</body>
+</html>

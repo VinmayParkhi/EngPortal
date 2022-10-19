@@ -1,0 +1,891 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+  
+   <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="css/managePastEvents.css">
+    
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>    
+    <script src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>    
+    <script src="js/ManagePastEvents.js"></script>
+    <script src="js/replaceVideo.js"></script>
+    
+	
+
+ 
+    <title>Manage Event Data</title>
+
+	<style type="text/css">
+	
+	.dataTables_wrapper .dataTables_scroll div.dataTables_scrollBody td span{
+		font-style:italic;
+	}
+	
+	 .modal-content{
+    height: auto;
+    border-radius: 1.5rem;
+    /* padding: 1rem; */
+    background: linear-gradient(86deg, #DE8601 0%, #FF3D97 100%) !important;
+    width: 518px;
+    padding: 8px;
+    margin-top: 17%;
+}
+
+
+	.ms-dlgTitleBtns {
+	margin-right: 0px !important;
+}
+	
+	#exampleModal > div > div{
+	      margin-top: 39% !important;
+	}
+	.m-2{
+	  margin-top:10px;
+	}
+	.not-up{
+		width: 15px;
+	    padding-bottom: 0.5rem;
+	    margin-right: 3px;
+	}
+	#dataTable6 > tbody > tr > td:nth-child(4) > p{
+	font-style:italic;
+	}
+	#dataTable6 > tbody > tr > td:nth-child(4) > span,
+	#dataTable6 > tbody > tr > td:nth-child(4) > p{
+	opacity:0.7;
+	}
+	.ms-webpartzone-cell{
+	margin-bottom:0px !important;
+}
+
+.ms-formlabel{
+display:none !important;
+}
+.Published{
+	color:#AFAFAF!important;
+
+}
+.Autopublish{
+	color:#FF706B!important;
+
+}
+.Draft{
+	color:#EC9A2E!important;
+
+}
+
+	#subboxvid span{
+	color: #000 !important;
+	}
+	#editbox > div > div.replacevideo > div > span{
+		color: #000 !important;
+	}
+	table.dataTable thead .sorting {
+    background-image: none;
+    
+}
+	.subboxWr{
+		width: 100%;
+		height: auto;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-top: 1rem;
+		padding: 3px 0px;
+	}
+	
+	#myImg{
+	display:none;
+}
+#temp{
+	position:relative;
+}
+	
+	.manage{
+	background: transparent linear-gradient(89deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat padding-box;
+}
+
+.manageimg{
+	background: #B15610 !Important;
+}
+
+	
+	
+.Work{
+	color:#E8B0FC!important;
+}
+.Connect{
+	color:#C8DB88!important;
+
+}
+.Wow{
+	color:#FF8A72!important;
+
+}
+.Enrich{
+	color:#A4C6F9 !important;
+
+}
+.Life{
+	color:#EFBB6D !important;
+}
+
+	     #ui-datepicker-div{
+    width:auto ;
+    height:
+    }
+    /*#ui-datepicker-div{
+	left:1020px !important;
+}*/
+    #ui-datepicker-div > table{
+	line-height:110% !important;
+}
+
+	.cm_calendar{
+	position:static !important;
+	
+}
+#dataTable6_filter>label>input[type=search]{
+	color:white !important;
+	    margin-top: -2.4rem;
+}
+#dataTable6_first{
+	color:white;
+}
+.breadcrumb-item + .breadcrumb-item{
+	padding-left: 0px;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+	    color: #E5E5E5;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+#dataTable6 > thead > tr > th.T-color1.sorting_disabled,
+{
+opacity: 0.4;
+}
+#dataTable6_length > label {
+    font-size: 13px;
+}
+#dataTable6_length > label {
+    text-transform: capitalize;
+}
+ .head-left{
+    margin-left: 2.5% !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    background: #FF3D97;
+}
+.sidebar{
+	height: auto!important;
+    }
+.dataTables_wrapper .dataTables_paginate,
+#dataTable6_info  {
+      position: absolute;
+    bottom: 2rem;
+    right: 1rem;
+}
+.dataTables_scroll{
+	    margin-bottom: 3rem;
+	  margin-top: 3rem;
+
+}
+#dataTable6_info {
+left: 3rem;
+    }
+    #dataTable6_wrapper {
+    height: auto !important;
+    width: 97% !important;
+        min-height: 450px !important;
+  }
+table.dataTable tbody td,
+table.dataTable thead th {
+    padding: 8px 15px 8px 0px;
+}
+.FA-1{
+    width: 92.8%;
+    margin-left: 3.5% !important;
+}
+table.dataTable thead th{
+	    border-bottom: 1px solid #707070;
+}
+#event-pillar{
+	    font-style: italic;
+	    font-size:11px;
+}
+table tbody tr td{
+	font-size:10px  !important;
+}
+.calenderView input {
+border: solid 1px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px black inset;
+    border-radius: 5px;
+        margin-right: 0.5rem;
+}
+.calenderView input:hover{
+	border:1px solid transparent;
+}
+.calenderView{
+	    margin-top: -1rem;
+}
+.dataTables_length{
+	    margin-top: -1.5rem !important;
+}
+#arrimgs{
+  transition: transform .5s ease-in-out;
+}
+#arrimgs:hover {
+  transform: rotate(180deg);
+}
+#editbox{
+	display: none;
+	flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: auto;
+    width: 110px;
+    position: absolute;
+    top: 25px;
+    right: -13px;
+    background-image: url("Images/groupimg.png");
+    background-size: 100% 100%;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.subboxvid span{
+	font-size: 1.05rem;
+	color: #000;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+ .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
+    color: #AFAFAF !important;
+}
+#myImg{
+	    margin-left: -8rem;
+}
+#threedot{
+    margin-left: 55%;
+}
+@media (min-width: 1024px){
+	#editbox {
+	    right: -7px;
+	}
+		.FA-1{
+	    width: 93.1% !important;
+}
+}
+
+@media (min-width: 1200px) and (max-width: 1400px){
+
+  .FA-1{
+    width: 93.5% !important;
+    margin-left: 3.5% !important;
+    }
+#dataTable6{
+	width:100% !important;
+}
+.calenderView input{
+	width: 38% !important;
+	margin-right:10px;
+}
+/*.calenderView {
+	margin-right:4%;
+}*/
+	.hr1{
+	height: 1px;
+	width: 92%!important;
+	margin-left: 3%!important;
+}
+.dataTables_scrollBody{
+	    height: 635px !important;
+}
+#editbox{
+	right: 11px;
+}
+#myImg{
+    margin-left: -9% !important;
+}
+}
+
+@media (min-width: 1280px){
+	#editbox {
+	    right: 15.6px;
+	}
+	#threedot{
+	    margin-left: 90% !important;
+}
+}
+
+@media (min-width: 1366px){
+	#editbox {
+	    right: 20.4px;
+	}
+}
+
+@media (min-width: 1440px){
+.subboxWr {
+    /*height: 65px;*/
+    margin-top: 1.5rem;
+}
+	#editbox {
+    	/*right: 25px;
+    	height: 87px;*/
+	    width: 135px;
+	}
+	.subboxvid span {
+	    font-size: 1.2rem !important;
+	}
+	.subboxvid i{
+		font-size: 13px !important;
+	}
+	.calenderView{
+	    right: 48px !important;
+}
+}
+
+@media(min-width: 1536px){
+	#editbox {
+	  right: 17px;
+      top: 24px;	}
+}
+@media (min-width:1400px) and (max-width:1600px){
+.right-left {
+    margin-left: 107rem;
+}
+table.dataTable tbody td {
+    padding: 13px 5px;
+}
+.FA-1{
+    width: 93.2% !important;
+    margin-left: 3.5% !important;
+    }
+#dataTable6{
+	width: 100%;
+}
+/*.calenderView {
+	margin-right:4%;
+}*/
+.calenderView input{
+	margin-right: 8px;
+}
+.calenderView{
+	    right: 48px !important;
+}
+#myImg{
+    margin-left: -8% !important;
+}
+#threedot {
+    margin-left: 65% !important;
+}
+#myImg2{
+    margin-right: 7.8%;
+}
+
+	.hr1{
+	height: 1px;
+	width: 92%!important;
+	margin-left: 3%!important;
+}
+/*.dataTables_scrollBody{
+	    height: 534px !important;
+}*/
+#dataTable6_wrapper {
+    width: 96% !important;
+}
+#editbox {
+    width: 110px;
+}
+
+}
+
+@media (min-width: 1600px){
+/*.calenderView {
+       right: 50px;
+    }*/
+    .home-section .hr1{
+    width: 93.7%;
+   	margin-left: 2.5%;
+ }
+    #myImg
+    {
+    margin-left: -8% !important;
+}
+#myImg2{
+    margin-right: 8.5% !important;
+}
+.FA-1{
+    width: 93.3%;
+}
+#dataTable6_wrapper {
+    width: 95.5% !important;
+}
+#editbox {
+	    right: 0px;
+	}
+	#threedot{
+	    margin-left: 93% !important;
+}
+}
+/*#editbox{
+    margin-left: 41% !important;
+}*/
+}
+/*@media(min-width: 1850px){
+	#editbox {
+    margin-left: 50% !important;
+}
+}*/
+/*#editbox{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;    
+    height: 45px;
+    width: 85px;
+    position: absolute;
+    top: 25px;
+    right: 13px;
+    background-image: url(Images/Union.png);
+    background-size: 100% 100%;
+}*/
+
+
+
+.replacevideo,.embedlink,.trash{
+	
+	display:flex;
+	align-items:center;
+	justify-content:flex-start;
+	color: black !important; 
+	font-size:8px !important;
+	width: 100%;
+    border-top: 1px solid gray;
+}
+
+
+.replacevideo{
+	border-top: none !Important;
+    /*position: absolute;
+    top: 16px;*/
+    width: 100%;
+    /* margin: 0 auto; */
+    /* left: 10px; */
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    /*border: 1px solid red;*/
+}
+
+.replacevideo i,.embedlink i,.trash i{
+	
+	margin-right:5px;
+	margin-top:5px;
+}
+
+
+.subboxvid{
+	
+	/*width: 85%;
+    margin: 0 auto;*/
+    display: flex;
+    align-items: center;
+    }
+
+/*#myImg{
+	background: url("Images/MicrosoftTeams-image%20(3)%20(1).png") no-repeat;
+    position: fixed;
+    z-index: 1;
+    top: 9rem;
+    height: 31rem;
+    width: 23rem;
+    background-size: contain; 
+    left:16.2%;    
+    }*/
+    
+    #myImg{
+	background: url("Images/MicrosoftTeams-image%20(3)%20(1).png") no-repeat;
+    position: fixed;
+    z-index: 1;
+    /*right: 66.4rem;*/
+    top: 10rem;
+    height: 23rem;
+    width: 24rem;
+    background-size: contain;   
+        left: 5%;  
+    }
+
+    
+    /*#myImg2{
+	background: url("Images/MicrosoftTeams-image%20(3)%20(1).png") no-repeat;
+    position: fixed;
+    z-index: 2;
+    /*right: 66.4rem;*/
+    /*height: 13rem;
+    width: 13rem;
+    background-size: contain;   
+       right: 14%;  
+    }*/
+#myImg2{
+	background: url("Images/MicrosoftTeams-image%20(3)%20(1).png") no-repeat;
+    position: fixed;
+    z-index: 2;
+    /*right: 66.4rem;*/
+    height: 20rem;
+    width: 22rem;
+    background-size: contain;   
+       right: 18%;  
+    }
+
+#ulimg{
+  	list-style-type: none;
+    color: black;
+    text-align: left;
+    margin-top:10px;
+    height:auto;
+    }
+#ulimg li{
+	margin-bottom:4px;
+	margin-left: -7px;
+}
+#btn1{
+	cursor:context-menu;
+}
+#arrimgs{
+	width:13px;
+}
+
+@media (min-width: 1900px){
+	#editbox {
+    	right: 0px;
+	}
+}
+
+
+<!-- POPup -->
+
+.popup, .statuspopup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+.popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  margin-left: -80px;
+}
+
+
+
+
+.popuptext::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+  transform: rotateZ(179deg);
+}
+
+
+
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+#dataTable6_wrapper > div.dataTables_scroll > div.dataTables_scrollBody > .no-footer > thead > tr >  th:nth-child(2) > .dataTables_sizing > .popuptext{ 
+
+display:none !Important;
+	
+}
+
+
+#dataTable6_wrapper > div.dataTables_scroll > div.dataTables_scrollBody > .no-footer > thead > tr >  th:nth-child(4) > .dataTables_sizing > .popuptext{ 
+
+display:none !Important;
+	
+}
+
+
+
+
+#dataTable6_wrapper > .dataTables_scroll > .dataTables_scrollHead{
+	
+	overflow:inherit !important;
+}
+
+
+</style>
+</head>
+
+<body>
+
+
+
+<div class="head-left" >
+					<span class="arrow"><a href="#"><i style="color:white" class="fa-solid fa-angle-left"></i></a></span>  
+                         
+                         <h4>Manage Past Events</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item">
+									<a href="../../SitePages/EPAdmin/AdminHome.aspx">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Manage Past Event</li>
+                                </ol>
+                              </nav>
+                        </div>
+           
+
+    <div class="mt-1 main-style">
+           
+<span class="calenderView">
+<!--<img src="../SiteAssets/ENG-Admin/images/data_range_calendar.png" style="position: absolute;left: -26px;width: 18px;" alt="">-->
+<img src="Images/data_range_calendar.png" style="position: absolute;left: -27px;width: 18px;top: 2px;">
+
+
+
+            <input type="text"  id="minValue" placeholder="Start Date">to
+
+             <input type="text"  id="maxValue" style="margin-left: 6px;" placeholder="End Date">
+
+         </span>
+		       
+    <table class="table" id="dataTable6" data-ordering="false">
+            <thead>
+                <tr>
+                    <th scope="col" class="T-color1" style="width: 103.75px !important;">ID</th>
+                     <th scope="col" class="T-color1" style="width: 103.75px !important;">ListID</th>
+
+                    <th scope="col" style="width: 216.55px !important;" id="arrowimgs">Past Event Details <span class="popup" onclick="myFunction()"><img style="z-index: 99;" src="Images/Icon awesome-chevron-down.png" alt="">
+  						
+					</span>
+					
+					<span class="popuptext" id="myPopup">
+  						
+  					<ul id="ulimg">
+                    	<li style="cursor:pointer;" id="CountLi">
+                    		All( <span id="Count">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="wrkLi">
+                   			Work( <span id="wrk">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="LifeLi">
+                   			Life( <span id="life">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="WellbeingLi">
+                   			Enrich( <span id="Enri">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="WowLi">
+                   			Wow and pride( <span id="Wow">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="ConnectLi">
+                   			Connect and community( <span id="Connect">0</span> )
+                   		</li>
+                   		
+                    </ul>
+
+  						
+  						</span>
+                    
+                    
+                    <div id="myImg" class="d-none">
+                    <ul id="ulimg">
+                    	<li style="cursor:pointer;" id="CountLi">
+                    		All( <span id="Count">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="wrkLi">
+                   			Work( <span id="wrk">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="LifeLi">
+                   			Life( <span id="life">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="WellbeingLi">
+                   			Enrich( <span id="Enri">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="WowLi">
+                   			Wow and pride( <span id="Wow">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="ConnectLi">
+                   			Connect and community( <span id="Connect">0</span> )
+                   		</li>
+                   		
+                    </ul>
+                    </div>
+					</th>
+
+                    <th scope="col" style="width: 327.225px !important;">Event Date</th>
+                    <th scope="col" style="width: 119.8px !important;" id="arrimg2s">Status
+                    <span class="statuspopup" onclick="statusFunction()"><img style="z-index: 99;" src="Images/Icon awesome-chevron-down.png" alt="">
+					</span>
+                    <span class="popuptext" id="myPopup2">
+                    	 <ul id="ulimg">
+                    	<li style="cursor:pointer;" id="AllCountLi">
+                    		Uploaded( <span id="Uploaded">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="PublishedLi">
+                   			Not Uploaded( <span id="NotUploaded">0</span> )
+                   		</li>
+                   		</ul>
+
+                    </span>
+                    <div id="myImg2" class="d-none">
+						 <ul id="ulimg">
+                    	<li style="cursor:pointer;" id="AllCountLi">
+                    		Uploaded( <span id="Uploaded">0</span> )
+                   		</li>
+                   		<li style="cursor:pointer;" id="PublishedLi">
+                   			NotUploaded( <span id="NotUploaded">0</span> )
+                   		</li>
+                   		</ul>
+                    </div>
+
+                    </th>
+                    <th scope="col" style="text-align: end; width: 238.5px !important;">Actions</th>
+
+                </tr>
+            </thead>
+            
+        </table>
+          </div>
+          
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+  
+          <div >
+    <div class="modal-content">
+              <i class="fas fa-times" id="cross" data-dismiss="modal" onclick="dismissvid()" aria-label="Close" style="cursor:pointer;position: absolute;right: -10px;color: white;top: -11px;font-size: 15px;"></i>
+      <div class="modalapp" style=" background: #FCF9EE; width: 100%; height: auto;">
+     		<iframe id="abcde" style="display: block;" autoplay=true  aria-hidden="true" width="500" height="400"
+  		src="">
+</iframe>
+      </div>
+      
+    
+    </div>
+  </div>
+</div>
+
+
+ </div>   
+    <script type="text/javascript">
+    function dismissvid(){
+        	$(".modalapp iframe").attr('src', "");
+    		
+    	}
+    	
+    	
+   function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
+
+
+function statusFunction() {
+  var popup = document.getElementById("myPopup2");
+  popup.classList.toggle("show");
+}
+
+
+
+$(document).mouseup(function(e) 
+{
+    var container = $(".popuptext");
+
+    // if the target of the click isn't the container nor a descendant of the container
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.removeClass("show");
+    }
+});
+
+
+    
+    </script>
+    
+    
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+

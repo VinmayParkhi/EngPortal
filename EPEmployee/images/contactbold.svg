@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="17.455" height="18.162" viewBox="0 0 17.455 18.162">
-  <g id="Group_3305" data-name="Group 3305" transform="translate(-140.694 -763.975)">
-    <path id="Icon_material-chat_bubble_outline" data-name="Icon material-chat_bubble_outline" d="M17.809,3H4.645A1.65,1.65,0,0,0,3,4.645V19.455l3.291-3.291H17.809a1.65,1.65,0,0,0,1.645-1.645V4.645A1.65,1.65,0,0,0,17.809,3Zm0,11.518H6.291L4.645,16.164V4.645H17.809Z" transform="translate(138.194 761.475)" fill="#fcf9ee" stroke="#fcf9ee" stroke-width="1"/>
-    <g id="Rectangle_2966" data-name="Rectangle 2966" transform="translate(142 765.388)" fill="#fcf9ee" stroke="#fcf9ee" stroke-width="1">
-      <rect width="15" height="11" stroke="none"/>
-      <rect x="0.5" y="0.5" width="14" height="10" fill="none"/>
-    </g>
-  </g>
-</svg>

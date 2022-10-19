@@ -1,0 +1,467 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Portal</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+     <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">
+     <link rel="stylesheet" href="css/create_event_2.css">
+     <link rel="stylesheet" href="css/create_event.css">
+
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">  
+  	     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+   
+          <script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.runtime.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.init.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.core.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>	
+	 <script type="text/javascript" src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/js/jquery.multifile.js"></script> 
+	 <script type="text/javascript" src="js/create_survey.js"></script>
+	  <script type="text/javascript" src="js/save_now_survey.js"></script>
+	<!--<script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/AutoPublishSurvey.js"></script>-->
+    <link href="botstrap.css" rel="stylesheet">
+       <style>
+       
+       
+
+
+       
+       #publishSurvey,#AutopublishSurveyMain,#saveNowsurvey{
+	pointer-events:none;
+	}
+
+.EnableBtn{
+	 background: linear-gradient(90deg , #DE8601 0%, #FF3D97 100%) !important;
+    font-size: 11px;
+    color:#fff !important;
+    pointer-events:auto !important;
+}
+
+
+    
+    	 input[type=text]:focus,
+        input[type=button]:focus,
+         textarea:focus,
+         select:focus {
+  border: 1px solid #FF3D97 !important;
+}
+
+    input[type=text]:hover,
+        input[type=button]:hover,
+         textarea:hover,
+         select:hover {
+  border: 1px solid #FF3D97 !important;
+}
+
+    
+    #ui-datepicker-div{
+	width:auto !important;
+}
+    #imageID {
+    width: 37%;
+    padding: 6px;
+    border-radius: 15px;
+}
+.breadcrumb-item + .breadcrumb-item::before{
+	    color: #E5E5E5;
+}
+.p-button{
+	    padding: 0.5rem 3rem !important;
+}
+.event-data{
+    height: 71vh;
+}
+.sidebar {
+    height: auto !important;
+}
+ .event-data{
+    height: auto;
+	width: 92.5%;
+    min-height: 450px;
+}
+.FA-1{
+	    width: 92.4%;
+	    margin-left: 3.4% !important;
+}
+.w3-button, .p-button {
+	border: solid 1px transparent;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)), linear-gradient(101deg, #DE8601, #FF3D97);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    box-shadow: 1px 1000px 1px black inset;
+}
+.w3-button:hover, .p-button:hover{
+	border: solid 1px transparent;
+        box-shadow: 0px 0px black inset;
+}
+.p-button{
+	width:21%;
+	}
+.w3-button {
+    width: 19%;
+}
+.home-section .hr1{
+	width: 93%;
+    margin-left: 3.5%;
+}
+.head-left{
+	    margin-left: -1.5%;
+}
+.event-data hr{
+	    width: 114.6% !important;
+}
+.ms-webpartzone-cell{
+	    margin-bottom: 0px !important;
+}
+ @media (min-width: 1200px) and (max-width: 1400px){
+.FA-1{
+    width: 92% !important;
+    margin-left: 3.5% !important;
+ }
+.hr1{
+	height: 1px;
+	width: 92.5% !important;
+    margin-left: 2.6% !important;
+    }
+.p-button {
+    width: 18%;
+}
+.w3-button {
+    width: 17%;
+}
+.event-data hr {
+    width: 110.9% !important;
+}
+}
+
+
+ @media (min-width: 1400px){
+.FA-1{
+	    width: 92% !important;
+    margin-left: 3.5% !important;
+  }
+.p-button,
+.w3-button{
+	width:15%;
+	}
+	.head-left {
+    margin-left: -1%;
+}
+.home-section .hr1 {
+    width: 92.7%;
+    margin-left: 2.2%;
+}
+.event-data hr {
+    width: 108.5% !important;
+}
+}
+ @media (min-width: 1600px){
+/*.p-button,
+.w3-button{
+	width:12%;
+	}*/
+.home-section .hr1 {
+    margin-left: 1.8%;
+}
+.event-data hr {
+    width: 107% !important;
+}
+}
+@media(min-width:1900px){
+	.event-data {
+    width: 93% !important;
+}
+.event-data hr {
+    width: 105.8% !important;
+}
+.head-left {
+    margin-left: -0.5%;
+}
+}
+
+
+    </style>
+</head>
+
+<body style=" background:black;">
+    <div class="head-section">
+        <div class="event-head d-flex justify-content-between align-items-center">
+            <div class="head-left">
+                <a href="../../SitePages/EPAdmin/ManageSurvey.aspx"><span class="arrow"><i class="fa-solid fa-angle-left"></i></span>
+                <h4>Create Survey</h4></a>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                       
+                        <li class="breadcrumb-item"><a href="../../SitePages/EPAdmin/AdminHome.aspx">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="../../SitePages/EPAdmin/ManageSurvey.aspx">Manage Survey</a> </li>
+                        <li class="breadcrumb-item active" aria-current="page">Create Survey</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="head-right d-none">
+                <button class="btn">All Events</button>
+            </div>
+        </div>
+        <div class="event-data">
+            <div class="d-flex">
+                
+                <div class="a-button ms-auto">
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#SaveEventBtn" class="w3-button btn savenowsurvey " id="saveNowsurvey" value="Draft">Save for now</button>
+                    <button data-bs-toggle="modal" data-bs-target="#AutopublishModal1" class="w3-button bg-transparent" id="AutopublishSurveyMain" type="button" class="btn border ">Autopublish</button>
+                    <button type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn p-button border-transparent" id="publishSurvey">Publish</button>
+                </div>
+
+            </div>
+            <hr>
+            <div class="event-form row serveyEventForm">
+               <div class="form-data col-lg-12">
+                <label for="evTitle" class="d-block">Survey Title</label>
+                <input type="text" id="sTitle" placeholder="Text">
+               </div>
+
+                
+                <div class="form-data col-lg-8" style="height:10rem">
+                    <label for="evTitle" class="d-block">Survey Description</label>
+                    <textarea name="" id="sDesc" cols="30" rows="10" placeholder="Description goes here"></textarea>
+
+                </div>
+                 <div class="form-data col-lg-4" style="height:10rem">
+                    <label for="evTitle" class="d-block">Survey Image</label>
+                    <div class="imageData" id="attachFilesHolder">
+                    	<img src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/Images/MicrosoftTeams-image%20(5)%20(2).png" id="imageID">
+                        <input type="file" name="" class="custom-file-input" onchange="readURL(this);" id="file_upload">
+                        <label for="file_upload"><i class="fa-solid fa-upload"></i> Upload Image</label>
+                    </div>
+                </div>
+
+                <div class="form-data col-lg-4" style="position: relative;">
+                    <label for="evTitle" class="d-block">Start Date</label>
+                    <input type="text" name="" id="sDate">
+                    <i class="fa-solid fa-calendar-days calender"></i>
+                </div>
+
+                <div class="form-data col-lg-4" style="position: relative; margin-right: 10px;">
+                    <label for="evTitle" class="d-block">End Date</label>
+                    <input type="text" name="" id="eDate">
+                    <i class="fa-solid fa-calendar-days calender"></i>
+                </div>
+               
+                <div class="form-data col-lg-4">
+                    <label for="evTitle" class="d-block" >Survey Link</label>
+                    <input type="text" name="" id="sLink">
+                </div>
+               
+
+            </div>
+        </div>
+
+       
+       
+    </div>
+     <!-- Modal popup for Saved as draft button start-->
+       <div class="modal fade" id="SaveEventBtn" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src=" https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Survey Saved as draft  </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/images/Icon%20feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have saved a survey successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okaysa" onClick="window.location.reload(true)" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none
+                           ">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+         <!-- Modal popup for Saved as draft button End-->
+    
+    
+    <!-- Modal popup for publish button start-->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src=" https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Survey Published Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/images/Icon%20feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have published a survey successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okaypb" onClick="window.location.reload(true)" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+    
+     
+    <!-- Modal popup for publish button End-->
+
+    
+    
+        <!-- Modal popup for Autopublish button start-->
+        
+         <div class="modal fade" id="AutopublishModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered justify-content-center">
+    <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+      <!--<div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+        <h5 class="modal-title" id="exampleModalLabel" style="margin: 0px;">Modal title</h5>
+        <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+      </div>-->
+      <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Schedule Auto Publish </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;;border:none"></button>
+                        </div>
+     <!-- <div class="modal-body">
+         <div class="form-data" style="position: relative;">
+                   
+                    <input type="date" name="" id="surveyDate">
+                    <i class="fa-solid fa-calendar-days calender"></i>
+                </div>
+      </div>
+       <div class="form-data" style="position: relative;">
+                    <label for="time" class="d-block">Start Time</label>
+                    <input type="time" name="" id="surveyTime">
+                    <i class="fa-solid fa-clock time"></i>
+                </div>-->
+                
+  <div class="modal-body" style="display: flex;flex-direction: row">
+  
+  <div class="form-data"  style="position: relative;width: 50%;margin-right: 5px;">
+                   <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-weight: 500;font-size: 9px;">Select Date</label>
+                   <input type="date" name="" id="surveyDate" style="color: black;background: #FFFFFF;" onchange="GetDateSurvey();">
+                    <!-- <i class="fa-solid fa-calendar-days calender"></i> -->
+                </div>
+                <div class="form-data" style="position: relative;width: 50%;margin-right: 0px;font-weight: 500">
+                    <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-size: 9px;">Select Time</label>
+                    <input type="time" name="" id="surveyTime" style="color: black;background: #FFFFFF;" onchange="GetDateSurvey();">
+                    <!-- <i class="fa-solid fa-clock time"></i> -->
+                </div>
+               
+
+                                               </div>
+                                                <div style="text-align: center;position: relative;bottom: 50px;left: 0px;font-size: 9px;font-weight: 500;"> 
+               <p>NOTE: This event will publish automatically on <span id="AutopublishSurveyDate"></span>, <span id="AutopublishSurveyTime"></span>.</p>
+
+                </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn " data-bs-dismiss="modal" style="border-radius: 5px;;border:none">Close</button>
+        <button type="button" class="btn btn-primary publishevent " data-bs-dismiss="modal" id="AutopublishSurvey2" value="Autopublish" style="background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;border-radius: 5px;border:none">Save changes</button>
+      </div>
+    
+  </div>
+</div>
+</div>
+      
+
+        <!-- Modal popup for Autopublish button End-->
+
+
+
+
+<script type="text/javascript">        
+        
+        
+        
+                $("#sDate, #eDate").datepicker({
+        dateFormat: 'dd M, yy',
+        changeMonth: true,
+        changeYear: true,
+        minDate: "-0Y",
+        maxDate: "+10Y",
+        yearRange: "1900:2100"  
+    });
+
+    $( "#sEdate, #SuDate1, #SuDate2" ).datepicker( "setDate", new Date());
+
+
+
+        function menuToggle() {
+
+            const toggleMenu = document.querySelector('.menu');
+
+            toggleMenu.classList.toggle('active')
+
+        }
+
+$(document).ready(function(){
+
+$("#publishSurvey").on("click", function(){
+
+$(".serveyEventForm input").val("");
+$(".serveyEventForm textarea").val("");
+$(".serveyEventForm select").val("");
+});
+
+
+});
+
+</script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+	<script type="text/javascript" src="js/AutoPublishSurvey.js"></script>
+   <script>
+  $( function() {
+    $( "#sDate, #eDate" ).datepicker();
+  } );
+  
+  
+  
+  function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#imageID')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+       	        
+                 
+function GetDateSurvey(){
+  		var	PublDate = $("#surveyDate").val();
+	   	var publTime = $("#surveyTime").val();
+	   	PublDate = moment(PublDate).format("DD MMM, YYYY")
+	   //	publTime = moment(publTime).format("HH:mm")
+	   	$("#AutopublishSurveyDate").html(PublDate);
+	   	$("#AutopublishSurveyTime").html(publTime);	
+  }
+  
+
+				
+  </script>
+
+ </body>
+
+
+
+</html>

@@ -1,0 +1,339 @@
+﻿ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engagement Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="css/upload.css">
+
+    <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.runtime.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.init.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.core.js"></script>	
+	 <script type="text/javascript" src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/js/jquery.multifile.js"></script>
+	 <script type="text/javascript" src="js/managehub.js"></script>
+	 <script type="text/javascript" src="js/validations.js"></script>
+	 
+	<style type="text/css">
+	.mainInformationContrainer ul li .oneInfo .spanForFileInput{
+	margin-bottom: 1.4rem !important;
+	width: 91.8%;
+}
+	
+	#MSOZoneCell_WebPartWPQ5,
+	#MSOZoneCell_WebPartWPQ6{
+		margin-bottom: 0px;
+}
+		.head-left{
+		margin-left: -1%;
+}
+
+sup {
+    color: #FF3D97;
+    font-size: 18px;
+    opacity: 1;
+    top: 2px;
+    
+}
+	
+.publishbtn{
+	pointer-events:none;
+	}
+	.EnableBtn{
+	 background: linear-gradient(180deg , #DE8601 0%, #FF3D97 100%) !important;
+    font-size: 11px;
+    color:#fff !important;
+    pointer-events:auto !important;
+}
+
+.sideimg{
+    width: 10% !important;
+    margin-left: 5px;
+    height: 36px !important;
+    margin-top: 0px !important;
+}
+	
+	@media(min-width:1200px)and (max-width: 1400px){
+	.head-section-2{
+	margin-right:2.5%;
+	margin-left:13px;
+	width:100%;
+    }
+	.headinput {
+    width: 91.5%;
+}
+.action .menu.active {
+	    margin-right: 0rem;
+}
+.action .menu{
+	width:22rem;
+}
+
+	.hr1{
+	height: 1px;
+	width: 92%!important;
+	margin-left: 3%!important;
+}
+
+}
+	@media(min-width:1400px){
+	.head-section-2{
+	margin-right:2.5%;
+	margin-left:19px;
+	width:99%;
+    }
+    	.hr1{
+	height: 1px;
+	width: 92%!important;
+	margin-left: 3%!important;
+}
+.leftspan1 {
+    width: 77%;
+}
+
+}
+
+@media (min-width: 1536px){
+	.leftspan1 {
+    width: 79%;
+}
+}
+
+@media(min-width:1550px){
+	.head-section-2{
+	margin-right:2.5%;
+	margin-left:19px;
+	width:100%;
+    }
+    .leftspan1 {
+    width: 81%;
+}
+
+}
+
+@media (min-width: 1900px){
+	.leftspan1 {
+    width: 84%;
+}
+}
+	.sideimg{
+	transform: rotate(90deg);
+    width: 40px;
+    height: 1px;
+   /* position: absolute;
+    right: 90px;
+    top: 26px;*/
+}
+#publishHub{
+  background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    padding: 5px 25px;
+    font-size: 12px;
+    color: #747474;
+    background-position: 50% 100%;
+    transition: all .3s ease;
+}
+#publishHub:hover {
+    border-radius: 4px;
+    font-size: 12px;
+    padding: 5px 25px;
+    box-shadow: 0 0 6px 0 rgb(157 96 212 / 50%);
+    border: solid 1.5px transparent;
+    background: #fff;
+    /*box-shadow: 2px 1000px 1px #000000 inset;*/
+    color: #fbfbfbc4;
+}
+
+
+	</style>
+	
+   </head>
+
+<body>
+                   <div class="head-section head-section-2"> 
+                    <div class="head-left">
+                     <span class="arrow">
+						<a href="../../SitePages/EPAdmin/AdminHome.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a></span>  
+                            <h4>Manage Hub</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item">
+									<a href="../../SitePages/EPAdmin/AdminHome.aspx">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Manage Hub</li>
+                                </ol>
+                              </nav>
+                        </div>
+
+                    <section class="headinput my-3 d-flex">
+                        <div class="mainInformationContrainer" >
+                            <ul>
+                            <li class="imageli">
+                                <div class="oneInfo thumbnail" style="height: 115px;width: 185px;border-radius: 15px;margin-bottom: 5px;">
+                                    <img alt="img not found" src="Images/MicrosoftTeams-image%20(5)%20(2).png" id="imageID">
+                                </div>
+                                 <span style="color: #ff6fe7;margin-left: 20px;font-size: 8px;">Min Width:1600Px | Min Height:700Px</span>
+
+                            </li>
+                            <li>
+                                <div class="oneInfo" id="attachFilesHolder" style="width: 200px; overflow: hidden;margin-left: -1px;">
+                                    <span class="spanForFileInput" style="background-color: transparent;">
+                                        <span class="selectImage"><i class="fa-solid fa-arrow-up-from-bracket"></i> Upload Image<sup>*</sup></span>
+                                        <!-- <input type="button" class="selectImage" value="Select Image"/> -->
+                                            <input type="file" value="Select Image" id="file_input" class="file_inputupload">
+                                    </span>
+                                </div>
+                            </li>
+                            <!-- <li>
+                                <label></label>
+                                <div class="oneInfo">
+                        
+                                </div>
+                            </li> -->
+                        </ul>
+                        </div>
+                    <!-- <span class="editstart">
+                        <input type="file">
+                    </span> -->
+                  <!--  <span class="leftspan1">
+                        <span class="d-block">
+                            <label for="" class="d-block">Banner Title</label>
+                        <input class="tbaner" type="text" id="BannerHubTitle" title='Baner Title' placeholder="Title for Banner ">
+                       
+                        <span class="divider1" style="width: 34px;position: absolute;right: 67px;top: 5px;">
+                            <img src="HTML/Images/divider1.png" alt="">
+                        </span>
+                        <img class="sideimg"src="Images/divider1.png">
+                            <button name="Publish" target="_self" type="button" class="btn publishbtn publishbtn1" id="publishHub">Publish</button>    
+                         
+                        </span>
+                       <span>
+                        <label for="" class="d-block">Description</label>
+                        <input type="text"  class="tdesk" id="BannerHubDescription" title='Description' placeholder="Access important information for your welfare and wellbeing. For Amdocs employees.">
+                       </span>
+                       <input type="hidden" value="Uncover" title="Pillar" id="ManagehubPillar">
+                    </span> -->
+                    <div class="leftspan1">
+					  <div class="row align-items-center justify-content-between bannerImg">
+					    <div class="col-6 bannerTitle">
+					  	<label for="" class="d-block">Banner Title<sup>*</sup></label>
+					        <input class="tbaner" type="text" id="BannerHubTitle" title="Baner Title" placeholder="Title for Banner ">
+					    </div>
+					    <div class="col-6 d-flex justify-content-end PublishDivide">
+					      
+					      <div class="d-flex align-items-center justify-content-between divider1">
+					        <div style="margin-right: 2rem;">
+                                <img class="sideimg" src="Images/divider2.svg" alt="" data-themekey="#">
+                            </div>
+                              <div>
+                                  <button name="Publish" target="_self" type="button" data-bs-toggle="modal" data-bs-target="#HubBannerUp" class="btn publishbtn publishbtn1" id="publishHub">Publish</button>
+                              </div>
+					      </div>
+					     <!-- <span class="divider1">
+					        <img class="sideimg" src="Images/divider2.svg" data-themekey="#">
+					      </span>
+					       <button name="Publish" target="_self" type="button" class="btn publishbtn publishbtn1" id="publishHub">Publish</button>  -->  
+					       
+					    </div>                                      
+					  </div>
+					<div>
+					  <label for="" class="d-block">Description<sup>*</sup></label>
+					  <input type="text" class="tdesk" id="BannerHubDescription" title="Description" placeholder="Access important information for your welfare and wellbeing. For Amdocs employees.">
+					  </div>
+					  <input type="hidden" value="Uncover" title="Pillar" id="ManagehubPillar">
+					</div>
+                </section>
+                    </div>
+    <!--End of the container-->
+    <!--Start of Modal Popup-->
+     <div class="modal fade" id="HubBannerUp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ThoughtPublished" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="Images/thought_publish_suceessful.png" alt="img" style="width:25px;"></span><p class="modal-title" id="ThoughtPublished" style="margin:0px;">Banner Uploaded Successfully </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="images/Icon%20feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">You have published Manage Hub Banner successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okaym" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none;font-size: 12px;">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+<!--End of Modal Popup-->
+    
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>          
+        <script>
+          
+
+            function menuToggle() {
+                const toggleMenu = document.querySelector('.menu');
+                toggleMenu.classList.toggle('active')
+            }
+           
+   
+   
+            $(document).ready(function(){
+                $("#file_input").change(function(){
+                    readURL(this);
+                });
+            });
+
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('#imageID').attr('src', e.target.result);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+           
+        
+        </script>  
+        <script>
+         
+   var checkTextarea = (e) => {
+  const content = $("#BannerHubTitle").val().trim();
+  $('#publishHub').prop('disabled', content === '');
+};
+
+
+$(document).on('keyup', '#BannerHubTitle', checkTextarea); 
+
+
+ /* start of Code for placeholder editable */
+    	
+    	$(function () {
+    		$('input,textarea').focus(function () {
+        	$(this).data('placeholder', $(this).attr('placeholder'))
+        	.attr('placeholder', '');
+        	}).blur(function () {
+        $(this).attr('placeholder', $(this).data('placeholder'));
+    	});
+		});
+		
+		
+		$('#okaym').click(function() {
+    			location.reload();
+				});
+		/* end of Code for placeholder editable */       
+        </script>
+    
+</body>
+
+</html>

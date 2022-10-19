@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/getcalendarIMG.js"></script>
+<style>
+
+#s4-bodyContainer > div > div > div > div:nth-child(3){
+	width:75% ;
+}
+
+
+.blackbg{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    background: transparent linear-gradient(360deg, #191718 0%, #232323B3 27%, #23232380 49%, #2323234D 76%, #54545400 100%) 0% 0% no-repeat padding-box;
+    border-radius: 10px;
+}
+
+#imgtitle{
+	
+	z-index:11;
+}
+
+#img img{
+	width:100% ;
+	height:100% !important;
+	border-radius:10px !important;
+}
+.main-div{
+	position:relative;
+}
+#img{
+	width:100%;
+	height:19vw;
+}
+#imgtitle{
+	    position: absolute;
+    bottom: 14%;
+    left: 4%;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+}
+#imgdsc{
+	       position: absolute;
+    bottom: 6%;
+    left: 4%;
+    font-size: 14px;
+    /* font-weight: 500; */
+    color: #fff;}
+    
+    
+    
+    /*  imgCalendar.html Mobile responsive */
+    
+    @media (min-width:375px) and (max-width:767px){
+    
+    
+   	
+	.sub-div{
+	
+	
+	width: 100%;
+	text-align: center;
+	margin:0 auto;
+	
+}
+
+#img {
+  
+  height: 180px;
+  width:90vw;
+}
+
+#imgtitle {
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  width: 90vw;
+  font-size: 24px;
+}
+
+
+#imgdsc {
+  width:90vw;
+   left: 0%;
+  font-size: 12px;
+}
+
+
+
+}
+
+
+    @media (min-width:768px) and (max-width:991px){
+    
+    
+    .home {
+   
+    background: transparent linear-gradient(89deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat padding-box !important;
+}
+    
+    
+    .contentWr{
+	
+	width:100%;
+}
+
+
+#imgtitle{
+	
+	left: 6%;
+	bottom: 20%;
+}
+
+
+#imgdsc{
+	left:6%;
+}
+    
+   	
+}
+
+
+</style>
+
+</head>
+<body>
+<div class="main-div">
+ 	<div class="sub-div">
+ 
+ 
+		<div style="" id="imgtitle"></div>
+		<div id="img">
+		
+		<div class="blackbg"></div>
+		</div>
+		<div id="imgdsc"></div>
+	</div>
+</div>
+
+        <script>
+        
+        $(document).ready(function(){
+        
+        	$(".home img").attr("src","images/Icon material-home.svg");
+    		$(".hub img").attr("src","images/Icon simple-hubspot.svg");
+    		$(".empz img").attr("src","images/Group 497.svg");
+    		$(".engteam img").attr("src","images/Group 498.svg");
+    		$(".contact img").attr("src","images/Icon material-chat_bubble_outline.svg");
+    				
+		});
+        
+        
+        </script>
+
+
+</body>
+</html>

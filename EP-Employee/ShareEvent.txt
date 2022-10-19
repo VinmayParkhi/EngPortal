@@ -1,0 +1,29 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="js/ShareEventValidation.js"></script>
+<style >
+body > div.ms-dlgContent > div > div.ms-dlgTitle{
+background-color: #191718;
+}
+.dialogTitleSpan{
+background-color: gray;
+}
+#s4-bodyContainer{
+background-color: gray;
+}
+
+.ms-dlgTitle{background-color: Black;}
+#RibbonContainer{
+	display:none !important;
+	background:red;
+}
+
+#s4-ribbonrow{
+	display:none !important;
+}
+#part1 > table.ms-formtable > tbody > tr:nth-child(1){
+	display:none !important;
+}
+#part1 > table.ms-formtable > tbody > tr:nth-child(2) > td.ms-formlabel{
+	display:none !important;
+}
+</style>

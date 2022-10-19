@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#groupid{
+	display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+
+.card-image {
+    padding: 45px 65px; 
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+@media (min-width: 992px) and (max-width: 1200px){
+       #groupid {
+        width: 100%;
+        height: 98vh !important;
+	}
+       
+       .emp-card {
+        width: 28%;
+   }    
+   .card-body {
+      margin:0 !important;
+}
+
+.card-image {
+    padding: 40px 30px;
+   }
+   
+   .lefticon {
+    position: absolute;
+    /*left: 3px;*/
+    top: 12px;
+    
+    }
+   
+   }
+   
+   @media (min-width: 1200px) and (max-width: 1400px){
+    .card-image {
+    padding: 45px 70px;
+   }
+   
+   .lefticon {
+    font-size: 11px;
+    padding: 5px 10px;   
+    }
+  #groupid{
+	height:100vh;
+} 
+.sidebar{
+height: 119vh;	
+}
+.emp-card{
+	background-color: black !important;
+	width: 30%;
+	border-radius:10px;
+	/*height:60%;*/
+	/*margin-right:5rem;*/
+}
+.home-section hr{
+	width: 92%!important;
+    margin-left: 3% !important;
+}
+
+    }
+
+ @media (min-width: 1366px){
+    .card-image {
+    padding: 45px 80px;
+   }
+   
+   .lefticon {
+       top: 10px;
+}
+    }
+    
+    @media (min-width: 1400px)and (max-width: 1600px){
+     #groupid {
+                height: 90vh;
+	}
+	.sidebar{
+		height: 104vh !important;
+            }
+.lefticon {
+    top: 10px;
+        right: 28px !important;
+}
+.card-image {
+   /*padding: 83px 105px;*/
+      }
+      .emp-card{
+          background-color: black !important;
+    width: 28%;
+    border-radius: 10px;
+	
+}
+.card{
+	margin: 10px 12px;
+    margin-right: 3.5%;
+    height:47%;
+}
+.head-right{
+     display: block;
+    align-items: center;
+    margin-right: 2.5% !important;
+    width: 29.5% !important;;
+}
+.ms-5{
+	margin-left: 4rem !important;
+}
+.event-head {
+    padding: 0px 34px;
+    margin-left: 1%;
+}
+.home-section hr{
+	width: 91%!important;
+    margin-left: 3.5% !important;
+}
+   }
+    @media (min-width: 1600px)and (max-width: 1900px){
+     #groupid {
+                height: 93vh;
+	}
+
+.card-image {
+    padding: 95px 115px;
+}
+.sidebar{
+	height:109vh !important;
+  }
+  .emp-card{
+	width:23% !important;
+}
+
+ }
+    
+    @media (min-width: 1900px){
+     .card-image {
+    padding: 86px 97px;
+}
+
+
+.lefticon {
+     font-size: 12px;
+    padding: 10px 15px;
+    }
+    .sidebar{
+	height:109vh !important;
+  }
+.emp-card{
+	width:23% !important;
+}
+.card-image {
+    padding: 86px 97px;
+}
+</style>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
+<script type="text/javascript" src="js/AccessGroupData.js">
+/*
+$(document).ready(function () {
+
+	//var siteurl = "https://amdocs.sharepoint.com";       
+	$.ajax({
+		url: _spPageContextInfo.siteAbsoluteUrl+ "/_api/Web/SiteGroups/GetByName('RNTENG%20Owners')/users",
+		type: "GET",
+		dataType: "json",
+		headers: {
+			"accept": "application/json;odata=verbose"
+		},
+		success: function (data) { debugger;
+			if(data.d.results.length > 0 )
+			{
+				for(i=0;i<data.d.results.length;i++){
+					var accntname = data.d.results[i].LoginName;					
+					var admin = data.d.results[i].IsSiteAdmin;
+					var cardID = data.d.results[i].Id;
+					getuserProperties(accntname.replace("#","%23"),admin,cardID);
+					
+					if(admin == true){
+					//alert("admin is available");
+					$("#child").prop("checked", true);		
+					$("#child").attr('checked', 'checked');
+					
+					}
+				}	                                                 
+			}  
+			else{
+				$("#groupid").append("<div  class='users'>No Members Present</div></br>");
+			}       
+		},
+		error: function (error){
+			console.log(error);
+		}
+	});
+});
+function getuserProperties(user,admin,cardID){
+$.ajax({
+		url: _spPageContextInfo.siteAbsoluteUrl+ "/_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='"+user+"'",
+		type: "GET",
+		dataType: "json",
+		headers: {
+			"accept": "application/json;odata=verbose"
+		},
+		success: function (data) { 
+			var dept;
+			var results = data.d.UserProfileProperties.results;
+			var displayname = data.d.DisplayName;
+			var picurl = data.d.PictureUrl;
+			console.log('picurl',picurl);
+			if(picurl == null){
+				//picurl =  _spPageContextInfo.siteAbsoluteUrl+ "/_layouts/15/userphoto.aspx?size=S&accountname="+data.d.Email;
+				picurl = 'https://amdocs.sharepoint.com/SiteAssets/Images/Image Icon/Image Icon/Icon awesome-user-circle.png';
+			}	
+			for(i = 0; i < results.length; i++){
+				if(results[i].Key == "Department"){
+					dept = results[i].Value;
+					//dept = "O365"
+				}
+			}         
+			$("#groupid").append("<div class='card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard(this.id);' id="+data.d.AccountName+"><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p><input type='radio' id='Admin' name='Priority"+i+"' value='Admin' style='margin-right:5px;'><span for='Admin'>Admin</span><input type='radio' class='ms-4' id='Nonadmin' name='Priority"+i+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin'>Non-Admin</span></div></div>");                                                    
+		},
+		error: function (error){
+			console.log(error);
+		}
+	});
+}
+function DeleteCard(id){
+   //var accName = $(".lefticon").children('#AccName').val();
+   removeUserFromGroup(id,3);
+};
+
+
+function removeUserFromGroup(userLoginName,groupid)
+{
+ var url = _spPageContextInfo.siteAbsoluteUrl +"/_api/web/sitegroups/GetById('" + encodeURIComponent(groupid) +"')/users/removebyloginname(@u)?@u='" + encodeURIComponent(userLoginName) +"'";
+ return $.ajax({
+ url: url,
+ method:"POST",
+ contentType:"application/json;odata=verbose",
+ headers: {
+	 "Accept":"application/json;odata=verbose",
+	 "X-RequestDigest": $("#__REQUESTDIGEST").val()
+ },
+ success: function (data) { 
+ 	alert(userLoginName+" has been removed from group");
+ 	location.reload();
+ },
+ error: function (error){
+	console.log(error);
+ }
+
+ });
+}
+
+
+/*start display the add user popup when the add user button is clicked*/
+/*
+function adduser(){  
+	var GroupName = 'RNTENG%20Owners';			
+   	var CurrGroupId = '3';  
+	var currsite = _spPageContextInfo.siteAbsoluteUrl;
+	openDialog(currsite+'/_layouts/15/aclinv.aspx?GroupId='+CurrGroupId);	
+    //window.location.reload();		
+}
+
+function openDialog(pageUrl) {
+	var options = {
+		url: pageUrl,
+		title: 'Add User',
+		allowMaximize: false,
+		showClose: true,
+		width: 850,
+		height: 372
+	};
+	SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
+}
+
+
+*/
+</script>
+</head>
+<body>
+<div class="event-head d-flex justify-content-between align-items-center">
+                        <div class="head-left">
+                        <span class="arrow"><a href="https://amdocs.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx"><i style="color:white" class="fa-solid fa-angle-left"></i></a></span>  
+                          <h4>Access Control System</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                  <li class="breadcrumb-item"><a href="https://amdocs.sharepoint.com/sites/RNTENG/SitePages/Admin/home.aspx">Home</a></li>
+                                  <li class="breadcrumb-item active" aria-current="page">Access Control System</li>
+                                </ol>
+                                <span style="font-size: 10px; font-style: italic; color: #FCF9EE; opacity: 0.7;">Note: Non-Admin has all the rights except adding and removing a new Admin</span>
+                              </nav>
+                        </div>
+                        <div class="head-right">
+                            
+                            <div class=" search-box">
+                                <input type="text" class="search-input" placeholder="Search member">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                <span class="divider1" style="width: 23px;">
+                                    <img src="Images/divider1.png" alt="" data-themekey="#">
+                                </span>
+                                <button type="button" class="search-button" onclick="adduser()">
+                                 Add
+                                </button>
+                             </div>
+                        </div>
+                        <div class="head-right d-none">
+                            <button class="btn">All Events</button>
+                        </div>
+                    </div>
+<div id="groupid" class="ms-5">
+</div>
+</body>
+</html><?xml version="1.0" encoding="utf-8" ?>

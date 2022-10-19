@@ -1,0 +1,279 @@
+﻿.event-head{
+  padding: 8px 34px;
+}
+  #DeltaPlaceHolderMain > table > tbody > tr{
+		border-bottom:none !important;
+}
+        
+
+.event-data{
+  width: 94%;
+  margin: 10px auto;
+  background: #11101d;
+  border-radius: 15px;
+  height: auto;
+      min-height: 450px;
+  padding: 10px;
+  padding-bottom: 50px;
+}
+.head-left h4{
+  font-size: 15px;
+  font-weight: 700;
+  color: #FFFFFF;
+  display: inline-block;
+  margin-bottom: 0px;
+}
+.breadcrumb{
+  margin-bottom: 0px;
+}
+.head-left li{
+  font-size: 10px;
+  font-weight: 500;
+  color: #E5E5E5;
+  opacity: 0.7;
+}
+.head-left li a{
+  color: #E5E5E5;
+  font-size:10px;
+  text-decoration: none;
+}
+
+.head-left li.active{
+  color: #E5E5E5;
+}
+
+.head-left .arrow{
+  display: inline-block;
+  margin-right: 10px;
+}
+span a{
+  color: #E5E5E5;
+  font-size: 14px;
+}
+
+  /* Navigation Start */
+    .search-box{
+    position: relative;
+   /* background: #191718;*/
+
+    display: flex;
+    height: 30px;
+    border-radius: 10px;
+    margin-right: 10px;
+    align-items: center;
+    
+    }
+    
+    .search-input{
+     padding: 10px 10px 10px 28px !important;
+    height: 30px;
+    border-radius: 10px 10px !important;
+    border-right: none !important;
+    border: 1px solid #191718 !important;
+    outline: none;
+    font-size: 12px;
+    padding-left: 35px;
+    color: #fff !important;
+    background: #191718 !important;
+    }
+    .search-button{
+     text-align: center;
+    height: 30px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #191718 !important;
+    border-radius: 10px 10px;
+    background:transparent linear-gradient(89deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat padding-box !important;
+    font-size: 12px;
+    color: #FFFFFF;
+    padding-right: 10px;
+    
+    
+    }
+
+ .fa-search{
+    color: #fff;
+    position: absolute;
+    top: 11px;
+    font-size: 13px;
+    opacity: 0.7;
+    left: 10px;
+  }
+
+
+.head-right .btn{
+    font-size: 11px;
+    font-weight: 800;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+}
+.leftspan1 .divider1 img{
+    transform: rotate(90deg);
+    width: 69%;
+    height: auto;
+    margin-top: 12px;
+    margin-left: 15px;
+}
+.headinput .divider1 img{
+    transform: rotate(180deg);
+    width: 69%;
+   /* height: auto;
+    /*margin-top: -3px;*/
+    margin-left: 5px;
+}
+#WebPartWPQ6 > div.ms-rtestate-field > div > section.headinput.my-3.d-flex > div.leftspan1 > div.d-block > div.divider1.divider2 > img{
+	    margin-left: 43px !important;
+}
+
+.head-right{
+    display: flex;
+    align-items: center;
+}
+.head-right .img{
+    width: 16%;
+    margin-right: 7px;
+}
+.event-head{
+    padding: 0px 34px;
+}
+.search-box .fa-search{
+top: 9px;
+}
+/* .card{
+    background-color: transparent;
+    border: none;
+} */
+.main-admin{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+    margin:10px 12px;
+}
+.card-image{
+    padding: 45px 85px;
+    border: 1px dashed #a7a7a7;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+.card-body p{
+    font-size: 11px;
+    margin-bottom: 0px;
+    color: #E3E3E3;
+    opacity: 0.7;
+}
+.card-body span{
+    font-size: 12px;
+    font-weight: 700;
+  background-color: red;
+  background-image: linear-gradient(98deg, #DE8601, #FF3D97);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+.card-title{
+    font-size: 14px;
+    font-weight: 600;
+    color:white;
+}
+.card-image .fa-user{
+    font-size: 50px;
+    background: #a7a7a7;
+    padding: 10px;
+    color: #000;
+    border-radius: 48px;
+    height: 70px;
+    width: 70px;
+    text-align: center;
+}
+.main-admin .card{
+    width: 285px;
+    height: 275px;
+    border-radius: 15px;
+    background-color: black;
+}
+
+
+.toggle{
+    position: absolute; 
+    top: 2%;
+    left: 68%;
+}
+
+/* Switch 1 Specific Styles Start */
+
+input[type="checkbox"].switch_1{
+	font-size: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 34%;
+    height: 23px;
+    background: #000000;
+    border-radius: 3em;
+    position: relative;
+    border: 1.5px solid #ff3d97;
+    cursor: pointer;
+    outline: none;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+  
+  input[type="checkbox"].switch_1:checked{
+	background: #000000;
+    border: 1.5px solid #f27949;
+  }
+  
+  input[type="checkbox"].switch_1:before{
+    position: absolute;
+    content: "";
+    top: -1px;
+    width: 34%;
+    height: 22px;
+    border-radius: 50%;
+    background: #ff3d97;
+    -webkit-box-shadow: 0 0 0.25em rgb(0 0 0 / 30%);
+    box-shadow: 0 0 0.25em rgb(0 0 0 / 30%);
+    -webkit-transform: scale(.7);
+    transform: scale(.7);
+    z-index: 1111;
+    left: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+  
+input[type="checkbox"].switch_1:after{
+    position: absolute;
+    content: "";
+    top: -1px;
+    width: 34%;
+    height: 22px;
+    border-radius: 50%;
+    background: #f27949;
+    -webkit-box-shadow: 0 0 0.25em rgb(0 0 0 / 30%);
+    box-shadow: 0 0 0.25em rgb(0 0 0 / 30%);
+    -webkit-transform: scale(.7);
+    transform: scale(.7);
+    left: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+  input[type="checkbox"].switch_1:checked:after{
+    left: calc(100% - 22px);
+  }
+  input[type="checkbox"].switch_1:checked:before{
+    background: transparent;
+  }
+	
+/* Switch 1 Specific Style End */
+
+
+/* Switch 2 Specific Style Start */

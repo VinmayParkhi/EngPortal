@@ -1,0 +1,4 @@
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ShareEventValidation.js"></script>
+<style >
+</style>

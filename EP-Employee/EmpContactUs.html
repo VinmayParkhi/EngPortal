@@ -1,0 +1,815 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+    <link rel="stylesheet" href="../../_catalogs/masterpage/EP-Master/EPEmployee/bootstrap.css" type="text/css">        
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.runtime.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.init.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.js"></script>
+	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.core.js"></script>	
+
+
+	 <script type="text/javascript" src= "js/ContactUs.js"></script>
+
+        <style>
+        
+        
+        .form-control:focus{
+	
+			box-shadow:none !Important;
+		}
+		
+		
+		a:hover {
+    color: transparent !important;
+}
+        
+        .contact{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+}
+
+.contact img{
+	background: #B15610 !important;
+}
+
+
+.bg_circle{
+	border-radius: 50%;
+    padding: 20px;
+    	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+    background-size:100% 100%;
+}
+.connectLink{
+	
+	width:80%;
+}
+.submit-button{
+	border:none;	
+}
+        
+        
+        
+        html{
+	font-size: 62.5%;
+}
+        /* starts Contact css */
+        .calendarWidth{
+		    width: 96% !important;
+    margin: 0px 35px;
+    }
+    /*.content{	
+		width:auto !important;
+	}*/
+	
+	
+	.content{
+	
+	width:100% !Important;
+}
+
+	
+	
+.content .cntHeading {
+    font-weight: bold;
+    margin-top: 1.1rem;
+    margin-bottom: 2rem;
+}
+.content .cntHeading h3{
+    color: #fff;
+    margin-left: 1rem;
+}
+.contactHeading h5{
+    font-size: 1.2rem;
+}
+
+.content .contactWr {
+   width: 100%;
+  
+    /* height: 130vh; 
+    min-height: 90vh;
+    background-color: var(--black-color);
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;*/
+}
+
+.content .contactWr .mainContact {
+	padding: 0;
+   /* width: 100%;
+      height: 61vh;
+    display: flex;
+    margin-top: 3.5rem;
+     border: 1px solid red; */
+}
+
+.content .contactWr .mainContact .contactFormWr {
+    /* width: 70%; */
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 0;
+    
+}
+
+.content .contactWr .mainContact .contactFormWr .contactForm {
+    width: 95%;
+	/*height: 52vh;*/
+    height: auto;
+    border-radius: 1.5rem;
+    background-color: #232323;
+    border: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    /* border: 1px solid red; */
+}
+
+.contactForm .cntfrm{
+	width: 90%;
+}
+.content .contactWr .mainContact .connectOptions {
+    /*width: 30%;
+    height: 100%;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+.content .contactWr .mainContact .connectOptions .connectTeams{
+    width: 94%;
+    height: auto;
+    padding: 20px 0;
+    border-radius: 1.5rem;
+    background-color: #232323;
+    border: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+
+.content .contactWr .mainContact .connectOptions .connectEmail {
+    width: 94%;
+    height: auto;
+    padding: 20px 0;
+    border-radius: 1.5rem;
+    background-color: #232323;
+    border: 1px solid #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* border: 1px solid red; */
+}
+
+.content .contactWr .mainContact .connectOptions .or {
+	/*background-image: url(https://amdocs.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/OR_img.png);
+	background-repeat: no-repeat;
+	color: #fff;*/
+    width: 92%;
+    /*height: 5rem;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+.content .contactWr .mainContact .connectOptions .or img{	
+	width: 100%;
+}
+
+/*.content .contactWr .mainContact .connectOptions .connectTeams .connectLink,
+.content .contactWr .mainContact .connectOptions .connectEmail .connectLink {
+    width: 25%;
+    height: 45%;
+    border-radius: 50%;
+    background: linear-gradient(83deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+     border: 1px solid red; 
+}*/
+
+.content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
+.content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle{
+    background-image: url('https://amdocs.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/Rectangle 2848 (1).svg');
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    width: 6rem;
+    height: 6rem;
+    }
+.content .contactWr .mainContact .connectOptions .connectTeams a,
+.content .contactWr .mainContact .connectOptions .connectEmail a{
+	margin-bottom: 0.8rem;
+}
+
+.content .contactWr .mainContact .connectOptions .connectTeams a img,
+.content .contactWr .mainContact .connectOptions .connectEmail a img {
+    /*width: 40%;*/
+}
+
+.content .contactWr .mainContact .connectOptions .connectTeams p,
+.content .contactWr .mainContact .connectOptions .connectEmail p {
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.reachText {
+    text-align: center;
+}
+
+.content .contactWr .mainContact .connectOptions .connectEmail .reachText small {
+    font-size: 0.87rem;
+}
+
+.content .contactWr .mainContact .connectOptions .connectEmail .reachText small a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* starts Form */
+.contactForm {
+    width: 86%;
+}
+
+.contactHeading {
+    color: #fff;
+}
+.contactHeading h5{
+    font-size: 1rem;
+}
+
+.contactForm input {
+    border: 1px solid #3E3E3E;
+    width: 100%;
+    height: 3rem;
+    border-radius: 5rem;
+    background-color: transparent;
+    color: #fff;
+    padding-left: 1.6rem;
+}
+
+.contactForm .textarea {
+    width: 100%;
+    height: 11rem;
+    border-radius: 2rem;
+    border: 1px solid #3E3E3E;
+    background-color: transparent;
+    margin-bottom: 2rem;
+    resize: none;
+    color: #fff;
+    padding: 0.8rem 1.7rem;
+}
+
+.contactForm .label_name .name,
+.contactForm label .category-label {
+    color: #fff;
+    font-size: 1rem;
+    background-color: #232323;
+    padding: 0 0.4rem;
+    opacity:0.7;
+}
+
+.contactForm .message-label {
+    color: #fff;
+    font-size: 1rem;
+    background-color: #232323;
+    top: -12px;
+    left: 25px;
+    padding: 0 0.4rem;
+     opacity:0.7;
+
+}
+
+.contactForm .label_name,
+.contactForm .label_category{
+	top: 0.1rem;
+    left: 1.3rem;	
+}
+.contactForm .label_message {
+    top: -0.8rem;
+    left: 1.3rem;
+}
+
+.contactForm span {
+    color: #FF7E4F;
+}
+
+.submit-button {
+    width: 30%;
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    border-radius: 6px !important;
+    color: #E5E8E9;
+    margin-top: -2rem;
+    margin-bottom: 0.4rem;
+    /* width: 22%;
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    border-radius: 0.313rem;
+    color: #E5E8E9; */
+}
+
+#category {
+    border: 1px solid #3E3E3E;
+    width: 100%;
+    height: 3rem;
+    border-radius: 5rem;
+    background-color: transparent;
+    color: #ABABAB;
+    padding-left: 1.32rem;
+    outline: none;
+}
+
+input::placeholder {
+    color: #ABABAB;
+    font-size: 1.1rem;
+}
+
+textarea::placeholder {
+    color: #ABABAB;
+    font-size: 1.1rem;
+}
+
+/* ends form */
+.footer{
+	margin-top: 0;
+}
+/* ends Contact css */    
+
+@media (min-width: 390px){
+	/*.content .contactWr .mainContact .connectOptions .connectTeams .connectLink,
+	.content .contactWr .mainContact .connectOptions .connectEmail .connectLink{
+	height: 47%;
+}*/
+.content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
+.content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle{
+    margin-bottom: 1rem;
+}
+}  
+  
+@media (min-width: 768px){
+	#s4-workspace{
+		width: 800px;
+}
+.contentWr {
+    width: 92% !important;
+}
+        .content{
+        /*width: 96%;*/
+	margin-left: 2rem;
+}
+    .contactHeading h5 {
+        font-size: 1.5rem;
+    }
+    .content .cntHeading h3 {
+    margin-left: 0.6rem;
+}
+/*.contactForm .cntfrm{
+	width: 90%;
+}*/
+
+    .content .contactWr {
+        width: 100%;
+        /*min-height: 70vh;
+        min-height: 122vh;*/
+        background-color: #000;
+        border-radius: 1.5rem;
+        display: flex;
+        justify-content: center;
+        padding: 8rem 0rem 18rem;
+     }
+     .content .contactWr .mainContact {
+        width: 95%;
+        /*height: 61vh;
+        padding: 20px 0 466px;*/
+        display: flex;
+        /*padding: 20px 0;*/
+     }     
+     /*.content .contactWr .mainContact .connectOptions{
+        height: 79vh;
+     }
+     .content .contactWr .mainContact .connectOptions .or{
+        height: 1.5vh;
+     }*/
+     .contactForm input,
+     #category {
+        height: 4rem;
+     }
+     .contactForm label .name,
+     .contactForm label .category-label,
+     .contactForm .message-label {
+        font-size: 1.2rem;
+     }
+     .contactForm .textarea {
+        height: 15rem;
+     }
+    .content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
+	.content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle{
+    	width: 7rem;
+    	height: 7rem;
+    }
+
+    .content .contactWr .mainContact .connectOptions .connectEmail .reachText small {
+        font-size: 1.3rem;
+    }
+    .content .contactWr .mainContact .connectOptions .connectTeams a img,
+    .content .contactWr .mainContact .connectOptions .connectEmail a img {
+        width: 46%;
+    }
+    .contactForm .label_name, .contactForm .label_category {
+    	top: 0.7rem;
+    	left: 1.8rem;
+	}
+	.contactForm .label_message {
+    	left: 1.8rem;
+	}
+    .submit-button {
+        /*height: 5vh;
+        margin-top: 0;
+        font-size: 1.7rem;*/
+        border-radius: 0.8rem;        
+        
+    }
+    .content .contactWr .mainContact .contactFormWr .contactForm{
+        width: 96%;
+        /*height: 56vh;*/
+        padding: 2rem 0;
+        border-radius: 2rem;
+    }
+    .content .contactWr .mainContact .connectOptions{
+	height: 30vh;
+}
+       .content .contactWr .mainContact .connectOptions .connectTeams{
+	padding: 32px 0;
+}
+
+    .content .contactWr .mainContact .connectOptions .connectTeams,
+    .content .contactWr .mainContact .connectOptions .connectEmail {
+        width: 94%;
+        height: auto;
+        border-radius: 2rem;
+    }   
+}
+
+
+@media (min-width: 992px){
+.content {
+    width: 100%;
+    margin-left: 0rem;
+}
+ .content .contactWr .mainContact .contactFormWr .contactForm {
+     height: auto;
+ }
+.contactForm input,
+.contactForm .textarea {
+    font-size: 1.4rem;
+}
+.contactForm #category{
+    font-size: 1rem;
+}
+.content .contactWr .mainContact .connectOptions{
+	height: 38.8vh;
+}
+.content .contactWr .mainContact .connectOptions .connectTeams{
+ width: 94%;
+height: auto;
+	padding: 28px 0;
+}
+.content .contactWr .mainContact .connectOptions .connectEmail {
+    width: 94%;
+height: auto;
+padding: 20px 0;
+}
+.content .contactWr .mainContact .connectOptions .or {
+width: 94%;
+    padding: 2rem 0;
+}
+.sidebar{
+	height: auto;
+}
+footer {
+    
+    margin-top: 2rem;
+    width: 92.5%;
+}
+}
+
+@media (min-width: 1024px){
+    .content .contactWr .mainContact .connectOptions {
+        /*justify-content: normal !important;*/
+        height: auto;
+    }
+    .content .contactWr .mainContact .contactFormWr{
+        margin-bottom: 0;
+    }
+    .content .contactWr .mainContact .contactFormWr .contactForm {
+        border-radius: 3rem;
+        height: auto;
+    }
+    .submit-button {
+        /*height: 6vh;*/
+        font-size: 1.6rem;
+    }
+    .content .contactWr .mainContact .connectOptions .connectTeams,
+    .content .contactWr .mainContact .connectOptions .connectEmail {
+       /* height: 30vh;*/
+        border-radius: 2.5rem;
+    }
+    .content .contactWr .mainContact .connectOptions .connectTeams{
+	padding: 32px 0;
+}
+.content .contactWr .mainContact .connectOptions .connectEmail{
+	padding: 23px 0;
+}
+}
+.EnableBtn{
+	pointer-events:auto !important;
+}
+#submit{
+	pointer-events:none;
+}
+@media (min-width: 1280px){    
+    .content .contactWr .mainContact {
+        width: 80%;
+    }
+   
+    .contactForm input,
+    .contactForm #category {
+        height: 4rem;
+    }
+    .contactForm .textarea {
+        height: 15rem;
+    }
+    .submit-button {
+       /* height: 5vh;*/
+        font-size: 1.3rem;
+    }
+    .content .contactWr .mainContact .connectOptions .connectEmail .reachText small {
+        font-size: 1rem;
+    }
+    .contactForm .label_name,
+    .contactForm .label_category{
+        top: 0.5rem;
+    }
+    .contactForm .label_message {
+        top: -1rem;
+    }
+    .content .contactWr .mainContact .connectOptions .connectTeams {
+    padding: 32px 0;
+}
+}
+
+@media (min-width: 1366px){
+    .contactHeading h5 {
+        margin-bottom: 2rem;
+    }
+    .content .contactWr .mainContact .contactFormWr .contactForm {
+        height: auto;
+    }
+    .content .contactWr .mainContact .connectOptions .connectTeams {
+	    padding: 37px 0 !important;
+	}
+	.content .contactWr .mainContact .connectOptions .connectEmail {
+	    padding: 37px 0 !important;
+	}
+	.content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
+	.content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle {
+    width: 8rem !important;
+    height: 8rem !important;
+	}
+
+}
+@media (min-width: 1400px){
+    .content .contactWr .mainContact .contactFormWr .contactForm {
+        height: auto;
+    }
+    .submit-button {
+        width: 29%;
+        margin-top: 2rem;
+    }
+    .content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
+    .content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle {
+    width: 12.8rem;
+    height: 12.8rem;
+}
+}
+@media (min-width: 1600px){
+	.content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
+	.content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle {
+    width: 13.88rem;
+    height: 13.88rem;
+}
+}
+@media (min-width: 1600px){
+.content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
+.content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle {
+    width: 19.5rem;
+    height: 19.5rem;
+}
+
+
+ #s4-bodyContainer > div > div > div > div:nth-child(3) {
+    
+    min-height: 0vh !important;
+}
+
+
+
+}
+
+
+
+
+@media (min-width: 359px) and (max-width: 767px){
+	
+	.contentWr {
+    width: 92% !important;
+}
+
+	
+}
+
+
+
+
+        
+        /* ends Contact css */
+    </style>
+
+</head>
+
+<body>
+    <div class="content">
+        <div class="cntHeading">
+            <h3>Contact Us</h3>
+        </div>
+        <div class="contactWr">
+            <div class="row mainContact">
+                <div class="col-12 col-md-8 contactFormWr">
+                    <div class="contactForm">
+                        <div class="cntfrm">
+                            <div class="contactHeading">
+                                <h5>Get in touch with Experience+ Team</h5>
+                            </div>
+                            <div class="row position-relative mb-4 name_div">
+                                <div class="col-12">
+                                    <label class="label_name position-absolute"><span class="name">Your
+                                            Name</span></label><br>
+                                    <input placeholder="John Doe" style="pointer-events:none;" class="form-group validate form-control" id="MemberName"
+                                        name="name">
+                                </div>
+                            </div>
+                            <div class="row position-relative mb-5 category_div">
+                                <div class="col-12">
+                                    <label class="position-absolute label_category">
+                                        <span class="category-label">Select Category</span></label><br>
+                                    <select name="category" id="category" class="category">
+                                    	<option value="">Select</option>
+                                        <option value="Hub">Hub</option>
+                                        <option value="Feedback">Feedback</option>
+                                        <option value="Application Issues">Application Issues</option>      
+                                        <option value="Surveys">Surveys</option>                                   
+                                        <option value="Events">Events</option>                                            
+                                        <option value="Others">Others</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row position-relative message_div">
+                                <div class="col-12 message">
+                                    <label class="label_message position-absolute">
+                                        <span class="message-label">Your Message</span></label>
+                                    <textarea class="textarea materialize-textarea form-control" id="comments"
+                                        placeholder="Message goes here" name="comments" required=""></textarea>
+                                </div>
+                            </div>
+                            <div class="row justify-content-end mt-4">
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button class="submit-button" data-bs-toggle="modal" data-bs-target="#EmpcontactUs" name="submit" id="submit" type="button">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 connectOptions">
+                <a href="https://teams.microsoft.com/l/team/19%3aOLI2ySrHJATASpskPSiHG_Pmrfj0Eoks_uw1BbKoIAQ1%40thread.tacv2/conversations?groupId=67cf1010-8b38-44b4-8868-150bed0438bf&tenantId=c8eca3ca-1276-46d5-9d9d-a0f2a028920f" class="connectLink">
+                    <div class="connectTeams">
+                        <div class="bg_circle">
+                            	<img src="images/microsoft-teams.svg" alt="Teams">
+                            </div>
+                        <div class="teamsText">
+                            <p>Connect on Teams</p>
+                        </div>
+                    </div>
+                        </a>
+                    <div class="or">
+                    	<img src= "images/OR_img.png" alt="Or image">
+                    </div>
+                    
+                        <a href="mailto:PEPDox@amdocs.com" class="connectLink">
+                    <div class="connectEmail">
+                        <div class="bg_circle">
+                            <img src="images/Icon feather-mail.svg" alt="Email">
+                        </div>
+                        <div class="reachText">
+                            <p>Reach out to us<small class="d-block">PEPDox@amdocs.com</small></p>
+                        </div>
+                    </div>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+ <!-- Modal popup for Saved as draft button start-->
+       <div class="modal fade" id="EmpcontactUs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="EmpcontactUs" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><!--<img src=" https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;">--></span><p class="modal-title" id="EmpcontactUs" style="margin:0px;">Successful </p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="images/Icon feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">Your message has been submitted successfully</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okay" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none
+                           ">Okay</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
+         <!-- Modal popup for Saved as draft button End-->
+
+ 
+ 
+    <!-- bootstrap script -->
+    <script src="js/bootstrap.js"></script>
+    
+        <script>
+        
+        $(document).ready(function(){
+        	
+        	$(".home img").attr("src", "images/boldhome.svg");
+    		$(".hub img").attr("src", "images/Icon simple-hubspot.svg");
+    		$(".empz img").attr("src", "images/Group 497.svg");
+    		$(".engteam img").attr("src", "images/Group 498.svg");
+    		$(".contact img").attr("src", "images/contactbold.svg");
+    				GetUserName();
+		});
+        
+        
+                function GetUserName(){
+                	var requesturl = "https://amdocs.sharepoint.com/_api/SP.UserProfiles.PeopleManager/GetMyProperties";
+                	$.ajax({      
+                       url: requesturl,      
+                       type: "GET",      
+                      headers: {      
+                       "Accept": "application/json; odata=verbose"      
+                     },      
+                      async: false,      
+                      success: function(data) { 
+	                      console.log(data);
+						  $("#MemberName").val(data.d.DisplayName);
+
+						  							 
+						 
+                     },      
+                     error: function(error) {      
+                     console.log("fnGetUserProps:: " + error);      
+                     }      
+                 });                
+                 }
+        </script>
+
+</body>
+
+</html>

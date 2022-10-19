@@ -1,0 +1,657 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Event Details | Engagement Portal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+    <!-- self css -->
+    <link rel="stylesheet" href= "css/eventdetails.css" type="text/css">
+    <link rel="stylesheet" href="https://amdocs.sharepoint.com/sites/EP/_catalogs/masterpage/EP-Master/EPEmployee/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    
+    <style>
+    
+    
+    
+    
+    .home{
+	
+	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
+}
+
+.home img{
+	background: #B15610 !important;
+}
+
+
+
+    
+    .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+   /* padding:15px 0;*/
+    border-top: 1px solid #dbdbdb;
+    /*margin-top:1.5rem !important;*/
+    width:89%;
+    margin:0 auto;
+}
+
+.modal-footer .btn-secondary {
+    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
+    width: 30%;
+    height: 2.5rem;
+    border: none;
+    padding:3px;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-weight:600;
+}
+.modal-footer .btn-grey {
+    background: none;
+    width: 20%;
+    height: 2.5rem;
+    border: none;
+    padding:3px;
+    border-radius: 0.5rem;
+    color: #000;
+    font-weight:600;
+}
+.breadcrumb{
+	background:transparent;
+}
+.modal-body{
+margin:0 30px;
+/*padding: 2rem 0;*/
+}
+.modal-content{
+  border-radius: 25px;
+  border:none;
+     
+}
+.modal-header{
+  border-radius: 25px 25px 0px 0px;
+  margin-top: -0.5rem;
+  background: #191718;
+  display: flex;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    }
+/*.modal-footer{
+  margin-top:-10rem;
+}*/
+
+.form-switch .form-check-input{
+	margin-left:0;
+}
+
+.form-check {
+	padding-left:0;
+	margin:15px 0;
+	display: flex;
+    align-items: center;
+}
+
+.form-check-label {    
+    margin-left: 40px;
+}
+
+#minutes{
+    width: 100%;
+    padding: 5px;
+    border-radius:15px;
+}
+input[type=text]{
+    padding: 5px 15px;
+    border-radius:15px;
+}
+#eventTitle{
+
+	border-radius:15px;
+	border: 1px solid #a6a6a6;
+}
+.modal-content {
+   
+    background: #FCF9EE;
+}
+.form-switch .form-check-input {
+    width: 2.9em;
+    height: 1.7em;
+}
+.remind{
+	display:none;
+}
+.dontRemind {
+    display: flex;
+    justify-content: space-between;
+    margin-top:20px;
+}
+
+.dontRemind .date{
+	width:45%;
+}
+.dontRemind .time{
+	width:45%;
+}
+.dontRemind #selectDate,#selectTime{
+    padding:5px;
+	width:100%;
+	border-radius:15px;
+	border: 1px solid #a6a6a6;
+
+}
+
+#notificationCard:after{
+	content: '';
+	height:15px;
+	width:15px;
+	background:#fff;
+	border-radius:2px;
+	top:-6px;
+	right:17px;
+	position:absolute;
+	transform:rotate(45deg);
+}
+a{
+	text-decoration:none;
+	color:#E5E5E5;
+	cursor:pointer;
+}
+#notificationDivMain{
+    background: #FFF;
+    border-radius:0.3rem;
+    border:2px solid #FCF9EE;
+    }
+   .notification .eventDescription{
+	color:#000000;
+	font-weight:600
+}
+
+
+
+/*set reminder popup css*/
+
+.modal-header .close{
+	       margin: -1rem -8rem -1rem auto;
+}
+
+.close {
+    float: right;
+    font-size: 3rem !important;
+    font-weight: 100 !important;
+    text-shadow: none;
+    }
+    
+    
+    .eventdetailsWr{
+	
+	    background-color: #121112 !important;
+}
+
+
+@media only screen and (min-width: 375px) {
+.eventdetailsWr{
+	min-height: 75vh;
+	}
+ 
+ .evntdtlsHeading{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.eventdetailsWrcontent {
+  width: 94%;
+  padding-top: 1.5rem;
+}
+
+.eventdtlsDateTime {
+  display: block !important;
+  }
+  
+  .eventdtlsClockText,.eventdtlsCalendarText > div:nth-child(1){
+	margin-bottom:1rem;
+}
+.eventdtlsFeel {
+  display: block;
+  }
+  .borderLinear1, .borderLinear2{
+	margin-right:3rem;
+}
+.breadcrumb > li:nth-child(2) > a:nth-child(2) > label:nth-child(1),
+.breadcrumb > li:nth-child(3) > a:nth-child(1) > label:nth-child(1),
+#Pillar{
+	color:white;
+}
+.eventdtlsBtn{
+	justify-content: center;
+}
+
+label {
+margin-bottom: 0!important;
+}
+
+.eventdetailsWrcontent .eventdtlsImg img {
+    height: 25rem;
+    }
+
+	
+}
+
+
+@media only screen and (min-width: 768px) {
+.eventdetailsWr {
+	margin-left:3rem;
+}
+.evntdtlsHeading{
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left:3rem;
+}
+.eventdetailsWrcontent {
+  width: 94%;
+  padding-top: 1.5rem;
+}
+ .eventdtlsClockText,.eventdtlsCalendarText > div:nth-child(1){
+	margin-bottom:1rem;
+}
+
+.eventdtlsFeel {
+  display: block;
+  }
+
+
+.borderLinear1, .borderLinear2{
+	margin-right:3rem;
+}
+.breadcrumb > li:nth-child(2) > a:nth-child(2) > label:nth-child(1),
+.breadcrumb > li:nth-child(3) > a:nth-child(1) > label:nth-child(1),
+#Pillar{
+	color:white;
+}
+
+/*.eventdtlsTitleLeft > h5:nth-child(2) > label:nth-child(1){
+	font-size: 2rem;
+}
+.eventwork{
+	font-size: 1.2rem;
+}
+
+.eventdtlspara > h6:nth-child(1) > label:nth-child(1),
+.eventdtlsDateTime, .feelText > h6:nth-child(1) > label:nth-child(1){
+font-size: 1.3rem;
+text-align: justify;
+}
+.emoji i {
+  font-size: 2rem;
+  }
+  .emoji-1 > h6:nth-child(2),.emoji-2 > h6:nth-child(2), .emoji-3 > h6:nth-child(2){
+	font-size: 1.3rem;
+
+}*/
+.emoji {
+  width: auto !important;
+  margin: 0 !important;
+}
+.eventdtlsBtn{
+	justify-content: end;
+}
+.eventdtlsDateTime {
+    display: flex!important;
+    }
+    
+    .eventdetailsWrcontent .eventdtlsImg img {
+    height: 40rem;
+}
+    
+    #DeltaPlaceHolderMain {
+    width: 80%;
+}
+
+
+    .eventdtlsClockText, .eventdtlsCalendarText > div:nth-child(1) {
+     margin-bottom:0; 
+     }
+
+
+}
+
+@media only screen and (min-width: 992px) {
+.sidebar {
+    height:auto ;
+    }
+    .eventdetailsWr {
+     margin-left: 0; 
+     }
+     
+     .evntdtlsHeading {
+       margin-left:0;
+}
+.eventdetailsWrcontent {
+    width: 70%;
+    }
+    .eventdtlsFeel {
+     display: flex; 
+     }
+
+    .eventdtlsClockText, .eventdtlsCalendarText > div:nth-child(1) {
+     margin-bottom:0; 
+     }
+}
+
+@media only screen and (min-width: 1200px) {
+.eventdetailsWrcontent {
+    width: 70%;
+    padding-top: 1.5rem;
+}
+.eventdtlsDateTime {
+    display: flex!important;
+    }
+          
+}
+
+.modal-header {
+
+border-top-left-radius: 1rem !important;
+    border-top-right-radius:1rem !important;
+    /*margin-left: -0.1rem;*/
+   }
+.modal-content {
+border-radius: 1rem !important;
+}
+.message{
+	font-size: 1.5rem;
+    font-weight: 600;
+}
+#exampleModal > div > div > div.modal-header > button {
+    background: transparent;
+}
+.modal-header .close {
+     padding: 0; 
+   }
+.close {
+    float: right;
+    font-size: 2rem;
+    text-shadow: none;
+    }
+    
+    
+    
+    @media (min-width: 1800px){
+	
+	
+	#s4-bodyContainer > div > div > div > div:nth-child(3) {
+    
+     min-height: 0vh !important; 
+}
+	
+}
+
+
+</style>
+</head>
+
+<body>
+	</div>
+
+    <div class="eventDetailsWrapper">
+        <div class="evntdtlsHeading">
+            <a href="#" class="evntdtlsClick">
+                <div class="evntdtlsArrow" id="Goback">
+                    <img src="images/Icon ionic-ios-arrow-back.svg" alt="Back Arrow">
+                    <h3 id="PillarDiv">Event Details</h3>
+                </div>
+                <div class="breadcrumbWr">
+                    <ul class="breadcrumb">
+                        <li><a href= "../../SitePages/EPEmployee/Home.aspx"><label>Home</label></a></li>
+                        <li><a href= "../../SitePages/EPEmployee/Hub.aspx"><label>Hub</label></a></li>
+                        <li><a href="#"><label id="Pillar"></label></a></li>
+                        <li><label id="eventName"></label></li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+        <div class="eventdetailsWr">
+            <div class="eventdetailsWrcontent">
+                <div class="eventdtlsImg">
+                    <img src="" alt="Event Image">
+                </div>
+                <div class="eventdtlsText">
+                    <div class="eventdtlsTitle">
+                        <div class="eventdtlsTitleLeft">
+                            <h6 class="eventwork"><i><label></label></i></h6>
+                            <h5><label></label></h5>
+                        </div>
+                        <div class="eventdtlsTitleRight">
+                            <a href="#" onclick="ShareEvent(this.id)">
+                                <img src="images/Icon open-share-boxed.svg" alt="Share">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="eventdtlspara">
+                        <h6>
+                            <label></label>
+                        </h6>
+                    </div>
+                    <div class="eventdtlsDateTime">
+                        <div class="eventdtlsClockText">
+                            <div>
+                                <img src="images/Icon feather-clock.svg" alt="Clock">
+                            </div>
+                            <div>
+                                <label><span class="startTime"></span> - <span class="endTime"></span> - <span class="duration"></span></label>
+                            </div>
+                        </div>
+                        <div class="eventdtlsCalendarText">
+                            <div>
+                                <img src="images/Icon feather-calendar.svg" alt="Calendar">
+                            </div>
+                            <div>
+                                <label class="eventDt" id="EvDate"></label>
+                            </div>
+                        </div>
+                        <div class="eventdtlsMapText">
+                            <div>
+                                <img src="images/Icon feather-map-pin.svg" alt="Map">
+                            </div>
+                            <div>
+                                <label>
+                                    <a href="#" id="EventLocation">
+                                        Tower A
+                                    </a>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="eventdtlsFeel">
+                        <div class="feelText">
+                            <h6><label>How do you feel about this event?</label></h6>
+                        </div>
+                        <div class="feelBtns">                                
+                        		<input type="radio" id="excited-1" name="excited" value='excited' class="radiofeel" data-toggle="modal" data-target="#EVMoodModal">
+                                <div class="borderLinear1" style="display:inline-block;">
+                                    <label class="emoji emoji-1" for='excited-1'>
+                                        <i class="fa-solid fa-face-grin-wink"></i>
+                                        <h6>Excited</h6>
+                                    </label>
+                                </div>
+
+                                <input type="radio" id="excited-2" name="excited" value='notexcited' class="radiofeel" data-toggle="modal" data-target="#EVMoodModal">
+                                <div class="borderLinear2" style="display:inline-block;">
+                                    <label class="emoji emoji-2" for='excited-2'>
+                                        <i class="fa-solid fa-face-frown-open"></i>
+                                        <h6>Not Excited</h6>
+                                    </label>
+                                </div>
+
+                                <input type="radio" id="excited-3" name="excited" value='Notsure' class="radiofeel" data-toggle="modal" data-target="#EVMoodModal">
+                                <div class="borderLinear3" style="display:inline-block;">
+                                    <label class="emoji emoji-3" for='excited-3'>
+                                        <i class="fa-solid fa-face-grin-beam-sweat"></i>
+                                        <h6>Not Sure</h6>
+                                    </label>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="eventdtlsBtn">
+                        <div class="eventdtlsReminder">
+                            <a href="#"  id="reminderBtn"  data-toggle="modal" data-target="#exampleModalCenter">
+                                Set Reminder
+                            </a>
+                        </div>
+                        <div class="eventdtlsJoin">
+                            <a href="#">
+                                Join
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+    <!--  SetReminder Modal -->
+    
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content ">
+                        <div class="modal-header">
+                            <img src= "images/Icon material-access-alarm.svg" style="width: 20px;">
+                            <h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; margin-left:7px;" >Set reminder for upcoming event</h5>
+                            <button style="color:#E5E5E5;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                      
+						  <div class="form-group">
+						    <label for="eventTitle">Event Title</label>
+						    <input type="text" class="form-control" id="eventTitle" aria-describedby="emailHelp">
+						    
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="reminderMessage">Reminder Message (Optional)</label>
+						    <input type="text" class="form-control" id="reminderMessage" >
+						  </div>
+						  
+						  <div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" role="switch" id="remindChecked" >
+						  <label class="form-check-label" for="remindChecked">Remind me on same day</label>
+						  </div>	
+						  
+                          <div class="form-group">
+	                          <div class="remind">
+	                          <label for="minutes">Remind Before</label><br>
+							    <select name="minutes" id="minutes">
+							    <option value=""></option>
+							    <option value="15">15 Mintues</option>
+							    <option value="30">30 Minutes</option>
+							    <option value="45">45 Minutes</option>						    
+	                           </select>
+	                          </div>
+						    	
+							       <div class="dontRemind">
+								       <div class="date">
+								       <label for="selectDate">Select Date</label><br>
+								       <input type="date" id="selectDate" name="selectDate">
+								       </div>
+								       
+								       <div class="time">
+								       <label for="selectTime">Select Time</label><br>
+								       <input type="time" id="selectTime" name="selectTime">
+		
+								   </div>
+					         
+					       </div>
+                           </div>
+				 
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-grey" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary" id="setReminderBtn" data-dismiss="modal" data-toggle="modal" data-target="#RemSuccModal" >Set Reminder</button>
+                        
+                        </div>
+                    </div>
+       </div> 
+       </div> <!--  SetReminder Modal end--> 
+        <!--Mood Modal -->
+				<div class="modal fade" id="EVMoodModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+							<img src="images/Icon material-mood.svg" style="width:25px;">
+							<h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; font-size:1.25rem; margin-left:7px;" >Successful</h5>
+							<button style="color:#E5E5E5;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+                       <div style=" display:flex;">
+							<img style="margin:1rem auto; width: 15%;" src="images/Icon feather-check-circle.svg">
+					   </div>
+                        <div style="text-align:center;">
+						<span class="message">Your emotion submitted successfully</span>
+						</div>
+                        </div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
+						<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--End Mood Modal-->
+			<!-- ReminderModal -->
+				<div class="modal fade" id="RemSuccModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+						<div class="modal-content">
+						<div class="modal-header">
+							<img src="images/remider_created_calenda.svg" style="width:25px;">
+							<h5 class="modal-title" id="exampleModalLabel"style="color:#E5E5E5; font-size:1.25rem; margin-left:7px;" >Reminder Created Success</h5>
+							<button style="color:#E5E5E5;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+                       <div style=" display:flex;">
+							<img style="margin:1rem auto; width: 15%;" src="images/Icon feather-check-circle.svg">
+					   </div>
+                        <div style="text-align:center;">
+						<span class="message">Reminder saved successfully</span>
+						</div>
+                        </div>
+						<div class="modal-footer">
+						<a id="OutlookData" class="btn btn-secondary" data-dismiss="modal">Okay</a>
+						<!--<button type="button" class="btn btn-primary">Save changes</button>-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--End Reminder Modal-->   
+            
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     
+    <script type="text/javascript" src="https://amdocs.sharepoint.com/sites/EP/_catalogs/masterpage/EP-Master/EPEmployee/jquery-3.6.0.min.js"></script>
+<script src="js/ShareEventValidation.js"></script>
+    <script type="text/javascript" src= "js/newEventDetails.js"></script>
+    <script type="text/javascript" src= "js/EventMood.js"></script>
+    
+
+</body>
+
+</html>
