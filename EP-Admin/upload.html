@@ -1,5 +1,4 @@
-﻿ay
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -79,6 +78,11 @@ sup {
 	.publishbtn{
 	pointer-events:none;
 	}
+	
+	#NewSaveItem1{
+	pointer-events:none;
+	}
+
 	
 	a:hover {
     color: #000000 !important;
@@ -204,9 +208,12 @@ sup {
     }
 
 .leftspan1 {
-    width: 84%;
+    width: 84% !important;
 }
-
+.head-section{
+	width: 92.5%;
+    margin-left: 1.5%;
+}
 }
 
 @media (min-width: 1900px){
@@ -291,7 +298,7 @@ sup {
 					  <div class="row align-items-center justify-content-between bannerImg">
 					    <div class="col-6 lftspanBaner bannerTitle">
 					  	<label for="" class="d-block">Banner Title<sup>*</sup></label>
-                        <input class="tbaner main-div" type="text" id="BanerTitle"  title="Banner Title" placeholder="Title for Banner" required>
+                        <input class="tbaner main-div" autocomplete="off" type="text" id="BanerTitle"  title="Banner Title" placeholder="Title for Banner" required>
 					    </div>
 					    <div class="col-6 d-flex justify-content-end PublishDivide lftspanPublishbtn">					      
 					      <div class="d-flex align-items-center justify-content-between divider1">   <!-- class="pub"> -->
@@ -311,7 +318,7 @@ sup {
 					  </div>
 					<div>
 					  <label for="" class="d-block">Description<sup>*</sup></label>
-                        <input type="text"  class="tdesk" id="Description" title="Description" onkeyup="MaxChar();" placeholder="Access important information for your welfare and wellbeing. For Amdocs employees." required>					  </div>
+                        <input type="text"  class="tdesk" id="Description" autocomplete="off" title="Description" onkeyup="MaxChar();" placeholder="Access important information for your welfare and wellbeing. For Amdocs employees." required>					  </div>
 					  	<small style="color:#FF3D97;" class="mainValue d-none">Description words should not exceed more than 30 words</small>
 					  <!-- <input type="hidden" value="Work" title="Pillar"> -->
 					</div>
@@ -321,9 +328,10 @@ sup {
                 </section>
                     <section class="headinput d-flex adjustment2">
                         <span class="editstart">
-                            <img src="Images/White_Pencile%20(1).svg" alt="" style="width: 61%;color:#747474;">
+                            <img src="https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/Images/edit_thought_active.svg" alt="" style="width: 61%;color:#747474;" class="d-none" id="activethought">
+                            <img src="Images/White_Pencile%20(1).svg" alt=""  style="width: 61%;color:#747474;" id="NotActiveThought">
                         </span>
-                        <span class="leftspan"><input type="text" id="textfield" title="thought" value="" style="color:#cecece;"></span>
+                        <span class="leftspan"><input type="text" id="textfield" autocomplete="off" title="thought" value="" style="color:#cecece;"></span>
 
                         
                         <span class="d-inline-block" style="line-height: 13px;color:white; width: 9%;">
@@ -393,11 +401,13 @@ sup {
             }
             
             $(".editstart").on("click", function(){
-               
-                $(".editstart img").attr("src","Images/edit_thought_active.svg")
-
-            })
+               	
+                $(".editstart img").toggleClass("d-none")
+				
+	           
+			  })
    
+    
             $(document).ready(function(){
                 $("#file_input").change(function(){
                     readURL(this);
@@ -419,7 +429,7 @@ sup {
 				});
 				
 				 $('#okay').click(function() {
-    			location.reload();
+    			//location.reload();
 				});
 
 

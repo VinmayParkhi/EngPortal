@@ -40,10 +40,9 @@ function addZero(i) {
 }
 
 function GetOngoingSurvey() {
- 	//var today= new Date();
  	var today= moment().format('YYYY-MM-DDTHH:mm:SS');
     $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescription,SurveyEndDate,SurveyLink,SurveyStatus&$expand=AttachmentFiles&$filter=SurveyStatus eq 'Published' and SurveyEndDate ge '"+today+"'&$orderby=Created desc",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescription,SurveyEndDate,SurveyLink,SurveyStatus&$expand=AttachmentFiles&$filter=(SurveyStatus eq 'Published') and (SurveyStartDate le '"+today+"') and (SurveyEndDate ge '"+today+"')&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -54,26 +53,30 @@ function GetOngoingSurvey() {
             var dataresults = data.d.results;
             console.log(dataresults) 
             if(dataresults.length > 0){           
-            for (var i = 0; i <3; i++) {
+            for (var i = 0; i <4; i++) {
                EventDates = moment(data.d.results[i].SurveyEndDate).format('DD MMM, YYYY');               
-               //EventFullDates = moment(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');
          	   var SurveyId = data.d.results[i].ID;
                var SurveyTitle= data.d.results[i].Title;
                var SurveyDescreption = data.d.results[i].SurveyDescription;
                var SurveyLink = data.d.results[i].SurveyLink;
                AverageRating  = data.d.results[i].AverageRating;  
 				var j = i+1;
+			   if(dataresults.length <= 4){
 			   var totalSurvey = dataresults.length; 
+			   }else{
+			       totalSurvey = "4";
+			   }
 			   
                  var a =  "https://amdocs.sharepoint.com/"+ data.d.results[i].AttachmentFiles.results[0].ServerRelativeUrl; 
                       
-                 $("#carousel-inner").append('<div class="carousel-item" id="carausel-item'+i+'"> <div class="surveyHeading"> <h6>Surveys</h6> <label>'+j+' of '+totalSurvey+'</label> </div> <div class="mainSurvey">'+
+                $("#carousel-inner").append('<div class="carousel-item" id="carausel-item'+i+'"> <div class="surveyHeading"> <h6>Surveys</h6> <label>'+j+' of '+totalSurvey+'</label> </div><div class"surveyBg"></div> <div class="mainSurvey" style="background:linear-gradient(360deg, #191718 0%, #232323B3 0%, #232323e3 0%, #545454db 30%, #54545463 50%),url('+a+') no-repeat; background-size:cover;">'+
 											'<div class="surveySlider"> <div class="amdocsLogo"> <div class="amdocsImgs"> <div class="d-flex align-items-center"> <img src="'+a+'" alt="">'+
 											'</div></div> <div class="annualEvent">'+
 											'</div> </div> <div class="surveyText"> <div class="share">'+SurveyTitle+'</div> <div class="feedback">'+SurveyDescreption+'</div> </div>'+
 											'<a href="'+SurveyLink+'" class="click"> <i class="fa-solid fa-arrow-pointer"></i> <h6>Click here to take the survey</h6> </a> </div> </div> </div></div>');
-				
-								                 
+					     
+                
+				 $("#carousel-indicators").append('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'" ></li>');			                 
                  
                  $("#carausel-item0").addClass("active");
                  

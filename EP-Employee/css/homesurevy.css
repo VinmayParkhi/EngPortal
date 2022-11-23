@@ -41,13 +41,19 @@ a{
 }
 .survey .mainSurvey {
     width: 96%;
-    /* height: 60%; */
+    height: auto;
     margin: 0 auto;
-    /* margin-top: 1rem; */
     border-radius: 1.5rem;
-    background-color: #000;
-    /* border: 1px solid red; */
+    background-color: #000;   
+
 }
+/*.surveyBg{
+	background: transparent linear-gradient(360deg, #191718 0%, #232323B3 0%, #23232380 0%, #2323234D 31%, #54545400 40%) 0% 0% no-repeat padding-box;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}*/
 
 .surveyWr {
    /* width: 90%;*/
@@ -96,7 +102,7 @@ a{
 }
 
 .mainSurvey .amdocsLogo .amdocsImgs img {
-    width: 40%;
+    width: 0%;
 }
 
 .amdocsImgs small {
@@ -109,6 +115,11 @@ a{
 
 .surveyText {
     color: #fff;
+    margin-top: 85px;
+    /*width: 97%;
+    background: transparent linear-gradient(360deg, #191718 0%, #232323B3 0%, #23232380 7%, #2323234D 100%, #54545400 23%) 0% 0% no-repeat padding-box;
+    padding: 6%;
+    margin-left: -10px;*/
 }
 
 .surveyText .share {
@@ -129,20 +140,34 @@ a{
 .surveyText .share,
 .surveyText .feedback {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     word-break:break-all;
+    white-space: nowrap;
+    display: block;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .click {
     color: #FF3D97;
     display: flex;
     justify-content: center;
-    padding-bottom:20px;
+    /*padding-bottom:20px;*/
+    /*border-radius: 10px;
+    text-shadow: 1px -2px #000;
+    margin-top: 87px;
+    height: 0;
+    position: absolute;
+    width: 91%;
+    background: transparent linear-gradient(360deg, #191718 0%, #232323B3 0%, #23232380 7%, #2323234D 100%, #54545400 23%) 0% 0% no-repeat padding-box;
+    padding: 3%;*/
 }
 
 .click h6 {
     margin: 0;
     margin-left: 0.6rem;
+
 }
 
 .surveySlider {
@@ -170,6 +195,12 @@ a{
 	height:auto !important;
 }
 
+
+@media (min-width: 1280px){
+	.survey .mainSurvey{
+		height: 24vh;
+}
+}
 
 
 }

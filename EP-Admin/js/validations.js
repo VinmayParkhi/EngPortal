@@ -253,27 +253,6 @@ $(document).ready(function(){
 	}	
 	/* ends ConnndCom Validation*/
 
-	
-	
-	
-		/*$('#publishHub').on("click", function (e) {  
-		    e.preventDefault();  
-		    var Title = $('#BannerHubTitle').val();  
-		    var Description = $('#BannerHubDescription').val();  
-		    var File = $(".sideimg").val();
-		    $(".error").remove();  
-			if (Title.length < 1) {  
-		      $('#BannerHubTitle').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Banner Title</span>');  
-		    }
-		    if (Description.length < 1) {  
-		      $('#BannerHubDescription').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Description</span>');  
-		    }
-		    if (File.length < 1) {
-			 $('.thumbnail').before('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;position: absolute;top: 13.5rem;">Please Upload Banner Image</span>');
-			}*/
-	//});
-
-
 
 
 	
@@ -282,7 +261,7 @@ $(document).ready(function(){
 	  canChangeColor();
 	});
 	
-$(".editstart").on("click", function () {  
+$(".leftspan").on("input", function () {  
 
 	  ThoughtChangeColor();
 	});
@@ -318,6 +297,8 @@ function ThoughtChangeColor(){
   if(can1){
     $('#NewSaveItem1').addClass("EnableBtn");  
     $('#NewSaveItem1').removeAttr("disabled", true);
+
+
     
   }else{
     $('#NewSaveItem1').removeClass("EnableBtn")  

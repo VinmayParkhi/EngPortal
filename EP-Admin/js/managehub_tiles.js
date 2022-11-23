@@ -4,8 +4,6 @@ CardsImage();
 });
 
 
-
-
 function CardsImage() {
  	var today= new Date();
  	today = moment(today).toISOString();

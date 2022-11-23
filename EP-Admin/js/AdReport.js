@@ -12,199 +12,14 @@ var siteurl = "https://amdocs.sharepoint.com/sites/EP";
 
 $(document).ready(function() {
 
-
-
-/*start date filter */
-
-   var fromDateChString;
-   var toDateChString;
-   var fromDateCh;
-   var toDateCh;   
-    $("#from-date").datepicker({
+     $("#from-date,#to-date").datepicker({
       dateFormat: "dd M, yy",
       changeMonth: true,
-      changeYear: true,
-
-      onSelect: function () {
-                var fromDate = $(this).val();
-                fromDateCh = moment.utc(fromDate).format('YYYY-MM-DD');
-                fromDateChString = "'"+fromDateCh+"T00:00:00Z'";
-                
-                if(toDateChString === undefined){
-                
-                var fromDate = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'"
-                   $.ajax({
-
-            url: siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+fromDate+"&$orderby=ID desc&$groupby=Mood dist",
-
-            type: "GET",
-
-            dataType: "json",
-
-            headers: {
-
-                    "accept": "application/json;odata=verbose"
-
-            },
-
-            success: function (data) {
-
-                if(data.d.results.length > 0 ){                  
-                 
-                 console.log(data);
-               			
-                  successFunctionReports(data);                                                 
-
-                 }
-                   
-                }
-                });
-              }else if(toDateChString !== undefined){
-              
-              var fromDate = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
-
-                   $.ajax({
-
-            url: siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+fromDate+"&$orderby=ID desc&$groupby=Mood dist",
-
-            type: "GET",
-
-            dataType: "json",
-
-            headers: {
-
-                    "accept": "application/json;odata=verbose"
-
-            },
-
-            success: function (data) {
-
-                if(data.d.results.length > 0 ){                  
-                 
-                 console.log(data);
-               			
-                  successFunctionReports(data);                                                 
-
-                 }
-                   
-                }
-                });
-
-              
-              }
-                //fromDateString += "Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T00:00:00Z'";
-	            //log(fromDateString)
-          }
-    })
-  
-   
-    $("#to-date").datepicker({
-      dateFormat: "dd M, yy",
-      changeMonth: true,
-      changeYear: true,
-
-      onSelect: function (dateText) {
-                var date2 = $(this).val();
-                toDateCh = moment.utc(date2).format('YYYY-MM-DD')   
-                toDateChString =  "'"+toDateCh+"T00:00:00Z'";
-                //fromDateString += "Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T00:00:00Z'";
-	          //log(fromDateString)
-	          
-	          if(fromDateChString === undefined){
-                
-                var toDate = "EventDate le " + "'"+toDateCh+"T12:00:00Z'"
-                   $.ajax({
-
-            url: siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+toDate+"&$orderby=ID desc&$groupby=Mood dist",
-
-            type: "GET",
-
-            dataType: "json",
-
-            headers: {
-
-                    "accept": "application/json;odata=verbose"
-
-            },
-
-            success: function (data) {
-
-                if(data.d.results.length > 0 ){                  
-                 
-                 console.log(data);
-               			
-                  successFunctionReports(data);                                                 
-
-                 }
-                   
-                }
-                });
-              }else if(fromDateChString !== undefined){
-              
-              var toDate = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
-
-                   $.ajax({
-
-            url: siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+toDate+"&$orderby=ID desc&$groupby=Mood dist",
-
-            type: "GET",
-
-            dataType: "json",
-
-            headers: {
-
-                    "accept": "application/json;odata=verbose"
-
-            },
-
-            success: function (data) {
-
-                if(data.d.results.length > 0 ){                  
-                 
-                 console.log(data);
-               			
-                  successFunctionReports(data);                                                 
-
-                 }
-                   
-                }
-                });
-              }
-         }
-    });
-    
-    $("#from-date, #to-date").on('keyup',function(){
-       var val = $(this).val();
-      // log(val);
-       if(val.length === 0){
-        $("#from-date, #to-date").on('keyup',function(){
-        var val = $(this).val();
-       //log(val);
-        if(val.length === 0){
-        //alert('empty')
-        var url = siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby=ID desc&$groupby=Mood dist";
-
-        GetEventReport(url)
-        }
-        });
-       }
-    });
- /*end date filter */ 
+      changeYear: true});
  
- 
-
-
-
-
-
-
-
-
-
-
 
 		var url1 = siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby=ID desc";
-       $('input[name="Hub"],input[name="Location"],input[name="Department"]').on('change', function() {
+       $('input[name="Hub"],input[name="Location"],input[name="Department"],#to-date,#from-date').on('change', function() {
             //Create an Array.
             var selectedHub = new Array();
             var selectedLoc = new Array();
@@ -253,7 +68,6 @@ $(document).ready(function() {
             var finalselection = "";
             if(hubsselected != ""){
                	finalselection += "("+hubsselected+") ";
-               //  finalselection = "("+hubsselected+") ";
             }
             if(locationsselected != ""){
                 if(hubsselected != ""){
@@ -270,25 +84,40 @@ $(document).ready(function() {
                 }
             }
             
-            
-            
-            if(fromDateChString !== undefined && toDateChString !== undefined ){
-                finalselection += " and Created ge ("+fromDateChString+") and Created le ("+toDateChString+") ";
-
-            }else if(fromDateChString !== undefined && toDateChString === undefined ){
-                finalselection += " and Created ge ("+fromDateChString+") ";
-
-            }else if(toDateChString !== undefined && fromDateChString === undefined){
-                finalselection += " and Created le ("+toDateChString+") ";
-
+       
+       		 var date1 = $("#from-date").val();
+                fromDateCh = moment.utc(date1).format('YYYY-MM-DD')   
+              var date2 = $("#to-date").val();
+                toDateCh = moment.utc(date2).format('YYYY-MM-DD')   	          
+	          if(fromDateCh !== "Invalid date" && toDateCh === "Invalid date"){
+	           	   if (finalselection != ''){
+        			finalselection += " and (EventDate ge " + "'"+fromDateCh+"T00:00:00Z')"; 				
+        			}else{
+				   finalselection =  "(EventDate ge " + "'"+fromDateCh+"T00:00:00Z')";  
+				}
+              }else if(fromDateCh !== "Invalid date" && toDateCh !== "Invalid date"){
+              	           	   if (finalselection != ''){
+        			finalselection += "and (EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T23:59:59Z')"; 				
+        			}else{
+				   finalselection =  "(EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T23:59:59Z')";  
+				}
+              }else if(toDateCh !== "Invalid date" && fromDateCh === "Invalid date"){
+                if (finalselection != ''){
+        				finalselection += " and (EventDate le '"+toDateCh+"T23:59:59Z')";
+				}else{
+				   finalselection = "EventDate le " + "'"+toDateCh+"T23:59:59Z'";  
+				}
+              
+              }
+       
+            if(finalselection != "" ){      
+            var url = siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter="+finalselection+"&$orderby=ID desc";
+                GetEventReport(url);  
+            }else{
+            var url = siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter="+finalselection+"&$orderby=ID desc";
+                GetEventReport(url);  
             }
-
             
-            
-           // alert("Final Selected Elements : "+finalselection);
-            var url = siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+finalselection+"&$orderby=ID desc";
-               //alert("Final URL : "+url)
-               GetEventReport(url);             
   	});
   	
        $.noConflict();
@@ -305,78 +134,34 @@ $(document).ready(function() {
 		});
 		$( "#min" ).datepicker( "setDate", new Date());
 		$( "#max" ).datepicker( "setDate", 31);
-		//var dt = $('#ReportDataTable').DataTable();
-		//console.log("Below table data:");
-		//console.log(dt.column(0).data());		
-		/*$.fn.dataTable.ext.search.push(
-      function(settings, data, dataIndex) {
-       var from_dt=CheckedHub;
-        var from_dt_array = data[2] || 0; // Our date column in the table
-        var to_dt_array = data[3] || 0; // Our date column in the table
-        console.log(from_dt_array +" : and : "+to_dt_array)
-       /* if ((from_dt == "") ||
-          (moment(from_dt_array).isSameOrAfter(from_dt)) ) {
-       var to_date=CheckedLoc;
-       if((to_date == "")|| (moment(to_dt_array).isSameOrBefore(to_date)) )
-          return true;
-        }
-        return false;
-      }
-    });*/
 
 
 function GetEventReport(url) {
-				//alert("function run");
                var siteurl = "https://amdocs.sharepoint.com/sites/EP";
-	
-                  //var url = siteurl+ "/_api/web/lists/getbytitle('EPRating')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby = Created desc";
-                  //var url = siteurl+ "/_api/web/lists/getbytitle('TestList')/items?&$select=*";
-               console.log(url);        
 
      $.ajax({
 
             url: url,
-
             type: "GET",
-
             dataType: "json",
-
             headers: {
 
                     "accept": "application/json;odata=verbose"
-
             },
 
             success: function (data) {
-
                 if(data.d.results.length > 0 )
-
                  { 
-
                   successFunctionReports(data);                                                 
 
                  } else{
                  	$(".dataTables_empty").addClass("d-block");
-                 	//alert("no results found");
-                 	      $('#ReportDataTable').DataTable().clear().draw();
-                 	// $('#ReportDataTable').DataTable().clear();
-					//table.clear()$('#myTable').dataTable().clear();
-
-                 	/*$('#ReportDataTable').DataTable( {
-					    "language": {
-					        "emptyTable":     "My Custom Message On Empty Table"
-					    }
-					} );         */        
-				}        
-
-               },
-
-            error: errorFunction
-
-               });      
-
+                 	$('#ReportDataTable').DataTable().clear().draw();       
+				 }        
+                 },
+            	 error: errorFunction
+              });      
 }
-
 
 
 function errorFunction(data){

@@ -14,17 +14,9 @@
   
   
  var data = []; 
-/* var fileArray = []; 
- $(".oneInfo input:file").each(function() { 
- if ($(this)[0].files[0]) { 
- fileArray.push({ "Attachment": $(this)[0].files[0] }); 
- }
- });  */
  //arraycount += fileArray.length;
  data.push({ 
  "Thought": $("input[title='thought']").val(), 
-// "Description": $("input[title='Description']").val(), 
- // "Files": fileArray 
  }); 
  createNewItemWithAttachments("Thought_List", data).then( 
  function

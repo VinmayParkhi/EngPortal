@@ -6,7 +6,6 @@
              history.go(-1);        
     });
 
-    //alert( "ready!" );
     GetPastEvents();
     
     $("#all").on("click", function(){   
@@ -15,32 +14,23 @@
     $("#work").on("click", function(){
     $("div.pastevntsCard").addClass("d-none");    
     $("div.pastevntsCard.Work").removeClass("d-none");
-	 //$("div.pastevntsCard.Work").addClass("d-block");
     });
     $("#life").on("click", function(){
     $("div.pastevntsCard").addClass("d-none");    
     $("div.pastevntsCard.Life").removeClass("d-none");
-	 //$("div.pastevntsCard.Work").addClass("d-block");
     });
     $("#wellbeing").on("click", function(){
     $("div.pastevntsCard").addClass("d-none");    
     $("div.pastevntsCard.Enrich").removeClass("d-none");
-	 //$("div.pastevntsCard.Work").addClass("d-block");
     });
     $("#wowpride").on("click", function(){
     $("div.pastevntsCard").addClass("d-none");    
     $("div.pastevntsCard.Wow").removeClass("d-none");
-	 //$("div.pastevntsCard.Work").addClass("d-block");
     });
 	$("#connectcommunity").on("click", function(){
     $("div.pastevntsCard").addClass("d-none");    
     $("div.pastevntsCard.Connect").removeClass("d-none");
-	 //$("div.pastevntsCard.Work").addClass("d-block");
     });
-
-
-    
-   //test();
 });
 
 function GetPastEvents() {
@@ -51,7 +41,6 @@ function GetPastEvents() {
     $.ajax
     ({
         
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('List Name')/items(" + Itemid + ")/AttachmentFiles",
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EventID,ImageURL,Title,Pillar,EventDescription&$expand=AttachmentFiles&$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
         headers:
@@ -72,25 +61,19 @@ function GetPastEvents() {
                  var EventDescription= data.d.results[i].EventDescription;  
                  var AverageRating  = data.d.results[i].AverageRating;
                  var eventID = data.d.results[i].EventID;   	 
-               	 //var VideoURLs = data.d.results[i].VideoURL;                
+               	 var VideoURLs = data.d.results[i].VideoURL;                
                	 var a = data.d.results[i].ImageURL;
-                 $(".FavEvntsWr").append('<div class="pastevntsCard '+pillar+'" style="width:30%; margin:10px 10px 2rem 10px"><div class="pstvideoImg1"  style="background:linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%),url('+a+');background-repeat: no-repeat;background-size: cover;"> <label class="time">15:03</label>'+
-                            '<a href="iframeData" id="iframeData" class="play">'+
+                 $(".FavEvntsWr").append('<div class="pastevntsCard '+pillar+'" style="width:30%; margin:10px 10px 2rem 10px"><div class="pstvideoImg1"  style="background:linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%),url('+a+');background-repeat: no-repeat;background-size: cover;"> '+
+                            '<a  class="play player" style="cursor:pointer" onclick="getVid1(event)">'+
                                 '<img src="../../SiteAssets/ENGEmployee/images/Group 2834.svg" alt="Play"> </a>'+
                             '<a href="#" onclick="heartImage('+eventID+','+favID+',event);" id="" class="heartImg"> <img id="heartImg" src="../../SiteAssets/ENGEmployee/images/Icon feather-heart.svg" alt="Heart"></a>'+  
                             '<div class="pastevntsDetails"> <div class="radios_Rating"> <div class="radios"><small><label id="pillar" class="'+pillar+'">'+pillar+'</label></small> </div></div> <div class="title_review"> <div class="evntTitle"> <h4> <label id="EventTitle">'+EventTitle+'</label> </h4> </div><div class="review"> <h6>'+
                             '</h6>'+
-                            '</div> </div> <p class="row"><span id="EventDesc" style="padding:0px !important;">'+EventDescription+'</span></p> </div> </div> </div>');
+                            '</div> </div> <p class="row"><span id="EventDesc" style="padding:0px !important;">'+EventDescription+'</span></p> </div><div> <input type="hidden" value="'+VideoURLs+'"></div></div> </div>');
+                            $(".player").attr('data-toggle',"modal");
+                            $(".player").attr('data-target',"#exampleModal");
                  
-                 
-                //alert(a);
-                /*$(".pstvideoImg1").attr("style","background:linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%), url("+a+");background-repeat: no-repeat;background-size: contain;");
-
-                
-              
-                  //alert('EventDates is Past');   */
-              
-
+                               
                     }
             console.log(dataresults);
         },
@@ -100,16 +83,27 @@ function GetPastEvents() {
     });
 }
 
+function getVid1(event){
+	//var vidtest =  event.target.parentElement.parentElement.lastElementChild.value;
+	/*var vidtest =	 event.target.parentElement.parentElement.lastElementChild.lastElementChild.value;	
+	var evetit = event.target.parentElement.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.innerText;
+	var evedesc = event.target.parentElement.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.innerText;*/
+	
+	var vidtest = event.target.parentElement.parentElement.lastElementChild.firstElementChild.value;
+	var evetit = event.target.parentElement.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.innerText;
+	var evedesc = event.target.parentElement.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.innerText;
+	
+
+	
+	$(".modalapp iframe").attr('src',vidtest);
+	$(".modalfoot h4").html(evetit);
+	$(".modalfoot h6").html(evedesc);
+	
+	}
 
 function heartImage(clicked_id,id,event){
-	
-	//EventID = $(this).document.getElementById("EventId");
-	//console.log("EventID:"+EventID);	
-	//$("#eID").val();
-		
+			
 	console.log(clicked_id);	
-	//console.log(pillar);
-	//alert("Test",EventID);
 	FavEvents(clicked_id,id,event);
 }
 
@@ -117,39 +111,6 @@ function heartImage(clicked_id,id,event){
 function FavEvents(clicked_id,favDelID,event){
   		var username = $("#username").text();
  		var EmpId = $("#EMpID").text();
- 		//var EventID = $("#eID").val();
-  	
-	
-  	/*var item={
-  	 	"__metadata":{'type': 'SP.Data.FavoriteEventsListItem'},
-  	 	"Title": "FavoriteEvents",
-   		"EventID":clicked_id,
-		"EmpID":EmpId,
-		"UserName":username,
-		"Pillar":pillar.outerText	
-		
-  	};
-  	console.log(item);
-  	  	$.ajax({
-		url:_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('FavoriteEvents')/items",
-		type: "POST",
-		contentType: "application/json; odata=verbose",
-		data:JSON.stringify(item),
-		headers: {
-			"Accept": "application/json; odata=verbose",
-			"X-RequestDigest":$("#__REQUESTDIGEST").val(),			
-		},
-		success:OnSuccess,
-		error:OnError
-	});
-	function OnSuccess(data){
-		//alert("Sucessfully updated");
-	}
-
-    function OnError(data){
-		alert("Update error");
-	}*/
-	
 	
 	$.ajax({  
             url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPFavouriteEvent')/items(" + favDelID + ")",  

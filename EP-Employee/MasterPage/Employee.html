@@ -74,7 +74,7 @@ To build the master page directly from this HTML file, simply edit the page as y
         <link rel="stylesheet" href="maincss.css" type="text/css" />
         <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
-<mso:HtmlDesignFromMaster msdt:dt="string">https://amdocs.sharepoint.com/sites/EP/_catalogs/masterpage/EP-Master/EPEmployee/Employee.html, https://amdocs.sharepoint.com/sites/EP/_catalogs/masterpage/EP-Master/EPEmployee/Employee.html</mso:HtmlDesignFromMaster>
+<mso:HtmlDesignFromMaster msdt:dt="string"></mso:HtmlDesignFromMaster>
 <mso:HtmlDesignStatusAndPreview msdt:dt="string">https://amdocs.sharepoint.com/sites/EP/_catalogs/masterpage/EP-Master/EPEmployee/Employee.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 <mso:ContentTypeId msdt:dt="string">0x0101000F1C8B9E0EB4BE489F09807B2C53288F0054AD6EF48B9F7B45A142F8173F171BD10003D357F861E29844953D5CAA1D4D8A3A00A64631E11EAC444B8F498106DC7F9839</mso:ContentTypeId>
 <mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
@@ -208,9 +208,7 @@ To build the master page directly from this HTML file, simply edit the page as y
                                     <div>
                                         <img width="1px" height="30px" src="../../../../SiteAssets/EngEmployee/images/Divider%20-%20Vert.png" alt="Search" data-themekey="#" />
                                     </div>
-                                    <div style="color:white;padding:0 10px" class="d-flex align-items-center">Search
-                                    
-                                    </div>
+                                    <div style="color:white;padding:0 10px" class="d-flex align-items-center">Search</div>
                                     <div id="searchedData" style="position:absolute;bottom:0;border-bottom-left-radius: 6px;border-bottom-right-radius: 6px;transform:translateY(100%);width:100%;overflow-y:scroll;z-index:99999;background:#fff;">
                                     </div>
                                     <!--<span class="input-group-text">
@@ -522,6 +520,8 @@ To build the master page directly from this HTML file, simply edit the page as y
                                         <div class="cardHolder">
                                             <div class="cardImg">
                                                 <!--<img src="Group 183.png" alt="..."/>-->
+                                                <!--<img id="profImg" onload="javascript: alert('The image has been loaded')" onerror="javascript: alert('The image has failed to load')">-->
+
                                                 <div id="profileIMG" style="text-align:center;">
                                                 </div>
                                             </div>
@@ -750,7 +750,7 @@ To build the master page directly from this HTML file, simply edit the page as y
         
         //]]>
         </script>
-        <script type="text/javascript" src="../../../../SiteAssets/EngEmployee/js/EmpEventReminder.js">//<![CDATA[ 
+        <script type="text/javascript" src="../../../../SitePages/EPEmployee/js/EmpEventReminder.js">//<![CDATA[ 
         
         
         
@@ -767,6 +767,8 @@ To build the master page directly from this HTML file, simply edit the page as y
         <script type="text/javascript">//<![CDATA[              		   
                 $(document).ready(function(){
 	             // alert("Page Load Successfully");
+	             //setInterval(userdetails, 5000);
+	              localStorage.clear(); 
 	              userdetails();
 	               $('#siteadmin').addClass("");
 	               SP.SOD.executeOrDelayUntilScriptLoaded(AutoRedirect,'sp.js');
@@ -803,7 +805,7 @@ To build the master page directly from this HTML file, simply edit the page as y
 				    });
 				}
 				
-                
+               
                 function userdetails(){
                 	var requesturl = "https://amdocs.sharepoint.com/_api/SP.UserProfiles.PeopleManager/GetMyProperties";
                 	$.ajax({      
@@ -816,21 +818,29 @@ To build the master page directly from this HTML file, simply edit the page as y
                       success: function(data) { 
 	                      console.log(data);
 	                      var results = data.d.UserProfileProperties.results; 
-	                                						  
+						  var ProfImg1=_spPageContextInfo.webAbsoluteUrl + "/_layouts/15/userphoto.aspx?size=L&accountname=" + data.d.Email;
+						   //alert(ProfImg1);      						  
 	                      $("#username, #username2").html(data.d.DisplayName);
 						  $("#username1").html(data.d.DisplayName);
 						  $("#username2").html(data.d.DisplayName);
 						  $("#usermail,#usermail2,#userEmail").html(data.d.Email);
 
 						  if(data.d.PictureUrl == null){
-						  $("#profileIMG,#profileIMG2,#profileIMG3").append('<img src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/EngEmployee/images/user_I_Card.svg" width="100" style="border-radius: 50%;"/>');
-						  $("#profileimg,#profileimg1").append('<img style="width: 3.5rem;border-radius:5px;" src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/EngEmployee/images/user_header.svg" width="100" style="border-radius: 10%;"/>');
-						  $("#profileImg").append('<img src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/EngEmployee/images/User.png" width="100" style="border-radius: 50%;"/>');
+						  $("#profileIMG,#profileIMG2,#profileIMG3").append('<img src="https://amdocs.sharepoint.com/sites/EP/SitePages/EPEmployee/images/user_I_Card.svg" width="100" style="border-radius: 50%;"/>');
+						  $("#profileimg,#profileimg1").append('<img style="width: 3.5rem;border-radius:5px;" src="https://amdocs.sharepoint.com/sites/EP/SitePages/EPEmployee/images/user_header.svg" width="100" style="border-radius: 10%;"/>');
+						  $("#profileImg").append('<img src="https://amdocs.sharepoint.com/sites/EP/SitePages/EPEmployee/images/user_I_Card.svg" width="100" style="border-radius: 50%;"/>');
 						  }
 						  else{
-						  $("#profileIMG,#profileIMG2,#profileIMG3").append('<img src="'+data.d.PictureUrl+'" width="100" style="border-radius: 50%; width:100%;"/>');
-						  $("#profileimg,#profileimg1").append('<img src="'+data.d.PictureUrl+'" width="100" style="border-radius: 10%;"/>');
-						  $("#profileImg").append('<img src="'+data.d.PictureUrl+'" width="100" style="border-radius: 50%;"/>');
+						  
+							/*var downloadingImage = new Image();
+							downloadingImage.onload = function(){
+							   $("#profImg").attr("src",this.src);  
+							};
+							downloadingImage.src = data.d.PictureUrl;*/
+											  
+						  $("#profileIMG,#profileIMG2,#profileIMG3").append('<img src="'+ProfImg1+'" width="100" style="border-radius: 50%; width:100%;padding: 2.1rem;"/>');
+						  $("#profileimg,#profileimg1").append('<img src="'+ProfImg1+'" width="100" style="border-radius: 10%;"/>');
+						  $("#profileImg").append('<img src="'+ProfImg1+'" width="100" style="border-radius: 50%;"/>');
 						  }
 						  $("#toggleMenuUser").html(data.d.DisplayName);
 
@@ -879,16 +889,6 @@ To build the master page directly from this HTML file, simply edit the page as y
 
 
             	}
-                
-         
-        
-        
-        
-        
-        
-        
-        
-        
         
         //]]>
         </script>

@@ -211,8 +211,6 @@
  },
  success: function(response) {
  
- //alert("Uploaded");
- //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
 
  
  },
@@ -294,12 +292,7 @@ function GetAutoPublish() {
            var dataresults = data.d.results;
             console.log(dataresults);
 
-               //var AutoPublishDate=data.d.results[0].AutoPublishDateTime;               
-              // var Status = data.d.results[0].Status;
-               		//var ID = data.d.results[0].ID;
-               		//console.log(AutopublishDate +" "+ Status +" "+ ID);
-               //UpdatePublish(ID);
-           				                 
+            				                 
         },
         error: function (xhr, status, error) {
             console.log("Failed");
@@ -312,7 +305,7 @@ function UpdatePublish(id) {
 	var item = {
 		__metadata: { 'type': 'SP.Data.EPSurveyListItem' },
   		"Status":"Publish",
-  		//"AutoPulishDate" : ""
+  
   	}
 	//console.log(data);
 	$.ajax({

@@ -9,9 +9,7 @@ var RolePosition = _spPageContextInfo.isSiteAdmin;
 $(document).ready(function () {
 	CheckUserDesignation();
 	
-	//CheckUserRole(loginUserName);
-	//getListItems();
-});
+	});
 
 function CheckUserDesignation() {
     $.ajax({
@@ -29,20 +27,12 @@ function CheckUserDesignation() {
                if(Designation == 'Admin'){
                		LoadUserItems3();  		
 					GetUserRoleList();
-					//alert("admin is available");
-					//GetUserRoleList();
-					//$("#groupid").append("<div class='card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick='DeleteCard(this.id);' id="+data.d.results[i].EmpEmailID+"><input type='hidden' id='AccName' value="+data.d.results[i].EmpEmailID+"><i class='fa-solid fa-trash-can' id='"+data.d.results[i].ID+"'></i></p><img src='"+data.d.results[i].UserImgUrl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+data.d.results[i].Title+"</h5><p class='card-text'>"+data.d.results[i].Department+"</p><input type='radio' id='"+data.d.results[i].Title+"' checked name='"+data.d.results[i].Title+"' value='Admin' onclick='UpdateRole(this.id,this.value);' style='margin-right:5px;'><span for='Admin'>Admin</span><input type='radio' class='ms-4' id='"+data.d.results[i].Title+"' onclick='UpdateRole(this.id,this.value);' name='"+data.d.results[i].Title+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin' style='background-image: linear-gradient(98deg, #747474, #5d5d5d);'>Non-Admin</span></div></div>"); 
 				}
 				else{					
-					/*$(".lefticon").css("display","none");
-					$(".emp-card span").css("display","none");
-					$(".emp-card input").css("display","none");
-					$(".search-box").css("display","none");*/
-					//alert("You Can't Access This Page Because You are a :"+Designation)
 					//alert("You dont have access this page. Please contact your system admin.");
            			window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/AdminHome.aspx";
 				}
-               //EventDates = moment(data.d.results[i].EventDate).format('YYYY-MM-DD');              
+                     
                } // for loop End					                 
         },
         error: function (xhr, status, error) {
@@ -53,7 +43,6 @@ function CheckUserDesignation() {
 
 function GetUserRoleList() {
     $.ajax({
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPAccessControl')/items?$select=*&$filter=(Title eq '"+loginUserName+"')",
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPAccessControl')/items?$select=*",
         method: "GET",
         headers:{
@@ -67,13 +56,10 @@ function GetUserRoleList() {
 	               Designation = data.d.results[i].Designation;
 	               
 	               if(Designation == 'Admin'){
-						//alert("admin is available");
-						//$("#groupid").append("<div class='card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' data-bs-toggle='modal' data-bs-target='#staticBackdrop' onclick='DeleteCard(this.id,this.title);' id="+data.d.results[i].EmpEmailID+" title="+data.d.results[i].ID+"><input type='hidden' id='AccName' value="+data.d.results[i].EmpEmailID+"><i class='fa-solid fa-trash-can' id='"+data.d.results[i].ID+"'></i></p><img src='"+data.d.results[i].UserImgUrl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+data.d.results[i].Title+"</h5><p class='card-text'>"+data.d.results[i].Department+"</p><input type='radio' id='"+data.d.results[i].Title+"' checked name='"+data.d.results[i].Title+"' value='Admin' onclick='UpdateRole(this.id,this.value);' style='margin-right:5px;'><span for='Admin'>Admin</span><input type='radio' class='ms-4' id='"+data.d.results[i].Title+"' onclick='UpdateRole(this.id,this.value);' name='"+data.d.results[i].Title+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin' style='background-image: linear-gradient(98deg, #747474, #5d5d5d);'>Non-Admin</span></div></div>"); 		
 
-							$("#groupid").append("<div class='card emp-card cards'><div class='card-image mx-auto'><p class='lefticon' data-bs-toggle='modal' data-bs-target='#DeletePub' onclick='listItemId(this.id,this.title);' id="+data.d.results[i].EmpEmailID+" title="+data.d.results[i].ID+"><input type='hidden' id='AccName' value="+data.d.results[i].EmpEmailID+"><i class='fa-solid fa-trash-can' id='"+data.d.results[i].ID+"'></i></p><img src='"+data.d.results[i].UserImgUrl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+data.d.results[i].Title+"</h5><p class='card-text'>"+data.d.results[i].Department+"</p><input type='radio' id='"+data.d.results[i].Title+"' checked name='"+data.d.results[i].Title+"' value='Admin' onclick='UpdateRole(this.id,this.value);' style='margin-right:5px;'><span for='Admin'>Admin</span><input type='radio' class='ms-4' id='"+data.d.results[i].Title+"' onclick='UpdateRole(this.id,this.value);' name='"+data.d.results[i].Title+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin' style='background-image: linear-gradient(98deg, #747474, #5d5d5d);'>Non-Admin</span></div></div>"); 		
+							$("#groupid").append("<div class='card emp-card cards'><div class='card-image mx-auto'><p class='lefticon' data-bs-toggle='modal' data-bs-target='#DeletePub' onclick='listItemId(this.id,this.title);' id="+data.d.results[i].EmpEmailID+" title="+data.d.results[i].ID+"><input type='hidden' id='AccName' value="+data.d.results[i].EmpEmailID+"><i class='fa-solid fa-trash-can' id='"+data.d.results[i].ID+"'></i></p><img src='"+data.d.results[i].UserImgUrl+"' style='border-radius:50%;width: 100px;height:11rem;'></div><div class='card-body ms-4'><h5 class='card-title'>"+data.d.results[i].Title+"</h5><p class='card-text'>"+data.d.results[i].Department+"</p><input type='radio' id='"+data.d.results[i].Title+"' checked name='"+data.d.results[i].Title+"' value='Admin' onclick='UpdateRole(this.id,this.value);' style='margin-right:5px;'><span for='Admin'>Admin</span><input type='radio' class='ms-4' id='"+data.d.results[i].Title+"' onclick='UpdateRole(this.id,this.value);' name='"+data.d.results[i].Title+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin' style='background-image: linear-gradient(98deg, #747474, #5d5d5d);'>Non-Admin</span></div></div>"); 		
 					}else{
-							$("#groupid").append("<div class='card emp-card cards'><div class='card-image mx-auto'><p class='lefticon' data-bs-toggle='modal' data-bs-target='#DeletePub' onclick='listItemId(this.id,this.title);' id="+data.d.results[i].EmpEmailID+" title="+data.d.results[i].ID+"><input type='hidden' id='AccName' value="+data.d.results[i].EmpEmailID+"><i class='fa-solid fa-trash-can' id='"+data.d.results[i].ID+"'></i></p><img src='"+data.d.results[i].UserImgUrl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+data.d.results[i].Title+"</h5><p class='card-text'>"+data.d.results[i].Department+"</p><input type='radio' id='"+data.d.results[i].Title+"' name='"+data.d.results[i].Title+"' value='Admin' onclick='UpdateRole(this.id,this.value);' style='margin-right:5px;'><span for='Admin' style='background-image: linear-gradient(98deg, #747474, #5d5d5d);'>Admin</span><input type='radio' class='ms-4' checked id='"+data.d.results[i].Title+"' onclick='UpdateRole(this.id,this.value);' name='"+data.d.results[i].Title+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin'>Non-Admin</span></div></div>");                                                    
-							//$(".lefticon").addClass("DisabledData");
+							$("#groupid").append("<div class='card emp-card cards'><div class='card-image mx-auto'><p class='lefticon' data-bs-toggle='modal' data-bs-target='#DeletePub' onclick='listItemId(this.id,this.title);' id="+data.d.results[i].EmpEmailID+" title="+data.d.results[i].ID+"><input type='hidden' id='AccName' value="+data.d.results[i].EmpEmailID+"><i class='fa-solid fa-trash-can' id='"+data.d.results[i].ID+"'></i></p><img src='"+data.d.results[i].UserImgUrl+"' style='border-radius:50%;width: 100px;height:11rem;'></div><div class='card-body ms-4'><h5 class='card-title'>"+data.d.results[i].Title+"</h5><p class='card-text'>"+data.d.results[i].Department+"</p><input type='radio' id='"+data.d.results[i].Title+"' name='"+data.d.results[i].Title+"' value='Admin' onclick='UpdateRole(this.id,this.value);' style='margin-right:5px;'><span for='Admin' style='background-image: linear-gradient(98deg, #747474, #5d5d5d);'>Admin</span><input type='radio' class='ms-4' checked id='"+data.d.results[i].Title+"' onclick='UpdateRole(this.id,this.value);' name='"+data.d.results[i].Title+"' value='Nonadmin' style='margin-right:5px;'><span for='Nonadmin'>Non-Admin</span></div></div>");                                                    
 					}                           
             } // for loop End					                 
         },
@@ -168,9 +154,10 @@ $.ajax({
 			var dept;
 			//var results = data.d.UserProfileProperties.results;
 			var displayname = data.d.DisplayName;
-			var picurl = data.d.PictureUrl;			
-			if(picurl != null){picurl = picurl.split('?')[0];}			
+			var picurl = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/userphoto.aspx?size=L&accountname=" + data.d.Email;;			
+			//if(picurl != null){picurl = picurl.split('?')[0];}			
 			if(picurl == null){
+			debugger;
 				picurl = 'https://amdocs.sharepoint.com/sites/EP/SiteAssets/EngEmployee/images/Icon awesome-user-circle.png';
 			}	
 			
@@ -264,7 +251,7 @@ function removeUserFromGroup(userLoginName,groupid){
 			"X-RequestDigest": $("#__REQUESTDIGEST").val()
 		},
 		success: function (data) { 
-			alert(userLoginName+" has been removed from group");
+			//alert(userLoginName+" has been removed from group");
 			location.reload();
 		},
 		error: function (error){
@@ -289,7 +276,7 @@ function RemoveListItem(myID) {
             //alert("Item Deleted " +myID);  
         },  
         error: function(data) {  
-            alert("failed");  
+            //alert("failed");  
         }  
     });  
 } 
@@ -309,8 +296,8 @@ function openDialog(pageUrl) {
 		title: 'Add User',
 		allowMaximize: false,
 		showClose: true,
-		width: 850,
-		height: 372,
+		width: 800,
+		height: 320,
 		dialogReturnValueCallback: Function.createDelegate(null, popupClose)
 	};
 	SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
@@ -357,9 +344,6 @@ function PostGroupDataList(Title,Image,actname,admin,cardID,dept){
 }
 
 function SuccessFunction(data) {
-	//alert("test done");
-	//GetEventMoodCount()
-	//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
 }
 
 function ErrorFunction(error) {
@@ -396,9 +380,6 @@ function UpdateGroupDataList(Title,Image,actname,admin,cardID){
 }
 
 function SuccessFunction(data) {
-	//alert("Update test done");
-	//GetEventMoodCount()
-	//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
 }
 
 function ErrorFunction(error) {
@@ -433,8 +414,6 @@ function UpdateRoleList(EmpID,RoleValue) {
 
 function SuccessFunction1(data) {
 	alert("Role Updated for : "+EmpID);
-	//GetEventMoodCount()
-	//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
 }
 
 function ErrorFunction1(error) {
@@ -452,8 +431,7 @@ function UpdateRole(Title,RoleValue){
 				var EmpID = userRoleData.d.results[0].ID;
 				UpdateRoleList(EmpID,RoleValue)
 		}else{
-			alert("User Employee");
-			//PostGroupDataList(displayname,picurl,accntname.replace("#","%23"),AdminDesignation,cardID);
+			//alert("User Employee");
 		}
 	}
 }

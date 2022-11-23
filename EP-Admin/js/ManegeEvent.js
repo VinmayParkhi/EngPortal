@@ -27,6 +27,7 @@ $("#s4-workspace").scroll(function(){
  $('#arrimg').on("click",function(e){
    //$('#myImg').slideDown(1);
    $("#myImg").toggleClass("d-none");
+   
     $("#myImg").css("display","block");
      $('#arrimg img').toggleClass("rotateImg");
   }); 
@@ -48,16 +49,24 @@ $("#s4-workspace").scroll(function(){
    //$('#myImg').slideUp(1);
    $("#myImg2").addClass("d-none");
   });
-
-
+                    
 /*pop-up filter start*/
  var pillarFilterArray = [];
+ var statusFilterArray = [];
+ var fromDateCh;
+ var toDateCh;
+ var datesSelected = "";
+ var statusText="";
+ var statusText2;
+ var statusClass = "";
+ 
+
 
 $("#workidLi,#lifeidLi,#wellbeingidLi,#wowidLi,#connectidLi,#AllCountsLi").on("click",function(event){
-$("#Published").html(0);
+/*$("#Published").html(0);
 $("#autopublished").html(0);
 $("#Draft").html(0);
-$("#Completed").html(0);
+$("#Completed").html(0);*/
 
     pillarFilterArray = [];
    var text = event.target.innerText
@@ -65,10 +74,21 @@ $("#Completed").html(0);
   
   
   
+  //if(fromDateCh === undefined && toDateCh === undefined){
+  
   var siteurl = "https://amdocs.sharepoint.com/sites/EP";
   
+        if(fromDateCh !== undefined && toDateCh !== undefined && statusClass.length > 0){
+        
+               var url = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter="+datesSelected+" and EventStatus eq '"+statusClass+"'&$orderby=ID desc";
+                  alert(url)
+        }else if(fromDateCh === undefined && toDateCh === undefined && statusClass.length > 0){
+               var url = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter=EventStatus eq '"+statusClass+"'&$orderby=ID desc";
 
-                  var url = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby=ID desc";
+        }else{
+             var url = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby=ID desc";
+
+        }
                   //var url = siteurl+ "/_api/web/lists/getbytitle('TestList')/items?&$select=*";
                //console.log(url);        
 
@@ -101,55 +121,45 @@ $("#Completed").html(0);
                         }                                                
                     }; /* for end */
                     
-                    var Scheduled = 0;
-					var Autopublished = 0;
-					var Draft = 0;
-					var complete = 0;
-
-                    
-                    $("#AllCount").html(pillarFilterArray.length);
-				for(var i =0; i< pillarFilterArray.length; i++){
-				var Status= pillarFilterArray[i].EventStatus;
-				
-				log(Status)
-					if(Status == "Published"){
-						Scheduled++;
-						console.log("Scheduled"+Scheduled);
-						$("#Published").html(Scheduled);
-					}else if(Status== "Autopublish"){
-						Autopublished++;
-						console.log("Autopublished"+Autopublished);
-						$("#autopublished").html(Autopublished);
-					}else if(Status == "Draft"){
-						Draft++;
-						console.log("Draft"+Draft);
-						$("#Draft").html(Draft);
-					}else if(Status == "Completed"){
-						complete++;
-						console.log("complete"+complete);
-						$("#Completed").html(complete);
-					}
-				
-				}
+                   
                     successFuncFltr(pillarFilterArray)
+                   var popup = $(".popuptext");
+                     popup.removeClass("show");
+                     //popup.addClass("hide");
+
                 }
               }  
     });  /* ajax end */
+    //}
   
 });
 
 
 
 $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",function(event){
-     var statusText = event.target.innerText
+     statusText = event.target.innerText
      var statusFilterArray = [];
+     statusClass = event.target.className;
      
+     var dates = fromDateCh + toDateCh;
+     //alert(datesSelected)
         var siteurl = "https://amdocs.sharepoint.com/sites/EP";
 
+                   //alert(datesSelected)
+             if(fromDateCh !== undefined && toDateCh !== undefined){
+             
+             /* $("#workid").html(0);
+				$("#lifeid").html(0);
+				$("#wellbeingid").html(0);
+				$("#wowid").html(0);
+				$("#connectid").html(0);*/
 
+               var url = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter="+datesSelected+"&$orderby=ID desc";
 
+             }else{
                   var url = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby=ID desc";
-                  //var url = siteurl+ "/_api/web/lists/getbytitle('TestList')/items?&$select=*";
+              }  
+                //var url = siteurl+ "/_api/web/lists/getbytitle('TestList')/items?&$select=*";
                //console.log(url);        
 
 
@@ -184,6 +194,9 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
                     log(data)
                     var res = data.d.results;
                     
+                    
+
+                    
                     for(var f=0;f<res.length;f++){
                     if(statusText.includes(res[f].EventStatus)){
                            statusFilterArray.push(res[f]);
@@ -212,6 +225,11 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
                  
                  log(statusFilterArray)
                       successFuncFltr(statusFilterArray)
+                      
+                      
+                       var popup = $(".popuptext");
+                     popup.removeClass("show");
+
                  }
              });     
                
@@ -219,8 +237,7 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
 
 /* sb start date filter */
 
-   var fromDateCh;
-   var toDateCh;
+   
    
     $("#from-date").datepicker({
       dateFormat: "dd M, yy",
@@ -229,18 +246,48 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
 
       onSelect: function () {
                 var fromDate = $(this).val();
-                fromDateCh = moment.utc(fromDate).format('YYYY/MM/DD');
+                fromDateCh = moment.utc(fromDate).format('YYYY-MM-DD');
                 
              if(toDateCh !== undefined){
+             
+                $("#workid").html(0);
+				$("#lifeid").html(0);
+				$("#wellbeingid").html(0);
+				$("#wowid").html(0);
+				$("#connectid").html(0);
+
+
+                $("#Published").html(0);
+				$("#autopublished").html(0);
+				$("#Draft").html(0);
+				$("#Completed").html(0);
+				
+				var Work = 0;
+				var Life = 0;
+				var Enrich = 0;
+				var WowPride = 0;
+				var ConnectCommunity = 0;
+				
+				var All = 0;
+				var Scheduled = 0;
+				var Autopublished = 0;
+				var Draft = 0;
+				var complete = 0;
+
+             
                 var fromDateString = "";                  
                                 
                 fromDateString = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
+                datesSelected = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
+
 	               
 	           
                  log(fromDateString)
                 var siteurl = "https://amdocs.sharepoint.com/sites/EP";
-
+                 
+                 
                   var url = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter="+fromDateString+"&$orderby = Created desc";           
+                  
               // alert(url)
                
                $.ajax({
@@ -258,6 +305,66 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
             success: function (data) {
             var res = data.d.results;
             log(res)
+            
+            $("#AllCounts").html(res.length);
+				for(var i =0; i<res.length; i++){
+				var Pillare = res[i].Pillar;
+					if(Pillare == "Work"){
+						Work++;
+						console.log("Work"+Work);
+						$("#workid").html(Work);
+					}else if(Pillare == "Life"){
+						Life++;
+						console.log("Life"+Life);
+						$("#lifeid").html(Life);
+					}else if(Pillare == "Wow and pride"){
+						WowPride++;
+						console.log("WowPride"+WowPride );
+						$("#wowid").html(WowPride);
+					}else if(Pillare == "Enrich"){
+						Enrich++;
+						console.log("Wellbeing"+Enrich);
+						$("#wellbeingid").html(Enrich);
+					}else if(Pillare == "Connect and community"){
+						ConnectCommunity ++;
+						console.log("ConnectCommunity "+ConnectCommunity );
+						$("#connectid").html(ConnectCommunity );
+					}else{
+						//Others++;
+						//console.log("Others"+Others);
+					}
+				//var Status;
+				}
+				
+          
+                    $("#AllCount").html(res.length);
+				for(var i =0; i< res.length; i++){
+				var Status= res[i].EventStatus;
+				
+				log(Status)
+					if(Status == "Published"){
+						Scheduled++;
+						console.log("Scheduled"+Scheduled);
+						$("#Published").html(Scheduled);
+					}else if(Status== "Autopublish"){
+						Autopublished++;
+						console.log("Autopublished"+Autopublished);
+						$("#autopublished").html(Autopublished);
+					}else if(Status == "Draft"){
+						Draft++;
+						console.log("Draft"+Draft);
+						$("#Draft").html(Draft);
+					}else if(Status == "Completed"){
+						complete++;
+						console.log("complete"+complete);
+						$("#Completed").html(complete);
+					}
+				
+				}
+
+            
+                   
+
             successFunction(data);
             }
             
@@ -266,7 +373,7 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
             
               var fromDateString = "";                  
                                 
-                fromDateString = "EventDate ge " + "'"+fromDateCh+"T12:00:00Z'";
+                fromDateString = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'";
 	               
 	           
                  log(fromDateString)
@@ -289,6 +396,8 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
 
             success: function (data) {
             var res = data.d.results;
+            
+            
             log(res)
             successFunction(data);
             }
@@ -314,10 +423,34 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
                 toDateCh = moment.utc(date2).format('YYYY-MM-DD')
                 
                 if(fromDateCh !== undefined){
+                $("#workid").html(0);
+				$("#lifeid").html(0);
+				$("#wellbeingid").html(0);
+				$("#wowid").html(0);
+				$("#connectid").html(0);
+
+
+                $("#Published").html(0);
+				$("#autopublished").html(0);
+				$("#Draft").html(0);
+				$("#Completed").html(0);
+				
+				var Work = 0;
+				var Life = 0;
+				var Enrich = 0;
+				var WowPride = 0;
+				var ConnectCommunity = 0;
+				
+				var All = 0;
+				var Scheduled = 0;
+				var Autopublished = 0;
+				var Draft = 0;
+				var complete = 0;
+
                 var toDateString = "";
                                 
                 toDateString = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
-	               
+	              datesSelected = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'"; 
 	           
                  //log(fromDateString)
                 var siteurl = "https://amdocs.sharepoint.com/sites/EP";
@@ -340,6 +473,69 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
             success: function (data) {
             var res = data.d.results;
             log(res)
+            if(data.d.results.length > 0 ){ 
+                    
+                                      
+				 log(res.length)    
+					      
+
+                  $("#AllCounts").html(res.length);
+				for(var i =0; i<res.length; i++){
+				var Pillare = res[i].Pillar;
+					if(Pillare == "Work"){
+						Work++;
+						console.log("Work"+Work);
+						$("#workid").html(Work);
+					}else if(Pillare == "Life"){
+						Life++;
+						console.log("Life"+Life);
+						$("#lifeid").html(Life);
+					}else if(Pillare == "Wow and pride"){
+						WowPride++;
+						console.log("WowPride"+WowPride );
+						$("#wowid").html(WowPride);
+					}else if(Pillare == "Enrich"){
+						Enrich++;
+						console.log("Wellbeing"+Enrich);
+						$("#wellbeingid").html(Enrich);
+					}else if(Pillare == "Connect and Community"){
+						ConnectCommunity ++;
+						console.log("ConnectCommunity "+ConnectCommunity );
+						$("#connectid").html(ConnectCommunity );
+					}else{
+						//Others++;
+						//console.log("Others"+Others);
+					}
+				//var Status;
+				}
+				
+          
+                    $("#AllCount").html(res.length);
+				for(var i =0; i< res.length; i++){
+				var Status= res[i].EventStatus;
+				
+				log(Status)
+					if(Status == "Published"){
+						Scheduled++;
+						console.log("Scheduled"+Scheduled);
+						$("#Published").html(Scheduled);
+					}else if(Status== "Autopublish"){
+						Autopublished++;
+						console.log("Autopublished"+Autopublished);
+						$("#autopublished").html(Autopublished);
+					}else if(Status == "Draft"){
+						Draft++;
+						console.log("Draft"+Draft);
+						$("#Draft").html(Draft);
+					}else if(Status == "Completed"){
+						complete++;
+						console.log("complete"+complete);
+						$("#Completed").html(complete);
+					}
+				
+				}
+				}
+
             successFunction(data);  
             }
             
@@ -391,6 +587,10 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
        //log(val);
         if(val.length === 0){
         //alert('empty')
+        fromDateCh = undefined;
+        toDateCh = undefined;
+
+        statusText = "";
         loadListItems()
         }
         });
@@ -398,42 +598,11 @@ $("#AllCountLi,#PublishedLi,#autopublishedLi,#DraftLi,#CompletedLi").on("click",
     });
  /* sb end date filter */ 
 
-    
-    //$("#from-date").click(function(){
-    
-    
-        //alert(123);
-        
-      /*  var getTr = document.querySelectorAll("#datatable11 > tbody > tr");
-       for(var g=0;g<getTr.length;g++){
-       var dates = getTr[g].querySelector('td + td + td').innerText
-       var date = new Date(dates); // M-D-YYYY
-
-		var d = date.getDate();
-		var m = date.getMonth() + 1;
-		var y = date.getFullYear();
-         var dt = (d <= 9 ? '0' + d : d) + '-' + (m <= 9 ? '0' + m : m) + '-' + y;  
-           log(dt);
-       }; for end */
-       //log(getTr)
-    //});
-    $.noConflict();
+     $.noConflict();
        loadListItems();   
        
        
        
-		  /* minDate = new DateTime($('#min'), {
-        format: 'MMMM Do YYYY'
-        
-    });
-    maxDate = new DateTime($('#max'), {
-        format: 'MMMM Do YYYY'
-    });
-
-       
-        $('#min, #max').on('change', function() {
-        table.draw();
-    });*/
  });
     
 $("#min, #max").datepicker({ 
@@ -451,27 +620,89 @@ $( "#min" ).datepicker( "setDate", new Date());
 $( "#max" ).datepicker( "setDate", 31);
 
 
-/*$.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        var min = minDate.val();
-        var max = maxDate.val();
-        var date = new Date( data[4] );
- 
-        if (
-            ( min === null && max === null ) ||
-            ( min === null && date <= max ) ||
-            ( min <= date   && max === null ) ||
-            ( min <= date   && date <= max )
-        ) {
-            return true;
-        }
-        return false;
-    }
-);
-*/
-
 /*sb start*/
 function successFuncFltr(fltrData){
+
+                $("#workid").html(0);
+				$("#lifeid").html(0);
+				$("#wellbeingid").html(0);
+				$("#wowid").html(0);
+				$("#connectid").html(0);
+
+
+                $("#Published").html(0);
+				$("#autopublished").html(0);
+				$("#Draft").html(0);
+				$("#Completed").html(0);
+
+
+                    var Work = 0;
+					var Life = 0;
+					var Enrich = 0;
+					var WowPride = 0;
+					var ConnectCommunity = 0;					
+					var All = 0;
+					var Scheduled = 0;
+					var Autopublished = 0;
+					var Draft = 0;
+					var complete = 0;
+                    
+                    $("#AllCounts").html(fltrData.length);
+				for(var i =0; i<fltrData.length; i++){
+				var Pillare = fltrData[i].Pillar;
+					if(Pillare == "Work"){
+						Work++;
+						console.log("Work"+Work);
+						$("#workid").html(Work);
+					}else if(Pillare == "Life"){
+						Life++;
+						console.log("Life"+Life);
+						$("#lifeid").html(Life);
+					}else if(Pillare == "Wow and pride"){
+						WowPride++;
+						console.log("WowPride"+WowPride );
+						$("#wowid").html(WowPride);
+					}else if(Pillare == "Enrich"){
+						Enrich++;
+						console.log("Wellbeing"+Enrich);
+						$("#wellbeingid").html(Enrich);
+					}else if(Pillare == "Connect and Community"){
+						ConnectCommunity ++;
+						console.log("ConnectCommunity "+ConnectCommunity );
+						$("#connectid").html(ConnectCommunity );
+					}else{
+						//Others++;
+						//console.log("Others"+Others);
+					}
+				//var Status;
+				}
+				
+				$("#AllCount").html(fltrData.length);
+				for(var i =0; i< fltrData.length; i++){
+				var Status= fltrData[i].EventStatus;
+				
+				log(Status)
+					if(Status == "Published"){
+						Scheduled++;
+						console.log("Scheduled"+Scheduled);
+						$("#Published").html(Scheduled);
+					}else if(Status== "Autopublish"){
+						Autopublished++;
+						console.log("Autopublished"+Autopublished);
+						$("#autopublished").html(Autopublished);
+					}else if(Status == "Draft"){
+						Draft++;
+						console.log("Draft"+Draft);
+						$("#Draft").html(Draft);
+					}else if(Status == "Completed"){
+						complete++;
+						console.log("complete"+complete);
+						$("#Completed").html(complete);
+					}
+				
+				}
+				
+
     log(fltrData)
     
     var today1 = new Date();
@@ -541,9 +772,6 @@ function successFuncFltr(fltrData){
 						},
 
                         
-                       // {"mData": "Pillar"},
-
-                       // {"mData": "EventDescription"}, 
                         
   						 {"mData": "EventStartTime",
 
@@ -580,41 +808,28 @@ function successFuncFltr(fltrData){
 						  },  
      
 						
-						//{"mData": "Status"}, 
-          
-						//{"mData": "EventSpeakerName"},
-						
 						 {
 							"render": function(data, type, row, meta ) {          
 								var PublishDate = moment.utc(row.AutoPublishDateTime).format('DD MMM, YYYY hh:mm a');
 								var Status = row.EventStatus;
 								if(Status == "Autopublish"){
-									return '<span id="event-pillar" class="'+row.EventStatus+'">'+row.EventStatus+"<br>"+PublishDate+'</span>';
+									return '<span id="event-pillar" class="'+row.EventStatus+'2">'+row.EventStatus+"<br>"+PublishDate+'</span>';
 								}else{
-									return '<span id="event-pillar" class="'+row.EventStatus+'">'+row.EventStatus+'</span>';
+									return '<span id="event-pillar" class="'+row.EventStatus+'2">'+row.EventStatus+'</span>';
 								}
 							}
 						},
 
 						
 						{
-							/*"render": function (data, type, row, meta)
-		                      {
-		                          var setUrl = "https://infornt.sharepoint.com/Lists/CreateEve/EditForm.aspx?ID="+row.ID
-		                          console.log(setUrl);
-		                         // var result = '<a class="fa fa-pencil" onclick="PopupForm(\'' + setUrl + '\')"></a>'
-		                         // var result = "<a class='fa fa-pencil' onclick='PopupForm("'https://infornt.sharepoint.com/Lists/CreateEve/EditForm.aspx?ID=11'")'></a>"
-		                          return result;
-		                      }*/
-		                      
-						
+													
 							"render": function(data, type, row, meta ) {  
 							var statusColumn = row.EventStatus;   
 							if(statusColumn == "Published"){
 								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox"><a href= "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/EditEvent.aspx?EventID='+row.ID+'"><i class="fa fa-pencil me-3" style="color:black;" id="editbtn"></i></a><a class="me-3"><i data-bs-toggle="modal" data-bs-target="#DeleteModal"  class="fa fa-trash" style="color:black;" id="Remove-Btn" onclick="RemoveListItem('+row.ID+')"/></a></div></div>';
 						
 							}else if(statusColumn == "Completed"){
-								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox" style="color: rgb(0, 0, 0);font-weight: bold;width: 90% !important;height: 35px;padding: 3px;"><a href="#"><i class="fa-solid fa-upload" style="color:black;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i></a><div>Upload Media</div></div></div>';
+								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox" style="color: rgb(0, 0, 0);font-weight: bold;width: 11rem !important;height: 35px;padding: 3px;"><a href="#"><i class="fa-solid fa-upload" style="color:black;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i></a><div style="height:17px;font-size:10px;margin-left:-8px;">Upload Media</div></div></div>'; 
 						
 							}else if(statusColumn == "Draft"){
 								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox"><a href= "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/EditEvent.aspx?EventID='+row.ID+'"><i class="fa fa-pencil me-3" style="color:black;" id="editbtn"></i></a><a><i data-bs-toggle="modal" data-bs-target="#DeleteModal" class="fa fa-trash" style="color:black;" id="Remove-Btn" onclick="RemoveListItem('+row.ID+')"></i></a><a href="#"><i class="fa-solid fa-paper-plane" style="color:black;" onclick="adduser(this.id)" id="'+row.ID+'"></i></a></a></div></div>';
@@ -623,20 +838,7 @@ function successFuncFltr(fltrData){
 						}
 						}
 						},
-						/*{
-			                mData: null,
-			                className: "dt-center editor-edit",
-			                //defaultContent: '<a class="fa fa-pencil" href="VM/Details/' + data + '">' + row.Activity_Id + '</a>',
-			                orderable: false
-			            },*/
-			           						
-						/*{ title: "", "defaultContent": "<button onclick='edititem();'>Edit</button>" },
-             			{ title: "", "defaultContent": "<button onclick='deleteitem();'>Delete</button>" }*/
-						//{"mData": "Category"},
-
-                      
-                       
-
+					
                      ]
 
                 });
@@ -679,13 +881,17 @@ function loadListItems() {
 
                var siteurl = "https://amdocs.sharepoint.com/sites/EP";
 
-                  var url = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby=ID desc";
+                 
                   //var url = siteurl+ "/_api/web/lists/getbytitle('TestList')/items?&$select=*";
-               //console.log(url);        
+             
+               var url1 = siteurl+ "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby=ID desc";
+              
+
+ //console.log(url);        
 
      $.ajax({
 
-            url: url,
+            url: url1,
 
             type: "GET",
 
@@ -932,54 +1138,30 @@ function successFunction(data) {
      
 						
 						//{"mData": "Status"}, 
-          
-						//{"mData": "EventSpeakerName"},
-						
 						 {
 							"render": function(data, type, row, meta ) {          
 								var PublishDate = moment.utc(row.AutoPublishDateTime).format('DD MMM, YYYY hh:mm a');
 								var Status = row.EventStatus;
 								if(Status == "Autopublish"){
-									return '<span id="event-pillar" class="'+row.EventStatus+'">'+row.EventStatus+"<br>"+PublishDate+'</span>';
+									return '<span id="event-pillar" class="'+row.EventStatus+'2">'+row.EventStatus+"<br>"+PublishDate+'</span>';
 								}else{
-									return '<span id="event-pillar" class="'+row.EventStatus+'">'+row.EventStatus+'</span>';
+									return '<span id="event-pillar" class="'+row.EventStatus+'2">'+row.EventStatus+'</span>';
 								}
 							}
 						},
 
 						
 						{
-							/*"render": function (data, type, row, meta)
-		                      {
-		                          var setUrl = "https://infornt.sharepoint.com/Lists/CreateEve/EditForm.aspx?ID="+row.ID
-		                          console.log(setUrl);
-		                         // var result = '<a class="fa fa-pencil" onclick="PopupForm(\'' + setUrl + '\')"></a>'
-		                         // var result = "<a class='fa fa-pencil' onclick='PopupForm("'https://infornt.sharepoint.com/Lists/CreateEve/EditForm.aspx?ID=11'")'></a>"
-		                          return result;
-		                      }*/
-		                      
-						
+													
 							"render": function(data, type, row, meta ) {  
 							var statusColumn = row.EventStatus;   
-							/*if(statusColumn == "Published"){
-								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox"><a href= "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/EditEvent.aspx?EventID='+row.ID+'"><i class="fa fa-pencil me-3" style="color:black;" id="editbtn"></i></a><a class="me-3"><i data-bs-toggle="modal" data-bs-target="#DeleteModal" class="fa fa-trash" style="color:black;" id="Remove-Btn" onclick="RemoveListItem('+row.ID+')"/></a></div></div>';
-						
-							}else if(statusColumn == "Completed"){
-								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox" style="color: rgb(0, 0, 0);font-weight: bold;width: 90% !important;height: 35px;padding: 3px;"><a href="#"><i class="fa-solid fa-upload" style="color:black;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i></a>Upload Media</div></div>';
-						
-							}else if(statusColumn == "Draft"){
-								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox"><a href= "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/EditEvent.aspx?EventID='+row.ID+'"><i class="fa fa-pencil me-3" style="color:black;" id="editbtn"></i></a><a class="me-3"><i data-bs-toggle="modal" data-bs-target="#DeleteModal1" class="fa fa-trash" style="color:black;" id="Remove-Btn" onclick="RemoveListItem('+row.ID+')"></i></a><a href="#"><i class="fa-solid fa-paper-plane" style="color:black;" onclick="adduser(this.id)" id="'+row.ID+'"></i></a></a></div></div>';
-							}else{
-							return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox"><a href= "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/EditEvent.aspx?EventID='+row.ID+'"><i class="fa fa-pencil me-3" style="color:black;" id="editbtn"></i></a><a class="me-3"><i data-bs-toggle="modal" data-bs-target="#DeleteModal1" class="fa fa-trash" style="color:black;" id="Remove-Btn" onclick="RemoveListItem('+row.ID+')"/></i></a><a href="#"><i class="fa-solid fa-paper-plane" style="color:black;" onclick="adduser(this.id)" id="'+row.ID+'"></i></a></a></div></div>';
-						}*/
-						
-						
+													
 						
 						if(statusColumn == "Published"){
 								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox"><a href= "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/EditEvent.aspx?EventID='+row.ID+'"><i class="fa fa-pencil me-3" style="color:black;" id="editbtn"></i></a><a class="me-3"><i data-bs-toggle="modal" data-bs-target="#DeleteModal1" class="fa fa-trash" style="color:black;" id="Remove-Btn"  onclick="listItemId('+row.ID+')"/></a></div></div>';
 						
 							}else if(statusColumn == "Completed"){
-								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox" style="color: rgb(0, 0, 0);font-weight: bold;width: 90% !important;height: 35px;padding: 3px;"><a href="#"><i class="fa-solid fa-upload" style="color:black;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i></a>Upload Media</div></div>';
+								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox" style="color: rgb(0, 0, 0);font-weight: bold;width: 91%;height: 35px;padding: 3px;"><a href="#"><i class="fa-solid fa-upload" style="color:black;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i></a><div style="height:17px;font-size:10px;margin-left:-8px;">Upload Media</div></div></div>';
 						
 							}else if(statusColumn == "Draft"){
 								return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:50px;"><div id="editbox"><a href= "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/EditEvent.aspx?EventID='+row.ID+'"><i class="fa fa-pencil me-3" style="color:black;" id="editbtn"></i></a><a><i data-bs-toggle="modal" data-bs-target="#DeleteModal1" class="fa fa-trash" style="color:black;" id="Remove-Btn"  onclick="listItemId('+row.ID+')" ></i></a><a href="#"><i class="fa-solid fa-paper-plane" style="color:black;margin-left: 9px;" onclick="adduser(this.id)" id="'+row.ID+'"></i></a></a></div></div>';
@@ -989,19 +1171,6 @@ function successFunction(data) {
 
 						}
 						},
-						/*{
-			                mData: null,
-			                className: "dt-center editor-edit",
-			                //defaultContent: '<a class="fa fa-pencil" href="VM/Details/' + data + '">' + row.Activity_Id + '</a>',
-			                orderable: false
-			            },*/
-			           						
-						/*{ title: "", "defaultContent": "<button onclick='edititem();'>Edit</button>" },
-             			{ title: "", "defaultContent": "<button onclick='deleteitem();'>Delete</button>" }*/
-						//{"mData": "Category"},
-
-                      
-                       
 
                      ]
 
@@ -1016,14 +1185,6 @@ function successFunction(data) {
     }
 }
 
-/*function action(){
-	
-	 $(".actionDIv").append("<span class='actionhover'><a href='https://infornt.sharepoint.com/sites/RNTENG/SitePages/Admin/create_event.aspx?EventID="+rowId+"'><i class='fa-solid fa-pen'></i></a><i class='fa-solid fa-trash'></i><i class='fa-solid fa-rocket'></i></span>");
-		//alert("test");
-	   console.log("testing ok");
-	   
-	}
-*/
 
 function listItemId(id){
 // alert(id);
@@ -1098,36 +1259,8 @@ function RemoveListItem(myID) {
 } 
 
 
-
-
-
 /***********************************************************************************/
-/*$(".action").on("click", function(){
- 
-
-  //function() {
-	alert('hover succes');
-   // $( this ).append( $( "<span class='actionhover' style='background-color:red;'><a  href=' '><i class='fa-solid fa-pen'></i></a><i class='fa-solid fa-trash'></i><i class='fa-solid fa-rocket'></i></span>" ) );
-
-  //}, function() {
-
-  //  $( this ).find( ".actionhover" ).last().remove();
-
-  //}
-
-});*/
-
-
-/*function showimg(x) {
-  var x = x.querySelector('#editbox');
-  if (x.style.display === "none") {
-    x.style.display = "flex";
-  } else {
-    x.style.display = "none";
-  }
-}*/
-
-
+  
 
 setInterval(GetAutoPublish, 10000);
 
@@ -1253,16 +1386,10 @@ function UpdateCompleted(id) {
 function SuccessFunction(data) {
 //alert("test done");
 
-//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
 }
 
 function ErrorFunction(error) {
 alert('Error!' +error.responseText);
 }
-
-$(document).ready(function() {
-   
-});
-
 
 

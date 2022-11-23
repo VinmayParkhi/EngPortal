@@ -50,7 +50,7 @@ $(document).ready(function () {
 		var site = 'https://amdocs.sharepoint.com';
 
 		 $.ajax({
-		    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('EPEvent')/items?$select=*,Attachments&$expand=AttachmentFiles&$orderby=Created desc",
+		    url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('EPEvent')/items?$select=*,Attachments&$expand=AttachmentFiles&$filter=(EventStatus eq 'Completed') or (EventStatus eq 'Published')&$orderby=Created desc",
 		    type: 'GET',		    
 		    headers: { "Accept": "application/json;odata=verbose" },
 		    success: function (data) {
@@ -74,7 +74,7 @@ $(document).ready(function () {
 			    		eventColor = "#E8B0FC";
 			    }else if (Pillar == "Life"){
 			    		eventColor = "#FFD08A";
-			    }else if (Pillar == "Wellbeing"){
+			    }else if (Pillar == "Enrich"){
 			    		eventColor = "#A4C6F9";
 			    }else if (Pillar = "Wow and pride"){
 			    	eventColor = "#FF8A72";
@@ -155,7 +155,10 @@ $(document).ready(function () {
    #calendarModal > div{
 	    width: 16%;
 }
+fc-timegrid-more-link fc-more-link{
+	    bottom: 50% !important;
 
+}
 
 .home{
 	

@@ -158,8 +158,8 @@
   }
   .imageData label{
     position: absolute;
-    top: 18%;
-    left: 42%;
+    top: 0%;
+    left: 16%;
   }
   .event-data .a-button{
    width: 63%;
@@ -177,6 +177,7 @@
     margin: 0px 8px;
   }
   .event-data .a-button button{
+  pointer-events: none;
     padding: 0.5rem 1rem;
   }
   .serEve label:before {
@@ -229,8 +230,10 @@
     padding: 10px 0px 2px 0px;
     opacity: 50%;
     margin-left: 0rem;
+    position:relative;
 
   }
+  
   .form-data p{
     margin-left: orem;
     margin-bottom: -1.1rem !important;
@@ -321,9 +324,9 @@
   .accordion-button::after{
     position: absolute;
         right: 26px;
-            background: black;
-    padding: 12px;
-    top: 16px;
+         
+    padding: 10px;
+    top: 2px;
 
   }
   .accordion-button span{

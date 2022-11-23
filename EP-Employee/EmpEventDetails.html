@@ -24,10 +24,6 @@
     
     
     <style>
-    
-    
-    
-    
     .home{
 	
 	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
@@ -36,16 +32,10 @@
 .home img{
 	background: #B15610 !important;
 }
-
-
-
-    
     .modal-footer {
     display: flex;
     justify-content: flex-end;
-   /* padding:15px 0;*/
     border-top: 1px solid #dbdbdb;
-    /*margin-top:1.5rem !important;*/
     width:89%;
     margin:0 auto;
 }
@@ -75,7 +65,6 @@
 }
 .modal-body{
 margin:0 30px;
-/*padding: 2rem 0;*/
 }
 .modal-content{
   border-radius: 25px;
@@ -90,9 +79,6 @@ margin:0 30px;
     align-items: center;
     padding: 0.5rem 2rem;
     }
-/*.modal-footer{
-  margin-top:-10rem;
-}*/
 
 .form-switch .form-check-input{
 	margin-left:0;
@@ -281,25 +267,6 @@ margin-bottom: 0!important;
 	color:white;
 }
 
-/*.eventdtlsTitleLeft > h5:nth-child(2) > label:nth-child(1){
-	font-size: 2rem;
-}
-.eventwork{
-	font-size: 1.2rem;
-}
-
-.eventdtlspara > h6:nth-child(1) > label:nth-child(1),
-.eventdtlsDateTime, .feelText > h6:nth-child(1) > label:nth-child(1){
-font-size: 1.3rem;
-text-align: justify;
-}
-.emoji i {
-  font-size: 2rem;
-  }
-  .emoji-1 > h6:nth-child(2),.emoji-2 > h6:nth-child(2), .emoji-3 > h6:nth-child(2){
-	font-size: 1.3rem;
-
-}*/
 .emoji {
   width: auto !important;
   margin: 0 !important;
@@ -365,7 +332,6 @@ text-align: justify;
 
 border-top-left-radius: 1rem !important;
     border-top-right-radius:1rem !important;
-    /*margin-left: -0.1rem;*/
    }
 .modal-content {
 border-radius: 1rem !important;
@@ -416,7 +382,7 @@ border-radius: 1rem !important;
                     <ul class="breadcrumb">
                         <li><a href= "../../SitePages/EPEmployee/Home.aspx"><label>Home</label></a></li>
                         <li><a href= "../../SitePages/EPEmployee/Hub.aspx"><label>Hub</label></a></li>
-                        <li><a href="#"><label id="Pillar"></label></a></li>
+                        <li><a href="#" ><label id="Pillar"></label></a></li>
                         <li><label id="eventName"></label></li>
                     </ul>
                 </div>
@@ -467,9 +433,9 @@ border-radius: 1rem !important;
                             </div>
                             <div>
                                 <label>
-                                    <a href="#" id="EventLocation">
+                                    <span id="EventLocation">
                                         Tower A
-                                    </a>
+                                    </span>
                                 </label>
                             </div>
                         </div>
@@ -581,7 +547,7 @@ border-radius: 1rem !important;
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-grey" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-secondary" id="setReminderBtn" data-dismiss="modal" data-toggle="modal" data-target="#RemSuccModal" >Set Reminder</button>
+                        <button type="button" class="btn btn-secondary" id="setReminderBtn" data-toggle="modal" data-dismiss="modal" data-target="#RemSuccModal" >Set Reminder</button>
                         
                         </div>
                     </div>
@@ -608,7 +574,6 @@ border-radius: 1rem !important;
                         </div>
 						<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Okay</button>
-						<!--<button type="button" class="btn btn-primary">Save changes</button>-->
 						</div>
 					</div>
 				</div>
@@ -635,7 +600,6 @@ border-radius: 1rem !important;
                         </div>
 						<div class="modal-footer">
 						<a id="OutlookData" class="btn btn-secondary" data-dismiss="modal">Okay</a>
-						<!--<button type="button" class="btn btn-primary">Save changes</button>-->
 						</div>
 					</div>
 				</div>

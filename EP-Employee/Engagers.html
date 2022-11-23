@@ -5,32 +5,16 @@
 <style>
 
 
-.emp-card{
-
-margin-bottom: 0 !important;
-		margin-top: 2rem;
-		width:24%;
-    margin-left: 10px;
-}
-
 .event-head{
-
     width: 95%;
     margin: 0 auto;
-
 }
-
-
-.engteam{
-	
+.engteam{	
 	background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%)!important;
 }
-
 .engteam img{
 	background: #B15610 !important;
 }
-
-
 html{
 	font-size: 62.5%;
 }
@@ -59,7 +43,10 @@ html{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2rem;
+   margin-bottom: 2rem;
+    /* margin-top: 2rem;*/
+		width:95%;
+    /*margin-left: 10px;*/
 }
 .emp-card .send{
 	display:flex;
@@ -151,7 +138,7 @@ font-family:'Montserrat';
     flex-wrap: wrap;
     overflow-y: scroll;*/
     height: 500px;
-    margin-top:2rem;
+    /*margin-top:2rem;*/
     margin-left: 1.5rem !important;
    
 }
@@ -166,9 +153,10 @@ event-head{
 	/*margin-right: 2rem;*/
 	margin-bottom: 1.8rem;
 	margin-left: 0.8rem;
+	width: 46%;
 }
 .card-image{
-	height: 10vh !important;
+	height: 21vh;
 	width: 92%;
 }
 .card-body{
@@ -201,7 +189,7 @@ footer{
 }
 }
 
-@media (min-width: 	){
+@media (min-width: 992px){
 .sidebar{
 	height: auto;
 	/*margin-bottom: 1.8rem;*/
@@ -222,28 +210,23 @@ footer {
 #groupid{
 	width: 100%;
     height: 650px;
-	margin-left: 0 !important;
-	
-}
-	.emp-card{
-		margin-right: 0 !important;
-		
+	margin-left: 0 !important;	
 }
 .emp-card{
-
-margin-bottom: 0 !important;
-		margin-top: 2rem;
-		    margin-left: 0.9rem;
+margin-right: 0 !important;
+/*margin-bottom: 0 !important;
+margin-top: 2rem;*/
+ margin-left: 15px;
+ width: 31%;
+}		
 }
-
-		
-	}
+	
 	.event-head .head-left a h4 {
     	margin-left: 0;
     }
     .card-image{
 	width: 93%;
-	height: 30vh;
+	/*height: 30vh;*/
 	margin-top: 15px;
 	/*height: 34vh;
 	margin-top: 23px;*/
@@ -263,24 +246,25 @@ margin-bottom: 0 !important;
 	margin-bottom: 0;
 }
 }
-/*@media (min-width: 1200px){
-footer{
-	margin-left: 5rem;
+@media (min-width: 1200px){
+.emp-card{
+	margin-left: 18px;
 }
-}*/
+}
 @media (min-width: 1280px){
 	#groupid {
     height: 650px;
     }
     footer {
     margin-left: 5rem;
-    width: 90% !important;
+    /*width: 90% !important;*/
 	}
 	
 	.emp-card{
 
-	margin-bottom: 0 !important;
-		margin-top: 2rem;
+	/*margin-bottom: 0 !important;
+		margin-top: 2rem;*/
+		margin-left: 20px;
 }
 
 }
@@ -288,7 +272,7 @@ footer{
 
 @media (min-width: 1400px){
 	#groupid {
-    height: 666px;
+    height: auto;
 }
 }
 
@@ -297,22 +281,30 @@ footer{
     #s4-bodyContainer > div > div > div > div:nth-child(3) {
     
     min-height: 0vh !important;
-    
-    
 }
 .emp-card{
-
-margin-bottom: 0 !important;
-		margin-top: 2rem;
-		width:30%;
+/*margin-bottom: 0 !important;
+		margin-top: 2rem;*/
+		width: 29.5%;
     margin-left: 35px;
+    min-height: 33vh;
+}
+#groupid{
+	width: 100%;
+}
+}
+
+@media (min-width: 1600px){
+	.emp-card{
+		width: 22%;
+		margin-left: 33px;
 }
 }
 
 @media (min-width: 1900px){
-	#groupid {
+	/*#groupid {
     height: 807px;
-	}
+	}*/
 	
 	footer {
     margin-left: 7.5rem;
@@ -373,10 +365,10 @@ $.ajax({
 			var mail;
 			var results = data.d.UserProfileProperties.results;
 			var displayname = data.d.DisplayName;
-			var picurl = data.d.PictureUrl;
+			//var picurl = data.d.PictureUrl;
+			var picurl=_spPageContextInfo.webAbsoluteUrl + "/_layouts/15/userphoto.aspx?size=L&accountname=" + data.d.Email;
 			console.log('picurl',picurl);
 			if(picurl == null){
-				//picurl =  _spPageContextInfo.siteAbsoluteUrl+ "/_layouts/15/userphoto.aspx?size=S&accountname="+data.d.Email;
 				picurl = 'images/Icon awesome-user-circle.png';
 			}	
 			for(i = 0; i < results.length; i++){
@@ -392,7 +384,7 @@ $.ajax({
 				}
 			}
        
-			$("#groupid").append("<div class='col-12 col-md-4 col-lg-3 card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard();'><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' class='profilepic' style='border-radius:50%;width: 100px;'></div><div class='card-body mx-auto'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div><div class='send'><div class='sendEmail'><a href='mailto:"+mail+"?subject=Testing To reached out us!' style='display: flex;align-items: center'><img style='width: 15%;' src='images/Icon feather-mail.svg' alt='Mail'><span style='font-size:1rem; color:#fff; margin-left:5px; font-weight:500;'>Send email</span></a></div><div class='sendMessage'><a href='https://teams.microsoft.com/l/chat/0/0?users="+mail+"' style='display: flex;align-items: center'><img  style='width: 15%;' src='images/Icon feather-message-circle.svg' alt='Message'><span style='font-size:1rem; color:#fff; margin-left:5px; font-weight:500;'>Send Message</span></a></div></div></div>");
+			$("#groupid").append("<div class='col-12 col-md-4 col-lg-3 card emp-card' style=''><div class='card-image mx-auto'><p class='lefticon' onclick='DeleteCard();'><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p><img src='"+picurl+"' class='profilepic' style='border-radius:50%;width: 100px;height: 100px;'></div><div class='card-body mx-auto'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div><div class='send'><div class='sendEmail'><a href='mailto:"+mail+"?subject=Testing To reached out us!' style='display: flex;align-items: center'><img style='width: 15%;' src='images/Icon feather-mail.svg' alt='Mail'><span style='font-size:1rem; color:#fff; margin-left:5px; font-weight:500;'>Send email</span></a></div><div class='sendMessage'><a href='https://teams.microsoft.com/l/chat/0/0?users="+mail+"' style='display: flex;align-items: center'><img  style='width: 15%;' src='images/Icon feather-message-circle.svg' alt='Message'><span style='font-size:1rem; color:#fff; margin-left:5px; font-weight:500;'>Send Message</span></a></div></div></div>");
 		},
 		error: function (error){
 			console.log(error);

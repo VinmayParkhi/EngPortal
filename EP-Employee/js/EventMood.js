@@ -14,7 +14,6 @@ var Pillar;
 var EvDate;
 $(document).ready(function() { 
 
-  	//GetEventMoodCount();
   	var url=window.location.href;
         uniquID= Number(url.split('=')[1]);
         EmpId = $("#EMpID").text();
@@ -99,7 +98,7 @@ function EventMoodCount(moodValue){
             dataresults = data.d.results;
             console.log(dataresults);
                 if(data.d.results.length > 0){
-                    alert("already Exist")
+                    //alert("already Exist")
                 }else{
                     MainListUpdate(userId,uniquID,text,EvTitle,Pillar,EvDate);                
                 }
@@ -167,14 +166,10 @@ function UpdateMood(id,moodValue,uniquID) {
 }
 
 function SuccessFunction1(data) {
-//alert("test done");
 GetEventMoodCountInList();
-//alert("test ok")
-//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
 }
 
 function ErrorFunction(error) {
-//alert('Error!' +error.responseText);
 }
 
 function CreateMoodItem(userId,uniquID,moodValue) {
@@ -190,9 +185,7 @@ function CreateMoodItem(userId,uniquID,moodValue) {
  		"Location":Loc,
 		"Department":Dept
 
-		//"EventEndDate":Edt
 	}
-	//console.log(data);
 	$.ajax({
 		url: siteUrl,
 		type: "POST",
@@ -210,13 +203,10 @@ function CreateMoodItem(userId,uniquID,moodValue) {
 
 function SuccessFunctionCreate(data) {
 
-//UpdateEventMoodCountList(ExcitedMood,NotExcited,NotSure);
 GetEventMoodCountInList(uniquID);
-//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
 }
 
 function ErrorFunction(error) {
-//alert('Error!' +error.responseText);
 }
 
 function GetEventMoodCountInList(){
@@ -233,24 +223,14 @@ function GetEventMoodCountInList(){
            },
         success: function (data, status, xhr) {
             var dataresults = data.d.results;
-            //var EventID = data.d.results[0].ID;
-            //console.log("EventID : "+EventID);
-            //console.log(dataresults);
 			for(i=0; i < dataresults.length; i++){
                	if (dataresults[i].MoodStatus == "Excited"){
-			           //alert("Excited");
 			           ExcitedMood++;
-			           //console.log("Excited MoodCount : "+ExcitedMood)
 			    }else  if (dataresults[i].MoodStatus == "Not Excited"){
-			           //alert("Not Excited");			           
 			           NotExcited++;
-			           //console.log("Not Excited MoodCount : "+NotExcited)
 			    }else if (dataresults[i].MoodStatus == "Not Sure"){
-			           //alert("Not Sure");			           
 			           NotSure++;
-			           //console.log("Not Sure MoodCount : "+NotSure)
                 }else{
-                	//CreateMoodItem(userId,uniquID,moodValue);
                 }
             }
             UpdateEventMoodCountList(ExcitedMood,NotExcited,NotSure);
@@ -268,15 +248,11 @@ function GetEventMoodCountInList(){
 		"Excited":String(ExcitedMood),
 		"NotExcited":String(NotExcited),
 		"NotSure": String(NotSure)
-		
+		}
 
-		//"EventEndDate":Edt
-	}
-	//console.log(data);
 	$.ajax({
 		url: siteUrl,
 		type: "POST",
-		//async:false,
 		data: JSON.stringify(data),
 		headers: {
 				"accept": "application/json;odata=verbose",
@@ -294,7 +270,6 @@ function SuccessFunctionUpdate(data) {
 }
 
 function ErrorFunction(error) {
-//alert('Error!' +error.responseText);
 }
 
 
@@ -341,8 +316,6 @@ function MainListUpdate(userId,uniquID,moodValue,EvTitle,Pillar,EvDate) {
     });
 }
 function SuccessFunction(data) {
-	alert("test done");
 }
 function ErrorFunction(error) {
-	alert('Error!' +error.responseText);
 }

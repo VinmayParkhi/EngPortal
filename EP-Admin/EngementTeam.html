@@ -1,12 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" href="https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/css/access-control.css">
 <head>
 <style type="text/css">
 
 .is-hidden { display: none; }
 
-
+.event-head{
+	width: 94%;
+	margin-left: 4rem;
+	padding: 0px 0px;
+}
 
 .home{
 	background: transparent linear-gradient(89deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat padding-box;
@@ -22,15 +29,9 @@
 	width: 0px !important;
 }
 .delBtn{
-    /*margin-top: -45px;*/
     width: 13.5rem;
-    /*border: 1px solid red;*/
     margin-right: -22px;
 	}
-/*#groupid-parent{
-	overflow-y: scroll;
-    max-height: 75vh;
-}*/
 #groupid{
 	display: flex;
     flex-wrap: wrap;
@@ -39,9 +40,9 @@
     max-height: 75vh;
     
 }
-.search-button{
+/*.search-button{
 	 color: grey;
-}
+}*/
 .emp-card{
 	background-color: black !important;
 	width: 30%;
@@ -61,7 +62,6 @@
 }
 .ETlefticon{
     color: #fff;
-    /*position: absolute;*/
     background: #000;
     border-radius: 25px;
     border: 1.5px solid #ff3d97;
@@ -76,35 +76,38 @@
 }
 .sidebar{
 	height:auto !important;
-	    margin-bottom: 1rem;
+	    /*margin-bottom: 1rem;*/
 }
 .home-section .hr1{
 	width: 92%;
-    margin-left: 2.3rem;
+    margin-left: 4rem;
 }
-.head-right{
+/*.head-right{
     margin-right: -1.5rem !important;
-}
-.head-left{
+    width: 36%;
+}*/
+/*.head-left{
 	    margin-left: 0.5rem;
-}
-.hr1{
+}*/
+/*.hr1{
 	width: 92% !important;
     margin-left: 2.3% !important;
-}
+}*/
 .FA-1{
 	 margin-left: 3.5% !important;
-	            width: 93.5%;
+	            width: 92%;
 }
 
 @media (min-width: 992px) and (max-width: 1200px){
        #groupid {
         width: 100%;
+        margin-left: 2.5rem !important;
         /*height: 94vh;*/
 	}
        
        .emp-card {
-    width: 28.5%;
+/*    width: 28.5%;*/
+width: 29.3%;
    }    
    .card-body {
       margin:0 !important;
@@ -113,18 +116,16 @@
 .card-image {
     padding: 30px 35px;
    }   
+   .FA-1{
+	width: 93%;
+}
       }
    
    @media (min-width: 1200px) and (max-width: 1400px){
-    /*.card-image {
-    padding: 45px 58px;
-   }*/
-   #groupid {
-        width: 98%;
-        /*height: 96vh;*/
+ #groupid {
+        width: 100%;
    }
    .delBtn {
-    /*margin-top: -61px;*/
     margin-right: -77px;
 }
    .ETlefticon{
@@ -132,23 +133,19 @@
     padding: 5px 10px;   
     margin-top: -70px !important;
     }
-/*.sidebar{
-    height: 109vh;
-}*/
-
-.hr1{
+/*.hr1{
 	height: 1px;
 	    width: 91.5% !important;
     margin-left: 3.5% !important;
- }
+ }*/
     .emp-card {
     width: 29.5%;
 }
-.head-right {
-    margin-right: 0 !important;
-}
+/*.head-right {
+    margin-right: -4rem !important;
+}*/
 .FA-1{
-	            width: 92.5%;
+	width: 92.5%;
 }
 
 }
@@ -158,7 +155,6 @@
     padding: 65px 80px;
    }
    .delBtn {
-    /*margin-top: -80px;*/
     margin-right: -115px;
 }
    .ETlefticon{
@@ -168,23 +164,15 @@
     
     @media (min-width: 1400px)and (max-width: 1600px){
      #groupid {
-                height: 91vh;
+        min-height: 48vh;
+        width: 100%;
+    	margin-left: 1rem !important;
 	}
 .emp-card{
-	width:27%;
-}
-.card{
-	margin: 10px 12px;
-    margin-right: 3.5%;
-    /*height:47%;*/
+	width:29%;
 }
 .card {
-	margin: 18px 30px;
-}
-.head-right{
-    margin-right: 3.5rem !important;
-    width: 28.5%;
-    	display:inline;
+	margin: 22px;
 }
 #WebPartWPQ5 > div.ms-rtestate-field > div.event-head.d-flex.justify-content-between.align-items-center > div:nth-child(2) > div > button
 {
@@ -192,22 +180,17 @@
     color: white;	
 }
 .FA-1{
-    width: 91.6%;
-}
-
-.event-head {
-    padding: 0px 34px;
-    margin-left: 2%;
-}
-.home-section .hr1{
-	width: 89%!important;
-    margin-left: 6.3rem !important;
+    width: 93.5%;
 }
 .search-box{
 	left: 0% !Important;
 }
+}
 
-
+@media (min-width: 1536px){
+	.FA-1 {
+    width: 92.5%;
+}
 }
     
     
@@ -219,46 +202,56 @@
     padding: 75px 70px;
 }
 .delBtn {
-    /*margin-top: -88px;*/
     margin-right: -140px;
 }
-.head-right{
+/*.head-right{
     margin-right: 3rem;
-}
+}*/
 .ETlefticon{
 	    margin-right: 0px !important;
 	        margin-top: -130px !important;
 }
 .emp-card{
-	    width: 22%;
+	    width: 20%;
 }
-
+.card{
+	margin: 30px;
+	margin-bottom: 30px;
+}
+.FA-1{
+	width: 92.5%;
+}
 }
     
     @media (min-width: 1900px){
      .card-image {
-    padding: 125px 100px;
+    padding: 72px 100px;
 }
 .delBtn {
-    /*margin-top: -149px;*/
     margin-right: -171px;
 }
 .ETlefticon{
      font-size: 15px;
     padding: 5px 11px;
-        /*margin-top: 1rem !important;*/
         	        margin-top: -130px !important;
     }
     .card-image{
 	margin-top: 34px;
 }
-.head-right {
+/*.head-right {
     margin-right: 6rem;
-}
+}*/
 .emp-card{
-	    width: 22%;
+	   width: 22%;
+    margin: 19px;
+    }
+    .event-head{
+		width: 95%;
 }
-
+#groupid{
+	width: 100%;
+    margin-left: 1.2rem !important;
+}
 }
 .ms-core-form-subsection{
 	display:none !important;
@@ -269,9 +262,7 @@
 <script type="text/javascript" src="/_layouts/15/SP.RequestExecutor.js"></script>
 <script type="text/javascript" src="js/EngagersSearch.js"></script>
 <script type="text/javascript">
-$(document).ready(function () {
- 
-	//var siteurl = "https://amdocs.sharepoint.com";       
+$(document).ready(function () {       
 	$.ajax({
 		url: _spPageContextInfo.siteAbsoluteUrl+ "/_api/Web/SiteGroups/GetByName('EP%20Users')/users",
 		type: "GET",
@@ -289,7 +280,6 @@ $(document).ready(function () {
 					getuserProperties(accntname.replace("#","%23"),admin,cardID);
 					
 					if(admin == true){
-					//alert("admin is available");
 					$("#child").prop("checked", true);		
 					$("#child").attr('checked', 'checked');
 					
@@ -316,34 +306,43 @@ $.ajax({
 		success: function (data) { 
 			var dept;
 			var results = data.d.UserProfileProperties.results;
-			//debugger;
 			var displayname = data.d.DisplayName;
-			var picurl = data.d.PictureUrl;
+			var picurl = _spPageContextInfo.webAbsoluteUrl + "/_layouts/15/userphoto.aspx?size=L&accountname=" + data.d.Email;;			
+
+			//var picurl = data.d.PictureUrl;
 			
 			console.log('picurl',picurl);
 			if(picurl == null){
-				//picurl =  _spPageContextInfo.siteAbsoluteUrl+ "/_layouts/15/userphoto.aspx?size=S&accountname="+data.d.Email;
-				picurl = 'images/Icon awesome-user-circle.png';
+				picurl = 'https://amdocs.sharepoint.com/sites/EP/SiteAssets/EngEmployee/images/Icon awesome-user-circle.png';
 			}	
 			for(i = 0; i < data.d.UserProfileProperties.results.length; i++){
 				if(data.d.UserProfileProperties.results[i].Key == "Department"){
 					dept = data.d.UserProfileProperties.results[i].Value;					
-					//dept = "O365"
 				}
 			}
        
-			$("#groupid").append("<div class='card emp-card cards' style=''><div class='d-flex flex-column align-items-center card-image mx-auto'><div class='d-flex justify-content-end align-items-center delBtn'><p class='ETlefticon' onclick='DeleteCard(this.id);' id="+data.d.AccountName+"><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p></div><img src='"+picurl+"' style='border-radius:50%;width: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div></div>");                                                    
+			$("#groupid").append("<div class='card emp-card cards' style=''><div class='d-flex flex-column align-items-center card-image mx-auto'><div class='d-flex justify-content-end align-items-center delBtn'><p class='ETlefticon' data-bs-toggle='modal' data-bs-target='#DeletePub' onclick='DeleteCard(this.id);' id="+data.d.AccountName+"><input type='hidden' id='AccName' value="+data.d.AccountName+"><i class='fa-solid fa-trash-can' id='"+cardID+"'></i></p></div><img src='"+picurl+"' style='border-radius:50%;width: 100px;height: 100px;'></div><div class='card-body ms-4'><h5 class='card-title'>"+displayname+"</h5><p class='card-text'>"+dept+"</p></div></div>");                                                    
 		},
 		error: function (error){
 			console.log(error);
 		}
 	});
 }
+
 function DeleteCard(id){
-//alert(id);
-   //var accName = $(".lefticon").children('#AccName').val();
+// alert(id);
+ $("#yesDelete").click(function(){
    removeUserFromGroup(id,32);
-};
+   		location.reload();
+})
+$("#okay").click(function(){
+		location.reload();
+})
+						
+
+}
+
+
 
 
 function removeUserFromGroup(userLoginName,groupid)
@@ -358,7 +357,7 @@ function removeUserFromGroup(userLoginName,groupid)
 	 "X-RequestDigest": $("#__REQUESTDIGEST").val()
  },
  success: function (data) { 
- 	alert(userLoginName+" has been removed from group");
+ 	//alert(userLoginName+" has been removed from group");
  	location.reload();
  },
  error: function (error){
@@ -374,8 +373,6 @@ function adduser(){
    	var CurrGroupId = '32';  
 	var currsite = _spPageContextInfo.siteAbsoluteUrl;
 	openDialog(currsite+'/_layouts/15/aclinv.aspx?GroupId='+CurrGroupId);	
-    //window.location.reload();	
-   //$('.ms-dlgContent').hide();
    $('.ms-dlgContent #ctl00_PlaceHolderMain_lnkSharedWithDlgItem').hide();	
 }
 
@@ -385,8 +382,8 @@ function openDialog(pageUrl) {
 		title: 'Add User',
 		allowMaximize: false,
 		showClose: true,
-		width: 850,
-		height: 372
+		width: 500,
+		height: 320
 	};
 	SP.SOD.execute('sp.ui.dialog.js', 'SP.UI.ModalDialog.showModalDialog', options);
 }
@@ -411,28 +408,42 @@ function openDialog(pageUrl) {
                         </div>
                         <div class="head-right">
                             <div class=" search-box">
-                                <input type="text" id="searchTxt" class="search-input" placeholder="Search member">
+                                <input type="text" id="searchTxt" autocomplete="off" class="search-input" placeholder="Search member">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 <span class="divider2">
                                 </span>
-                                <button type="button" class="search-button" onclick="adduser()" style="margin-left:17%">
+                                <button type="button" class="search-button" onclick="adduser()" style="margin-left:4%">
                                  Add
                                 </button>
                              </div>
-                           <!--<div class=" search-box">
-                                                               <button type="button" class="search-button" onclick="adduserE()">
-                                 Add
-                                </button>
-                             </div>-->
-                        </div>
+                           </div>
                         <div class="head-right d-none">
                             <button class="btn">All Events</button>
                         </div>
                     </div>
-                    
-                    <!--<div id="groupid-parent">-->
 <div id="groupid" class="ms-5">
 </div>
-<!--</div>-->
+
+
+
+<div class="modal fade" id="DeletePub" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-dialog-centered justify-content-center" >
+                      <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE">
+                        <div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
+                            <span class="me-2"><img src="images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Are You Sure</p>
+                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
+                          <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
+                        </div>
+                        <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
+                        <span class="mx-auto"><img src="images/Icon%20feather-check-circle.svg" alt="Image can't found" style="width: 70%;margin-bottom: 15px"></span>
+                        <span class="message" style="font-size: 15px;font-weight: 600;">Are you sure you want to delete this member</span>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="yesDelete" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;">Yes</button>
+                        	<button type="button" class="btn btn-primary okbtn shadow-none" id="noDelete" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;">No</button>
+                        </div>
+                      </div>
+                    </div>
+</div>
 </body>
 </html>

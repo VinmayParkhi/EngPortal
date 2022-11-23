@@ -31,12 +31,22 @@
 	.ui-datepicker{
 	width:auto !important;
 }
+
+.ui-timepicker-wrapper {
+width: 17rem !important;
+font-size: 10px !important;
+}
 	/* starts enabling-disabling button for validation */
 	
 	.btn-secondary {
     color: #000;
-   /* background-color: #6c757d;*/
-   /* border-color: #6c757d;*/
+}
+sup{
+        color: #FF3D97;
+    font-size: 21px;
+    position: absolute;
+    margin-left: 3px;
+    top: 16px;
 }
  
 .EnableBtn{
@@ -96,9 +106,6 @@
 .event-data .a-button{
 	text-align:right;
 }
-/*#UpdateEvent{
-float:right;
-}*/
 .modal-header {
 	background-color:black;
 	border-top-left-radius: 12px;
@@ -221,9 +228,6 @@ float:right;
 }
 
 	</style>
-
-
-    <!--<link href="../All_CSS/botstrap.css" rel="stylesheet">-->
 </head>
 
 <body style=" background:black;">
@@ -246,23 +250,10 @@ float:right;
         </div>
         <div class="event-data">
             <div class="d-flex">
-                <!--<div>
-                    <span class="radio d-block">
-                        <span class="sdayEv">
-                            <input type="radio" name="event" id="sdat" checked>
-                            <label for="sdat">Single Day</label>
-                        </span>
-                        <span class="serEve">
-                            <input type="radio" name="event" id="stad2">
-                            <label for="stad2">Series</label>
-                        </span>
-                    </span>
-                </div>-->
                 <div class="a-button ms-auto">
                     <button type="button" class="w3-button btn border Save" data-bs-toggle="modal" data-bs-target="#saveEventBtn" id="SaveForNow" value="Draft" >Save for now</button>
                     <button data-bs-toggle="modal" class="btn p-button border-transparent EditAutopublishEvent" data-bs-target="#AutopublishModal" class="w3-button bg-transparent" id="AutopublishEvent" type="button" value="Autopublish">Edit Autopublish</button>
                     <button  type="button" class="btn p-button border-transparent UpdateEventPublish" data-bs-toggle="modal" data-bs-target="#publishModal" id="UpdateEvent" value="Published">Publish</button>
-                    <!--<button type="button" class="btn p-button border-transparent publishSeriesEvent d-none" id="PublishEvent" data-bs-toggle="modal" data-bs-target="#PublishEventBtn1">Publish1</button>-->
 
                 </div>
 
@@ -270,8 +261,8 @@ float:right;
             <hr>
             <div class="event-form row single-day">
                 <div class="form-data col-lg-4">
-                    <label for="evTitle" class="d-block">Select Event Type</label>
-                    <select id="EvType" class="evType">
+                    <label for="evTitle" class="d-block">Select Event Type <sup>*</sup></label>
+                    <select id="EvType" class="evTypee">
                         <option value="1">select</option>
                         <option value="Online">Online</option>
                         <option value="Offline">Offline</option>
@@ -279,11 +270,11 @@ float:right;
                 </div>
 
                 <div class="form-data col-lg-4">
-                    <label for="evTitle" class="d-block">Enter Event title</label>
-                    <input type="text" name="" title='Baner Title' id="evTitle" placeholder="Event title goes here ">
+                    <label for="evTitle" class="d-block">Enter Event title <sup>*</sup></label>
+                    <input type="text" name="" title='Baner Title' autocomplete="off" id="evTitle" placeholder="Event title goes here ">
                 </div>
                 <div class="form-data col-lg-4">
-                    <label for="evTitle" class="d-block">Select Pillar</label>
+                    <label for="evTitle" class="d-block">Select Pillar <sup>*</sup></label>
                     <select id="pillar" class="">
                         <option value="1" id="nocolor" selected="true">Select</option>
                         <option value="Enrich" id="blue">Enrich</option>
@@ -295,12 +286,12 @@ float:right;
                     </select>
                 </div>
                 <div class="form-data col-lg-8">
-                    <label for="evTitle" class="d-block">Event Description</label>
-                    <textarea name="" title='EvDescription' id="evDesc" cols="30" rows="10" placeholder="Description goes here"></textarea>
+                    <label for="evTitle" class="d-block">Event Description <sup>*</sup></label>
+                    <textarea name="" title='EvDescription' autocomplete="off" id="evDesc" cols="30" rows="10" placeholder="Description goes here"></textarea>
 
                 </div>
                 <div class="form-data col-lg-4">
-                    <label for="evTitle" class="d-block">Event Image</label>
+                    <label for="evTitle" class="d-block">Event Image <sup>*</sup></label>
                     <div class="imageData" id="attachFilesHolder">
                     	<img src="images/MicrosoftTeams-image%20(5)%20(2).png" alt="" id="imageID">
                         <input type="file" name="" class="custom-file-input SingleDayEventUpload" id="file_upload">
@@ -308,84 +299,57 @@ float:right;
                     </div>
                 </div>
                 <div class="form-data col-lg-4" style="position: relative;">
-                    <label for="evTitle" class="d-block">Event Date</label>
-                    <input type="text" name="" id="sEdate">
+                    <label for="evTitle" class="d-block EventDate">Event Date <sup>*</sup></label>
+                    <input type="text" readonly="readonly" autocomplete="off" id="sEdate">
                     <i class="fa-solid fa-calendar-days calender"></i>
                 </div>
                 <div class="form-data col-lg-3 s-time" style="position: relative;">
-                    <label for="evTitle" class="d-block">Start Time</label>
-                    <input type="text" name="" id="SSTime1">
+                    <label for="evTitle" class="d-block">Start Time <sup>*</sup></label>
+                    <input type="text" autocomplete="off" id="SSTime1" class="StartTime">
                     <i class="fa-solid fa-clock time"></i>
                 </div>
                 <div class="form-data col-lg-3 e-time" style="position: relative;">
-                    <label for="evTitle" class="d-block">End Time</label>
-                    <input type="text" name="" id="SETime1">
+                    <label for="evTitle" class="d-block">End Time <sup>*</sup></label>
+                    <input type="text" autocomplete="off" id="SETime1" class="StartTime">
                     <i class="fa-solid fa-clock time"></i>
                 </div>
                 <div class="form-data col-lg-3 d-flex align-items-center">
-                    <!-- <label for="evTitle" class="d-block">50 Mins</label> -->
                     <p id="duration" class="dur"></p>
 			
                 </div>
-                <div class="form-data col-lg-3">
-                    <label for="evTitle" class="d-block">Event Link</label>
-                    <input type="text" name="" id="evLink">
+                <div class="form-data col-lg-3 LinkDiv">
+                    <label for="evTitle"  class="d-block">Event Link <span class="opte">(Optional)</span> <sup class="evlinke">*</sup></label>
+                    <input type="text" name="" autocomplete="off" id="evLink">
                 </div>
                 <div class="form-data col-lg-3 locationDiv">
-                    <label for="evTitle" class="d-block">Event Location</label>
-                    <input type="text" name="" id="evLocation" autocomplete="off">
+                    <label for="evTitle" autocomplete="off" class="d-block">Event Location <sup>*</sup></label>
+                    <input type="text" name="" class="location" id="evLocation" autocomplete="off">
                 </div>
                 <div class="form-data col-lg-3">
-                    <label for="evTitle" class="d-block">Speaker Name</label>
-                    <input type="text" name="" id="evSpeaker">
+                    <label for="evTitle" class="d-block">Speaker Name (optional)</label>
+                    <input type="text" name="" class="speakere" autocomplete="off" id="evSpeaker">
                 </div>
                 <div class="form-data col-lg-3">
-                    <label for="evTitle" class="d-block">Organizer Name</label>
-                    <input type="text" name="" id="evOrg">
+                    <label for="evTitle" class="d-block">Organizer Name (optional)</label>
+                    <input type="text" name="" class="organizere" autocomplete="off" id="evOrg">
                 </div>
 
                 <div class="form-data col-lg-12">
                     <label for="evTitle" class="d-block">Keywords (optional) upto 10</label>
-                    <input type="text" name="" id="evKeyE" placeholder="#hastag" onkeyup="hashfunE();">
+                    <input type="text" name="" autocomplete="off" id="evKeyE" placeholder="#hastag" onkeyup="hashfunE();">
                 </div>
 
             </div>
             
         </div>
-
-        <!--Accordion start-->
         
-        </div>
-        <!--Accordion End-->
-        <!-- Modal for save btn -->
-        
-        <!--<div class="modal fade" id="saveEventBtn" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="PublishEventBtnLabel" aria-hidden="true">
-                    <div class="modal-dialog  modal-dialog-centered">
-                      <div class="modal-content" style="border-top-left-radius: 13px;">
-                        <div class="modal-header">
-                            <span class="me-2"><img src=" ../../SiteAssets/ENG-Admin/images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="PublishEventBtnLabel" style="margin:0px;">Event Published Successfully </p>
-                                              <img class="btn-close" data-bs-dismiss="modal" aria-label="Close"  src="../../SiteAssets/Icon ionic-ios-close.svg">
-                        </div>
-                        <div class="modal-body" style="background-color:#FCF9EE">
-                        <div style="display: flex;flex-direction: column;margin-top: 20px;">
-                        <span class="mx-auto"><img src="../../SiteAssets/ENG-Admin/images/Icon feather-check-circle.svg" alt="Image can't found"></span>
-                        <span class="message" style="text-align: center; top: 27px;position: relative; font-size: initial;">You have saved an event successfully</span>
-
-                        </div>
-                        </div>
-                        <div class="modal-footer" style="background-color:#FCF9EE">
-                           <button type="button" style="color: #fff !important;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;" class="btn okbtn" id="okay" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal">Okay</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>-->  
+        </div>  
                   
                 <div class="modal fade" id="saveEventBtn" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="PublishEventBtnLabel" aria-hidden="true">
    <div class="modal-dialog  modal-dialog-centered justify-content-center" >
                       <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
                         <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
                             <span class="me-2"><img src=" images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="PublishEventBtnLabel" style="margin:0px;">Event Saved as draft  </p>
-                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
                         </div>
                         <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
@@ -398,7 +362,6 @@ float:right;
                       </div>
                     </div>
 </div>
-  <!-- Modal for save btn end -->
                   
        <!-- modal popup for publish button start-->
        
@@ -407,7 +370,6 @@ float:right;
                       <div class="modal-content" style="border:none">
                         <div class="modal-header">
                             <span class="me-2"><img src="images/Images/icons8-schedule-64.png" alt="img" style="width:25px;"></span><p class="modal-title" id="PublishEventBtn1" style="margin:0px;">Event Published Successfully </p>
-                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -420,9 +382,7 @@ float:right;
                       </div>
                     </div>
                   </div>  
-            <!-- modal popup for publish button end-->   
-               
-    <!-- modal popup for publish1 button start-->
+            <!-- modal popup for publish button end-->
    
    <div class="modal fade" id="PublishEventBtn1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="PublishEventBtn1Label" aria-hidden="true">
                     <div class="modal-dialog  modal-dialog-centered">
@@ -458,91 +418,36 @@ float:right;
                         <span class="message" style="font-size: 15px;font-weight: 600;">You have published an Event successfully</span>
                         </div>
                         <div class="modal-footer">
-                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okay" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none">Okay</button>
+                           <button type="button" class="btn btn-primary okbtn shadow-none" id="okay1" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal" style="width: 80px;margin: 4px;background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;box-shadow: none;border-radius: 5px;border:none">Okay</button>
                         </div>
                       </div>
                     </div>
 </div>
     
-     
-    <!-- Modal popup for publish button End-->
-
-
-
-<!--<div class="modal fade" id="AutopublishModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-         <div class="form-data" style="position: relative;">
-                   
-                    <input type="date" name="" id="Date">
-                    <i class="fa-solid fa-calendar-days calender"></i>
-                </div>
-      </div>
-       <div class="form-data" style="position: relative;">
-                    <label for="time" class="d-block">Start Time</label>
-                    <input type="time" name="" id="Time">
-                    <i class="fa-solid fa-clock time"></i>
-                </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary publishevent" id="PublishEvent" value="Autopublish">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>-->
-
- <!-- Modal popup for Autopublish button start-->
-    
 		<div class="modal fade" id="AutopublishModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered justify-content-center">
         <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
-            <!--<div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
-        <h5 class="modal-title" id="exampleModalLabel" style="margin: 0px;">Modal title</h5>
-        <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
-      </div>-->
             <div class="modal-header"
                 style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
                 <span class="me-2"><img
                         src=" images/20921262341608672870%20(1).svg"
                         alt="img" style="width:25px;"></span>
                 <p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Reschedule Auto Publish </p>
-                <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                 <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal"
                     aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
             </div>
-            <!-- <div class="modal-body">
-         <div class="form-data" style="position: relative;">
-                   
-                    <input type="date" name="" id="surveyDate">
-                    <i class="fa-solid fa-calendar-days calender"></i>
-                </div>
-      </div>
-       <div class="form-data" style="position: relative;">
-                    <label for="time" class="d-block">Start Time</label>
-                    <input type="time" name="" id="surveyTime">
-                    <i class="fa-solid fa-clock time"></i>
-                </div>-->
-
-            <div class="modal-body" style="display: flex;flex-direction: row;">
+               <div class="modal-body" style="display: flex;flex-direction: row;">
 
                 <div class="form-data" style="position: relative;width: 50%;margin-right: 5px;">
                     <label for="time" class="d-block"
                         style="color:#191718;margin-left: 5px;font-weight: 500;font-size: 9px;">Select Date</label>
                     <input type="date" name="" id="EventPublishDate" onchange="GetDate();" style="color: black;background: #FFFFFF;">
-                    <!-- <i class="fa-solid fa-calendar-days calender"></i> -->
                 </div>
                 <div class="form-data" style="position: relative;width: 50%;margin-right: 0px;font-weight: 500">
                     <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-size: 9px;">Select
                         Time</label>
                     <input type="time" name="" id="EventPublishTime" onchange="GetDate();" style="color: black;background: #FFFFFF;">
-                    <!-- <i class="fa-solid fa-clock time"></i> -->
-                </div>
+                   </div>
 
 
             </div>
@@ -554,7 +459,7 @@ float:right;
                 <button type="button" class="btn" data-bs-dismiss="modal"
                     style="border-radius: 5px;border:none;background:none">Close</button>
                 <button type="button" class="btn btn-primary publishevent " data-bs-dismiss="modal"
-                    id="AutopublishEvent2" value="Autopublish"
+                    id="AutopublishEvent3" value="Autopublish"
                     style="background: transparent linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0% no-repeat;border-radius: 5px;border:none">Save
                     changes</button>
             </div>
@@ -562,12 +467,7 @@ float:right;
         </div>
     </div>
 </div>
-		        <!-- Modal popup for Autopublish button start-->
-
-                  
-     
-        
-        
+   
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -584,16 +484,11 @@ float:right;
         let sidebar = document.querySelector(".sidebar");
         let sidebarBtn = document.querySelector(".sidebaropen");
         console.log(sidebarBtn);
-        /* sidebarBtn.addEventListener("click", () => {
-          sidebar.classList.toggle("close");
-        }); */
         $(".sidebaropen").on("click", function () {
             $(".card").toggleClass("imagenone1");
 
         });
         $(function () {
-            /* console.log("width: "+ document.body.clientWidth); */
-
             resizeScreen();
             $(window).resize(function () {
                 resizeScreen();
@@ -629,14 +524,6 @@ float:right;
             $(".publishSeriesEvent").toggleClass("d-none");
 
         })
-       /* $("#stad2").on("click",function(){
-            $(".accordion").addClass("d-block");
-            $(".accordion").removeClass("d-none");
-            $(".single-day").addClass("d-none");
-			$(".publishSingleDay").toggleClass("d-none");
-            $(".publishSeriesEvent").toggleClass("d-none");
-
-        })*/
         $("#sEdate").datepicker({
         dateFormat: 'dd M, yy',
         changeMonth: true,
@@ -741,19 +628,11 @@ $(".dur").text('-- : --');
         	var color = $("option:selected", this).attr("id");
         	$("#pillar").attr("class", color);
     		});
-
-            
-        /*$("#pillar").change(function(){
-	    var color = $("option:selected", this).attr("class");
-	    $("#pillar").addClass(color);
-		});*/
-
 	 
 function GetDate(){
   		var	PublDate = $("#EventPublishDate").val();
 	   	var publTime = $("#EventPublishTime").val();
 	   	PublDate = moment(PublDate).format("DD MMM, YYYY")
-	   //	publTime = moment(publTime).format("HH:mm")
 	   	$("#AutopublishEventDate").html(PublDate);
 	   	$("#AutopublishEventTime").html(publTime);	
   }
@@ -765,13 +644,180 @@ function hashfunE(){
 			console.log(hash);
 
 			if ( hash > 10 ) {
-				document.getElementById("evKeyE").value = null;
+				$("#evKeyE").addClass("stop")
+				var hubsselected =keyword;
+            var lastIndex = hubsselected.lastIndexOf("#");
+           hubsselected = hubsselected.substring(0, lastIndex);
+            document.getElementById("evKeyE").value = hubsselected
 
 	} else{
 
             }
 
         }
+
+if (Etype == "select"){
+$(".evlinke").removeAttr("style");
+$(".opt").addClass("d-none");
+}else{
+$(".evlink").css({'display':'none'});
+$(".opte").removeClass("d-none");
+
+}
+
+
+   $("select.evTypee").change(function(){
+        Etype= $(this).children("option:selected").val();
+if (Etype == "Online"){
+//alert("Online");
+$(".locationDiv").addClass("d-none");
+$("#evLink").addClass("col-lg-4");
+$(".speakere").addClass("col-lg-4");
+$(".organizere").addClass("col-lg-4");
+$(".evlinke").removeAttr("style");
+$(".opte").addClass("d-none");
+if($("#evLink").val() != ""){
+
+}else{
+
+$('.UpdateEventPublish').removeClass("EnableBtn");             
+            $('.EditAutopublishEvent').removeClass("EnableBtn");
+            $('#SaveForNow').removeClass("EnableBtn");  
+
+}
+
+ $("#eventtype,#evTitle,#evDesc,#Pillar,#sEdate,.StartTime").on("input",function(){    	
+        canChangeColorEditEventOn();
+    });
+
+
+}else{
+$(".locationDiv").removeClass("d-none");
+$("#evLink").removeClass("col-lg-4");
+$(".speakere").removeClass("col-lg-4");
+$(".organizere").removeClass("col-lg-4");
+$(".evlinke").css({'display':'none'});
+$(".opte").removeClass("d-none");
+if($("#evLocation").val() != ""){
+
+}else{
+
+$('.UpdateEventPublish').removeClass("EnableBtn");             
+            $('.EditAutopublishEvent').removeClass("EnableBtn");
+            $('#SaveForNow').removeClass("EnableBtn");  
+
+}
+}
+
+ $("#eventtype,#evTitle,#evDesc,#Pillar,#evLocation,#sEdate,.StartTime").on("input",function(){    	
+        canChangeColorEditEventOff();
+    });
+ 
+});
+
+
+
+    function canChangeColorEditEventOff(){  
+        var EventChange = true;  
+        $("#eventtype,#evTitle,#evDesc,#Pillar,#evLocation,#sEdate,.StartTime").each(function(){
+            if($(this).val()==''){
+                EventChange = false;
+            }
+        });
+        if(EventChange){
+            $('.UpdateEventPublish').addClass("EnableBtn");  
+            $('.EditAutopublishEvent').addClass("EnableBtn");   
+            $('#SaveForNow').addClass("EnableBtn"); 
+        }else{
+            $('.UpdateEventPublish').removeClass("EnableBtn");             
+            $('.EditAutopublishEvent').removeClass("EnableBtn");
+            $('#SaveForNow').removeClass("EnableBtn");  
+        }
+     
+    }
+
+
+
+    function canChangeColorEditEventOn(){  
+        var EventChange = true;  
+        $("#eventtype,#evTitle,#evDesc,#Pillar,#sEdate,.StartTime").each(function(){
+            if($(this).val()==''){
+                EventChange = false;
+            }
+        });
+        if(EventChange){
+            $('.UpdateEventPublish').addClass("EnableBtn");  
+            $('.EditAutopublishEvent').addClass("EnableBtn");   
+            $('#SaveForNow').addClass("EnableBtn"); 
+        }else{
+            $('.UpdateEventPublish').removeClass("EnableBtn");             
+            $('.EditAutopublishEvent').removeClass("EnableBtn");
+            $('#SaveForNow').removeClass("EnableBtn");  
+        }
+     
+    }
+
+
+
+/*if (Etype == "select"){
+$(".evlinke").removeAttr("style");
+$(".opt").addClass("d-none");
+}else{
+$(".evlink").css({'display':'none'});
+$(".opte").removeClass("d-none");
+
+}*/
+
+
+	
+    /*$("#sEdate").on("change",function () {    	
+        canChangeColorEditEvent();
+    });
+    function  canChangeColorEditEvent(){  
+        var EventChange = true;  
+        $("#sEdate").each(function(){
+            if($(this).val()==''){
+                EventChange = false;
+            }
+        });
+        if(EventChange){
+            $('.UpdateEventPublish').addClass("EnableBtn");  
+            $('.EditAutopublishEvent').addClass("EnableBtn");   
+            $('#SaveForNow').addClass("EnableBtn"); 
+        }else{
+            $('.UpdateEventPublish').removeClass("EnableBtn");             
+            $('.EditAutopublishEvent').removeClass("EnableBtn");
+            $('#SaveForNow').removeClass("EnableBtn");  
+        }
+     
+    }*/
+    
+ 
+    function canChangeColorEditEvent(){  
+        var EventChange = true;  
+        $("#eventtype,#evTitle,#evDesc,#Pillar,#evKey,#evLink,#sEdate,.StartTime").each(function(){
+            if($(this).val()==''){
+                EventChange = false;
+            }
+        });
+        if(EventChange){
+            $('.UpdateEventPublish').addClass("EnableBtn");  
+            $('.EditAutopublishEvent').addClass("EnableBtn");   
+            $('#SaveForNow').addClass("EnableBtn"); 
+        }else{
+            $('.UpdateEventPublish').removeClass("EnableBtn");             
+            $('.EditAutopublishEvent').removeClass("EnableBtn");
+            $('#SaveForNow').removeClass("EnableBtn");  
+        }
+     
+    }
+ 
+ $("#s4-workspace").scroll(function(){
+    $("#ui-datepicker-div").hide();
+})
+
+
+
 
 
 

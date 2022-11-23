@@ -50,6 +50,15 @@
   border: 1px solid #FF3D97 !important;
 }
 
+sup{
+    color: #FF3D97;
+    font-size: 21px;
+    opacity: 1;
+    position: absolute;
+    top: 16px;
+    margin-left:3px;
+}
+
 .ui-datepicker{
 	width:auto !important;
 } 
@@ -177,7 +186,7 @@
                 
                 <div class="a-button ms-auto">
                     <button type="button"data-bs-toggle="modal" data-bs-target="#SaveEventBtn"  class="w3-button btn border SaveSurvey" id="SaveForNowSurvey" value="Draft">Save for now</button>
-                    <button type="button" class="btn border w3-button" data-bs-toggle="modal" data-bs-target="#publishSurveyModal">Edit Autopublish</button>
+                    <button type="button" class="btn border w3-button" id="AutoPubSurvey" data-bs-toggle="modal" data-bs-target="#publishSurveyModal">Edit Autopublish</button>
                     <button type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop"  class="btn p-button border-transparent" id="UpdateSurvey">Publish</button>
                 </div>
 
@@ -185,39 +194,39 @@
             <hr>
             <div class="event-form row serveyEventForm">
                <div class="form-data col-lg-12">
-                <label for="evTitle" class="d-block">Survey Title</label>
+                <label for="evTitle" class="d-block">Survey Title <sup>*</sup></label>
                 <input type="text" id="sTitle" placeholder="Text">
                </div>
 
                 
                 <div class="form-data col-lg-8">
-                    <label for="evTitle" class="d-block">Survey Description</label>
+                    <label for="evTitle" class="d-block">Survey Description <sup>*</sup></label>
                     <textarea name="" id="sDesc" cols="30" rows="10" placeholder="Description goes here"></textarea>
 
                 </div>
                   <div class="form-data col-lg-4" style="height:10rem">
-                    <label for="evTitle" class="d-block">Survey Image</label>
+                    <label for="evTitle" class="d-block">Survey Image <sup>*</sup></label>
                     <div class="imageData" id="attachFilesHolder">
                     	<img src="images/MicrosoftTeams-image%20(5)%20(2).png" id="imageID">
-                        <input type="file" name="" class="custom-file-input" onchange="readURL(this);" id="file_upload1">
+                        <input type="file" class="custom-file-input" onchange="readURL(this);" id="file_upload1">
                         <label for="file_upload"><i class="fa-solid fa-upload publishsingleSurvey"></i> Upload File</label>
                     </div>
                 </div>
 
                 <div class="form-data col-lg-4" style="position: relative;">
-                    <label for="evTitle" class="d-block">Start Date</label>
-                    <input type="text" name="" id="sDate">
+                    <label for="evTitle" class="d-block">Start Date <sup>*</sup></label>
+                    <input type="text" readonly="readonly" id="sDate" class="datee1">
                     <i class="fa-solid fa-calendar-days calender"></i>
                 </div>
 
                 <div class="form-data col-lg-4" style="position: relative; margin-right: 10px;">
-                    <label for="evTitle" class="d-block">End Date</label>
-                    <input type="text" name="" id="eDate">
+                    <label for="evTitle" class="d-block">End Date <sup>*</sup></label>
+                    <input type="text" readonly="readonly" id="eDate">
                     <i class="fa-solid fa-calendar-days calender"></i>
                 </div>
                
                 <div class="form-data col-lg-4">
-                    <label for="evTitle" class="d-block" >Survey Link</label>
+                    <label for="evTitle" class="d-block" >Survey Link <sup>*</sup></label>
                     <input type="text" name="" id="sLink">
                 </div>
                
@@ -235,7 +244,6 @@
                       <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE">
                         <div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
                             <span class="me-2"><img src="images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Survey Saved as draft  </p>
-                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
                         </div>
                         <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
@@ -248,8 +256,6 @@
                       </div>
                     </div>
 </div>
-         <!-- Modal popup for Saved as draft button End-->
-
     
     <!-- Modal popup for Autopublish button start-->
 		<div class="modal fade" id="publishSurveyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -261,7 +267,6 @@
                         src=" images/20921262341608672870 (1).svg"
                         alt="img" style="width:25px;"></span>
                 <p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Schedule Auto Publish </p>
-                <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                 <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal"
                     aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
             </div>
@@ -269,15 +274,13 @@
 
                 <div class="form-data" style="position: relative;width: 50%;margin-right: 5px;">
                     <label for="time" class="d-block"
-                        style="color:#191718;margin-left: 5px;font-weight: 500;font-size: 9px;">Select Date</label>
-                    <input type="date" name="" id="surveyDateEdit" class="surveyDate" style="color: black;background: #FFFFFF;" onchange="GetUpdateSurvey();" onKeyPress="edValueKeyPress()">
-                    <!-- <i class="fa-solid fa-calendar-days calender"></i> -->
+                        style="color:#191718;margin-left: 5px;font-weight: 500;font-size: 9px;">Select Date </label>
+                    <input type="date" id="surveyDateEdit" class="surveyDate" style="color: black;background: #FFFFFF;" onchange="GetUpdateSurvey();" onKeyPress="edValueKeyPress()">
                 </div>
                 <div class="form-data" style="position: relative;width: 50%;margin-right: 0px;font-weight: 500">
                     <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-size: 9px;">Select
                         Time</label>
-                    <input type="time" name="" id="surveyTimeEdit" style="color: black;background: #FFFFFF;" onchange="GetUpdateSurvey();">
-                    <!-- <i class="fa-solid fa-clock time"></i> -->
+                    <input type="time" id="surveyTimeEdit" style="color: black;background: #FFFFFF;" onchange="GetUpdateSurvey();">
                 </div>
 
 
@@ -308,7 +311,6 @@
                       <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE">
                         <div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
                             <span class="me-2"><img src=" images/20921262341608672870 (1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Survey Published Successfully </p>
-                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
                         </div>
                         <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
@@ -338,16 +340,11 @@
         let sidebar = document.querySelector(".sidebar");
         let sidebarBtn = document.querySelector(".sidebaropen");
         console.log(sidebarBtn);
-        /* sidebarBtn.addEventListener("click", () => {
-          sidebar.classList.toggle("close");
-        }); */
         $(".sidebaropen").on("click", function () {
             $(".card").toggleClass("imagenone1");
 
         });
         $(function () {
-            /* console.log("width: "+ document.body.clientWidth); */
-
             resizeScreen();
             $(window).resize(function () {
                 resizeScreen();
@@ -425,15 +422,7 @@ function readURL(input) {
 
                 reader.readAsDataURL(input.files[0]);
             }
-        }
-
-  /* $("#surveyDate").datepicker({
-        dateFormat: " d MM, yy ",
-        onSelect: function (d) {
-            $('#showdate').text(d);
-        }
-    });*/
-    
+        }    
                 
 function GetUpdateSurvey(){
   		var	PublDate = $("#surveyDateEdit").val();
@@ -447,7 +436,6 @@ function GetUpdateSurvey(){
 
    
 </script>
-<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
@@ -457,7 +445,6 @@ function GetUpdateSurvey(){
 	<script type="text/javascript" src="https://amdocs.sharepoint.com/_layouts/15/sp.core.js"></script>	
 	 <script type="text/javascript" src="https://amdocs.sharepoint.com/SiteAssets/Admin/Image_Calender/jquery.multifile.js"></script> 
 	 <script type="text/javascript" src="js/edit_survey.js"></script>
-	<!--<script type="text/javascript" src="js/Edit_save_now_survey.js"></script>-->
 
     <script>
     

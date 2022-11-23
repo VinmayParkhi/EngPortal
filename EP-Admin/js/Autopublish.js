@@ -7,12 +7,6 @@
  var pubTime;
  var publisheventstatus;
  $(document).ready(function() { 
- //$('#file_input').multifile();//For facilitate multi file upload 
-  
- //$(".savenow").click(function() {formSave()}); 
-     
-    // GetAutoPublish()     
- //  UpDateComplete();
  $("select.pillar").change(function(){
         Pillar = $(this).children("option:selected").val();
 
@@ -21,16 +15,6 @@
         Etype= $(this).children("option:selected").val();
 
     });
-
-/*  $("#AutopublishEvent2").click(function(){
-    //alert("The paragraph was clicked.");
-    
-    
-    $(".single-day input").val("");
-    $(".single-day textarea").val("");
-    $(".single-day select").val("");
-  });
-*/
 
    $("#AutopublishEvent2").on("click", function(){
 	   PubDate = $("#Date").val();

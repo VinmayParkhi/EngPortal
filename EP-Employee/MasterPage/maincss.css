@@ -15,7 +15,7 @@
 	background-size:100% 100%;
 	
 }
-.ms-cui-topBar1, .ms-cui-topBar2{
+.ms-cui-topBar1, .ms-cui-topBar2, #s4-ribbonrow{
 	display:none !important;
 }
 

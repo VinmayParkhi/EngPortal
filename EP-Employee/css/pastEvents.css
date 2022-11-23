@@ -270,11 +270,11 @@ input[type='radio']:checked:before {
 .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg2 .play,
 .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg3 .play {
        position: absolute;
-    top: 6rem !important;
-    left: 13rem;
+    top: 7.5rem ;
+    left: 14rem;
     }
 .pastEvntsPagecardBottomWr .pastEvntsWr .pastevntsCard .pstvideoImg1 .play img{
-	width:60%;
+	width:70%;
 }
 /* .pstvideoImg1 .play img,
 .pstvideoImg2 .play img,
@@ -355,6 +355,7 @@ input[type='radio']:checked:before {
     position: relative;
     left: 1rem;
     top: 1rem;
+    display:none !important;
 }
 
 /* ends pstEvntscardBottomWr css */
@@ -563,7 +564,7 @@ ul.breadcrumb li {
     width: 80%;
     margin: 0 auto;
     border-radius: 1.5rem;
-    background-color: #FCF9EE;
+    /*background-color: #FCF9EE;*/
     border: none;
     /* padding: 1rem; */
     /* background: linear-gradient(86deg, #DE8601 0%, #FF3D97 100%); */
@@ -598,8 +599,8 @@ ul.breadcrumb li {
 .modal-content{
     height: auto;
     border-radius: 1.5rem;
-    /* padding: 1rem; */
-    background: linear-gradient(86deg, #DE8601 0%, #FF3D97 100%) !important;
+    /* padding: 1rem; 
+    background: linear-gradient(86deg, #DE8601 0%, #FF3D97 100%) !important;*/
     width: 518px;
     padding: 8px;
     margin-top: 17%;

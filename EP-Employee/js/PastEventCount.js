@@ -19,7 +19,7 @@ $(document).ready(function() {
 function GetPastEvents() {
 	var today= moment().format('YYYY-MM-DDTHH:mm:SS'); 
    $.ajax({
-       url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=*&$filter= (EventStatus eq 'Completed') and EventEndTime le '"+today+"'&$orderby=Created desc",
+       url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=*&$filter= (EventStatus eq 'Completed') and (EventEndTime le '"+today+"')&$orderby=Created desc",
        method: "GET",
        headers:
           {

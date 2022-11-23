@@ -6,8 +6,8 @@ var ConnectCommunity = 0;
 var NotUpload=0;
 var Uploaded=0;
 var log = console.log;
-
-
+var statusText2 = ""; 
+var datesSelected ="";
 var minDate, maxDate;
  
 
@@ -15,6 +15,11 @@ $(document).ready(function() {
 $('.head-left').click(function() {
              history.go(-1);        
     });
+    
+     $("#okayw").click(function() { 
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManagePastEvent.aspx";         
+   });
+
 		 $('#arrowimg').on("click",function(e){
    //$('#myImg').slideDown(1);
    $("#myImg").removeClass("d-none");
@@ -41,29 +46,34 @@ $('.head-left').click(function() {
   $(".player").attr('data-target',"#exampleModal");
   
   
+  var fromDateCh;
+   var toDateCh;
+  
   
   /*sb start*/
-  $("#editbox > div.subboxWr > div.replacevideo > div > span").on("click",function(){
-  
-  })
-   
+    
   var pillarFilterArray = [];
   $("#wrkLi,#LifeLi,#WellbeingLi,#WowLi,#ConnectLi,#CountLi").on("click",function(event){
   
   $("#NotUploaded").html(0);
   $("#Uploaded").html(0);
+  var siteurl = "https://amdocs.sharepoint.com/sites/EP";
 
     pillarFilterArray = [];
    var text = event.target.innerText
   //log(text.includes('Work'));
   log(text)
   
+  if(fromDateCh !== undefined && toDateCh !== undefined && statusText2.length > 0){
+      var selectedPillar = event.target.className;
+      alert(selectedPillar)
+       var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter=(EventStatus eq 'Completed') and "+datesSelected+" and Pillar eq '"+selectedPillar+"' &$orderby=ID desc";                  
+     
+  }else{
   
-  
-  var siteurl = "https://amdocs.sharepoint.com/sites/EP";
-             var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter=(EventStatus eq 'Completed')&$orderby=ID desc";                  //var url = siteurl+ "/_api/web/lists/getbytitle('TestList')/items?&$select=*";
-               console.log(url);        
-
+     var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter=(EventStatus eq 'Completed')&$orderby=ID desc";                  
+                            console.log(url);        
+}
      $.ajax({
 
             url: url,
@@ -79,11 +89,9 @@ $('.head-left').click(function() {
             success: function (data) {
 
                 if(data.d.results.length > 0 ){ 
-                    log(data)
                     var res = data.d.results;
                     
                     for(var f=0;f<res.length;f++){
-                    log(text.includes(res[f].Pillar))
                         if(text.includes(res[f].Pillar)){
                         
                          pillarFilterArray.push(res[f])
@@ -113,6 +121,9 @@ $('.head-left').click(function() {
 				}
 
                     successFuncFltr(pillarFilterArray)
+                     var popup = $(".popuptext");
+                     popup.removeClass("show");
+
                 }
               }  
     });  /* ajax end */
@@ -122,12 +133,22 @@ $('.head-left').click(function() {
 
 $("#AllCountLi,#PublishedLi").on("click",function(event){
      var statusText = event.target.innerText
+     
      log(statusText)
      var statusFilterArray = [];
      
-        var siteurl = "https://amdocs.sharepoint.com/sites/EP";
-                  	var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter=(EventStatus eq 'Completed')&$orderby=ID desc";
-    
+     var siteurl = "https://amdocs.sharepoint.com/sites/EP";
+     //alert(fromDateCh !== undefined && toDateCh !== undefined)
+     if(fromDateCh !== undefined && toDateCh !== undefined){     
+             statusText2 = event.target.innerText
+             //alert(statusText2)
+               var url =_spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter=(EventStatus eq 'Completed') and "+datesSelected+"&$orderby=ID desc";
+             //var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter=(EventStatus eq 'Completed') and "+datesSelected+"&$orderby=ID desc";
+             alert(url)
+    }else{
+         var url = _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter=(EventStatus eq 'Completed')&$orderby=ID desc";
+
+    }
     $.ajax({
            url: url,
            type: "GET",
@@ -179,6 +200,9 @@ $("#AllCountLi,#PublishedLi").on("click",function(event){
                  
                  log(statusFilterArray)
                       successFuncFltr(statusFilterArray)
+                       var popup = $(".popuptext");
+                     popup.removeClass("show");
+
                  }
              });     
                
@@ -186,8 +210,7 @@ $("#AllCountLi,#PublishedLi").on("click",function(event){
 
 
 
-   var fromDateCh;
-   var toDateCh;
+   
    
     $("#minValue").datepicker({
       dateFormat: "dd M, yy",
@@ -196,13 +219,33 @@ $("#AllCountLi,#PublishedLi").on("click",function(event){
 
       onSelect: function () {
                 var fromDate = $(this).val();
-                fromDateCh = moment.utc(fromDate).format('YYYY/MM/DD');
+                fromDateCh = moment.utc(fromDate).format('YYYY-MM-DD');
                 
              if(toDateCh !== undefined){
+              $("#wrk").html(0);
+				$("#life").html(0);
+				$("#Enri").html(0);
+				$("#Wow").html(0);
+				$("#Connect").html(0);
+
+
+                $("#Uploaded").html(0);
+				$("#NotUploaded").html(0);
+				
+
+
+                    var Work = 0;
+					var Life = 0;
+					var Enrich = 0;
+					var WowPride = 0;
+					var ConnectCommunity = 0;
+					var NotUpload=0;
+					var Uploaded=0;
+
                 var fromDateString = "";                  
                                 
-                fromDateString += "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
-	               
+                fromDateString = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
+	            datesSelected =  "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
 	           
                  log(fromDateString)
                 var siteurl = "https://amdocs.sharepoint.com/sites/EP";
@@ -232,7 +275,7 @@ $("#AllCountLi,#PublishedLi").on("click",function(event){
             }else if(fromDateCh !== undefined && toDateCh === undefined){
               var fromDateString = "";                  
                                 
-                fromDateString += "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'";
+                fromDateString = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'";
 	               
 	           
                  log(fromDateString)
@@ -280,10 +323,32 @@ $("#AllCountLi,#PublishedLi").on("click",function(event){
                 toDateCh = moment.utc(date2).format('YYYY-MM-DD')
                 
                 if(fromDateCh !== undefined){
+                
+                 $("#wrk").html(0);
+				$("#life").html(0);
+				$("#Enri").html(0);
+				$("#Wow").html(0);
+				$("#Connect").html(0);
+
+
+                $("#Uploaded").html(0);
+				$("#NotUploaded").html(0);
+				
+
+
+                    var Work = 0;
+					var Life = 0;
+					var Enrich = 0;
+					var WowPride = 0;
+					var ConnectCommunity = 0;
+					var NotUpload=0;
+					var Uploaded=0;
+
                 var toDateString = "";
                                 
-                toDateString += "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
-	               
+                toDateString = "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
+	             datesSelected =  "EventDate ge " + "'"+fromDateCh+"T00:00:00Z'" + " and EventDate le " + "'"+toDateCh+"T12:00:00Z'";
+
 	           
                  //log(fromDateString)
                 var siteurl = "https://amdocs.sharepoint.com/sites/EP";
@@ -306,6 +371,48 @@ $("#AllCountLi,#PublishedLi").on("click",function(event){
             success: function (data) {
             var res = data.d.results;
             log(res)
+            
+            $("#Count").html(res.length);
+				for(var i =0; i< res.length; i++){
+				var Pillare = res[i].Pillar;
+					if(Pillare == "Work"){
+						Work++;
+						console.log("Work"+Work);
+						$("#wrk").html(Work);
+					}else if(Pillare == "Life"){
+						Life++;
+						console.log("Life"+Life);
+						$("#life").html(Life);
+					}else if(Pillare == "Wow and pride"){
+						WowPride++;
+						console.log("WowPride"+WowPride );
+						$("#Wow").html(WowPride);
+					}else if(Pillare == "Enrich"){
+						Enrich++;
+						console.log("Enrich"+Enrich);
+						$("#Enri").html(Enrich);
+					}else if(Pillare == "Connect and Community"){
+						ConnectCommunity++;
+						console.log("ConnectCommunity"+ConnectCommunity);
+						$("#Connect").html(ConnectCommunity );					
+
+					}
+
+
+				}
+				
+				for(var i =0; i< res.length; i++){
+				var Status= res[i].VideoURL;
+					if(Status == null){
+						NotUpload++;
+						//console.log("Scheduled"+Scheduled);
+						$("#NotUploaded").html(NotUpload);
+					}else{
+						Uploaded++;
+						//console.log("Autopublished"+Upload);
+						$("#Uploaded").html(Uploaded);
+					}				//var Status;
+				}
             successFunction(data);  
             }
             
@@ -313,7 +420,7 @@ $("#AllCountLi,#PublishedLi").on("click",function(event){
             }else if(toDateCh !== undefined && fromDateCh === undefined){
               var toDateString = "";
                                 
-                toDateString += "EventDate le " + "'"+toDateCh+"T12:00:00Z'";
+                toDateString = "EventDate le " + "'"+toDateCh+"T12:00:00Z'";
 	               
 	           
                  //log(fromDateString)
@@ -337,6 +444,10 @@ $("#AllCountLi,#PublishedLi").on("click",function(event){
             success: function (data) {
             var res = data.d.results;
             log(res)
+            
+            
+
+
             successFunction(data);  
             }
             
@@ -419,7 +530,7 @@ function loadListItems(min,max) {
 						Enrich++;
 						console.log("Enrich"+Enrich);
 						$("#Enri").html(Enrich);
-					}else if(Pillare == "Connect and community"){
+					}else if(Pillare == "Connect and Community"){
 						ConnectCommunity++;
 						console.log("ConnectCommunity"+ConnectCommunity);
 						$("#Connect").html(ConnectCommunity );					
@@ -533,7 +644,7 @@ function successFunction(data) {
                         
                         {
 							"render": function(data, type, row, meta ) {              
-							return '<h7 id="event-pillar" class="'+row.Pillar+'">'+row.Pillar+'</h7></br><h6 class="event-desc" style="font-size:11px !important;font-weight: 400 !important;height:2% !important;">'+row.Title+'</h6>'; }
+							return '<h7 id="event-pillar" class="'+row.Pillar+'2">'+row.Pillar+'</h7></br><h6 class="event-desc" style="font-size:11px !important;font-weight: 400 !important;height:2% !important;">'+row.Title+'</h6>'; }
 						},
 
                         
@@ -583,7 +694,7 @@ function successFunction(data) {
 									//alert("Uploaded Not");
 									return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:30px; margin-left:85%;"><div id="editbox"><div class="replacevideo"><div class="subboxvid" style="padding: 5px 0px 5px; " style="cursor: pointer;" onclick="UploadVideo(this.id)" id="'+row.ID+'"><i  class="fa-solid fa-upload" style="cursor: pointer;color:black;font-size: 8px;"></i><span style="cursor: pointer;height: 10px" >Upload Video</span></div></div><div class="subboxvid"><a href="#" style="color:black;font-size:8px;text-decoration:none; padding-top:5px;"><i class=""></i><span></span></a></div></div> <div class="trash" style="width: 100%;display: flex;align-items: center;justify-content: space-around;"><div class="subboxvid"></div></div></div></div></div>'; 
 								}else{
-									return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:30px; margin-left:85%;"><div id="editbox" style=padding: 10px 0;"><div class="subboxWr"><div class="replacevideo" style="padding: 5px 0px 5px; "><div class="subboxvid" style="cursor: pointer;" onclick="replaceVideo(this.id)" id="'+row.ID+'"><i class="fa-solid fa-upload" style="color:black;font-size: 8px;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i><span>Replace Video</span></div></div><div class="trash" style="width: 100%;display: flex;align-items: center;justify-content: space-around;"><div class="subboxvid" style="padding-top: 5px;" onclick="replaceVideo(this.id)"><a href="#" style="color:black;font-size:8px;text-decoration:none;"><i class="fas fa-trash-alt" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i><span>Remove Video</span></a></div></div></div></div></div>'; 									
+									return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:30px; margin-left:85%;"><div id="editbox" style=padding: 10px 0;"><div class="subboxWr"><div class="replacevideo" style="padding: 5px 0px 5px; "><div class="subboxvid" style="cursor: pointer;" onclick="replaceVideo(this.id)" id="'+row.ID+'"><i class="fa-solid fa-upload" style="color:black;font-size: 8px;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i><span>Replace Video</span></div></div><div class="trash" style="width: 100%;display: flex;align-items: center;justify-content: space-around;"><div class="subboxvid" onclick="removeVideo(this.id)"  id="'+row.ID+'" style="padding-top: 5px; "data-bs-toggle="modal" data-bs-target="#managepastvideodelete" ><a href="#" style="color:black;font-size:8px;text-decoration:none;"><i class="fas fa-trash-alt"></i><span>Remove Video</span></a></div></div></div></div></div>'; 									
 									//alert("Uploaded Done");								
 								}
 							
@@ -618,6 +729,45 @@ debugger;
     openDialogreplace( "https://amdocs.sharepoint.com/sites/EP/Lists/EPEvent/EditForm.aspx?ID="+id);    
     //window.location.reload();        
 }
+
+
+function removeVideo(id) {
+	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items("+id+")"
+	var item = {
+		__metadata: { 'type': 'SP.Data.EPEventListItem' },
+  		"VideoURL":" ",
+  		//"AutoPublishDate" : ""
+  	}
+	//console.log(data);
+	$.ajax({
+		url: siteUrl,
+		type: "POST",
+		async:false,
+		data: JSON.stringify(item),
+		headers: {
+				"accept": "application/json;odata=verbose",
+				"content-type": "application/json;odata=verbose",
+				"X-RequestDigest": $("#__REQUESTDIGEST").val(),
+				"IF-MATCH": "*",           
+				"X-HTTP-Method": "MERGE"
+
+		},
+		success: SuccessFunction,
+		error: ErrorFunction
+	});
+}
+
+function SuccessFunction(data) {
+//alert("test done");
+//window.location.href = 'https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManagePastEvent.aspx';
+
+}
+
+function ErrorFunction(error) {
+alert('Error!' +error.responseText);
+}
+
+
 
 function openDialogreplace(pageUrl) {
     var options = {
@@ -657,6 +807,75 @@ function openDialog(pageUrl) {
 
 /*sb start*/
 function successFuncFltr(fltrData){
+
+
+               $("#wrk").html(0);
+				$("#life").html(0);
+				$("#Enri").html(0);
+				$("#Wow").html(0);
+				$("#Connect").html(0);
+
+
+                $("#Uploaded").html(0);
+				$("#NotUploaded").html(0);
+				
+
+
+                    var Work = 0;
+					var Life = 0;
+					var Enrich = 0;
+					var WowPride = 0;
+					var ConnectCommunity = 0;
+					var NotUpload=0;
+					var Uploaded=0;
+                    
+                $("#Count").html(fltrData.length);
+				for(var i =0; i< fltrData.length; i++){
+				var Pillare = fltrData[i].Pillar;
+					if(Pillare == "Work"){
+						Work++;
+						console.log("Work"+Work);
+						$("#wrk").html(Work);
+					}else if(Pillare == "Life"){
+						Life++;
+						console.log("Life"+Life);
+						$("#life").html(Life);
+					}else if(Pillare == "Wow and pride"){
+						WowPride++;
+						console.log("WowPride"+WowPride );
+						$("#Wow").html(WowPride);
+					}else if(Pillare == "Enrich"){
+						Enrich++;
+						console.log("Enrich"+Enrich);
+						$("#Enri").html(Enrich);
+					}else if(Pillare == "Connect and Community"){
+						ConnectCommunity++;
+						console.log("ConnectCommunity"+ConnectCommunity);
+						$("#Connect").html(ConnectCommunity );					
+
+					}
+
+
+				}
+				
+				
+				
+				for(var i =0; i< fltrData.length; i++){
+				var Status= fltrData[i].VideoURL;
+					if(Status == null){
+						NotUpload++;
+						//console.log("Scheduled"+Scheduled);
+						$("#NotUploaded").html(NotUpload);
+					}else{
+						Uploaded++;
+						//console.log("Autopublished"+Upload);
+						$("#Uploaded").html(Uploaded);
+					}				//var Status;
+				}
+
+		                                              
+            
+
     log(fltrData)
     
     var today1 = new Date();
@@ -730,11 +949,11 @@ function successFuncFltr(fltrData){
                         
                         {
 							"render": function(data, type, row, meta ) {              
-							return '<h7 id="event-pillar" class="'+row.Pillar+'">'+row.Pillar+'</h7></br><h6 class="event-desc" style="font-size:11px !important;font-weight: 400 !important;height:2% !important;">'+row.Title+'</h6>'; }
+							return '<h7 id="event-pillar" class="'+row.Pillar+'2">'+row.Pillar+'</h7></br><h6 class="event-desc" style="font-size:11px !important;font-weight: 400 !important;height:2% !important;">'+row.Title+'</h6>'; }
 						},
 
                         
-  						 {"mData": "EventStartTime",
+  						 {"mData": "EventDate",
 
                             "render": function(data) {
                                      var date1 = new Date(data);
@@ -778,7 +997,7 @@ function successFuncFltr(fltrData){
 									//alert("Uploaded Not");
 									return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:30px; margin-left:85%;"><div id="editbox"><div class="subboxWr"><div class="replacevideo"><div class="subboxvid" style="padding: 10px 0px 5px; border-bottom:1px solid #000;" style="cursor: pointer;" onclick="UploadVideo(this.id)"><i  class="fa-solid fa-upload" style="cursor: pointer;color:black;font-size: 8px;" id="'+row.ID+'"></i><span style="cursor: pointer;" >Upload Video</span></div></div><div class="subboxvid"><a href="#" style="color:black;font-size:8px;text-decoration:none; padding-top:5px;"><i class=""></i><span></span></a></div></div> <div class="trash" style="width: 100%;display: flex;align-items: center;justify-content: space-around;"><div class="subboxvid"></div></div></div></div></div>'; 
 								}else{
-									return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:30px; margin-left:85%;"><div id="editbox" style=padding: 10px 0;"><div class="subboxWr"><div class="replacevideo" style="padding: 10px 0px 5px; border-bottom:1px solid #000;"><div class="subboxvid" style="cursor: pointer;" onclick="replaceVideo(this.id)"><i class="fa-solid fa-upload" style="color:black;font-size: 8px;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i><span>Replace Video</span></div></div><div class="trash" style="width: 100%;display: flex;align-items: center;justify-content: space-around;"><div class="subboxvid" style="padding-top: 5px;" onclick="replaceVideo(this.id)"><a href="#" style="color:black;font-size:8px;text-decoration:none;"><i class="fas fa-trash-alt" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i><span>Remove Video</span></a></div></div></div></div></div>'; 									
+									return '<div id="temp" onmouseover = "showEditBox(this)"><img id="threedot"  src= "../../SiteAssets/ENG-Admin/images/threedot.png" style="width:30px; margin-left:85%;"><div id="editbox" style=padding: 10px 0;"><div class="subboxWr"><div class="replacevideo" style="padding: 10px 0px 5px; border-bottom:1px solid #000;"><div class="subboxvid" style="cursor: pointer;" onclick="replaceVideo(this.id)"><i class="fa-solid fa-upload" style="color:black;font-size: 8px;" onclick="replaceVideo(this.id)" id="'+row.ID+'"></i><span>Replace Video</span></div></div><div class="trash" style="width: 100%;display: flex;align-items: center;justify-content: space-around;"><div class="subboxvid" style="padding-top: 5px; data-bs-toggle="modal" data-bs-target="#managepastvideodelete" id="'+row.ID+'"><a href="#" style="color:black;font-size:8px;text-decoration:none;"><i class="fas fa-trash-alt"></i><span>Remove Video</span></a></div></div></div></div></div>'; 									
 									//alert("Uploaded Done");								
 								}
 							
@@ -793,7 +1012,6 @@ function successFuncFltr(fltrData){
             catch (e) { 
 
         //alert(e.message); 
-
     }
 
 }/*sb end*/
@@ -831,13 +1049,4 @@ $('#Watch').on('shown.bs.modal', function () {
 })
 /* sb end */
 
-/*
-function showimg(x) {
-  var x = x.querySelector('#editbox');
-  if (x.style.display === "none") {
-    x.style.display = "flex";
-   } else {
-    x.style.display = "none";
-  }
-}*/
 

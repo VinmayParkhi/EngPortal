@@ -7,8 +7,6 @@
 	<link rel="stylesheet" href="css/Report.css">	  
         <link rel="stylesheet" href="css/create_event_2.css">
         <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">   
-       
-         <!--<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>-->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -53,7 +51,14 @@ border-bottom:none;
 table.dataTable tbody td{
 	padding:10px 3px !important;
 }
-    
+ #ReportDataTable_first{
+    display: none;
+    }
+#ReportDataTable_last{
+    display: none;
+    }
+
+  
     #temp{
 	position:relative;
 }
@@ -68,7 +73,6 @@ table.dataTable tbody td{
 	display:none;
 }
     #from-date,#to-date{
-	/*border: 1px solid #4E4E4E;*/
 	border-radius:5px;
 }
     	.ms-webpartzone-cell{
@@ -77,9 +81,6 @@ table.dataTable tbody td{
 
     #ReportDataTable > tbody > tr > td:nth-child(1){
 	opacity:0.6;
-}
-#ReportDataTable > tbody > tr > td:nth-child(3){
-	/*opacity:0.6;*/
 }
 #ReportDataTable_wrapper > div.dataTables_scroll > div.dataTables_scrollHead{
 	    overflow: hidden !important;
@@ -92,10 +93,7 @@ table.dataTable tbody td{
     width:auto ;
     height:
     }
-    /*#ui-datepicker-div{
-	left:1000px !important;
-}*/
-    #ui-datepicker-div > table{
+#ui-datepicker-div > table{
 	line-height:110% !important;
 }
   #editbox{
@@ -177,23 +175,15 @@ table.dataTable thead .sorting {
 ::-webkit-scrollbar {
   width:5px;
 }
-
-/* width */
 ::-webkit-scrollbar {
   width: 2px !important;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -232,10 +222,10 @@ table.dataTable thead th {
 	    margin-bottom: 3rem;
 	        margin-top: 2.5rem;
 }
-/*by shubham*/
+
 table.dataTable {
     width: 100%;
-     margin: 0 0; /*new change */
+     margin: 0 0; 
     clear: both;
     border-collapse: separate;
     border-spacing: 0;
@@ -248,10 +238,9 @@ table tbody tr td{
 }
 table.dataTable {
     width: 100%;
-     margin: 0;   /*new change*/
+     margin: 0;   
     }
-    /*shubham code end*/
-   #event-pillar{
+#event-pillar{
 	font-style: italic;
 }
 .calenderView input {
@@ -331,10 +320,7 @@ table thead tr th{
 .#datatable_wrapper{
 	    width: 75%;
 }
-/*.calenderView{
-	    right: 29rem;
-}*/
-	.right-left{
+.right-left{
     margin-right: 1.7rem;
         margin-left: 0;
 }
@@ -426,10 +412,6 @@ table thead tr th{
     .calenderView input { 
 	height: 3.8vh;
 }
-
-/*.calenderView{
-	    right: 6%;
-}*/
 }
 
 @media (min-width: 1366px){
@@ -469,18 +451,13 @@ table thead tr th{
 	    height: auto !important;
 }
 table.dataTable tbody td {
-   /* padding: 0px 5px;*/
-   padding: 0px 0px;			/*by shubham*/
+   padding: 0px 0px;		
 }
 #ReportDataTable_wrapper{
     width: 95.2% !important;
     height: auto;
 }
-/*.FA-1{
-    width: 91.3% !important;
-    margin-left: 3.5% !important;
-    }*/
-    .FA-1 {
+.FA-1 {
     width: 92.5%;
 }
 .hr1{
@@ -550,9 +527,6 @@ table.dataTable tbody td {
 .eventreportHeading {
     left: 2.4%;
 }
-/*.FA-1 {
-    width: 91.7% !important;
-}*/
 }
 
 @media (min-width: 1900px){
@@ -673,7 +647,7 @@ table.dataTable thead .sorting {
 	color:#FF8A72!important;
 
 }
-.WellBeing{
+.Enrich{
 	color:#A4C6F9 !important;
 
 }
@@ -687,32 +661,14 @@ table.dataTable thead .sorting {
 #ReportDataTable_length > label{
 	text-transform: capitalize;
 }
-
-/*#editbox {
-    display: none;
-    justify-content: center;
-    align-items: end;
-    height: 30px;
-    width: 67px;
-    position: relative;
-    top: -29px;
-    left: -28px;
-    background-image: url(https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/groupimg.png);
-    background-size: 100% 100%;
-}
- Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
 }
- 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #747474; 
   border-radius: 10px;
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #747474; 
 }  
@@ -721,7 +677,6 @@ table.dataTable thead .sorting {
 	background: url("../Group%2011049.png") no-repeat;
     position: fixed;
     z-index: 1;
-    /*right: 66.4rem;*/
     top: 10rem;
     height: 23rem;
     width: 24rem;
@@ -732,7 +687,6 @@ table.dataTable thead .sorting {
 	background: url("../Group%2011049.png") no-repeat;
     position: fixed;
     z-index: 2;
-    /*right: 66.4rem;*/
     height: 20rem;
     width: 22rem;
     background-size: contain;   
@@ -762,36 +716,12 @@ table.dataTable thead .sorting {
 .right-nav{
     display: flex;
     align-items: center;
-    /*margin-right: -60px;*/
 }
 .action .menu{
 	
 	    margin-right: 3rem !important;
     width: 28rem;
 }
-
-/*.multiselectLocation{
-	width: 150px;
-  position: absolute;
-  top: -40px;
-  right: 19%;
-  z-index: 111111;
-}
-.multiselectHub {
-  width: 150px;
-  position: absolute;
-  top: -40px;
-  right: 6%;
-  z-index: 111111;
-}
-
-.multiselectDepart {
-  width: 150px;
-  position: absolute;
-  top: -40px;
-  right: 32%;
-  z-index: 111111;
-}*/
 
 .selectBox {
   position: relative;
@@ -832,19 +762,7 @@ table.dataTable thead .sorting {
 #checkboxesDepart label input,#checkboxesLocation label input,#checkboxesHub label input{
 	margin-right:5px;
 } 
-
-/*.calenderView{
-	right: 6%;
-	margin-right: 51rem;
-	margin-top: -62px;
-}*/
-/*.publishBtnDiv{
-	position: absolute;
-    z-index: 9;
-    right: 8%;
-    top: 2%;
-}*/
-    </style>
+ </style>
 
 </head>
 
@@ -859,7 +777,9 @@ table.dataTable thead .sorting {
                                 <ol class="breadcrumb">
                                   <li class="breadcrumb-item">
 									<a href="https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/AdminHome.aspx">Home</a></li>
-                                  <li class="breadcrumb-item active" aria-current="page">Event Reports</li>
+                                  <li class="breadcrumb-item active" aria-current="page"><a href="https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/Report.aspx">Reports</a></li>
+                                  <li class="breadcrumb-item">
+									<a href="#">Event Reports</a></li>
                                 </ol>
                               </nav>
                         </div>
@@ -880,8 +800,8 @@ table.dataTable thead .sorting {
         <input type="checkbox" name="Hub" id="Work" value="Work"/>Work</label>
       <label for="Life">
         <input type="checkbox" name="Hub" id="Life" value="Life"/>Life</label>
-      <label for="Wellbeing">
-        <input type="checkbox" name="Hub" id="Wellbeing" value="Wellbeing"/>Wellbeing</label>
+      <label for="Enrich">
+        <input type="checkbox" name="Hub" id="Enrich" value="Enrich"/>Enrich</label>
 	  <label for="Wow and pride">
         <input type="checkbox" name="Hub" id="Wow and pride" value="Wow and pride"/>Wow and pride</label>
 	  <label for="Connect and community">
@@ -942,17 +862,14 @@ table.dataTable thead .sorting {
     <span class="calenderView">
 <img src="images/data_range_calendar.png" style="position: absolute;left: -35px;width: 18px;">
 
-            <input type="text"  id="from-date" style="margin-left: -8px;" placeholder="Start Date">
+            <input type="text"  id="from-date" style="margin-left: -8px;" autocomplete="off" placeholder="Start Date">
 
                  <span style="margin-left:4px;">to</span>
 
-            <input type="text"  id="to-date" style="margin-left: 5px;" placeholder="End Date">
+            <input type="text"  id="to-date" style="margin-left: 5px;" autocomplete="off" placeholder="End Date">
 
         </span>
-        <!-- <div class="publishBtnDiv">
-            <button name="Publish" target="_self" type="button" class="btn publishbtn publishbtn1" data-bs-toggle="modal" data-bs-target="#HomeBannerUp" id="NewSaveItem" value="">Publish</button> 
-        </div>-->
-        <div class="eventreportHeading">
+          <div class="eventreportHeading">
         	<h2 style="color: #fff; font-size: 20px;">Event Report</h2>
         </div>
         <table class="table" id="ReportDataTable" data-ordering="false" data-order='[[ 0, "asc" ]]'>
@@ -963,9 +880,8 @@ table.dataTable thead .sorting {
                     <th scope="col" style="width: 395px;">Location</th>                    
                     <th scope="col" style="width: 200px;">Department</th>
                     <th scope="col" style="width: 200px;">Responses</th>
-                    <!--<th scope="col">Status</th>-->
                     <th id="arrimg3" scope="col" style="width: 197px;">Reviews </th>
-                  	<th style="width: 286px;">Date and Time</th> <!-- style="text-align: right;" -->
+                  	<th style="width: 286px;">Date and Time</th>
                    
                 </tr>
             </thead>
@@ -1029,7 +945,6 @@ $(document).mouseup(function(e)
     var location = $("#checkboxesLocation");
     var hub = $("#checkboxesHub");
 
-    // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) 
     {
         container.css("display","none");
@@ -1037,9 +952,9 @@ $(document).mouseup(function(e)
         hub .css("display","none");
     }
 });
-
-
-
+$("#s4-workspace").scroll(function(){
+    $("#ui-datepicker-div").hide();
+})
 
 
     	</script>

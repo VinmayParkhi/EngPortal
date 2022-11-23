@@ -8,44 +8,63 @@
  var log = console.log;
  $(document).ready(function() { 
  
+  
+            $('.UpdateEventPublish').addClass("EnableBtn");  
+            $('.EditAutopublishEvent').addClass("EnableBtn");   
+            $('.Save').addClass("EnableBtn"); 
+
  
  $('#evback').click(function() {
              history.go(-1);        
     });
    
-	
+
+
  //$('#file_input').multifile();//For facilitate multi file upload 
   var url=window.location.href;
    uniquID= url.split('=')[1];
   
+    
+
+  
+  
   eventDetails(uniquID);
   $("#UpdateEvent").click(function(){
   	UpdateEventPublishdata();
-  	
+
   });
+     
+   
+   $("#okay").click(function() { 
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+   });
+
   
+   $("#okay1").click(function() { 
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+   });
+
    $("#SaveForNow").click(function(){
   	UpdateEventSavedata();
-  	
   });
   
    
   
-  $("#AutopublishEvent2").on("click", function(){
+  $("#AutopublishEvent3").on("click", function(){
 	   PubDate = $("#EventPublishDate").val();
 	   	pubTime = $("#EventPublishTime").val();
 	   	publisheventstatus =PubDate+" "+pubTime;
 	    console.log(publisheventstatus);
 	  	UpdateEventAutoPublishdata();
-     })
-      
-  
-    $("#eventtype,#evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evSpeaker,#evOrg,#evKey").on("input",function(){    	
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+     });
+   
+    $("#eventtype,#evTitle,#evDesc,#Pillar#evKey,#sEdate,.StartTime,#evLink").on("input",function(){    	
         canChangeColorEditEvent();
     });
     function canChangeColorEditEvent(){  
         var EventChange = true;  
-        $("#eventtype,#evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evSpeaker,#evOrg,#evKey").each(function(){
+        $("#eventtype,#evTitle,#evDesc,#Pillar,#evKey,#sEdate,.StartTime,#evLink").each(function(){
             if($(this).val()==''){
                 EventChange = false;
             }
@@ -53,32 +72,39 @@
         if(EventChange){
             $('.UpdateEventPublish').addClass("EnableBtn");  
             $('.EditAutopublishEvent').addClass("EnableBtn");   
-            $('#saveNow').addClass("EnableBtn"); 
+            $('#SaveForNow').addClass("EnableBtn"); 
         }else{
             $('.UpdateEventPublish').removeClass("EnableBtn");             
             $('.EditAutopublishEvent').removeClass("EnableBtn");
-            $('#saveNow').removeClass("EnableBtn");  
+            $('#SaveForNow').removeClass("EnableBtn");  
         }
      
     }
 
     
-  });
+ });
   
 function eventDetails(id){
 	eventData=getListItem('EPEvent','ID',id);
+	
   	if(eventData!=undefined){
   		eventData=JSON.parse(eventData);
   		log(eventData)
   		if(eventData.d.results.length > 0){
   			var date = moment(eventData.d.results[0].EventDate).format('DD MMM,YYYY');
-  			var StartTime = moment.utc(eventData.d.results[0].EventStartTime).format('hh:mm A');
-  			var EndTime = moment.utc(eventData.d.results[0].EventEndTime).format('hh:mm A');
+  			var Audate = moment(eventData.d.results[0].AutoPublishDateTime).format('YYYY-MM-DD');
+  			var AuTime = moment(eventData.d.results[0].AutoPublishDateTime).format('HH:MM');
+  			var StartTime = moment.utc(eventData.d.results[0].EventStartTime).format('h:mma');
+  			var EndTime = moment.utc(eventData.d.results[0].EventEndTime).format('h:mma');
   			$("#evTitle").val(eventData.d.results[0].Title);
   			$("#pillar").val(eventData.d.results[0].Pillar);
   			$("#EvType").val(eventData.d.results[0].EventType);
   			$("#evDesc").val(eventData.d.results[0].EventDescription);
   			$("#sEdate").val(date);
+  			$("#EventPublishDate").val(Audate);
+  			$("#EventPublishTime").val(AuTime);
+  			$("#AutopublishEventDate").val(Audate);
+  			$("#AutopublishEventTime").val(AuTime);
   			$("#SSTime1").val(StartTime);
   			$("#SETime1").val(EndTime);
   			$("#evLink").val(eventData.d.results[0].EventLink);
@@ -86,11 +112,29 @@ function eventDetails(id){
   			$("#evSpeaker").val(eventData.d.results[0].EventSpeakerName);
   			$("#evOrg").val(eventData.d.results[0].EventOrganizerName);
   			$("#evKey").val(eventData.d.results[0].EventKeywords);
-  			//var image = "https://amdocs.sharepoint.com/"+ eventData.d.results[0].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl;
-  			//$("#imageID").attr("src",image)  			
   			
-  			//ImageUrl = _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$"+ id +"&$select=Attachments&$expand=AttachmentFiles";
+  			//var image = "https://amdocs.sharepoint.com/"+ eventData.d.results[0].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl;
+  			
+  			var evtypesdata = eventData.d.results[0].EventType;
+			
+			if (evtypesdata == "Online"){
+//alert("Online");
+$(".locationDiv").addClass("d-none");
+$(".evlinke").addClass("col-lg-4");
+$(".speakere").addClass("col-lg-4");
+$(".organizere").addClass("col-lg-4");
+$(".evlinke").removeAttr("style");
+$(".opte").addClass("d-none");
 
+}else{
+$(".locationDiv").removeClass("d-none");
+$(".evlinke").removeClass("col-lg-4");
+$(".speakere").removeClass("col-lg-4");
+$(".organizere").removeClass("col-lg-4");
+$(".evlinke").css({'display':'none'});
+$(".opte").removeClass("d-none");
+}
+	   	
             /* sb start for fteching image*/
             
             $.ajax({
@@ -109,8 +153,8 @@ function eventDetails(id){
 		      });
 		
 		    /* sb end */
- //console.log("ImageURL: "+ImageUrl )
   			//get current attachment url and pass it to global variable
+  			
   		}
   	}
   	
@@ -251,8 +295,9 @@ function UpdateEventPublishdata(){
 	});
 	function OnSuccess(data){
 		if(fileArray.length > 0){
-			AddAttachments(uniquID);
+			checkFileExists(uniquID);
 		}
+		
 		//alert("Sucessfully updated");
 	}
 
@@ -313,7 +358,8 @@ function UpdateEventPublishdata(){
 		"EventSpeakerName":evspname,
 		"EventOrganizerName":evorg,
 		"EventKeywords":evkey,
-		"EventStatus": Status,	
+		//"EventStatus": Status,
+		"EventStatus": "Autopublish",	
 		"EventLocation": evLoc,
 		"AutoPublishDateTime": AutoPublishDate
 		
@@ -335,7 +381,7 @@ function UpdateEventPublishdata(){
 	});
 	function OnSuccess(data){
 		if(fileArray.length > 0){
-			AddAttachments(uniquID);
+			checkFileExists(uniquID);
 		}
 		//alert("Sucessfully updated");
 	}
@@ -407,9 +453,13 @@ function UpdateEventSavedata(){
 	});
 	function OnSuccess(data){
 		if(fileArray.length > 0){
-			AddAttachments(uniquID);
+		  checkFileExists(uniquID);
 		}
 		//alert("Sucessfully updated");
+		 $("#AutopublishEvent2").click(function() { 
+    	window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+   });
+
 	}
 
     function OnError(data){
@@ -419,19 +469,17 @@ function UpdateEventSavedata(){
 
   
   /**********************************************************************************************************************************************/
-  
-  
-function checkFileExists(){
+    
+function checkFileExists(id){
 var sitecollectionurl=_spPageContextInfo.webAbsoluteUrl;
     $.ajax({
-            //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/getFileByServerRelativeUrl('/"+sitecollectionurl+"'/Lists/CreateEve/Attachments/"+ id +"/test.txt')",
-        	url:ImageUrl, 
+        	url:  _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPEvent')/items(" + id + ")/AttachmentFiles",  
 			method: "GET",            
             headers: { "Accept": "application/json; odata=verbose" },
             success: function (data) {
-                if(data.d.Exists){  
+                if(data.d.results[0].ServerRelativeUrl){  
             //delete file if it already exists
-                    DeleteFile();
+                    DeleteFile(data.d.results[0].ServerRelativeUrl);
                 }
             },
             error: function (data) {
@@ -440,10 +488,9 @@ var sitecollectionurl=_spPageContextInfo.webAbsoluteUrl;
             }
       });
 }
-function DeleteFile(){
+function DeleteFile(imgURl){
     $.ajax({
-      url: ImageUrl,
-      //url: "https://sitecollectionurl/_api/web/getFileByServerRelativeUrl('/sitecollectionurl/Lists/Test/Attachments/1/test.txt')",
+      url:  _spPageContextInfo.webAbsoluteUrl + "/_api/web/getFileByServerRelativeUrl('"+imgURl+"')",
       method: 'DELETE',
       headers: {
         'X-RequestDigest': document.getElementById("__REQUESTDIGEST").value

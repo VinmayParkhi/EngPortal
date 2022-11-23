@@ -8,9 +8,7 @@
         <link rel="stylesheet" href="css/create_event_2.css">
         <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">   
 
-       
-         <!--<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>-->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+       <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -39,7 +37,6 @@
 	display:none;
 }
     #from-date,#to-date{
-	/*border: 1px solid #4E4E4E;*/
 	border-radius:5px;
 }
     	.ms-webpartzone-cell{
@@ -50,7 +47,6 @@
 	;
 }
 #datatable11 > tbody > tr > td:nth-child(3){
-	/*opacity:0.6;*/
 }
 .dataTables_length{
 	    margin-top: -1.6rem;
@@ -60,15 +56,11 @@
     width:auto ;
     height:
     }
-    /*#ui-datepicker-div{
-	left:1000px !important;
-}*/
     #ui-datepicker-div > table{
-/*	line-height:110% !important;*/
 line-height:91% !important;
 }
   #editbox{
-	width:59% !important;
+	width:76% !important;
 }
 
     .cm_calendar{
@@ -101,7 +93,6 @@ table.dataTable thead .sorting {
 }
 
 .event-desc{
-	/*max-width: 300px;*/
     -webkit-line-clamp: 2;
     padding: 0px;
     -webkit-box-orient: vertical;
@@ -131,19 +122,19 @@ table.dataTable thead .sorting {
 
 
 
-.Published{
+.Published2{
 	color:#AFAFAF!important;
 
 }
-.Autopublish{
-	color:#FF706B!important;
+.Autopublish2{
+	color:#FF706B;
 
 }
-.Draft{
-	color:#EC9A2E!important;
+.Draft2{
+	color:#EC9A2E;
 
 }
-.Completed{
+.Completed2{
 	color:#71BC4C!important;
 }
 
@@ -151,22 +142,18 @@ table.dataTable thead .sorting {
   width:5px;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 2px !important;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -186,9 +173,6 @@ table.dataTable thead th {
 .profile h4{
 	margin-left:0px;
 }
-/*#threedot {
-    margin-left: 43% !important;
-}*/
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
     background: #FF3D97;
 }
@@ -205,9 +189,6 @@ table.dataTable thead th {
 	    margin-bottom: 3rem;
 	        margin-top: 2.5rem;
 }
-
-
-/*by shubham*/
 
 table.dataTable {
     width: 100%;
@@ -229,10 +210,9 @@ table tbody tr td{
 
 table.dataTable {
     width: 100%;
-     margin: 0;   /*new change*/
+     margin: 0;
     }
-    /*shubham code end*/
-   #event-pillar{
+ #event-pillar{
 	font-style: italic;
 }
 .calenderView input {
@@ -253,7 +233,6 @@ border: solid 1px transparent;
 #arrimg img,
 #arrimg2{
   transition: transform .5s ease-in-out;
-  /*width:15px;*/
 }
 #arrimg img.rotateImg, #arrimg2 img:rotateImg{
   transform: rotate(180deg);
@@ -276,7 +255,7 @@ table thead tr th{
 #editbox{
 	
 	display:none;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: end;
 	height: 30px;
 	position: absolute;
@@ -286,9 +265,9 @@ table thead tr th{
 	background-size:100% 100%;
 	right: 3rem;
 }
-#editbox > a.me-3{
+/*#editbox > a.me-3{
 	    margin-left: 2rem;
-}
+}*/
 .sidebar{
 	  }
  @media(min-width:992px)and (max-width: 1200px){
@@ -302,9 +281,6 @@ table thead tr th{
 .#datatable_wrapper{
 	    width: 75%;
 }
-/*.calenderView{
-	    right: 29rem;
-}*/
 	.right-left{
     margin-right: 1.7rem;
         margin-left: 0;
@@ -316,11 +292,18 @@ table thead tr th{
 	    margin-left: 3.4% !important;
     width: 93.1%;
 }
+#editbox div{
+	font-size: 9px !important;
+}
 }
 @media (min-width:1100px){
 	.FA-1{
 	    width: 93.6%;
 }
+#editbox{
+	width: 11rem !important;
+}
+
 }
 @media (min-width:1200px) {
     .sidebar{
@@ -358,12 +341,12 @@ table thead tr th{
 #datatable11{
 	width:99% !important;
 }
-/*#threedot {
-    margin-left: 65% !important;
-}*/
 .calenderView{
 	    right: 6%;
 }
+
+
+
 }
 
 @media(min-width:1400px) {
@@ -375,18 +358,12 @@ table thead tr th{
 .right-left {
     margin-right: 4.5%;
 }
-/*.hr1{
-	height: 1px;
-	width: 93% !important;
-    margin-left: 2.5% !important;
-    }*/
 .sidebar{
    	  margin-left: 39px;
 	    height: auto !important;
 }
 table.dataTable tbody td {
-   /* padding: 0px 5px;*/
-   padding: 0px 0px;			/*by shubham*/
+    padding: 0px 0px;
 
 }
 
@@ -416,9 +393,6 @@ table.dataTable tbody td {
 .right-left {
     margin-right: 4%;
 }
-/*#threedot {
-    margin-left: 69% !important;
-}*/
 .FA-1 {
     width: 93.4% !important;
 }
@@ -540,32 +514,16 @@ table.dataTable thead .sorting {
 #datatable11_length > label{
 	text-transform: capitalize;
 }
-
-/*#editbox {
-    display: none;
-    justify-content: center;
-    align-items: end;
-    height: 30px;
-    width: 67px;
-    position: relative;
-    top: -29px;
-    left: -28px;
-    background-image: url(Images/groupimg.png);
-    background-size: 100% 100%;
-}
- Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #747474; 
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #747474; 
 }  
@@ -574,7 +532,6 @@ table.dataTable thead .sorting {
 	background: url("Images/MicrosoftTeams-image%20(3)%20(1).png") no-repeat;
     position: fixed;
     z-index: 1;
-    /*right: 66.4rem;*/
     top: 10rem;
     height: 23rem;
     width: 24rem;
@@ -585,7 +542,6 @@ table.dataTable thead .sorting {
 	background: url("Images/MicrosoftTeams-image%20(3)%20(1).png") no-repeat;
     position: fixed;
     z-index: 2;
-    /*right: 66.4rem;*/
     height: 20rem;
     width: 22rem;
     background-size: contain;   
@@ -596,6 +552,7 @@ table.dataTable thead .sorting {
   	list-style-type: none;
     color: black;
     position: relative;
+        text-align: left;
    }
 #ulimg li{
 	margin-bottom:4px;
@@ -620,8 +577,7 @@ table.dataTable thead .sorting {
 
 
 
-<!-- POPup -->
-
+/*POPup*/
 .popup, .statuspopup {
   position: relative;
   display: inline-block;
@@ -740,11 +696,11 @@ display:none !Important;
     <span class="calenderView">
 <img src="Images/data_range_calendar.png" style="position: absolute;left: -35px;width: 18px;">
 
-            <input type="text"  id="from-date" style="margin-left: -8px;" placeholder="Start Date">
+            <input type="text"  id="from-date" style="margin-left: -8px;" placeholder="Start Date" autocomplete="off">
 
             to
 
-            <input type="text"  id="to-date" style="margin-left: 5px;" placeholder="End Date">
+            <input type="text"  id="to-date" style="margin-left: 5px;" placeholder="End Date" autocomplete="off">
 
         </span>
         <table class="table" id="datatable11" data-ordering="false">
@@ -775,7 +731,7 @@ display:none !Important;
                    			Wow and pride( <span Id="wowid">0</span> )
                    		</li>
                    		<li style="cursor:pointer;" id="connectidLi">
-                   			Connect and Community( <span Id="connectid">0</span> )
+                   			Connect and community( <span Id="connectid">0</span> )
                    		</li>
                    		
                     </ul>
@@ -804,7 +760,7 @@ display:none !Important;
                    			Wow and pride( <span Id="wowid">0</span> )
                    		</li>
                    		<li style="cursor:pointer;" id="connectidLi">
-                   			Connect and Community( <span Id="connectid">0</span> )
+                   			Connect and community( <span Id="connectid">0</span> )
                    		</li>
                    		
                     </ul>
@@ -821,19 +777,19 @@ display:none !Important;
 					
 					<ul id="ulimg">
                     	<li style="cursor:pointer;" id="AllCountLi">
-                    		All Events( <span id="AllCount">0</span> )
+                    		All Events(<span id="AllCount">0</span>)
                    		</li>
-                   		<li style="cursor:pointer;" id="PublishedLi">
-                   			Published( <span id="Published">0</span> )
+                   		<li style="cursor:pointer;" id="PublishedLi" class="Published">
+                   			Published(<span id="Published">0</span>)
                    		</li>
-                   		<li style="cursor:pointer;" id="autopublishedLi">
-                   			Auto-published( <span id="autopublished">0</span> )
+                   		<li style="cursor:pointer;" id="autopublishedLi" class="Autopublished">
+                   			Autopublished(<span id="autopublished">0</span>)
                    		</li>
-                   		<li style="cursor:pointer;" id="DraftLi">
-                   			Draft( <span id="Draft">0</span> )
+                   		<li style="cursor:pointer;" id="DraftLi" class="Draft">
+                   			Draft(<span id="Draft">0</span>)
                    		</li>
-                   		<li style="cursor:pointer;" id="CompletedLi">
-                   			Completed( <span id="Completed">0</span> )
+                   		<li style="cursor:pointer;" id="CompletedLi" class="Completed">
+                   			Completed(<span id="Completed">0</span>)
                    		</li>
                     </ul>
 
@@ -845,19 +801,19 @@ display:none !Important;
                     <div id="myImg2">
                     <ul id="ulimg">
                     	<li style="cursor:pointer;" id="AllCountLi">
-                    		All Events( <span id="AllCount">0</span> )
+                    		All Events(<span id="AllCount">0</span>)
                    		</li>
                    		<li style="cursor:pointer;" id="PublishedLi">
-                   			Published( <span id="Published">0</span> )
+                   			Published(<span id="Published">0</span>)
                    		</li>
                    		<li style="cursor:pointer;" id="autopublishedLi">
-                   			Auto-published( <span id="autopublished">0</span> )
+                   			Auto-published(<span id="autopublished">0</span>)
                    		</li>
                    		<li style="cursor:pointer;" id="DraftLi">
-                   			Draft( <span id="Draft">0</span> )
+                   			Draft(<span id="Draft">0</span>)
                    		</li>
-                   		<li style="cursor:pointer;" id="CompletedLi">
-                   			Completed( <span id="Completed">0</span> )
+                   		<li style="cursor:pointer;" id="CompletedLi" >
+                   			Completed(<span id="Completed">0</span>)
                    		</li>
                     </ul>
                     </div>
@@ -887,7 +843,6 @@ display:none !Important;
                       <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
                         <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
                             <span class="me-2"><img src="images/Icon%20metro-bin-small.png" alt="img" style="width:22px;"></span><p class="modal-title" id="DeleteModal" style="margin:0px;">Event Delete Successfully </p>
-                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
                         </div>
                         <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">
@@ -902,16 +857,7 @@ display:none !Important;
                     </div>
 </div>
     
-     
-    <!-- Modal popup for delete button End-->
-    
-    
-    
-    
-    
-  <!-- Modal popup for delete button End 1 st pop-up -->
-   
-     <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Modal header</h3>
@@ -925,7 +871,6 @@ display:none !Important;
                       <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
                         <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
                             <span class="me-2"><img src="images/Icon%20metro-bin-small.png" alt="img" style="width:22px;"></span><p class="modal-title" id="DeleteModal1" style="margin:0px;">Event Delete Successfully </p>
-                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
                         </div>
                         <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">

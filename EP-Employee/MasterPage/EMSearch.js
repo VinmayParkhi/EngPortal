@@ -1,24 +1,24 @@
 var log = console.log;
+var Timer;
 $(document).ready(function(){
-  
-
 $('#searchTxt').on('keyup', function () {
      var allDiv = document.querySelectorAll('#ttr');
      
      for(var x=0;x<allDiv.length;x++){
           allDiv[x].remove();
      };
-      var txt = $(this).val();
-    log(txt.length);
-  
-       searchedData(txt);
-   
+
+ 	   clearTimeout(Timer);
+       Timer = setTimeout(SendInput, 1000);
   }); 
+function SendInput(){
+      var txt = $('#searchTxt').val();
+   	  log(txt.length);
+    
+      searchedData(txt);
+}
 });
-
-
 function  searchedData(txt){
-
 if(txt.length > 0){
 $("#searchedData").css({'display':'block'});
 $.ajax({
@@ -32,12 +32,7 @@ $.ajax({
            
         success: function (data) {
            var res = data.d.results;
-        log(data);
-        
-        //for(var t=0;t<res.length;t++){
-         var filtrDt = [];
-             
-             
+           var filtrDt = [];
              for(var i=0;i<res.length;i++){
             log(typeof res[i].Pillar)
                 if((String(res[i].Pillar)).includes(txt) || (String(res[i].Title)).includes(txt) || (String(res[i].EventKeywords)).includes(txt)){
@@ -45,11 +40,6 @@ $.ajax({
                    filtrDt.push(res[i])
                 }
            }
-             //var pillar = res[t].Pillar;
-             //var evntTitle = res[t].Title;
-             //var evntDesc = res[t].EventDescription;
-
-             log(filtrDt)
            
              for(var x=0;x<filtrDt.length;x++){
                  var pillar = filtrDt[x].Pillar;
@@ -69,32 +59,11 @@ $.ajax({
                  
                  $("#searchedData").append('<a href="https://amdocs.sharepoint.com/sites/EP/SitePages/EPEmployee/EventDetails.aspx?EventID='+evntId+'" style="margin-bottom:10px;" <div id="ttr"><div class="evntCard" style="background:#000000a8;border-radius:10px;position:relative;width:100%;padding:10px;color:#fff;margin-bottom:10px;"><img src="'+imgURL+'" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;z-index:-1;">'+
                  '<div class="evPillar" style="display:flex;justify-content:space-between;margin-bottom:20px;"><p id="evntDt">'+evntDtNew+'</p><p id="EventDt">'+pillar+'</p></div><p id="evntTitle" style="font-size:13px;font-weight:500;margin-bottom:0;">'+evntTitle+'</p><p id="eventKeyword" style="margin-bottom:0;">'+eventKeyword+'</p></div></div></a>');
-
-                 
-             
-             /*if(pillar == 'Connect and community'){
-                    var pillar2 = 'ConnectAndCommunity';
-                    $("#searchedData").append('<a href="https://amdocs.sharepoint.com/sites/RNTENG/SitePages/Employee/'+pillar2+'.aspx" target="_blank" <div style="margin-bottom:10px" id="ttr"><div class="evntCard" style="background:#000000a8;border-radius:10px;position:relative;width:100%;padding:15px;color:#fff;"><img src="'+imgURL+'" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;z-index:-1;">'+
-                 '<div class="evPillar" style="display:flex;justify-content:space-between;margin-bottom:40px;"><p id="evntDt">'+evntDtNew+'</p><p id="EventDt">'+pillar+'</p></div><p id="evntTitle" style="font-size:13px;font-weight:500;">'+evntTitle+'</p><p id="eventKeyword" style="margin-bottom:0;">'+eventKeyword+'</p></div></div></a>');
-                 }else if(pillar == 'Wow and Pride'){
-                    var pillar3 = 'WowAndPride';
-                    $("#searchedData").append('<a href="https://amdocs.sharepoint.com/sites/RNTENG/SitePages/Employee/'+pillar3+'.aspx" target="_blank" <div style="margin-bottom:10px" id="ttr"><div class="evntCard" style="background:#000000a8;border-radius:10px;position:relative;width:100%;padding:15px;color:#fff;"><img src="'+imgURL+'" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;z-index:-1;">'+
-                 '<div class="evPillar" style="display:flex;justify-content:space-between;margin-bottom:40px;"><p id="evntDt">'+evntDtNew+'</p><p id="EventDt">'+pillar+'</p></div><p id="evntTitle" style="font-size:13px;font-weight:500;">'+evntTitle+'</p><p id="eventKeyword" style="margin-bottom:0;">'+eventKeyword+'</p></div></div></a>');
-                 }else{
-                    $("#searchedData").append('<a href="https://amdocs.sharepoint.com/sites/RNTENG/SitePages/Employee/EmpEventDetails.aspx?EventID='+evntId+'" target="_blank" <div style="margin-bottom:10px" id="ttr"><div class="evntCard" style="background:#000000a8;border-radius:10px;position:relative;width:100%;padding:15px;color:#fff;"><img src="'+imgURL+'" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;z-index:-1;">'+
-                 '<div class="evPillar" style="display:flex;justify-content:space-between;margin-bottom:40px;"><p id="evntDt">'+evntDtNew+'</p><p id="EventDt">'+pillar+'</p></div><p id="evntTitle" style="font-size:13px;font-weight:500;">'+evntTitle+'</p><p id="eventKeyword" style="margin-bottom:0;">'+eventKeyword+'</p></div></div></a>');
-                 };
-             
-             }*/
-              /*$("#searchedData").append('<a href="https://amdocs.sharepoint.com/sites/RNTENG/SitePages/Employee/'+pillar2+'.aspx" <div style="margin:10px" id="ttr"><div class="evntCard" style="background:#000000a8;border-radius:10px;position:relative;width:100%;padding:15px;color:#fff;"><img src="'+imgURL+'" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:10px;z-index:-1;">'+
-                 '<div class="evPillar" style="display:flex;justify-content:space-between;margin-bottom:40px;"><p id="evntDt">'+evntDtNew+'</p><p id="EventDt">'+pillar+'</p></div><p id="evntTitle" style="font-size:13px;font-weight:500;">'+evntTitle+'</p><p id="eventKeyword" style="margin-bottom:0;">'+eventKeyword+'</p></div></div></a>');*/       
+                     
          }
-      
         }
       });
       }else{
       $("#searchedData").css({'display':'none'});
-      };
-      
-      
+      };   
 };

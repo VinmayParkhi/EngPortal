@@ -53,8 +53,6 @@
  $.ajax
     ({
         
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('List Name')/items(" + Itemid + ")/AttachmentFiles",
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('Admin-HubList')/items?$select=Text,Image",
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPTile')/items",
         method: "GET",
         headers:
@@ -295,8 +293,6 @@ function onQueryFailed(sender, args) {
  getPillar();
  
  
- //alert("Uploaded");
- //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
 
  
  },

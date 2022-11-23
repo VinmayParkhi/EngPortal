@@ -29,7 +29,9 @@
 	 <script type="text/javascript" src= "js/ContactUs.js"></script>
 
         <style>
-        
+        a {
+        text-decoration:none !important;
+        }
         
         .form-control:focus{
 	
@@ -38,7 +40,6 @@
 		
 		
 		a:hover {
-    color: transparent !important;
 }
         
         .contact{
@@ -74,11 +75,7 @@
         .calendarWidth{
 		    width: 96% !important;
     margin: 0px 35px;
-    }
-    /*.content{	
-		width:auto !important;
-	}*/
-	
+    }	
 	
 	.content{
 	
@@ -103,26 +100,13 @@
 .content .contactWr {
    width: 100%;
   
-    /* height: 130vh; 
-    min-height: 90vh;
-    background-color: var(--black-color);
-    border-radius: 1.5rem;
-    display: flex;
-    justify-content: center;*/
 }
 
 .content .contactWr .mainContact {
 	padding: 0;
-   /* width: 100%;
-      height: 61vh;
-    display: flex;
-    margin-top: 3.5rem;
-     border: 1px solid red; */
 }
 
 .content .contactWr .mainContact .contactFormWr {
-    /* width: 70%; */
-    /* border: 1px solid red; */
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
@@ -132,7 +116,6 @@
 
 .content .contactWr .mainContact .contactFormWr .contactForm {
     width: 95%;
-	/*height: 52vh;*/
     height: auto;
     border-radius: 1.5rem;
     background-color: #232323;
@@ -141,21 +124,17 @@
     justify-content: center;
     align-items: center;
     padding: 2rem 0;
-    /* border: 1px solid red; */
 }
 
 .contactForm .cntfrm{
 	width: 90%;
 }
 .content .contactWr .mainContact .connectOptions {
-    /*width: 30%;
-    height: 100%;*/
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     padding: 0;
-    /* border: 1px solid red; */
 }
 
 .content .contactWr .mainContact .connectOptions .connectTeams{
@@ -169,7 +148,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* border: 1px solid red; */
 }
 
 .content .contactWr .mainContact .connectOptions .connectEmail {
@@ -183,15 +161,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* border: 1px solid red; */
 }
 
 .content .contactWr .mainContact .connectOptions .or {
-	/*background-image: url(https://amdocs.sharepoint.com/sites/RNTENG/SiteAssets/EngEmployee/images/OR_img.png);
-	background-repeat: no-repeat;
-	color: #fff;*/
     width: 92%;
-    /*height: 5rem;*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,19 +173,6 @@
 .content .contactWr .mainContact .connectOptions .or img{	
 	width: 100%;
 }
-
-/*.content .contactWr .mainContact .connectOptions .connectTeams .connectLink,
-.content .contactWr .mainContact .connectOptions .connectEmail .connectLink {
-    width: 25%;
-    height: 45%;
-    border-radius: 50%;
-    background: linear-gradient(83deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 1rem;
-     border: 1px solid red; 
-}*/
 
 .content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
 .content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle{
@@ -329,10 +289,6 @@
     color: #E5E8E9;
     margin-top: -2rem;
     margin-bottom: 0.4rem;
-    /* width: 22%;
-    background: linear-gradient(90deg, #DE8601 0%, #FF3D97 100%) 0% 0%;
-    border-radius: 0.313rem;
-    color: #E5E8E9; */
 }
 
 #category {
@@ -363,10 +319,6 @@ textarea::placeholder {
 /* ends Contact css */    
 
 @media (min-width: 390px){
-	/*.content .contactWr .mainContact .connectOptions .connectTeams .connectLink,
-	.content .contactWr .mainContact .connectOptions .connectEmail .connectLink{
-	height: 47%;
-}*/
 .content .contactWr .mainContact .connectOptions .connectTeams .connectLink .bg_circle,
 .content .contactWr .mainContact .connectOptions .connectEmail .connectLink .bg_circle{
     margin-bottom: 1rem;
@@ -381,7 +333,6 @@ textarea::placeholder {
     width: 92% !important;
 }
         .content{
-        /*width: 96%;*/
 	margin-left: 2rem;
 }
     .contactHeading h5 {
@@ -390,14 +341,9 @@ textarea::placeholder {
     .content .cntHeading h3 {
     margin-left: 0.6rem;
 }
-/*.contactForm .cntfrm{
-	width: 90%;
-}*/
 
     .content .contactWr {
         width: 100%;
-        /*min-height: 70vh;
-        min-height: 122vh;*/
         background-color: #000;
         border-radius: 1.5rem;
         display: flex;
@@ -406,17 +352,9 @@ textarea::placeholder {
      }
      .content .contactWr .mainContact {
         width: 95%;
-        /*height: 61vh;
-        padding: 20px 0 466px;*/
         display: flex;
-        /*padding: 20px 0;*/
+
      }     
-     /*.content .contactWr .mainContact .connectOptions{
-        height: 79vh;
-     }
-     .content .contactWr .mainContact .connectOptions .or{
-        height: 1.5vh;
-     }*/
      .contactForm input,
      #category {
         height: 4rem;
@@ -450,15 +388,11 @@ textarea::placeholder {
     	left: 1.8rem;
 	}
     .submit-button {
-        /*height: 5vh;
-        margin-top: 0;
-        font-size: 1.7rem;*/
         border-radius: 0.8rem;        
         
     }
     .content .contactWr .mainContact .contactFormWr .contactForm{
         width: 96%;
-        /*height: 56vh;*/
         padding: 2rem 0;
         border-radius: 2rem;
     }
@@ -522,7 +456,6 @@ footer {
 
 @media (min-width: 1024px){
     .content .contactWr .mainContact .connectOptions {
-        /*justify-content: normal !important;*/
         height: auto;
     }
     .content .contactWr .mainContact .contactFormWr{
@@ -533,12 +466,10 @@ footer {
         height: auto;
     }
     .submit-button {
-        /*height: 6vh;*/
         font-size: 1.6rem;
     }
     .content .contactWr .mainContact .connectOptions .connectTeams,
     .content .contactWr .mainContact .connectOptions .connectEmail {
-       /* height: 30vh;*/
         border-radius: 2.5rem;
     }
     .content .contactWr .mainContact .connectOptions .connectTeams{
@@ -567,7 +498,6 @@ footer {
         height: 15rem;
     }
     .submit-button {
-       /* height: 5vh;*/
         font-size: 1.3rem;
     }
     .content .contactWr .mainContact .connectOptions .connectEmail .reachText small {
@@ -639,12 +569,7 @@ footer {
     min-height: 0vh !important;
 }
 
-
-
 }
-
-
-
 
 @media (min-width: 359px) and (max-width: 767px){
 	
@@ -654,10 +579,6 @@ footer {
 
 	
 }
-
-
-
-
         
         /* ends Contact css */
     </style>
@@ -786,7 +707,6 @@ footer {
     				GetUserName();
 		});
         
-        
                 function GetUserName(){
                 	var requesturl = "https://amdocs.sharepoint.com/_api/SP.UserProfiles.PeopleManager/GetMyProperties";
                 	$.ajax({      
@@ -798,9 +718,7 @@ footer {
                       async: false,      
                       success: function(data) { 
 	                      console.log(data);
-						  $("#MemberName").val(data.d.DisplayName);
-
-						  							 
+						  $("#MemberName").val(data.d.DisplayName); 							 
 						 
                      },      
                      error: function(error) {      

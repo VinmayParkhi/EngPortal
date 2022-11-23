@@ -34,7 +34,6 @@ $(document).ready(function() {
     
      $.ajax({
         
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('List Name')/items(" + Itemid + ")/AttachmentFiles",
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Attachments,Pillar,Title,EventDescription,EventDate,VideoURL&$expand=AttachmentFiles&$orderby=Created desc",
         method: "GET",
         headers:
@@ -67,14 +66,11 @@ $(document).ready(function() {
            log(pill)
            log(title)
                 if(allResults[k].Pillar === pill && allResults[k].Title === title){
-                   //allPastEveCards[x].querySelector("#popuprateh5").innerText = '123'
                    
                    let pastCards = [];
                    pastCards.push(allPastEveCards[x])
                    allResId.push(allResults[k].ID);
-                   setAverageRating(pastCards,allResId)
-
-                   
+                   setAverageRating(pastCards,allResId) 
                 }
              }
         }
@@ -87,8 +83,6 @@ $(document).ready(function() {
     var userId = _spPageContextInfo.userId;
        $.ajax({
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,Title,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
-
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -100,12 +94,8 @@ $(document).ready(function() {
             log(results);
             log(results.length > 0)
             if(results.length > 0){
-              //$("#heartImg").attr("src","../../SiteAssets/ENGEmployee/images/Group 3212.svg");
-              
+                            
               let a = document.querySelectorAll('.pstvideoImg1');
-              //let a = document.querySelectorAll('.upcomingeventsImg');
-              
-              log(a);
               for(var j=0;j<results.length;j++){
               
               var id = results[j].EventID;
@@ -167,24 +157,17 @@ $(document).ready(function() {
             console.log(dataresults);
                 if(data.d.results.length > 0){
                 var EventIDs = data.d.results[0].ID;
-                    alert("already Exist")
                     UpdateRating(EventIDs,getReviewText,starRating)
                 }else{
-                    alert("Create New");
                  if(starRating === 0 && (getReviewText === '' || null)){
                  
                  }else{
                      createListItem();
                  }
-                       //alert("Create New");
                 }
             }
      });    
 });
-
-
-
-
 
 function UpdateRating(id,ReviewText,starRating) {
     var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPRating')/items("+id+")"
@@ -207,39 +190,19 @@ function UpdateRating(id,ReviewText,starRating) {
                 "X-RequestDigest": $("#__REQUESTDIGEST").val(),
                 "IF-MATCH": "*",           
                 "X-HTTP-Method": "MERGE"
-
-
-
        },
         success: SuccessFunction1,
         error: ErrorFunction
     });
 }
-    
-    
-    
+       
 function SuccessFunction1(data) {
-    alert("test done");
 
 }
 
 function ErrorFunction(error) {
 
 }
-     /*   
-        $(".submitBtn").on('click',function () {        
-         getReviewText = document.querySelector('div.reviewBox > div.reviewTextarea > textarea').value;
-         
-         if(starRating === 0 && (getReviewText === '' || null)){
-             //alert('Please rate an Event');
-         }else{
-         //getEPlistData();
-         createListItem();
-         }
-        
-        });
-        
-        */
         
         $(".reviewPopup").on('click',function (event) { 
             
@@ -325,9 +288,7 @@ function addZero(i) {
 }
 
 function getTitleName(EvTitle) {
-  //alert("Test");
   var reminderTitle = document.getElementById('eventTitle').value = EvTitle;
-  //var remindeDesc = document.getElementById('eventTitle').value = EventTitle;
   var remindCheck = document.getElementById('remindChecked');
   
 
@@ -379,7 +340,6 @@ function GetUpcomingEvents() {
  	var today= moment().format('YYYY-MM-DDTHH:mm:SS');
  	var fmDate;
  	var toDate;
- 	//today = moment(today).toISOString();
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,AttachmentFiles,EventLink,Attachments,Pillar,Title,EventDescription,EventDate,EventStartTime,EventEndTime,VideoURL&$expand=AttachmentFiles&$filter=(Pillar eq 'Life') and (EventStatus eq 'Published') and (EventEndTime ge '"+today+"')&$orderby=EventDate asc",
         method: "GET",
@@ -392,19 +352,14 @@ function GetUpcomingEvents() {
             dataresults = data.d.results;
             console.log(dataresults);
             for (var i = 0; i < 3; i++) {
-               EventDates = moment(data.d.results[i].EventDate).format('DD MMM,YYYY');  
-               //EventDates = moment(data.d.results[i].EventDate).format('YYYY-MM-DD');              
+               EventDates = moment(data.d.results[i].EventDate).format('DD MMM,YYYY');               
                EventStartTime = moment.utc(data.d.results[i].EventStartTime).format('hh:mm a');
                EventEndTime = data.d.results[i].EventEndTime;         
                var EventId = data.d.results[i].ID;
                var EventLink = data.d.results[i].EventLink;
                pillar = data.d.results[i].Pillar;
                var EventTitle = data.d.results[i].Title;               
-               var EventDescription = data.d.results[i].EventDescription;
-               //AverageRating  = data.d.results[i].AverageRating; 
-               //console.log(EventTime);
-               //console.log(EventEndTime);
-        
+               var EventDescription = data.d.results[i].EventDescription;        
 			   var utcDate = new Date(EventStartTime);
 			   var hr = addZero(utcDate.getHours());
 			   var min = addZero(utcDate.getMinutes());				
@@ -450,10 +405,7 @@ function GetUpcomingEvents() {
 			   	imageURL = data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl
 		     
                VideoURLs = data.d.results[i].VideoURL;
-               	 //document.getElementById('VideoURL').setAttribute("src","VideoURLs");
-               	$('iframe').attr("src",VideoURLs);
-				$("#popupEVTitle").html(EventTitle);				
-				$("#popupEVDesc").html(EventDescription);
+               	
 
                  var a =   "https://amdocs.sharepoint.com/" + data.d.results[i].AttachmentFiles.results[0].ServerRelativeUrl; 
                       
@@ -476,9 +428,7 @@ function GetUpcomingEvents() {
     });
 }
 function ShareEvent(id){
-	//openDialog(currsite+'/_layouts/15/aclinv.aspx?GroupId='+CurrGroupId);
-	openDialog("https://amdocs.sharepoint.com/sites/EP/Lists/EPEventShare/NewForm.aspx?EventID="+id);	
-    //window.location.reload();		
+	openDialog("https://amdocs.sharepoint.com/sites/EP/Lists/EPEventShare/NewForm.aspx?EventID="+id);		
 }
 
 function openDialog(pageUrl) {
@@ -509,15 +459,13 @@ function GetPastEvents() {
             var dataresults = data.d.results;
             for (var i = 0; i < 3; i++) {
                EventDates = moment(data.d.results[i].EventDate).format('YYYY-MM-DD');               
-               //EventFullDates = moment(data.d.results[i].EventDate).format('DD MMMM, YYYY');
                EventTime = data.d.results[i].EventStartTime;
                EvStartTime = moment.utc(data.d.results[i].EventStartTime).format('hh:mm a');
                var EventId = data.d.results[i].ID;
                pillar = data.d.results[i].Pillar;
                EventTitle= data.d.results[i].Title;
                
-               EventDescription= data.d.results[i].EventDescription;
-               //AverageRating  = data.d.results[i].AverageRating;  
+               EventDescription= data.d.results[i].EventDescription;  
 			
 			   var utcDate = new Date(EventTime);
 			   console.log(utcDate);
@@ -526,22 +474,15 @@ function GetPastEvents() {
 			   var localDate = hr +':'+ min ;	
 			   			    
                VideoURLs = data.d.results[i].VideoURL;
-               console.log("log of",data.d.results[i]);
-               console.log("video is",VideoURLs);
-               	 //document.getElementById('VideoURL').setAttribute("src","VideoURLs");
-               	$('iframe').attr("src",VideoURLs);
-				$("#popupEVTitle").html(EventTitle);				
-				$("#popupEVDesc").html(EventDescription);
-				/*
-				if(AverageRating  == null){
-					AverageRating  = '0'
-				}*/
+              				if( VideoURLs != null){
+				   
+				
                  var b =  "https://amdocs.sharepoint.com/" + data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl; 
                      imageURL = data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl
  				$(".pastEvntsWr1").append('<div class="col-12 col-md-6 col-lg-4 card pastevntsCard"><div class="pstvideoImg1" style="height: auto;background-image:linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%), url('+b+');background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;display: flex; flex-direction: column;justify-content: center;align-items: center;">'+ 
  							'<div class="heart_time" style="width: 95%;margin-top: -2rem; "> <div class="heartDiv" style=" float: right;margin-top: 0.5rem">'+
 							'<a href="#" onclick="FavEvents(this.id,this.className,this.title,this.name,this.hreflang,event);" hreflang="'+EventId+'" title="'+EventDescription+'"  id="'+EventTitle+'" name="'+imageURL+'" class="'+pillar+'" style="display: flex; justify-content: center;"> <img id="heartImg"'+ 
-							'src="../../SiteAssets/ENGEmployee/images/Group 3218.svg" alt="Heart"'+ 'data-themekey="#" style="width: 60%;"></a> </div> <div class="timeDiv"><label class="time">15:03</label> </div> </div>'+
+							'src="../../SiteAssets/ENGEmployee/images/Group 3218.svg" alt="Heart"'+ 'data-themekey="#" style="width: 60%;"></a> </div> <div class="timeDiv"><label class="time"> </label> </div> </div>'+
                             '<a  class="play player" style="cursor:pointer" onclick="getVid(event)">'+
                                 '<img src="../../SiteAssets/ENGEmployee/images/Group 2834.svg" alt="Play"> </a>'+
                             '<div class="pastevntsDetails"> <div class="radios_Rating"> <div class="radios"><small><label id="pillar" class="'+pillar+'">'+pillar+'</label></small> </div><div class="rating">'+
@@ -551,24 +492,16 @@ function GetPastEvents() {
                             '</div> </div> <p class="row"><span id="EventDesc">'+EventDescription+'</span></p> </div> </div> <input type="hidden" value="'+VideoURLs+'"> </div></a>'); 
                             $(".player").attr('data-toggle',"modal");
                             $(".player").attr('data-target',"#exampleModal");
+                        }           
                             
-                            
-                            
-                            
-                             
-                            
-            } // for loop End  
-            
-           
-            
+            } // for loop End     
         },
         error: function (xhr, status, error) {
             console.log("Failed");
         }
     });
 }
-
-//$(".modalapp").append('<video controls width="250"><source id="VideoURL" src="'+VideoURLs[1]+'" type="video/mp4">');              
+              
 function setAverageRating(cards,IDs){
 
 log(cards);
@@ -621,13 +554,8 @@ log(IDs);
          
          
           cards[0].querySelector("#popuprate-h5").innerText = averageRtRound + '('+num+')';
-          
-                
-                
-
               }
            }
-          //log(num) 
         }
         });
 }
@@ -637,90 +565,32 @@ function getVid(event){
 console.log("sankedfaf")
 	var vidtest = event.target.parentElement.parentElement.parentElement.lastChild.previousElementSibling.value;
 	console.log("vidtest",vidtest);
-	var evetit = event.target.parentElement.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.innerText;
+	// evetit = event.target.parentElement.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.firstElementChild.firstElementChild.firstElementChild.innerText;
+	var evetit = event.target.parentElement.nextElementSibling.firstElementChild.nextElementSibling.innerText;
 	console.log(evetit ,"asdasda");
-	//var evedesc = event.target.lastChild.previousElementSibling.lastElementChild.firstElementChild.innerText;
-	var evedesc = event.target.parentElement.nextElementSibling.nextElementSibling.lastElementChild.firstElementChild.innerText;
-	console.log("evedesc",evedesc );
-	//$(".modalapp").append('<video controls width="400" id="myid"><source id="VideoURL" src="'+vidtest+'" type="video/mp4">');             
-	 // $("video:last").css("display", "block");
-	
+	var evedesc = event.target.parentElement.nextElementSibling.lastElementChild.firstElementChild.innerHTML;
+	console.log("evedesc",evedesc );	
 	$(".modalapp iframe").attr('src',vidtest);
 	$(".modalfoot h4").html(evetit);
 	$(".modalfoot h6").html(evedesc);
 	
 	}
-/*
-function test() {
-
- 	var iframe = $('<iframe frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>');
-
- 	var dialog = $("#iframeHolder").append(iframe).appendTo("body").dialog({
-
- 		autoOpen: false,
-
- 		modal: true,
-
- 		resizable: false,
-
- 		width: "auto",
-
- 		height: "auto",
-
- 		close: function () {
-
- 			iframe.attr("src", "");
-
- 		}
-
- 	});
- 	}
- $("#iframeData").on("click", function (e) {
-
- 	e.preventDefault();
-
- 	var src = $(this).attr("href");
-
- 	var title = $(this).attr("data-title");
-
- 	var width = $(this).attr("data-width");
-
- 	var height = $(this).attr("data-height");
-
- 	iframe.attr({
-
- 		width: +width,
-
- 		height: +height,
-
-  		src: src
-
- 	});
-
- 	dialog.dialog("option", "title", title).dialog("open");
-
-  });*/
 
 function detailview(data,event_id,pillar,startTime,endTime,eventDate,imgURL){
-		window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPEmployee/EventDetails.aspx?EventID=" + event_id ;
-	
+		window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPEmployee/EventDetails.aspx?EventID=" + event_id ;	
 }
 function getIndex(event){
    
     	var DataValue = event.firstElementChild.innerText; 
-    	
     }
 
 function FavEvents(EventTitle,pillar,EventDesc,imageURL,id,event){
   		var username = $("#username").text();
  		var EmpId = $("#EMpID").text();
  		var numID = Number(id);
- 		log(numID)
- 		//var EventID = $("#eID").val();
  		log(event.target.parentElement.parentElement.parentElement.parentElement)
  		
  		var ex = event.target;
- 		//ex.setAttribute("src", "../../SiteAssets/ENGEmployee/images/Group 3212.svg")
  		log(username)
  		var userId = _spPageContextInfo.userId;
 
@@ -731,7 +601,6 @@ log(userId)
  		$.ajax({
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,Title,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
 
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -803,20 +672,16 @@ log(userId)
              }/* if end */
            }
         });
-        
-  	
-	//alert(EventTitle+"-"+pillar+"-"+EventDesc+"-"+imageURL+"-"+id);  	
+          	
   	  	
 	function OnSuccess(data){
-	   alert("Sucessfully updated");
 	   
 	   
 	   var userId = _spPageContextInfo.userId;
  $.ajax({
  		        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,Title,EmpID,EventID,Pillar&$filter=AuthorId eq "+userId+"",
 
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPFavouriteEvent')/items?$select=ID,EmpName,EmpID,EventId,Pillar$filter=AuthorId eq "+userId+"&$orderby=Created desc",
-        method: "GET",
+               method: "GET",
         headers:
            {
                "Accept": "application/json;odata=verbose"
@@ -877,14 +742,12 @@ log(userId)
 }
     function OnError(data){
     debugger;
-		//alert("Update error");
 	}
   };  
   
   /* sb end */
    
 function RemoveListItem(delID,event) {  
-    //var myID = $("#emp-id").val();  
             
         $.ajax({  
             url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getbytitle('EPFavouriteEvent')/items(" + delID  + ")",  
@@ -896,26 +759,18 @@ function RemoveListItem(delID,event) {
                 "IF-MATCH": "*",  
                 "X-HTTP-Method": "DELETE",  
             },  
-            success: function(data) { 
-            log(data)
-            alert("Item Deleted " + delID);
-            
+            success: function(data) {             
             let abc = event.target;
-            log(abc)
             abc.setAttribute("src", "../../SiteAssets/ENGEmployee/images/Group 3218.svg")
                              
             },  
-            error: function(data) {  
-                alert("failed");  
+            error: function(data) {   
             }  
         });  
      
 } 
 
 /* sb */
-			  
-						  
-						  
 
 function getEPlistData(event,id){
 EvID = id;
@@ -939,10 +794,6 @@ EvID = id;
     $.ajax
     ({
         
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('List Name')/items(" + Itemid + ")/AttachmentFiles",
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items",
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EpRating')/items",
-
        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Attachments,Pillar,Title,EventStartTime,EventEndTime,EventDescription,EventDate,VideoURL&$expand=AttachmentFiles&$orderby=Created desc",
         method: "GET",
         headers:
@@ -962,21 +813,14 @@ EvID = id;
               EventDate = results[i].EventDate;
               EvStartDate = results[i].EventStartTime;
               EvEndDate = results[i].EventEndTime;
-              log(reviewID)
-              //var user = results[i].DisplayName;
-              //log(user);
-              log(results[i].ID);
-              log(results[i]);
            }
-           log(testdata);
            
         }
-          log(data);
+
          
           showReviewList()
         },
         error: function (xhr, status, error) {
-            log("Failed");
         }
 
         });
@@ -1022,7 +866,6 @@ function onQuerySucceeded() {
 }
 
 function onQueryFailed(sender, args) {
-    //alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
 }
 
 
@@ -1034,8 +877,6 @@ function showReviewList(){
     ({   
        
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPRating')/items?$select=ID,EventID,Review,RatingAverage,Title,Created,EmpEmailID&$orderby=Created desc",
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EpRating')/items",
-       //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPEvent')/items?$select=ID,Attachments,Pillar,Title,EventDescription,AverageRating,RatingCount,EventDate,ReviewPost,VideoURL&$expand=AttachmentFiles&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -1070,30 +911,22 @@ function showReviewList(){
          $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="../../SiteAssets/ENGEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-2"></span></li><li><span class="fa-regular fa-star" id="star-3"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
              
              rate1 = rate1 + 1;
-            //$("#star-1").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
-            // $("#star-1").css({'font-size':'18px','color':'orange'});  
-
-         }else if(ratingCount === 2){
-           //$("#star-1, #star-2").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
-           
+         }else if(ratingCount === 2){           
            $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="../../SiteAssets/ENGEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-3"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
 
              rate2 = rate2 + 1;
 
          }else if(ratingCount === 3){
-           //$("#star-1, #star-2, #star-3").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
            
            $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="../../SiteAssets/ENGEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-4"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
 
              rate3 = rate3 + 1;
          }else if(ratingCount === 4){
-          // $("#star-1, #star-2, #star-3, #star-4").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
           
            $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="../../SiteAssets/ENGEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-4" style="font-size:18px;color:orange;"></span></li><li><span class="fa-regular fa-star" id="star-5"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
 
              rate4 = rate4 + 1;
          }else if(ratingCount === 5){
-           //$("#star-1, #star-2, #star-3, #star-4, #star-5").removeClass("fa-regular").css({'font-size':'18px','color':'orange'});
            
           $(".commentBox").append( '<div class="review1Box"><div class="box1Heading"><div class="namestar"><div class="ppimg"><img src="../../SiteAssets/ENGEmployee/images/Group 2834.svg" alt="Profile Pic"></div><div class="ppname_star"><div class="ppname"><label>'+results[i].Title+'</label></div><div class="ppstar"><ul class="ppsmallStar"><li><span class="fa-solid fa-star" id="star-1" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-2" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-3" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-4" style="font-size:18px;color:orange;"></span></li><li><span class="fa-solid fa-star" id="star-5" style="font-size:18px;color:orange;"></span></li><li><label>'+ratingCount+'</label></li></ul></div></div></div><div class="reviewday"><label>'+ createdTime +'</label></div></div><div class="reviewpara"><p>'+ results[i].Review +'</p></div></div>');
 
@@ -1118,11 +951,6 @@ function showReviewList(){
          var avgRatingLabel2 = document.getElementById('rateno-label');
         var avgRatingLabel2Text = Number(avgRatingLabel2.innerText);
         log(avgRatingLabel2Text);
-        
-       
-    
-     
-         
          }
          
          
@@ -1212,7 +1040,6 @@ function showReviewList(){
 
     getReviewText.value = '';
     
-    //$('#popuprateh5').text(averageRating);
 }
 
 

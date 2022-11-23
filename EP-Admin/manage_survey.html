@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -51,31 +50,27 @@ width: 65vw !important;
 .dataTables_scrollHead,
 .dataTables_scrollHeadInner{
 width: 100%;
-/*border:1px solid yellow;*/
 }
-/*.dataTable{
-	width: 62vw !important;
-}*/
 .dataTable>thead {
     vertical-align: bottom;
     width: 100%;
     display: grid;
-}
-.dataTable tr {
-    border-bottom: 1px solid #707070;
-    display: grid;
-    grid-template-columns: 1fr 3fr 3fr 3fr 3fr 1fr; /*0.5fr 3fr 2fr 2fr 2fr 2fr;*/
 }
 
 .dataTables_scrollBody{
 width: 100%;
 }
 .dataTable tr {
-    border-bottom: 1px solid #707070;
+    /*border-bottom: 0px solid #707070;*/
     display: grid;
     grid-template-columns: 1fr 3fr 3fr 3fr 3fr 1fr;
 }
-
+table tr {
+    border-bottom: none;
+}
+table.dataTable thead th{
+	border-top:0;
+}
 /* --------------end grid css--------------------- */
 
     #dataTable2_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th.T-color1.sorting.sorting_desc,
@@ -87,7 +82,7 @@ width: 100%;
 	background-image:none !important;
 }
 #arrimgs{
-	width:	227px !important;
+	width:	240px !important;
 }
       
       #dlgTitleBtns{
@@ -100,12 +95,6 @@ width: 100%;
     .cm_calendar{
 	position:static !important;
 }
-
-.event-desc{
-	
-}
-
-
 .Published{
 	color:#AFAFAF!important;
 
@@ -152,32 +141,22 @@ table.dataTable thead th{
 .breadcrumb-item + .breadcrumb-item::before{
 	    color: #E5E5E5;
 }
-/*::-webkit-scrollbar {
-  width:5px;
-}*/
-
-/* width */
 ::-webkit-scrollbar {
   width: 2px !important;
 }
-
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
-
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
-
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 .dataTables_wrapper .dataTables_scroll{
 		margin-bottom: 4rem;
 	    margin-top: 4rem;
+	    border-top: 1px solid #3D3D3D;
 }
 .dataTables_scrollHead{
     border-bottom: 1px solid #AFAFAF !important;
@@ -245,7 +224,8 @@ border: solid 1px transparent;
 	width:225px !important;
 }
 #dataTable2 > tbody > tr > td:nth-child(5){
-	width:212px !important;
+	/*width:229px !important;*/
+	width:100%;
 }
 @media (min-width: 992px){
         .sidebar{
@@ -304,8 +284,8 @@ border: solid 1px transparent;
     height: 30px;
     width: 67px;
     position: absolute;
-    top: 23px;
-    right: 13px;
+    top: 33px;
+    right: 18px;
        background-image: url("Images/groupimg.png");
     background-size: 100% 100%;
 }
@@ -339,8 +319,7 @@ border: solid 1px transparent;
     padding-left: 10px;
     padding-right: 10px;
     height: 109.6vh;
-   /* width: 95.5%;*/
-    }
+ }
 .right-left {
     margin-right: 2.2rem;
 }
@@ -360,14 +339,14 @@ border: solid 1px transparent;
 }
 }
 @media (min-width: 1280px) {
-/*.dataTables_scrollBody{
-	    height: 527px !important;
-}*/
 .dataTable {
     width: 69vw !important;
 }
 #dataTable2_wrapper {
     width: 71.5vw !important;
+}
+.FA-1 {
+    width: 94%;
 }
 }
 
@@ -390,7 +369,6 @@ border: solid 1px transparent;
         width: 43%;
     }
   .right-left {
-   /* margin-right: 5.7rem;*/
         width: 52.5%;
 }
 .right-nav {
@@ -403,9 +381,6 @@ footer{
     width: 93.3% !important;
     margin-left: 3.5% !important;
     }
-/*.dataTables_scrollBody{
-	    height: 680px !important;
-}*/
 .home-section .hr1{
 	    width: 93.5%;
 	        margin-left: 2.5%;
@@ -426,18 +401,24 @@ footer{
 }
 
 @media(min-width:1600px){
-	.calenderView {
+	/*.calenderView {
     right: 4%;
-}
+}*/
 #dataTable2_wrapper {
     width: 75vw !important;
 }
 }
-@media(min-width: 1900px){
-	#datatable2_wrapper {
-    /* width: 100%; */
-    width: 77.2vw;
+@media(min-width:1774px){
+	
+#dataTable2_wrapper {
+    width: 77.5vw !important;
 }
+}
+
+@media (min-width: 1900px){
+	/*#datatable2_wrapper {
+    width: 77.8vw !important;
+}*/
 .dataTable {
     width: 74vw !important;
 }
@@ -457,19 +438,16 @@ footer{
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #747474; 
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #747474; 
 } 
@@ -515,10 +493,7 @@ footer{
     width:auto ;
     height:
     }
-    /*#ui-datepicker-div{
-	left:1020px !important;
-}*/
-    #ui-datepicker-div > table{
+ #ui-datepicker-div > table{
 	line-height:110% !important;
 }
 
@@ -528,7 +503,7 @@ footer{
 }
 
 
-<!-- POPup -->
+/*POPup*/
 
 .popup, .statuspopup {
   position: relative;
@@ -726,7 +701,7 @@ display:none !Important;
    <div class="modal-dialog  modal-dialog-centered justify-content-center" >
                       <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
                         <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
-                            <span class="me-2"><img src="images/Icon%20metro-bin-small.png" alt="img" style="width:22px;"></span><p class="modal-title" id="DeleteModal" style="margin:0px;">Event Delete Successfully </p>
+                            <span class="me-2"><img src="images/Icon%20metro-bin-small.png" alt="img" style="width:22px;"></span><p class="modal-title" id="DeleteModal" style="margin:0px;">Survey Delete Successfully </p>
                           <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
                         </div>

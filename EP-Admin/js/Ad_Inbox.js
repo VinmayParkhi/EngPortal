@@ -34,7 +34,7 @@ $("#s4-workspace").scroll(function(){
 				UpdateNotification(id);
 				loadListItems();
 			}else{
-				loadListItems();
+				//loadListItems();
 			}
       });  
       $("#min, #max").datepicker({ 
@@ -103,6 +103,9 @@ $("#s4-workspace").scroll(function(){
                                                 
                     }; /* for end */
                     successFuncFltr(pillarFilterArray)
+                     var popup = $(".popuptext");
+                     popup.removeClass("show");
+
                 }
               }  
     });  /* ajax end */
@@ -241,13 +244,13 @@ $("#s4-workspace").scroll(function(){
         table.draw();
     });
     $("#min").change(function(){
-   alert("test");
+   //alert("test");
    var DateMax=$("#mix").val();
    var DateMin=$("#min").val();
    
    console.log(DateMax);
    console.log(DateMin);
-  alert("The text has been changed.");
+  //alert("The text has been changed.");
 
 });
 
@@ -285,7 +288,7 @@ function UpdateNotification(id){
 	}
 
     function OnError(data){
-		alert("Update error");
+		//alert("Update error");
 	}
   };
 
@@ -548,7 +551,7 @@ var siteurl ="https://amdocs.sharepoint.com/sites/EP";
 
                             "render": function(data) {
                                      var date = new Date(data);
-                                     date = moment.utc(date).format("DD MMMM, YYYY hh:mm a");
+                                     date = moment(date).format("DD MMMM, YYYY hh:mm a");
                                      
                                      /*var month = date.getMonth()+1;
                                      var text = date.toString();
@@ -699,7 +702,7 @@ var siteurl ="https://amdocs.sharepoint.com/sites/EP";
 
                             "render": function(data) {
                                      var date = new Date(data);
-                                     date = moment(date).calendar();
+                                     date = moment(date).format("DD MMM, YYYY HH:mm a");
                                      /*var month = date.getMonth()+1;
                                      var text = date.toString();
                                      const myArray = text.split(" ");

@@ -1,4 +1,4 @@
-var minDate, maxDate;
+fvar minDate, maxDate;
 
 $(document).ready(function() {
    
@@ -6,8 +6,7 @@ $(document).ready(function() {
        $.noConflict();
        GetEventReport();   
        
-       
-           
+                  
 });
 
 $("#min, #max").datepicker({ 
@@ -156,7 +155,7 @@ var siteurl ="https://infornt.sharepoint.com/sites/RNTENG";
 						    var ExcitedMooddata = row.Response1;
 						    var BoringMooddata = row.Response2;						    
 						    var FrustretedMooddata = row.Response3;
-						    return '<span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Group 3265.svg" alt="not available" style="margin:0px 5px; width:10%;">'+ExcitedMooddata+'<span><span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon ionic-md-sad.svg" alt="not available" style="margin:0px 5px; width:10%;">'+BoringMooddata+'<span><span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Group 3266.svg" alt="not available" style="margin:0px 5px; width:10%;">'+FrustretedMooddata+'<span>';      
+						    return '<span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Group 3265.svg" alt="not available" style="margin: 0 5px; width:10%;">'+ExcitedMooddata+'<span><span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Icon ionic-md-sad.svg" alt="not available" style="margin: 0 5px; width:10%;">'+BoringMooddata+'<span><span><img src="https://infornt.sharepoint.com/sites/RNTENG/SiteAssets/ENG-Admin/images/Group 3266.svg" alt="not available" style="margin: 0 5px; width:10%;">'+FrustretedMooddata+'<span>';      
 						  }   
 						},  
 						

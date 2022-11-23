@@ -7,7 +7,6 @@
  $(document).ready(function() { 
  
  $(".emojiCloneClone").on("click", function() { 
- //alert("test data");
  		username = $("#username").text();
  		Dept = $("#dept").html();
  		Loc = $("#loc").html();
@@ -18,8 +17,6 @@
  });  
  
  function moodCountClone(){
-  		//MoodCountCheck();
-  		//alert("test done");
   		EmpMoodCountCheckClone()
   }
 
@@ -27,7 +24,6 @@ function EmpMoodCountCheckClone(){
   	var item={
   	 	"__metadata":{'type': 'SP.Data.EPMoodMeterListItem'},
    		"Mood":text,
-		//"EmpID":EmpId,		
 		"Title":username,
 		"EmpLocation":Loc,
 		"EmpDepartment":Dept
@@ -45,10 +41,8 @@ function EmpMoodCountCheckClone(){
 		error:OnError
 	});
 	function OnSuccess(data){
-		//alert("Sucessfully updated");
 	}
     function OnError(data){
-		//alert("Update error");
 	}
 };
 

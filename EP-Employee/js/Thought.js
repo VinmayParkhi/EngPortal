@@ -12,7 +12,6 @@ function GetListThoughts() {
         method: "GET",
         headers:
            {
-               // Accept header: Specifies the format for response data from the server.
                "Accept": "application/json;odata=verbose"
            },
         success: function (data, status, xhr) {
@@ -21,7 +20,6 @@ function GetListThoughts() {
                 $('#thoughtdsc').html(data.d.results[0].Title);
         },
         error: function (xhr, status, error) {
-            console.log("Failed");
         }
     });
 }

@@ -130,9 +130,6 @@ sup {
 	transform: rotate(90deg);
     width: 40px;
     height: 1px;
-   /* position: absolute;
-    right: 90px;
-    top: 26px;*/
 }
 #publishHub{
   background: rgba(255, 255, 255, 0.2);
@@ -150,7 +147,6 @@ sup {
     box-shadow: 0 0 6px 0 rgb(157 96 212 / 50%);
     border: solid 1.5px transparent;
     background: #fff;
-    /*box-shadow: 2px 1000px 1px #000000 inset;*/
     color: #fbfbfbc4;
 }
 
@@ -193,40 +189,13 @@ sup {
                                     </span>
                                 </div>
                             </li>
-                            <!-- <li>
-                                <label></label>
-                                <div class="oneInfo">
-                        
-                                </div>
-                            </li> -->
-                        </ul>
+                           </ul>
                         </div>
-                    <!-- <span class="editstart">
-                        <input type="file">
-                    </span> -->
-                  <!--  <span class="leftspan1">
-                        <span class="d-block">
-                            <label for="" class="d-block">Banner Title</label>
-                        <input class="tbaner" type="text" id="BannerHubTitle" title='Baner Title' placeholder="Title for Banner ">
-                       
-                        <span class="divider1" style="width: 34px;position: absolute;right: 67px;top: 5px;">
-                            <img src="HTML/Images/divider1.png" alt="">
-                        </span>
-                        <img class="sideimg"src="Images/divider1.png">
-                            <button name="Publish" target="_self" type="button" class="btn publishbtn publishbtn1" id="publishHub">Publish</button>    
-                         
-                        </span>
-                       <span>
-                        <label for="" class="d-block">Description</label>
-                        <input type="text"  class="tdesk" id="BannerHubDescription" title='Description' placeholder="Access important information for your welfare and wellbeing. For Amdocs employees.">
-                       </span>
-                       <input type="hidden" value="Uncover" title="Pillar" id="ManagehubPillar">
-                    </span> -->
-                    <div class="leftspan1">
+                      <div class="leftspan1">
 					  <div class="row align-items-center justify-content-between bannerImg">
 					    <div class="col-6 bannerTitle">
 					  	<label for="" class="d-block">Banner Title<sup>*</sup></label>
-					        <input class="tbaner" type="text" id="BannerHubTitle" title="Baner Title" placeholder="Title for Banner ">
+					        <input class="tbaner" autocomplete="off" type="text" id="BannerHubTitle" title="Baner Title" placeholder="Title for Banner ">
 					    </div>
 					    <div class="col-6 d-flex justify-content-end PublishDivide">
 					      
@@ -237,30 +206,23 @@ sup {
                               <div>
                                   <button name="Publish" target="_self" type="button" data-bs-toggle="modal" data-bs-target="#HubBannerUp" class="btn publishbtn publishbtn1" id="publishHub">Publish</button>
                               </div>
-					      </div>
-					     <!-- <span class="divider1">
-					        <img class="sideimg" src="Images/divider2.svg" data-themekey="#">
-					      </span>
-					       <button name="Publish" target="_self" type="button" class="btn publishbtn publishbtn1" id="publishHub">Publish</button>  -->  
+					      </div>  
 					       
 					    </div>                                      
 					  </div>
 					<div>
 					  <label for="" class="d-block">Description<sup>*</sup></label>
-					  <input type="text" class="tdesk" id="BannerHubDescription" title="Description" placeholder="Access important information for your welfare and wellbeing. For Amdocs employees.">
+					  <input type="text" class="tdesk" autocomplete="off" id="BannerHubDescription" title="Description" placeholder="Access important information for your welfare and wellbeing. For Amdocs employees.">
 					  </div>
 					  <input type="hidden" value="Uncover" title="Pillar" id="ManagehubPillar">
 					</div>
                 </section>
                     </div>
-    <!--End of the container-->
-    <!--Start of Modal Popup-->
      <div class="modal fade" id="HubBannerUp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="ThoughtPublished" aria-hidden="true">
    <div class="modal-dialog  modal-dialog-centered justify-content-center" >
                       <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
                         <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
                             <span class="me-2"><img src="Images/thought_publish_suceessful.png" alt="img" style="width:25px;"></span><p class="modal-title" id="ThoughtPublished" style="margin:0px;">Banner Uploaded Successfully </p>
-                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
                         </div>
                         <div class="modal-body" style="text-align: center;display: flex;padding: 25px;flex-direction: column;">

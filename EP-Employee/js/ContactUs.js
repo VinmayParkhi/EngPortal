@@ -5,10 +5,8 @@
    
    contactList("EPContactUs")
    
-   
     $("textarea").val("");
     $("select").val("");
-
    });
    
    
@@ -27,13 +25,10 @@
         }else{
             $('#submit').removeClass("EnableBtn")  
         }
-     
     }
-
-   
+       
  $("select.category").change(function(){
         Category = $(this).children("option:selected").val();
-
     });
      }); 
 
@@ -47,7 +42,6 @@ function contactList(SPListName) {
 		Message: $("textarea#comments").val(),
 		EmpEmailID : $("#userEmail").html(),
 		Status :"Unread",
-		//Title: SPListName
 	}
 	console.log(data);
 	$.ajax({
@@ -66,11 +60,7 @@ function contactList(SPListName) {
 }
 
 function SuccessFunction(data) {
-//alert("test done");
-
-//$("#divCreateListResults").html(data.d.Title + " successfully created!");-->
 }
 
 function ErrorFunction(error) {
-//alert('Error!' +error.responseText);
 }

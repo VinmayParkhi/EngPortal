@@ -2,14 +2,11 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <!--<meta http-equiv="refresh" content="20"> -->
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     
@@ -19,7 +16,7 @@
     <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
@@ -31,6 +28,19 @@
     <title>Manage Event Data</title>
     
 <style type="text/css">
+#s4-workspace{
+	overflow-x: hidden;
+}
+
+#datatable3 > thead{
+	border-bottom: 1px solid #707070;
+	
+}
+tr {
+    border-color: inherit;
+    border-style: none !important;
+    border-width: 0;
+}
 
 .dataTables_scrollBody{
 	overflow-x: hidden !important;
@@ -42,15 +52,12 @@
 	width:auto !important;
 }
 #datatable3_wrapper{
-/*width: 100%;*/
 width:65vw;
-/*border:1px solid red;*/
 }
 .dataTables_scroll,
 .dataTables_scrollHead,
 .dataTables_scrollHeadInner{
 width: 100%;
-/*border:1px solid yellow;*/
 }
 .dataTable{
 	width: 59vw !important;
@@ -75,14 +82,7 @@ width: 100%;
     grid-template-columns: 0.5fr 3fr 2fr 2fr 3fr;
 }
 
-/* --------------end grid css--------------------- */
 
-/*.action .profile .p_photo img {
-	width: 4.5rem !important;
-    }*/
-    #profileimgHead > img{
-	width: 85% !important;
-}
 table.dataTable thead .sorting {
     background-image: none;    
 }
@@ -117,9 +117,7 @@ table.dataTable tbody td{
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
 	background: #FF3D97;
 }
-/*table thead tr .sorting_disabled{
-    border-top-width: 1px !important;
-}*/
+
 table tbody tr td{
     color: #AFAFAF;
 }
@@ -141,24 +139,20 @@ table tbody tr td h4{
 }
 #datatable3_wrapper > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th.T-color1.sorting_disabled{
     color: #FCF9EE;
-	    opacity: 0.4;
+	   
 }
-/* width */
 ::-webkit-scrollbar {
   width: 2px !important;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -178,9 +172,13 @@ table tbody tr td h4{
     margin-bottom: 3rem;
     margin-top: 3rem;
 }
+.main-style{
+	width: 65vw;
+}
 #datatable3_wrapper{
 	height:auto;
 	min-height: 450px;
+	width:100%;
 }
 .breadcrumb-item+.breadcrumb-item {
     padding-left: 0;
@@ -211,13 +209,27 @@ table tbody tr td h4{
 	margin-bottom: 0px !important;
 }
 
+@media (min-width: 1110px){
+	.main-style {
+    	width: 67vw;
+	}
+}
+
+@media (min-width: 1118px){
+	.main-style {
+	    width: 67.5vw;
+	}
+	/*.FA-1{
+		width: 92.2%;
+	}*/
+}
 @media (min-width: 1200px) and (max-width: 1400px){
 .dataTable {
     width: 65vw !important;
 }
-#datatable3_wrapper {
+/*#datatable3_wrapper {
     width: 70vw;
-}
+}*/
 .head-left{
 	    margin-left: 4rem;
 }
@@ -233,29 +245,41 @@ table tbody tr td h4{
 	width: 38% !important;
 	margin-right:10px;
 }
-/*.calenderView {
-	margin-right:4%;
-}*/
 .action .menu.active {
 	    margin-right: -1.7rem;
 }
 .divider1 img{
 	    margin-left: 243%;
 }
-/*.dataTables_wrapper .dataTables_scroll{
-	    height: 110vh;
-}*/
 .FA-1 {
     width: 92.7% !important;
 }
 #myImg{
 top:11rem;
 }
+.main-style {
+    width: 69vw;
+}
+}
+
+@media (min-width: 1280px){
+	#datatable3_wrapper{
+		width: 70vw;
+}
+}
+
+@media(min-width: 1336px){
+	.main-style {
+	    width: 70.5vw;
+	}
+	.FA-1 {
+    width: 91.7% !important;
+}
 }
 
 @media (min-width:1400px) and (max-width:1600px){
 #datatable3_wrapper {
-    width: 74vw;
+    width: 72vw;
 }
 .dataTables_empty{
 	width: 70vw;
@@ -270,15 +294,13 @@ table.dataTable tbody td {
     padding: 13px 1px;
 }
 .FA-1{
-    width: 93.2% !important;
+    width: 93% !important;
     margin-left: 3.5% !important;
 }
 #s4-bodyContainer > div > section > div > div{
 	position:static !important;
 }
-/*.calenderView {
-	margin-right:4%;
-}*/
+
 .calenderView input{
 	margin-right: 8px;
 	width: 38% !important;
@@ -311,24 +333,70 @@ table tbody tr td h4{
 .head-left{
     margin-left: 5rem;
 }
+.main-style {
+    width: 72vw;
+}
 }
 
 @media (min-width: 1536px){
 #datatable3_wrapper {
     width: 74vw;
 }
+.main-style {
+    width: 73.5vw;
+}
 .dataTable {
     width: 70vw !important;
 }
 }
+
+@media (min-width: 1600px) and (max-width: 1899){
+	.main-style {
+    	width: 74.5vw;
+	}
+	.FA-1 {
+    width: 92.5% !important;
+}
+#datatable3_wrapper {
+    width: 74.7vw;
+}
+.home-section hr{
+	width: 93%;
+    margin-left: 4rem;	
+}
+}
+
+@media (min-width: 1738px){
+	.main-style {
+    width: 76vw;
+}
+.home-section hr{
+	width: 93%;
+    margin-left: 4rem;	
+}
+
+}
+@media (min-width: 1800px){
+	
+	.main-style {
+	    width: 77vw;
+	}
+}
 @media (min-width: 1900px){
 	#datatable3_wrapper {
-    /* width: 100%; */
-    width: 77.2vw;
+    width: 77vw !important;
 }
 .dataTable {
     width: 74vw !important;
 }
+.FA-1 {
+    width: 92.7% !important;
+}
+.home-section hr{
+	width: 93%;
+    margin-left: 5rem;	
+}
+
 }
 #myImg{
 	background: url("Images/MicrosoftTeams-image (3) (1).png") no-repeat;
@@ -370,7 +438,6 @@ table tbody tr td h4{
 }
 #ui-datepicker-div{
     width:auto ;
-   /* height:*/
 }
 #ui-datepicker-div > table{
 	line-height:110% !important;
@@ -382,7 +449,7 @@ table tbody tr td h4{
 	display:none;
 }
 
-<!-- POPup -->
+/*POPup*/
 
 .popup, .statuspopup {
   position: relative;
@@ -459,18 +526,18 @@ table tbody tr td h4{
     
    	<img src="Images/data_range_calendar.png" style="position: absolute;left: -35px;width: 18px;">
 
-            <input type="text"  id="from-date" style="margin-left: -8px;" placeholder="Start date">
+            <input type="text"  id="from-date" autocomplete="off" style="margin-left: -8px;" placeholder="Start date">
 
             to
 
-            <input type="text"  id="to-date" style="margin-left: 5px;" placeholder="End date">
+            <input type="text"  id="to-date" autocomplete="off" style="margin-left: 5px;" placeholder="End date">
 
         </span>
         
         <table class="table" id="datatable3" data-ordering="false" data-order='[[ 0, "desc" ]]'>
             <thead>
                 <tr>
-                    <th scope="col" class="T-color1" style="opacity: 0.6;">ID</th>
+                    <th scope="col" class="T-color1">ID</th>
                     <th>Name
                     
 					</th>
@@ -539,10 +606,7 @@ table tbody tr td h4{
             <tbody style="color:black">
             </tbody>
         </table>
-    </div>
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    
+    </div>    
      <script type="text/javascript">
     function dismissvid(){
         	$(".modalapp iframe").attr('src', "");

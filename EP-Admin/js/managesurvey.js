@@ -207,13 +207,7 @@ $("#s4-workspace").scroll(function(){
     
   /*sb end*/
 	
-   /*$('.arrow-img').on("mouseover",function(e){
-   $('#myImg').slideDown(1);
-  });     
-  $('.arrow-img').on("mouseleave",function(e){
-   $('#myImg').slideUp(1);
-  });*/
-  
+    
   $('#arrimg').on("click",function(e){
     $("#myImg").removeClass("d-none");
     $("#myImg").css("display","block");
@@ -269,6 +263,9 @@ $("#s4-workspace").scroll(function(){
                                                 
                     }; /* for end */
                     successFuncFltr(pillarFilterArray)
+                     var popup = $(".popuptext");
+                     popup.removeClass("show");
+
                 }
               }  
     });  /* ajax end */
@@ -293,26 +290,6 @@ $("#s4-workspace").scroll(function(){
 });
 
 });
-//$( "#min" ).datepicker( "setDate", new Date());
-//$( "#max" ).datepicker( "setDate", 31);
-
-/*$.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        var min = minDate.val();
-        var max = maxDate.val();
-        var date = new Date( data[4] );
- 
-        if (
-            ( min === null && max === null ) ||
-            ( min === null && date <= max ) ||
-            ( min <= date   && max === null ) ||
-            ( min <= date   && date <= max )
-        ) {
-            return true;
-        }
-        return false;
-    }
-);*/
 
 function loadListItems() {
 

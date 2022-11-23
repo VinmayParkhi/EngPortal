@@ -1,6 +1,5 @@
 var uniquID;
 $(document).ready(function() { 
-	//alert('Page');
 	var url=window.location.href;
     uniquID= (url.split('=')[1]);
     uniquID= (uniquID.split('&')[0]);
@@ -23,7 +22,6 @@ function PreSaveAction(){
 		return false;
 	}
 	else{
-	    //alert('Event Shared Successfully');
 	    return true;
     }
 }

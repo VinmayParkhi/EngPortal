@@ -15,7 +15,6 @@
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <link href="HTML/assets/css/botstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="assets/css/mainstyle.css"> -->
     <link rel="stylesheet" href="css/access-control.css">
     <link rel="stylesheet" href="css/togglebutton.css">
     <style>
@@ -187,16 +186,11 @@
             let sidebar = document.querySelector(".sidebar");
             let sidebarBtn = document.querySelector(".sidebaropen");
             console.log(sidebarBtn);
-            /* sidebarBtn.addEventListener("click", () => {
-              sidebar.classList.toggle("close");
-            }); */
-            $(".sidebaropen").on("click", function () {
+               $(".sidebaropen").on("click", function () {
                 $(".card").toggleClass("imagenone1");
 
             });
             $(function () {
-                /* console.log("width: "+ document.body.clientWidth); */
-
                 resizeScreen();
                 $(window).resize(function () {
                     resizeScreen();
@@ -222,9 +216,6 @@
                 $(".sidebar .nav-links li").toggleClass("colorClass")
 
             });
-           // $(".lefticon").on("click", function(){
-               // $(this).closest('.card').remove();
-            //});
         </script>
 <script>
 

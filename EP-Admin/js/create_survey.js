@@ -4,7 +4,6 @@
  var Pillar;
  var Etype;
  $(document).ready(function() { 
- //$('#file_input').multifile();//For facilitate multi file upload 
   
  $("#publishSurvey").click(function() {formSaveSurvey()}); 
      
@@ -72,8 +71,6 @@
     
 	createNewItemWithAttachmentsSurvey("EPSurvey", data).then( 
 	function() { 
-	//if (oLoader.close) setTimeout(function () { oLoader.close(); }, 3000); 
-	//window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");   
 	}, 
 	function(sender, args) { 
 	console.log('Error occured' + args.get_message()); 
@@ -215,7 +212,6 @@
  success: function(response) {
  
  //alert("Uploaded");
- //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
 
  
  },

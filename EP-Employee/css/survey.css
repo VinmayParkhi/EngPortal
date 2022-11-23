@@ -244,6 +244,7 @@ a {
 
 .surveyPast .surveyPstImg img {
     width: 100%;
+    height: 100%;
     border-radius:0.5rem;
 }
 
@@ -415,6 +416,7 @@ ul.breadcrumb li {
 }
 	.surveyPast .surveyPstImg{
 	width:88%;
+	height: 20vh;
 	margin:2rem auto;
 }
 .surveyPast .end_submit{
@@ -511,9 +513,9 @@ ul.breadcrumb li {
         margin-top: 2rem !important;
 
 }
-.surveyPast .surveyPstImg {
+/*.surveyPast .surveyPstImg {
     width: 11%;
-}
+}*/
 .surveyPast .end_submit{
 	        width: 31%;
 	        margin-right: 2rem;
@@ -554,6 +556,7 @@ margin: 2rem 0rem 2rem 0rem;
 .surveyPast{
 	margin-left: 1rem !important;
 	    width: 100% !important;
+	    height: 10vh;
 }
 .surveyOngoing{
 	    width: 100% !important;
@@ -561,6 +564,7 @@ margin: 2rem 0rem 2rem 0rem;
 
 .surveyPast .surveyPstImg {
     width: 8%;
+    height: 6vh;
 }
    .surveyPast .end_submit {
     width: 24%;

@@ -11,9 +11,6 @@
      <link rel="stylesheet" href="../../_catalogs/masterpage/ENG_MasterPage/ENGAdmin/botstrap.css">
      <link rel="stylesheet" href="css/create_event_2.css">
      <link rel="stylesheet" href="css/create_event.css">
-
-
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -34,17 +31,23 @@
 	 <script type="text/javascript" src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/js/jquery.multifile.js"></script> 
 	 <script type="text/javascript" src="js/create_survey.js"></script>
 	  <script type="text/javascript" src="js/save_now_survey.js"></script>
-	<!--<script type="text/javascript" src="../../SiteAssets/ENG-Admin/js/AutoPublishSurvey.js"></script>-->
     <link href="botstrap.css" rel="stylesheet">
        <style>
        
-       
+       .imageData label{
+			top: 0;
+			left: 0;
+		}       
+       sup {
+    color: #FF3D97;
+    font-size: 18px;
+    opacity: 1;
+    top: 2px;    
+}
 
-
-       
        #publishSurvey,#AutopublishSurveyMain,#saveNowsurvey{
 	pointer-events:none;
-	}
+}
 
 .EnableBtn{
 	 background: linear-gradient(90deg , #DE8601 0%, #FF3D97 100%) !important;
@@ -110,12 +113,12 @@
 	border: solid 1px transparent;
         box-shadow: 0px 0px black inset;
 }
-.p-button{
+/*.p-button{
 	width:21%;
 	}
 .w3-button {
     width: 19%;
-}
+}*/
 .home-section .hr1{
 	width: 93%;
     margin-left: 3.5%;
@@ -139,12 +142,12 @@
 	width: 92.5% !important;
     margin-left: 2.6% !important;
     }
-.p-button {
+/*.p-button {
     width: 18%;
 }
 .w3-button {
     width: 17%;
-}
+}*/
 .event-data hr {
     width: 110.9% !important;
 }
@@ -156,10 +159,10 @@
 	    width: 92% !important;
     margin-left: 3.5% !important;
   }
-.p-button,
+/*.p-button,
 .w3-button{
 	width:15%;
-	}
+	}*/
 	.head-left {
     margin-left: -1%;
 }
@@ -168,14 +171,10 @@
     margin-left: 2.2%;
 }
 .event-data hr {
-    width: 108.5% !important;
+    width: 107.5% !important;
 }
 }
  @media (min-width: 1600px){
-/*.p-button,
-.w3-button{
-	width:12%;
-	}*/
 .home-section .hr1 {
     margin-left: 1.8%;
 }
@@ -231,18 +230,18 @@
             <hr>
             <div class="event-form row serveyEventForm">
                <div class="form-data col-lg-12">
-                <label for="evTitle" class="d-block">Survey Title</label>
-                <input type="text" id="sTitle" placeholder="Text">
+                <label for="evTitle" class="d-block">Survey Title<sup>*</sup></label>
+                <input type="text" id="sTitle" autocomplete="off" placeholder="Text">
                </div>
 
                 
                 <div class="form-data col-lg-8" style="height:10rem">
-                    <label for="evTitle" class="d-block">Survey Description</label>
-                    <textarea name="" id="sDesc" cols="30" rows="10" placeholder="Description goes here"></textarea>
+                    <label for="evTitle" class="d-block">Survey Description<sup>*</sup></label>
+                    <textarea name="" id="sDesc" cols="30" rows="10" autocomplete="off" placeholder="Description goes here"></textarea>
 
                 </div>
                  <div class="form-data col-lg-4" style="height:10rem">
-                    <label for="evTitle" class="d-block">Survey Image</label>
+                    <label for="evTitle" class="d-block">Survey Image<sup>*</sup></label>
                     <div class="imageData" id="attachFilesHolder">
                     	<img src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/Images/MicrosoftTeams-image%20(5)%20(2).png" id="imageID">
                         <input type="file" name="" class="custom-file-input" onchange="readURL(this);" id="file_upload">
@@ -251,20 +250,20 @@
                 </div>
 
                 <div class="form-data col-lg-4" style="position: relative;">
-                    <label for="evTitle" class="d-block">Start Date</label>
-                    <input type="text" name="" id="sDate">
+                    <label for="evTitle" class="d-block">Start Date<sup>*</sup></label>
+                    <input type="text" readonly="readonly" name="" id="sDate" autocomplete="off">
                     <i class="fa-solid fa-calendar-days calender"></i>
                 </div>
 
                 <div class="form-data col-lg-4" style="position: relative; margin-right: 10px;">
-                    <label for="evTitle" class="d-block">End Date</label>
-                    <input type="text" name="" id="eDate">
+                    <label for="evTitle" class="d-block">End Date<sup>*</sup></label>
+                    <input type="text" readonly="readonly" name="" id="eDate" autocomplete="off">
                     <i class="fa-solid fa-calendar-days calender"></i>
                 </div>
                
                 <div class="form-data col-lg-4">
-                    <label for="evTitle" class="d-block" >Survey Link</label>
-                    <input type="text" name="" id="sLink">
+                    <label for="evTitle" class="d-block" >Survey Link<sup>*</sup></label>
+                    <input type="text" name="" id="sLink" autocomplete="off">
                 </div>
                
 
@@ -327,39 +326,20 @@
          <div class="modal fade" id="AutopublishModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered justify-content-center">
     <div class="modal-content" style="border-radius: 15px;height: 250px;width: 360px;background:#FCF9EE;border:none">
-      <!--<div class="modal-header" style="background: #191718;width: 100%;border-radius: 15px 15px 0px 0px;color: #E5E5E5;font-size: 12px;">
-        <h5 class="modal-title" id="exampleModalLabel" style="margin: 0px;">Modal title</h5>
-        <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;"></button>
-      </div>-->
       <div class="modal-header" style="background: #191718;width: 100%;border-radius: 13px 13px 0px 0px;color: #E5E5E5;font-size: 12px;">
                             <span class="me-2"><img src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/images/20921262341608672870%20(1).svg" alt="img" style="width:25px;"></span><p class="modal-title" id="staticBackdropLabel" style="margin:0px;">Schedule Auto Publish </p>
-                          <!--  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>-->
                           <button type="button" class="btn-close  btn-close-white  shadow-none" data-bs-dismiss="modal" aria-label="Close" style="margin-right: -25px;background-color: transparent;;border:none"></button>
                         </div>
-     <!-- <div class="modal-body">
-         <div class="form-data" style="position: relative;">
-                   
-                    <input type="date" name="" id="surveyDate">
-                    <i class="fa-solid fa-calendar-days calender"></i>
-                </div>
-      </div>
-       <div class="form-data" style="position: relative;">
-                    <label for="time" class="d-block">Start Time</label>
-                    <input type="time" name="" id="surveyTime">
-                    <i class="fa-solid fa-clock time"></i>
-                </div>-->
-                
+                     
   <div class="modal-body" style="display: flex;flex-direction: row">
   
   <div class="form-data"  style="position: relative;width: 50%;margin-right: 5px;">
                    <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-weight: 500;font-size: 9px;">Select Date</label>
                    <input type="date" name="" id="surveyDate" style="color: black;background: #FFFFFF;" onchange="GetDateSurvey();">
-                    <!-- <i class="fa-solid fa-calendar-days calender"></i> -->
                 </div>
                 <div class="form-data" style="position: relative;width: 50%;margin-right: 0px;font-weight: 500">
                     <label for="time" class="d-block" style="color:#191718;margin-left: 5px;font-size: 9px;">Select Time</label>
                     <input type="time" name="" id="surveyTime" style="color: black;background: #FFFFFF;" onchange="GetDateSurvey();">
-                    <!-- <i class="fa-solid fa-clock time"></i> -->
                 </div>
                
 
@@ -377,13 +357,6 @@
   </div>
 </div>
 </div>
-      
-
-        <!-- Modal popup for Autopublish button End-->
-
-
-
-
 <script type="text/javascript">        
         
         

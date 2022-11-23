@@ -15,19 +15,53 @@
         Pillar = $(this).children("option:selected").val();
    });
    
-   $("select.SREtype").change(function(){
+   $("#evType1").change(function(){
        Etype= $(this).children("option:selected").val();
-   }); 
+       if (Etype == "Online"){
+			//alert("Online");
+			$("#locationdiv1").addClass("d-none");
+			$(".evLinkS").addClass("col-lg-4");
+			$(".evSpeaker").addClass("col-lg-4");
+			$(".evOrganizer").addClass("col-lg-4");
+		}else{
+			$("#locationdiv1").removeClass("d-none");
+			$(".evLinkS").removeClass("col-lg-4");
+			$(".evSpeaker").removeClass("col-lg-4");
+			$(".evOrganizer").removeClass("col-lg-4");
 
+		}	
+
+   }); 
+   
+   $("#evType2").change(function(){
+       Etype= $(this).children("option:selected").val();
+       if (Etype == "Online"){
+			//alert("Online");
+			$("#locationdiv2").addClass("d-none");
+			$(".evLinkS").addClass("col-lg-4");
+			$(".evSpeaker").addClass("col-lg-4");
+			$(".evOrganizer").addClass("col-lg-4");
+		}else{
+			$("#locationdiv2").removeClass("d-none");
+			$(".evLinkS").removeClass("col-lg-4");
+			$(".evSpeaker").removeClass("col-lg-4");
+			$(".evOrganizer").removeClass("col-lg-4");
+
+		}	
+
+   }); 
+   
+   
+   
   });
   
-  
-   $("#evTitle1,#evsubTitle1,#evDesc1,#evPillar1,#evDate111,#evSTime1,#evETime1,#evLink1,#evLocation1,#evSpeaker1,#evOrga1,.FileInputClass").on("input", function () {    	
+/*  
+   $("#evTitle1,#evsubTitle1,#evDesc1,#evPillar1,#evDate111,#evSTime1,#evETime1,#evLink1,#evLocation1,#evSpeaker1,#evOrga1,#file_upload1").on("input", function () {    	
         canChangeColorCreateEvent2();
     });
     function canChangeColorCreateEvent2(){  
         var EventChange = true;  
-        $("#evTitle1,#evsubTitle1,#evDesc1,#evPillar1,#evDate111,#evSTime1,#evETime1,#evLink1,#evLocation1,#evSpeaker1,#evOrga1,.FileInputClass").each(function(){
+        $("#evTitle1,#evsubTitle1,#evDesc1,#evPillar1,#evDate111,#evSTime1,#evETime1,#evLink1,#evLocation1,#evSpeaker1,#evOrga1,#file_upload1").each(function(){
             if($(this).val()==''){
                 EventChange = false;
             }
@@ -44,7 +78,7 @@
      
     }
 
-  
+*/  
   
  function getSeriesData() { 
  	//oLoader = SP.UI.ModalDialog.showWaitScreenWithNoClose("Working on it", "Creating New Item..."); 
@@ -80,6 +114,7 @@
 	data.push({ 
 	"EventType":$("#evType"+i).val(),
 	"Title": $("#evTitle"+i).val(),
+	"EventSubtitle": $("#evsubTitle"+i).val(),
 	"Pillar": $("#evPillar"+i).val(),
 	"EventDescription": $("textarea#evDesc"+i).val(),
 	"EventDate": EventDate,
@@ -118,7 +153,8 @@
 	  
 	// listItem.set_item("Title","Title123"); 
 	 listItem.set_item("EventType", listValues[0].EventType);
-	 listItem.set_item("Title", listValues[0].Title); 
+	 listItem.set_item("Title", listValues[0].Title);
+	 listItem.set_item("EventSubtitle", listValues[0].EventSubtitle); 
 	 listItem.set_item("Pillar", listValues[0].Pillar);
 	 listItem.set_item("EventDescription", listValues[0].EventDescription); 
 	 listItem.set_item("EventDate", listValues[0].EventDate); 

@@ -9,201 +9,19 @@ var siteurl = "https://amdocs.sharepoint.com/sites/EP";
 $(document).ready(function() {
 
 $("#MoodDataTable_wrapper > div.dt-buttons > a > span").html("Download");
-/* sb start date filter */
 
-   var fromDateChString;
-   var toDateChString;
-   var fromDateCh;
-   var toDateCh;
-   //var dateString = "";
-   //var toDateString = "";
-   
-    $("#from-date").datepicker({
+     $("#from-date,#to-date").datepicker({
       dateFormat: "dd M, yy",
       changeMonth: true,
-      changeYear: true,
-
-      onSelect: function () {
-                var fromDate = $(this).val();
-                fromDateCh = moment.utc(fromDate).format('YYYY-MM-DD');
-                fromDateChString = "'"+fromDateCh+"T00:00:00Z'";
-                
-                if(toDateChString === undefined){
-                
-                var fromDate = "Created ge " + "'"+fromDateCh+"T00:00:00Z'"
-                   $.ajax({
-
-            url: siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+fromDate+"&$orderby=ID desc&$groupby=Mood dist",
-
-            type: "GET",
-
-            dataType: "json",
-
-            headers: {
-
-                    "accept": "application/json;odata=verbose"
-
-            },
-
-            success: function (data) {
-
-                if(data.d.results.length > 0 ){                  
-                 
-                 console.log(data);
-               			
-                  successFunctionReports(data);                                                 
-
-                 }
-                   
-                }
-                });
-              }else if(toDateChString !== undefined){
-              
-              var fromDate = "Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T24:00:00Z'";
-
-                   $.ajax({
-
-            url: siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+fromDate+"&$orderby=ID desc&$groupby=Mood dist",
-
-            type: "GET",
-
-            dataType: "json",
-
-            headers: {
-
-                    "accept": "application/json;odata=verbose"
-
-            },
-
-            success: function (data) {
-
-                if(data.d.results.length > 0 ){                  
-                 
-                 console.log(data);
-               			
-                  successFunctionReports(data);                                                 
-
-                 }
-                   
-                }
-                });
-
-              
-              }
-                //fromDateString += "Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T00:00:00Z'";
-	            //log(fromDateString)
-          }
-    })
-  
-   
-    $("#to-date").datepicker({
-      dateFormat: "dd M, yy",
-      changeMonth: true,
-      changeYear: true,
-
-      onSelect: function (dateText) {
-                var date2 = $(this).val();
-                toDateCh = moment.utc(date2).format('YYYY-MM-DD')   
-                toDateChString =  "'"+toDateCh+"T00:00:00Z'";
-                //fromDateString += "Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T00:00:00Z'";
-	          //log(fromDateString)
-	          
-	          if(fromDateChString === undefined){
-                
-                var toDate = "Created le " + "'"+toDateCh+"T00:00:00Z'"
-                   $.ajax({
-
-            url: siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+toDate+"&$orderby=ID desc&$groupby=Mood dist",
-
-            type: "GET",
-
-            dataType: "json",
-
-            headers: {
-
-                    "accept": "application/json;odata=verbose"
-
-            },
-
-            success: function (data) {
-
-                if(data.d.results.length > 0 ){                  
-                 
-                 console.log(data);
-               			
-                  successFunctionReports(data);                                                 
-
-                 }
-                   
-                }
-                });
-              }else if(fromDateChString !== undefined){
-              
-              var toDate = "Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T24:00:00Z'";
-
-                   $.ajax({
-
-            url: siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= "+toDate+"&$orderby=ID desc&$groupby=Mood dist",
-
-            type: "GET",
-
-            dataType: "json",
-
-            headers: {
-
-                    "accept": "application/json;odata=verbose"
-
-            },
-
-            success: function (data) {
-
-                if(data.d.results.length > 0 ){                  
-                 
-                 console.log(data);
-               			
-                  successFunctionReports(data);                                                 
-
-                 }
-                   
-                }
-                });
-              }
-         }
-    });
-    
-    $("#from-date, #to-date").on('keyup',function(){
-       var val = $(this).val();
-      // log(val);
-       if(val.length === 0){
-        $("#from-date, #to-date").on('keyup',function(){
-        var val = $(this).val();
-       //log(val);
-        if(val.length === 0){
-        //alert('empty')
-        var url = siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$orderby=ID desc&$groupby=Mood dist";
-
-        GetEventReport(url)
-        }
-        });
-       }
-    });
- /*end date filter */ 
-
+      changeYear: true});
+      
  
- 
-
-
-		var url1 = siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= MoodFlag eq 'Unread'&$orderby=ID desc";
- $('input[name="Location"],input[name="Department"],#ui-datepicker-div').on('change', function() {
-            //Create an Array.
-           // var selectedHub = new Array();
+        var url1 = siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= MoodFlag eq 'Unread'&$orderby=ID desc";
+        $('input[name="Location"],input[name="Department"],#to-date,#from-date').on('change', function() {
             var selectedLoc = new Array();
             var selectedDept = new Array();
-            //Reference the Table.
-           // var HubSet = "";
                var LocSet = "";
             var DeptSet = "";
-           // var chksHub = document.getElementsByName("Hub");
             var chksLoc = document.getElementsByName("Location");            
             var chksDept = document.getElementsByName("Department");
             
@@ -215,6 +33,8 @@ $("#MoodDataTable_wrapper > div.dt-buttons > a > span").html("Download");
             }
             for (var i = 0; i < chksDept.length; i++) {
                 if (chksDept[i].checked) {
+                var checkboxesLoc = document.getElementById("checkboxesDepart");
+                    checkboxesLoc.style.display = "none";
                     selectedDept.push(chksDept[i].value);
                     DeptSet += "EmpDepartment eq "+"'"+chksDept[i].value+"' or ";
                 }
@@ -228,9 +48,7 @@ $("#MoodDataTable_wrapper > div.dt-buttons > a > span").html("Download");
             departmentselected = departmentselected.substring(0, lastIndexDept);
             
             var finalselection = "";
-           /* if(hubsselected != ""){
-                finalselection = "("+hubsselected+") ";
-            }*/
+
             if(locationsselected != ""){
                 	finalselection += "("+locationsselected+") ";
             }
@@ -242,25 +60,41 @@ $("#MoodDataTable_wrapper > div.dt-buttons > a > span").html("Download");
                 	finalselection += "("+departmentselected+") ";
                 }
             }
+             var date1 = $("#from-date").val();
+                fromDateCh = moment.utc(date1).format('YYYY-MM-DD')   
+              var date2 = $("#to-date").val();
+                toDateCh = moment.utc(date2).format('YYYY-MM-DD')   	          
+	          if(fromDateCh !== "Invalid date" && toDateCh === "Invalid date"){
+	           	   if (finalselection != ''){
+        			finalselection += " and (Created ge " + "'"+fromDateCh+"T00:00:00Z')"; 				
+        			}else{
+        			finalselection += "Created ge " + "'"+fromDateCh+"T00:00:00Z'";
+				   //finalselection =  "(Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T23:59:59Z')";  
+				}
+              }else if(fromDateCh !== "Invalid date" && toDateCh !== "Invalid date"){
+              	           	   if (finalselection != ''){
+        			finalselection += "and (Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T23:59:59Z')"; 				
+        			}else{
+				   finalselection =  "(Created ge " + "'"+fromDateCh+"T00:00:00Z'" + " and Created le " + "'"+toDateCh+"T23:59:59Z')";  
+				}
+              }else if(toDateCh !== "Invalid date" && fromDateCh === "Invalid date"){
+                if (finalselection != ''){
+        				finalselection += " and (Created le '"+toDateCh+"T23:59:59Z')";
+				}else{
+				   finalselection = "Created le " + "'"+toDateCh+"T23:59:59Z'";  
+				}
+              
+              }
+
             
-            if(fromDateChString !== undefined && toDateChString !== undefined ){
-                finalselection += " and Created ge ("+fromDateChString+") and Created le ("+toDateChString+") ";
-
-            }else if(fromDateChString !== undefined && toDateChString === undefined ){
-                finalselection += " and Created ge ("+fromDateChString+") ";
-
-            }else if(toDateChString !== undefined && fromDateChString === undefined){
-                finalselection += " and Created le ("+toDateChString+") ";
-
-            }
-
-            
-            alert("Final Selected Elements : "+finalselection);
-                               
-            var url = siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= (MoodFlag eq 'Read') and "+finalselection+"&$orderby=ID desc&$groupby=Mood dist";
-               //alert("Final URL : "+url)
-               GetEventReport(url);       
-                     
+            if(finalselection != "" ){      
+            var url = siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= (MoodFlag eq 'Unread') and "+finalselection+"&$orderby=ID desc&$groupby=Mood dist";
+                GetEventReport(url);  
+            }else{
+            var url = siteurl+ "/_api/web/lists/getbytitle('EPMoodMeter')/items?&$top=5000&$select=*,Author/Title&$expand=Author&$filter= (MoodFlag eq 'Unread') "+finalselection+"&$orderby=ID desc&$groupby=Mood dist";
+                GetEventReport(url);  
+            }         
+  
   	});
   	
        $.noConflict();
@@ -304,11 +138,6 @@ function GetEventReport(url) {
 
                  { 
                  
-                 
-                 
-                 console.log(data);
-               
-					
                   successFunctionReports(data);                                                 
 
                  } else{
@@ -407,13 +236,6 @@ var siteurl ="https://amdocs.sharepoint.com/sites/EP";
 
                         "aoColumns": [                      
 
-                       /* {
-                        	  "render": function(data, type, row, meta ) {              
-			                  //return '<h3 id="event-pillar" class="'+row.ID+'">'+row.ID+'</h3>'; }
-			                  return meta.row + 1
-			                  }
-                        },
-*/
                       //{"mData": "ID"}, 
                       
                         

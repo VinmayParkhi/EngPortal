@@ -4,13 +4,10 @@ GetPastEvents();
 });
 
 
-
-
 function GetPastEvents() {
  	var today= new Date();
  	today = moment(today).toISOString();
     $.ajax({
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('NewHome')/items?$select=ID,Title,Pillar,EventTitle,EventDescription,AverageRating,EventDate,EventStartTime,VideoURL&$expand=AttachmentFiles&$filter=Pillar eq 'Work' and EventDate le '"+today+"'&$orderby=Created desc",
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPTile')/items?$select=ID,Module,Title,ImageURL,TargetURL,ArrowImg&$expand=AttachmentFiles&$filter=Title eq 'HomeTiles'",
 
 		 method: "GET",
@@ -29,7 +26,6 @@ function GetPastEvents() {
 
                
                var ArrowURL = data.d.results[i].ArrowImg;			
-			  //var b =   _spPageContextInfo.webAbsoluteUrl + data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl; 
                       
                 $(".MainDiv").append('<a class="m-2 test card card-design access-control '+Module+'" href="'+TargetURL+'">'+                
 				                     '<img class="dataimg" src="'+Image+'" alt="">'+

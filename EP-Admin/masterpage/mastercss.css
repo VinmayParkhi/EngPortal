@@ -5,7 +5,10 @@
 	 font-family: 'Montserrat', sans-serif;
 }
     
-    
+    .ms-cui-topBar1, .ms-cui-topBar2, #s4-ribbonrow{
+	display:none !important;
+}
+
     
     body{
    
@@ -32,7 +35,7 @@
         width: 262px;
       background: black;
       margin-left: 3%;
-      min-height: 65rem !important;
+      /*height: 50rem;*/
       overflow: hidden;
       background-size: cover;
       z-index: 100;

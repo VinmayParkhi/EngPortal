@@ -189,7 +189,7 @@
  },
  success: function(response) {
  
- alert("Uploaded");
+ //alert("Uploaded");
  //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
 
  
@@ -305,6 +305,8 @@ function EventError(error) {
 //alert('Error!', error);
 console.log('error'+error.responseText);
 }
+
+
 
 /**************************************************Thought upload End**************************************************************/ 
 

@@ -36,12 +36,11 @@ var EmpId;
   	
    	      history.go(-1);        
 	});
-
+	
   var getBellParent = getBell.parentElement;
   getBell.style.position = 'relative';
    log(getBellParent)
      
- //$('#file_input').multifile();//For facilitate multi file upload 
   var url=window.location.href;
    uniquID= Number(url.split('=')[1]);
    console.log(uniquID);
@@ -52,18 +51,13 @@ var EmpId;
   	UpdateEventdata();
   	
   	var getBell = document.querySelector('.bell');
-  	log(getBell);
   	
   });
   
   $("#reminderBtn").on("click", function() {
   var reminderTitle = document.getElementById('eventTitle').value = EventTitle;
-  //var remindeDesc = document.getElementById('eventTitle').value = EventTitle;
   var remindCheck = document.getElementById('remindChecked');
-  
-  log(EventTitle);
-  log(reminderTitle.innerText)
-  
+    
   remindCheck.onclick = function(){
   var remind = document.querySelector('.remind');	
   var dontRemind = document.querySelector('.dontRemind');
@@ -81,7 +75,6 @@ var EmpId;
           
        dontRemind.style.display = 'none';
        remind.style.display = 'block';
-       log(remindBefore)
        
      }else if(remindCheck.checked !== true){
      var selectDateValue= document.getElementById('selectDate').value;
@@ -89,29 +82,19 @@ var EmpId;
 
         dontRemind.style.display = 'flex';
        remind.style.display = 'none';   
-     }  
-     
-    }
-       
+     }   
+    }     
   });
   
   $("#HubWbReminder").on("click", function() {
  
   var reminderTitle = document.getElementById('eventTitle').value = EventTitle;
-  //var remindeDesc = document.getElementById('eventTitle').value = EventTitle;
   var remindCheck = document.getElementById('remindChecked');
-  
-
-  log(EventTitle);
-  log(reminderTitle.innerText)
-  
+    
   remindCheck.onclick = function(){
   var remind = document.querySelector('.remind');	
   var dontRemind = document.querySelector('.dontRemind');
-  
-  log(remind)
-  log(dontRemind);
-  
+    
   $('#minutes').change(function(){
   remindBefore = document.getElementById('minutes').value;
        reminderStartTime = startTime;
@@ -134,9 +117,7 @@ var EmpId;
         dontRemind.style.display = 'flex';
        remind.style.display = 'none';   
      }  
-     
-    }
-       
+    }  
   });
 
 
@@ -150,7 +131,6 @@ var EmpId;
 
   $("#setReminderBtn").on("click", function() { 
          setReminderData();
-         log('reminder button clicked'); 
   });
   
  $(".emoji.emoji-1").on("click", function() { 
@@ -206,10 +186,9 @@ function setReminderData(){
         oListItem.set_item('Title', reminderTitle);
         oListItem.set_item('EventDescription', EventDesc);
         oListItem.set_item('EventDate', EventDt2);
+        oListItem.set_item('EventStartTime', startTime);
         oListItem.set_item('ReminderMessage', reminderMessage);
-        //oListItem.set_item('RemindBefore', reminderTime); 
         if(remindCheck.checked === true){
-        //oListItem.set_item('Date', EventDt2); 
         oListItem.set_item('ReminderDateTime', reminderDate); 
         }else if(remindCheck.checked !== true){
         
@@ -220,10 +199,7 @@ function setReminderData(){
 		
 		log(SetURL)
 		var a = document.getElementById('OutlookData'); //or grab it by tagname etc
-		//a.href = SetURL;
-		//getElementById("OutlookData").setAttr("href", SetURL);
 		log(SetURL);
-        //oListItem.set_item('Date', selectDateValue); 
         oListItem.set_item('ReminderDateTime',selectTimeValueNew);
         } 
         
@@ -274,16 +250,8 @@ function setReminderData(){
          moodArray.push(excitedMood);
          moodArray.push(boringMood);
          moodArray.push(frustetedMood);
-         
-         console.log(moodArray);
-         console.log(EventLocation+ "Location");
-	     console.log(endTime);
-	     
-	     console.log(excitedMood);
-	     console.log(boringMood);
-	     console.log(frustetedMood);
+
   if(Location == null){
-        	//alert("null")
         	$(".eventdtlsMapText").css("display","none");
         }    
 
@@ -383,13 +351,11 @@ function setReminderData(){
  };
    
    function onQuerySucceeded() {
-    //alert('Item updated Successfully!');
     buttonClicked = true;
     updatedMoodCount();
    }
 
    function onQueryFailed(sender, args) {
-    //alert('Request failed. ' + args.get_message() + '\n' + args.get_stackTrace());
    }
    
 
@@ -482,13 +448,11 @@ function getListItem(listname,columnname,colvalue){
 			console.log(error.responseText)
 		}
 	});
-	//console.log("URL:"+url);
 	return listitemData.responseText;
 }
 
 /********************************************Get EventData To Update***********************************************************************/
 function UpdateEventdata(){
-  	//var eid=$("#uniquID").val();
   	var ename = $("#evTitle").val();
   	var pillar = $("#Pillar").val();
 	var evtype = $("#EvType").val();
@@ -507,7 +471,6 @@ function UpdateEventdata(){
 			fileArray.push({ "Attachment": $(this)[0].files[0] }); 
 		} 
 	}); 
-	//arraycount += fileArray.length;
 
 
   	var item={
@@ -544,11 +507,9 @@ function UpdateEventdata(){
 		if(fileArray.length > 0){
 			AddAttachments(uniquID);
 		}
-		//alert("Sucessfully updated");
 	}
 
     function OnError(data){
-		//alert("Update error");
 	}
   };
   
@@ -558,27 +519,22 @@ function UpdateEventdata(){
 function checkFileExists(){
 var sitecollectionurl=_spPageContextInfo.webAbsoluteUrl;
     $.ajax({
-            //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/getFileByServerRelativeUrl('/"+sitecollectionurl+"'/Lists/CreateEve/Attachments/"+ id +"/test.txt')",
         	url:ImageUrl, 
 			method: "GET",            
             headers: { "Accept": "application/json; odata=verbose" },
             success: function (data) {
                 if(data.d.Exists){  
-            //delete file if it already exists
                     DeleteFile();
                 }
             },
             error: function (data) {
-//check if file not found error
                 AddAttachments(uniquID);               
             }
       });
 }
-//console.log("URL data :"+url);
 function DeleteFile(){
     $.ajax({
       url: ImageUrl,
-      //url: "https://sitecollectionurl/_api/web/getFileByServerRelativeUrl('/sitecollectionurl/Lists/Test/Attachments/1/test.txt')",
       method: 'DELETE',
       headers: {
         'X-RequestDigest': document.getElementById("__REQUESTDIGEST").value
@@ -614,7 +570,6 @@ function AddAttachments(id)
     }).done(function() {
         var fileInput = $('#file_upload');
         var fileName = fileInput[0].files[0].name;
-        //alert(fileName)
         var reader = new FileReader();
         reader.onload = function (e) {
         var fileData = e.target.result;
@@ -644,9 +599,7 @@ function AddAttachments(id)
 }
  /******************************************************Share popup***************************************************/
 function ShareEvent(id){
-	//openDialog(currsite+'/_layouts/15/aclinv.aspx?GroupId='+CurrGroupId);
 	openDialog("https://amdocs.sharepoint.com/sites/EP/Lists/EPEventShare/NewForm.aspx?EventID="+id);	
-    //window.location.reload();		
 }
 
 function openDialog(pageUrl) {

@@ -3,8 +3,6 @@
  
  var ReminderDate;
  var ReminderMessage;
- //var EventEndTime;
- //var EventTime;
  var Status;
 
  $(document).ready(function() {
@@ -12,9 +10,6 @@
 
     ReminderMessage();
     PastReminder();
-   
-    
-
  });
 
 function addZero(i) {
@@ -25,9 +20,6 @@ setInterval(ReminderMessage, 45000);
 function ReminderMessage() {
 	var userId = _spPageContextInfo.userId;
 	var today= moment().format('YYYY-MM-DD HH:mm'); 	
-//today = moment(today).format('YYYY-MM-DD HH:mm');
- 	//var today1 = moment(today).add(1, 'hours').format('YYYY-MM-DD HH:mm');
- 	////console.log("test date"+today1);
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPReminder')/items?$select=*&$filter=(AuthorId eq "+userId+")&$orderby=Created desc",
         method: "GET",
@@ -38,7 +30,6 @@ function ReminderMessage() {
            
         success: function (data, status, xhr) {
             dataresults = data.d.results;
-           // //console.log(dataresults);
             
             for (var i = 0; i <dataresults.length; i++) {
                ReminderDate = moment.utc(data.d.results[i].ReminderDateTime).format('YYYY-MM-DD HH:mm');            
@@ -66,7 +57,7 @@ function ReminderMessage() {
             		$(".redDot").removeClass("d-none");
            		}
            		else{
-           			//$(".redDot").addClass("d-none");
+           			
            		}
             }
             
@@ -102,9 +93,7 @@ function PastReminder() {
             for (var i = 0; i <dataresults.length; i++) {
                ReminderDate = moment.utc(data.d.results[i].ReminderDateTime).format('YYYY-MM-DD HH:mm');           
                //console.log(ReminderDate); 
-               var EventDate = moment(data.d.results[i].EventDate).format('YYYY-MM-DD'); 
-               //ReminderTime = moment(data.d.results[i].ReminderDate).format('HH:mm');           
-              // //console.log(ReminderTime);  
+               var EventDate = moment(data.d.results[i].EventDate).format('YYYY-MM-DD');   
                ReminderMessage  = data.d.results[i].Title;
                EventEndTime = moment.utc(data.d.results[i].EventStartTime).format("hh:mm a");         
                EventID = data.d.results[i].ID;
@@ -125,8 +114,6 @@ function PastReminder() {
             			                                  
             
             	}else{
-            	 //$(".notificationCard").append('<span style="display:flex;justify-content:center;margin:10px 0;">No-past Reminders</span>');
-            	
             	}
                 
             } // for loop End					                 
@@ -136,8 +123,6 @@ function PastReminder() {
         }
     });
 }
-
-
 
 function UpdateNotification(id){
   	var Status = "Read";  	
@@ -162,7 +147,6 @@ function UpdateNotification(id){
 	});
 	function OnSuccess(data){
 		location.reload();
-	 	//Notification();
 		//alert(id+"Updated Successfully");
 	}
 
@@ -170,12 +154,6 @@ function UpdateNotification(id){
 		//alert("Update error");
 	}
   };
-
-
-
-
-
-
 
 $(".bell").on("click", function(){
 	$(".MainTool").toggleClass("d-none");

@@ -20,5 +20,5 @@ $('#searchTxt').on("keyup",function() {
     }
     
   	});
-  	});
+  });
   

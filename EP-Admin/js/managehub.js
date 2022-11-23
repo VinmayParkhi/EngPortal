@@ -343,46 +343,6 @@ function onQueryFailed(sender, args) {
  } 
   
   
-/*
-$('#publishHub').on("click", function (e) {  
-	    e.preventDefault();  
-	    var Title = $('#BannerHubTitle').val();  
-	    var Description = $('#BannerHubDescription').val();  
-	    var File = $("#file_input").val();
-	    $(".error").remove();  
-		if (Title.length < 1) {  
-	      $('#BannerHubTitle').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Banner Title</span>');  
-	    }
-	    if (Description.length < 1) {  
-	      $('#BannerHubDescription').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;">Please Enter Description</span>');  
-	    }
-	    if (File.length < 1) {
-		 $('.mainInformationContrainer ul').after('<span class="error" style="color:#ff3d97;margin: 0.8rem;font-size: 10px;position: absolute;top: 13.5rem;">Please Upload Banner Image</span>');
-		}
-			});  
-	
-	$("#BannerHubTitle, #BannerHubDescription, #file_input").on("input", function () {    	
-	  canChangeColor();
-	});
-
-
-function canChangeColor(){  
-  	
-  var can = true;  
-
-  $("#BannerHubTitle, #BannerHubDescription, #file_input").each(function(){
-     if($(this).val()==''){
-        can = false;
-     }
-  });
-  
-  if(can){
-    $('#publishHub').addClass("EnableBtn");  
-   }else{
-    $('#publishHub').removeClass("EnableBtn")  
-   }
-
-}*/
 
   
   

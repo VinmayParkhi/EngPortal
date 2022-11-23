@@ -35,9 +35,7 @@
  createNewItemWithAttachments("EPBanner", data).then( 
  function
  () { 
- //if (oLoader.close) setTimeout(function () { oLoader.close(); }, 3000); 
- //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/Admin_Work.aspx"); 
-  
+   
  }, 
  function(sender, args) { 
  console.log('Error occured' + args.get_message()); 
@@ -53,8 +51,6 @@
  $.ajax
     ({
         
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/lists/getByTitle('List Name')/items(" + Itemid + ")/AttachmentFiles",
-        //url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('Admin-HubList')/items?$select=Text,Image",
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPTile')/items",
         method: "GET",
         headers:
@@ -85,9 +81,7 @@
         }
         });
         
-        //console.log(textArray)
-//}
-console.log(data.Pillar)
+	console.log(data.Pillar)
 
 }
 
@@ -295,9 +289,6 @@ function onQueryFailed(sender, args) {
  getPillar();
  
  
- //alert("Uploaded");
- //window.location.replace(_spPageContextInfo.siteAbsoluteUrl + "/SitePages/ENG_Admin/UploadBanner.aspx");
-
  
  },
  error: function(error){

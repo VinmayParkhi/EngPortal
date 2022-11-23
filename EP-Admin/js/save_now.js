@@ -21,9 +21,7 @@
     });
 
   $("#PublishEventBtn1 > div > div > div.modal-footer > button").click(function(){
-    alert("The paragraph was clicked.");
-    
-    
+     
     $(".single-day input").val("");
     $(".single-day textarea").val("");
     $(".single-day select").val("");

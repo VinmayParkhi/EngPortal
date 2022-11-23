@@ -21,12 +21,33 @@ $("#s4-workspace").scroll(function(){
   
  $("#PublishEvent").click(function() {formCreateNowSingle()}); 
      
+ $("#okay").click(function() { 
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+   });
 
+$("#AutopublishSeriesEventBTN").click(function() { 
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+   });
+
+$("#okaysa").click(function() { 
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+   });
    
+$("#AutopublishEvent2").click(function() { 
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+   });
+
+$("#okaypu").click(function() { 
+    window.location.href = "https://amdocs.sharepoint.com/sites/EP/SitePages/EPAdmin/ManageEvent.aspx";         
+   });
+
  $("select.pillar").change(function(){
         Pillar = $(this).children("option:selected").val();
 
     });
+    
+
+    
     $("select.evType").change(function(){
         Etype= $(this).children("option:selected").val();
 		if (Etype == "Online"){
@@ -35,39 +56,67 @@ $("#s4-workspace").scroll(function(){
 			$(".LinkDiv").addClass("col-lg-4");
 			$(".SpeakerDIv").addClass("col-lg-4");
 			$(".OrgnizerDiv").addClass("col-lg-4");
+			$(".OrgnizerDiv").removeClass("col-lg-4");
+            $(".opt").addClass("d-none");
+            $(".evlink").removeClass("d-none");
+
+
 		}else{
 			$(".locationDiv").removeClass("d-none");
 			$(".LinkDiv").removeClass("col-lg-4");
 			$(".SpeakerDIv").removeClass("col-lg-4");
 			$(".OrgnizerDiv").removeClass("col-lg-4");
+			$(".evlink").addClass("d-none");
+			 $(".opt").removeClass("d-none");
+
+
 
 		}		
     });
-  $("#okaypu").click(function(){
-    //alert("The paragraph was clicked.");
     
+    if (Etype == "select"){
+$(".evlink").removeClass("d-none");
+//$(".opts2").addClass("d-none");
+}else{
+$(".evlink").addClass("d-none");
+//$(".opts2").removeClass("d-none");
+}
+
+    
+
+  $("#okaypu").click(function(){
+       
     
     $(".single-day input").val("");
     $(".single-day textarea").val("");
     $(".single-day select").val("");
   });
 
-    $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evLocation.SingleDayEventUpload").on("input", function () {    	
+    $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evLocation,.SingleDayEventUpload").on("input", function () {    	
         canChangeColorCreateEvent();
     });
     function canChangeColorCreateEvent(){  
         var EventChange = true;  
-        $("#eventtype, #evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,#evLocation.SingleDayEventUpload").each(function(){
-            if($(this).val()==''){
+        if(Etype == "Online"){
+        $("#eventtype,#evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLink,.SingleDayEventUpload").each(function(){
+            if($(this).val()=='' || $(this).val()==null){
                 EventChange = false;
             }
         });
+        }else{
+	         $("#eventtype,#evTitle,#evDesc,#Pillar,#sEdate,#SSTime1,#SSTime1,#evLocation,.SingleDayEventUpload").each(function(){
+	            if($(this).val()=='' || $(this).val()==null){
+	                EventChange = false;
+	            }
+	        });
+		}
+        
         if(EventChange){
-            $('#PublishEvent').addClass("EnableBtn");  
+            $('.publishSingleDay').addClass("EnableBtn");  
             $('#AutopublishEvent').addClass("EnableBtn");   
             $('#saveNow').addClass("EnableBtn"); 
         }else{
-            $('#PublishEvent').removeClass("EnableBtn")             
+            $('.publishSingleDay').removeClass("EnableBtn")             
             $('#AutopublishEvent').removeClass("EnableBtn") 
             $('#saveNow').removeClass("EnableBtn")  
         }
@@ -144,7 +193,6 @@ $("#s4-workspace").scroll(function(){
  var itemCreateInfo = new SP.ListItemCreationInformation(); 
  var listItem = targetList.addItem(itemCreateInfo);
   
- //listItem.set_item("Title","Title123"); 
  listItem.set_item("EventType", listValues[0].EventType);
  listItem.set_item("Title", listValues[0].Title); 
  listItem.set_item("Pillar", listValues[0].Pillar);
@@ -316,9 +364,6 @@ $("#s4-workspace").scroll(function(){
  return deferred.promise(); 
  } 
  
- 
- $(document).ready(function(){
-});
  
  
  

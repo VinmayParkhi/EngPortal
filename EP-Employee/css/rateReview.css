@@ -14,19 +14,15 @@
     align-items: center;
 }
 .ratereview .rr_heading{
-   /* width: 103.3%;*/
     display: flex;
-    margin-left: -0.6rem;
+    margin-left: -1.4rem;
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    /*margin-top: -0.6rem;*/
     background-color: #000;
     border-radius: 1.3rem 1.3rem 0rem 0rem;
-    
-   /* margin-left: -1.6rem;*/
     margin-top: -1.6rem;
-    margin-right: -0.7rem;
+    margin-right: -1.4rem;
 }
 .ratereview .rr_heading div:nth-child(1){
     display: flex;

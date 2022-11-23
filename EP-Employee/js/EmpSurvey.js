@@ -44,7 +44,7 @@ function GetOngoingSurvey() {
  	var today= new Date();
  	today = moment(today).toISOString();
     $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescription,SurveyEndDate,SurveyStatus,SurveyLink&$expand=AttachmentFiles&$filter=SurveyStatus eq 'Published' and SurveyEndDate ge '"+today+"'&$orderby=Created desc",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPSurvey')/items?$select=ID,Attachments,Title,SurveyDescription,SurveyEndDate,SurveyStatus,SurveyLink&$expand=AttachmentFiles&$filter=(SurveyStatus eq 'Published') and (SurveyStartDate le '"+today+"') and (SurveyEndDate ge '"+today+"')&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -56,7 +56,6 @@ function GetOngoingSurvey() {
             console.log(dataresults)
             for (var i = 0; i <=dataresults.length; i++) {
                EventDates = moment.utc(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');               
-               //EventFullDates = moment(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');
          	   var SurveyId = data.d.results[i].ID;
                var SurveyTitle= data.d.results[i].Title;
                var SurveyDescreption = data.d.results[i].SurveyDescription;
@@ -79,15 +78,6 @@ function GetOngoingSurvey() {
     });
 }
 
-
-
-
-
-
-
-
-
-
 function GetPastSurvey() {
  	var today= new Date();
  	today = moment(today).toISOString();
@@ -104,7 +94,6 @@ function GetPastSurvey() {
             console.log(dataresults)
             for (var i = 0; i <=dataresults.length; i++) {
                EventDates = moment.utc(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');               
-               //EventFullDates = moment(data.d.results[i].SurveyEndDate).format('DD MMMM, YYYY');
          	   var SurveyId = data.d.results[i].ID;
                var SurveyTitle= data.d.results[i].Title;
                var SurveyDescreption = data.d.results[i].SurveyDescription;

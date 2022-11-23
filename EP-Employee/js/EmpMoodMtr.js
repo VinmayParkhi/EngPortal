@@ -8,7 +8,6 @@
  $(document).ready(function() { 
  
  $(".emoji").on("click", function() { 
- //alert("test data");
  		username = $("#username").text();
  		Dept = $("#dept").html();
  		Loc = $("#loc").html();
@@ -27,7 +26,7 @@ function EventMoodCount(moodValue){
 	var today = new Date();
 		today = moment.utc(today).format("YYYY-MM-DD")
   $.ajax({
-        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPMoodMeter')/items?$select=*&$filter=EmpID eq "+userId+" and MoodFlag eq 'Read'",
+        url: _spPageContextInfo.webAbsoluteUrl + "/_api/lists/getByTitle('EPMoodMeter')/items?$select=*&$filter=EmpID eq "+userId+" and MoodFlag eq 'Unread'&$orderby=Created desc",
         method: "GET",
         headers:
            {
@@ -36,6 +35,7 @@ function EventMoodCount(moodValue){
         	success: function (data, status, xhr) {
             dataresults = data.d.results;
                 if(data.d.results.length > 0){
+                
                 	var created = moment.utc(data.d.results[0].Created).format("YYYY-MM-DD");
                 	if(today == created){
                 	 	console.log("Created "+data.d.results[0].Created+" and ID"+data.d.results[0].ID);
@@ -48,22 +48,19 @@ function EventMoodCount(moodValue){
                 }
             }
      });    
- }
+ } 
   
  function UpdateMoodList(listID){
  	var siteUrl = _spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPMoodMeter')/items("+listID+")";
 	var data = {
 		__metadata: { 'type': 'SP.Data.EPMoodMeterListItem' },  		
 		
-		"MoodFlag" : "Unread"		
+		"MoodFlag" : "Read"		
 
-		//"EventEndDate":Edt
 	}
-	//console.log(data);
 	$.ajax({
 		url: siteUrl,
 		type: "POST",
-		//async:false,
 		data: JSON.stringify(data),
 		headers: {
 				"accept": "application/json;odata=verbose",
@@ -78,12 +75,10 @@ function EventMoodCount(moodValue){
 }
 
 function SuccessFunctionUpdate(data) {
-alert("Success");
 EmpMoodCountCheck();
 }
 
 function ErrorFunction(error) {
-//alert('Error!' +error.responseText);
 }
 
  
@@ -96,7 +91,7 @@ function EmpMoodCountCheck(){
 		"Title":username,
 		"EmpLocation":Loc,
 		"EmpDepartment":Dept,
-		"MoodFlag" : "Read"
+		"MoodFlag" : "Unread"
   	};
   	  	$.ajax({
 		url:_spPageContextInfo.siteAbsoluteUrl + "/_api/web/lists/getbytitle('EPMoodMeter')/items",
@@ -111,10 +106,8 @@ function EmpMoodCountCheck(){
 		error:OnError
 	});
 	function OnSuccess(data){
-		alert("Sucessfully updated");
 	}
     function OnError(data){
-		alert("Update error");
 	}
 };
 

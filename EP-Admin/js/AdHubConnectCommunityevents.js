@@ -1,7 +1,5 @@
 var CurrentDate;
 var EventID;
-
-
 var EventDates ;               
 var EventFullDates ;
 var EventTime ;
@@ -162,9 +160,9 @@ function GetUpcomingEvents(today) {
 	                              
 	              VideoURLs = data.d.results[i].VideoURL;
 	                   //document.getElementById('VideoURL').setAttribute("src","VideoURLs");
-	                  $('iframe').attr("src",VideoURLs);
-	               $("#popupEVTitle").html(EventTitle);				
-	               $("#popupEVDesc").html(EventDescription);
+	                  //$('iframe').attr("src",VideoURLs);
+	               //$("#popupEVTitle").html(EventTitle);				
+	               //$("#popupEVDesc").html(EventDescription);
 	
 	                var a =  "https://amdocs.sharepoint.com/"+ data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl; 
 	                     https://amdocs.sharepoint.com/sites/EPhttps://infornt.sharepoint.com
@@ -184,13 +182,13 @@ function GetUpcomingEvents(today) {
 								  // some_variable is either null or undefined
 								} 
 	                   
-	                $(".eventlist").append('<div id="upcomEvent" class="col-4 card uce"> <span class="img"> <img src="'+a+'" alt=""></span> <div class="card-data"> <small><label id="pillar" class="'+pillar+'">'+pillar+'</label></small><span>'+EventTitle+'</span>'+
+	                $(".eventlist").append('<div id="upcomEvent" class="col-4 card uce"> <span class="img"> <img src="'+a+'" alt="" style="height: 100%;margin-top: -13px;"></span> <div class="card-data"> <small><label id="pillar" class="'+pillar+'">'+pillar+'</label></small><span>'+EventTitle+'</span>'+
 	                                       '<p id="EventDesc">'+EventDescription+'</p> <span style="display:flex;"> <span class="date" style="display:flex; align-items:baseline;"><img style="width:10%; margin-right:6px;" src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/Images/Icon feather-calendar.svg" alt="Mail">'+
 	                                       '<label>'+EventFullDates+'</label> </span> <span class="timedata" style="display:flex; align-items:baseline;"><img style="width:14%; margin-right:6px;" src="https://amdocs.sharepoint.com/sites/EP/SiteAssets/ENG-Admin/Images/Icon feather-clock.svg" alt="Message">'+EventStartTime+'</span> </span> <span class="card-bottom">'+
 	                                       '<span class="card-left"> <a href="#"><img src="Images/exited.png" alt=""><small>'+ExcitedMoodData+'</small></a>'+
 	                                       '<a href="#"><img src="images/boring.png" alt=""><small>'+BoringMoodData+'</small></a>'+
 	                                       '<a href="#"><img src="images/frustrated.png" alt=""><small>'+FrustetedMoodData+'</small></a></span>'+
-	                                       '<span class="card-right"> <button class="btn btn-edit"><a href="../..//EP/SitePages/Admin/edit_event.aspx?EventID='+EventId+'"">Edit</a></button></span> </span> </div> </div>'); 
+	                                       '<span class="card-right"> <button class="btn btn-edit"><a href="../../SitePages/EPAdmin/EditEvent.aspx?EventID='+EventId+'"">Edit</a></button></span> </span> </div> </div>'); 
 	                                                       
 	           } // for loop End
            }else{
@@ -268,9 +266,9 @@ function SelectedDateUpcomingEvents(sd,ed) {
                               
               VideoURLs = data.d.results[i].VideoURL;
                    //document.getElementById('VideoURL').setAttribute("src","VideoURLs");
-                  $('iframe').attr("src",VideoURLs);
-               $("#popupEVTitle").html(EventTitle);				
-               $("#popupEVDesc").html(EventDescription);
+                  //$('iframe').attr("src",VideoURLs);
+               //$("#popupEVTitle").html(EventTitle);				
+               //$("#popupEVDesc").html(EventDescription);
 
                 var a =  "https://amdocs.sharepoint.com/"+ data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl; 
                      
@@ -349,10 +347,8 @@ function GetPastEvents() {
                               
               VideoURLs = data.d.results[i].VideoURL;
                    //document.getElementById('VideoURL').setAttribute("src","VideoURLs");
-                  $('iframe').attr("src",VideoURLs);
-               $("#popupEVTitle").html(EventTitle);				
-               $("#popupEVDesc").html(EventDescription);
-					
+    			if( VideoURLs != null){
+
                 var b =   "https://amdocs.sharepoint.com/" + data.d.results[i].AttachmentFiles.results[0].ServerRelativePath.DecodedUrl; 
                  console.log(b); 
                 $(".pastEventsWr").append('<div class="pasteventsCard de"> <div class="row align-items-center justify-content-center videoImg1" style="height: 23vh;background-image:linear-gradient(180deg, #00000000 0%, #0D0D0DE8 74%, #121112 100%), url('+b+');background-repeat: no-repeat;background-size: cover;">'+
@@ -360,6 +356,8 @@ function GetPastEvents() {
                                			  '<img src="../../SiteAssets/ENGEmployee/IMAGES/Group 2834.svg" alt="Play" style="width: 100%;"> </a>'+
                                           '<div class="col-12 pasteventsDetails" style="height: 35px;padding: 0 1rem;"><h5><label>'+EventTitle+'</label></h5> <p><span id="EventDesc">'+EventDescription+'</span></p>'+
                                           '</div> </div> <input type="hidden" value="'+VideoURLs+'"> </div>');
+                                          }
+                                          
                 $(".player").attr('data-toggle',"modal");
                 $(".player").attr('data-target',"#exampleModal");
                      
@@ -386,56 +384,6 @@ console.log("sankedfaf")
 	
 	}
 
-/*
-function test() {
-
-    var iframe = $('<iframe frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>');
-
-    var dialog = $("#iframeHolder").append(iframe).appendTo("body").dialog({
-
-        autoOpen: false,
-
-        modal: true,
-
-        resizable: false,
-
-        width: "auto",
-
-        height: "auto",
-
-        close: function () {
-
-            iframe.attr("src", "");
-
-        }
-
-    });
-    }
-$("#iframeData").on("click", function (e) {
-
-    e.preventDefault();
-
-    var src = $(this).attr("href");
-
-    var title = $(this).attr("data-title");
-
-    var width = $(this).attr("data-width");
-
-    var height = $(this).attr("data-height");
-
-    iframe.attr({
-
-        width: +width,
-
-        height: +height,
-
-         src: src
-
-    });
-
-    dialog.dialog("option", "title", title).dialog("open");
-
- });*/
 
 function detailview(clicked_id,evetit,evedesc){
    console.log("id is :",clicked_id);
@@ -448,8 +396,6 @@ function heartImage(){
    
    EventID = $(this).attr('id');	
    //$("#eID").val();
-   //alert(this.EventID);
-   //alert("Test",EventID);
    FavEvents();
 }
 
